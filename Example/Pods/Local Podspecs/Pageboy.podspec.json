@@ -1,0 +1,25 @@
+{
+  "name": "Pageboy",
+  "version": "0.0.1",
+  "summary": "TODO",
+  "description": "TODO",
+  "homepage": "https://github.com/MerrickSapsford/Pageboy",
+  "license": "MIT",
+  "authors": {
+    "Merrick Sapsford": "merrick@sapsford.tech"
+  },
+  "social_media_url": "http://twitter.com/MerrickSapsford",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/MerrickSapsford/Pageboy.git",
+    "tag": "0.0.1"
+  },
+  "requires_arc": true,
+  "source_files": "Pageboy/**/*.{h,m,swift}",
+  "resources": [
+    "Source/**/*.{xib}"
+  ],
+  "frameworks": "UIKit"
+}

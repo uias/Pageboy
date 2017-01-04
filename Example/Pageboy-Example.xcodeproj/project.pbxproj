@@ -1,0 +1,381 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		18F91437DEFDB4CDE3AA2420 /* Pods_Pageboy_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B59646082DE4D3E5EC70C1BE /* Pods_Pageboy_Example.framework */; };
+		D623B1E21E1D32D700527F3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D623B1E11E1D32D700527F3D /* AppDelegate.swift */; };
+		D623B1E41E1D32D700527F3D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D623B1E31E1D32D700527F3D /* ViewController.swift */; };
+		D623B1E71E1D32D700527F3D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D623B1E51E1D32D700527F3D /* Main.storyboard */; };
+		D623B1E91E1D32D700527F3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D623B1E81E1D32D700527F3D /* Assets.xcassets */; };
+		D623B1EC1E1D32D700527F3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D623B1EA1E1D32D700527F3D /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2E4C5301B5B69D50B0B06C87 /* Pods-Pageboy-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pageboy-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pageboy-Example/Pods-Pageboy-Example.debug.xcconfig"; sourceTree = "<group>"; };
+		B59646082DE4D3E5EC70C1BE /* Pods_Pageboy_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pageboy_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D623B1DE1E1D32D700527F3D /* Pageboy-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pageboy-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D623B1E11E1D32D700527F3D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D623B1E31E1D32D700527F3D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D623B1E61E1D32D700527F3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D623B1E81E1D32D700527F3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D623B1EB1E1D32D700527F3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D623B1ED1E1D32D700527F3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EA45E13E982AEC375A571D70 /* Pods-Pageboy-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pageboy-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pageboy-Example/Pods-Pageboy-Example.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D623B1DB1E1D32D700527F3D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18F91437DEFDB4CDE3AA2420 /* Pods_Pageboy_Example.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		43B2579286C5BF1AD759A6B9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B59646082DE4D3E5EC70C1BE /* Pods_Pageboy_Example.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D623B1D51E1D32D700527F3D = {
+			isa = PBXGroup;
+			children = (
+				D623B1E01E1D32D700527F3D /* Pageboy-Example */,
+				D623B1DF1E1D32D700527F3D /* Products */,
+				EE9A97CDBA7DF0E03026365C /* Pods */,
+				43B2579286C5BF1AD759A6B9 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		D623B1DF1E1D32D700527F3D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D623B1DE1E1D32D700527F3D /* Pageboy-Example.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D623B1E01E1D32D700527F3D /* Pageboy-Example */ = {
+			isa = PBXGroup;
+			children = (
+				D623B1E11E1D32D700527F3D /* AppDelegate.swift */,
+				D623B1E31E1D32D700527F3D /* ViewController.swift */,
+				D623B1E51E1D32D700527F3D /* Main.storyboard */,
+				D623B1E81E1D32D700527F3D /* Assets.xcassets */,
+				D623B1EA1E1D32D700527F3D /* LaunchScreen.storyboard */,
+				D623B1ED1E1D32D700527F3D /* Info.plist */,
+			);
+			path = "Pageboy-Example";
+			sourceTree = "<group>";
+		};
+		EE9A97CDBA7DF0E03026365C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2E4C5301B5B69D50B0B06C87 /* Pods-Pageboy-Example.debug.xcconfig */,
+				EA45E13E982AEC375A571D70 /* Pods-Pageboy-Example.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D623B1DD1E1D32D700527F3D /* Pageboy-Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D623B1F01E1D32D700527F3D /* Build configuration list for PBXNativeTarget "Pageboy-Example" */;
+			buildPhases = (
+				2CA9CAA29E4AE90859DA6057 /* [CP] Check Pods Manifest.lock */,
+				D623B1DA1E1D32D700527F3D /* Sources */,
+				D623B1DB1E1D32D700527F3D /* Frameworks */,
+				D623B1DC1E1D32D700527F3D /* Resources */,
+				631FDBF64701D72BF6D2CAF1 /* [CP] Embed Pods Frameworks */,
+				9129A45CE2927D541C1BE317 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pageboy-Example";
+			productName = "Pageboy-Example";
+			productReference = D623B1DE1E1D32D700527F3D /* Pageboy-Example.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D623B1D61E1D32D700527F3D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Merrick Sapsford";
+				TargetAttributes = {
+					D623B1DD1E1D32D700527F3D = {
+						CreatedOnToolsVersion = 8.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = D623B1D91E1D32D700527F3D /* Build configuration list for PBXProject "Pageboy-Example" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D623B1D51E1D32D700527F3D;
+			productRefGroup = D623B1DF1E1D32D700527F3D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D623B1DD1E1D32D700527F3D /* Pageboy-Example */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D623B1DC1E1D32D700527F3D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D623B1EC1E1D32D700527F3D /* LaunchScreen.storyboard in Resources */,
+				D623B1E91E1D32D700527F3D /* Assets.xcassets in Resources */,
+				D623B1E71E1D32D700527F3D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2CA9CAA29E4AE90859DA6057 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		631FDBF64701D72BF6D2CAF1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pageboy-Example/Pods-Pageboy-Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9129A45CE2927D541C1BE317 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pageboy-Example/Pods-Pageboy-Example-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D623B1DA1E1D32D700527F3D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D623B1E41E1D32D700527F3D /* ViewController.swift in Sources */,
+				D623B1E21E1D32D700527F3D /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D623B1E51E1D32D700527F3D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D623B1E61E1D32D700527F3D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D623B1EA1E1D32D700527F3D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D623B1EB1E1D32D700527F3D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D623B1EE1E1D32D700527F3D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D623B1EF1E1D32D700527F3D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D623B1F11E1D32D700527F3D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2E4C5301B5B69D50B0B06C87 /* Pods-Pageboy-Example.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Pageboy-Example/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.msapsford.Pageboy-Example";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		D623B1F21E1D32D700527F3D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA45E13E982AEC375A571D70 /* Pods-Pageboy-Example.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Pageboy-Example/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.msapsford.Pageboy-Example";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D623B1D91E1D32D700527F3D /* Build configuration list for PBXProject "Pageboy-Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D623B1EE1E1D32D700527F3D /* Debug */,
+				D623B1EF1E1D32D700527F3D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D623B1F01E1D32D700527F3D /* Build configuration list for PBXNativeTarget "Pageboy-Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D623B1F11E1D32D700527F3D /* Debug */,
+				D623B1F21E1D32D700527F3D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D623B1D61E1D32D700527F3D /* Project object */;
+}

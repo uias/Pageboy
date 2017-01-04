@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PageboyViewController: UIViewController {
+open class PageboyViewController: UIViewController {
     
     // MARK: Properties
     
@@ -23,7 +23,7 @@ class PageboyViewController: UIViewController {
     
     // MARK: Lifecycle
     
-    override func loadView() {
+    override open func loadView() {
         super.loadView()
         
         self.setUpPageViewController()
@@ -52,12 +52,12 @@ class PageboyViewController: UIViewController {
 
 extension PageboyViewController: UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     
-    func pageViewController(_ pageViewController: UIPageViewController,
+    public func pageViewController(_ pageViewController: UIPageViewController,
                             viewControllerBefore viewController: UIViewController) -> UIViewController? {
         return nil
     }
     
-    func pageViewController(_ pageViewController: UIPageViewController,
+    public func pageViewController(_ pageViewController: UIPageViewController,
                             viewControllerAfter viewController: UIViewController) -> UIViewController? {
         return nil
     }
