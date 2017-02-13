@@ -12,7 +12,7 @@ open class PageboyViewController: UIViewController {
     
     // MARK: Properties
     
-    private var pageViewController: UIPageViewController?
+    private var pageViewController: UIPageViewController!
     
     
     public var navigationOrientation : UIPageViewControllerNavigationOrientation = .horizontal {
@@ -23,7 +23,7 @@ open class PageboyViewController: UIViewController {
     
     // MARK: Lifecycle
     
-    override open func loadView() {
+    open override func loadView() {
         super.loadView()
         
         self.setUpPageViewController()
@@ -47,9 +47,13 @@ open class PageboyViewController: UIViewController {
         
         self.view.addSubview(pageViewController.view)
         pageViewController.didMove(toParentViewController: self)
+        
+        pageViewController.scrollView?.delegate = self
     }
 }
 
+
+// MARK: - UIPageViewControllerDataSource, UIPageViewControllerDelegate
 extension PageboyViewController: UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     
     public func pageViewController(_ pageViewController: UIPageViewController,
@@ -60,6 +64,15 @@ extension PageboyViewController: UIPageViewControllerDataSource, UIPageViewContr
     public func pageViewController(_ pageViewController: UIPageViewController,
                             viewControllerAfter viewController: UIViewController) -> UIViewController? {
         return nil
+    }
+    
+}
+
+// MARK: - UIScrollViewDelegate
+extension PageboyViewController: UIScrollViewDelegate {
+    
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
     }
     
 }
