@@ -31,6 +31,8 @@ open class PageboyViewController: UIViewController {
     private var pageViewController: UIPageViewController!
     internal var viewControllers: [UIViewController]?
     
+    fileprivate var currentPageIndex: Int = 0
+    
     // MARK: Public Properties
 
     public var navigationOrientation : UIPageViewControllerNavigationOrientation = .horizontal {
@@ -97,6 +99,7 @@ open class PageboyViewController: UIViewController {
             return
         }
         
+        self.currentPageIndex = defaultIndex
         self.pageViewController.setViewControllers([viewController],
                                                    direction: .forward,
                                                    animated: false,
@@ -104,8 +107,8 @@ open class PageboyViewController: UIViewController {
     }
 }
 
-// MARK: - UIPageViewControllerDataSource, UIPageViewControllerDelegate, PageboyViewControllerDataSource
-extension PageboyViewController: UIPageViewControllerDataSource, UIPageViewControllerDelegate, PageboyViewControllerDataSource {
+// MARK: - UIPageViewControllerDataSource, PageboyViewControllerDataSource
+extension PageboyViewController: UIPageViewControllerDataSource, PageboyViewControllerDataSource {
     
     public func pageViewController(_ pageViewController: UIPageViewController,
                             viewControllerBefore viewController: UIViewController) -> UIViewController? {
@@ -142,11 +145,33 @@ extension PageboyViewController: UIPageViewControllerDataSource, UIPageViewContr
     }
 }
 
-// MARK: - UIScrollViewDelegate
-extension PageboyViewController: UIScrollViewDelegate {
+// MARK: - UIPageViewControllerDelegate, UIScrollViewDelegate
+extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDelegate {
+    
+    public func pageViewController(_ pageViewController: UIPageViewController,
+                                   willTransitionTo pendingViewControllers: [UIViewController]) {
+        
+    }
+    
+    public func pageViewController(_ pageViewController: UIPageViewController,
+                                   didFinishAnimating finished: Bool,
+                                   previousViewControllers: [UIViewController],
+                                   transitionCompleted completed: Bool) {
+        guard completed == true else {
+            return
+        }
+        
+        if let viewController = pageViewController.viewControllers?.first,
+            let index = self.viewControllers?.index(of: viewController) {
+            self.currentPageIndex = index
+        }
+        
+        print(self.currentPageIndex)
+    }
+    
+    // MARK: UIScrollViewDelegate
     
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
     }
-    
 }
