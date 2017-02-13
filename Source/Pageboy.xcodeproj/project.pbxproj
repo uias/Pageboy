@@ -11,6 +11,8 @@
 		D623B1C61E1D0C6B00527F3D /* PageboyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D623B1C51E1D0C6B00527F3D /* PageboyTests.swift */; };
 		D623B1C81E1D0C6B00527F3D /* Pageboy.h in Headers */ = {isa = PBXBuildFile; fileRef = D623B1BA1E1D0C6A00527F3D /* Pageboy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D623B1D21E1D2DF200527F3D /* PageboyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D623B1D11E1D2DF200527F3D /* PageboyViewController.swift */; };
+		D6E73A7B1E5207B100A8D5A5 /* PageboyScrollDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E73A7A1E5207B100A8D5A5 /* PageboyScrollDetection.swift */; };
+		D6E73A7D1E52083F00A8D5A5 /* PageboyControllerManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E73A7C1E52083F00A8D5A5 /* PageboyControllerManagement.swift */; };
 		D6ECCEC21E51AFE500E9D5B3 /* PageViewControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ECCEC11E51AFE500E9D5B3 /* PageViewControllerUtils.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +34,8 @@
 		D623B1C51E1D0C6B00527F3D /* PageboyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageboyTests.swift; sourceTree = "<group>"; };
 		D623B1C71E1D0C6B00527F3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D623B1D11E1D2DF200527F3D /* PageboyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageboyViewController.swift; sourceTree = "<group>"; };
+		D6E73A7A1E5207B100A8D5A5 /* PageboyScrollDetection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageboyScrollDetection.swift; sourceTree = "<group>"; };
+		D6E73A7C1E52083F00A8D5A5 /* PageboyControllerManagement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageboyControllerManagement.swift; sourceTree = "<group>"; };
 		D6ECCEC11E51AFE500E9D5B3 /* PageViewControllerUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewControllerUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -77,6 +81,8 @@
 			children = (
 				D623B1BA1E1D0C6A00527F3D /* Pageboy.h */,
 				D623B1D11E1D2DF200527F3D /* PageboyViewController.swift */,
+				D6E73A7C1E52083F00A8D5A5 /* PageboyControllerManagement.swift */,
+				D6E73A7A1E5207B100A8D5A5 /* PageboyScrollDetection.swift */,
 				D6ECCEC01E51AFDB00E9D5B3 /* Utilities */,
 				D623B1BB1E1D0C6A00527F3D /* Info.plist */,
 			);
@@ -211,8 +217,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6E73A7D1E52083F00A8D5A5 /* PageboyControllerManagement.swift in Sources */,
 				D623B1D21E1D2DF200527F3D /* PageboyViewController.swift in Sources */,
 				D6ECCEC21E51AFE500E9D5B3 /* PageViewControllerUtils.swift in Sources */,
+				D6E73A7B1E5207B100A8D5A5 /* PageboyScrollDetection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
