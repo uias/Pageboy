@@ -32,6 +32,7 @@ open class PageboyViewController: UIViewController {
     internal var viewControllers: [UIViewController]?
     
     fileprivate var currentPageIndex: Int = 0
+    fileprivate var previousPageOffset: CGFloat?
     
     // MARK: Public Properties
 
@@ -166,12 +167,64 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
             self.currentPageIndex = index
         }
         
-        print(self.currentPageIndex)
     }
     
     // MARK: UIScrollViewDelegate
     
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
+        let pageWidth = scrollView.frame.size.width
+        let scrollOffset = scrollView.contentOffset.x - pageWidth
+        let pageOffset = (CGFloat(self.currentPageIndex) * pageWidth) + scrollOffset
+        
+        // do not continue if a page change is detected
+        guard !self.detectCurrentPageIndexIfNeeded(pageOffset: pageOffset, scrollView: scrollView) else {
+            return
+        }
+        
+        // do not continue if previous offset equals current
+        if let previousPageOffset = self.previousPageOffset, previousPageOffset == pageOffset {
+            return
+        }
+        
+        // provide scroll updates
+        print(pageOffset)
+
+        self.previousPageOffset = pageOffset
+    }
+    
+    /// Detects whether a page boundary has been passed.
+    /// As pageViewController:didFinishAnimating is not reliable.
+    ///
+    /// - Parameters:
+    ///   - pageOffset: The current page scroll offset
+    ///   - scrollView: The scroll view that is being scrolled.
+    /// - Returns: Whether a page transition has been detected.
+    private func detectCurrentPageIndexIfNeeded(pageOffset: CGFloat, scrollView: UIScrollView) -> Bool {
+        let pagePosition = pageOffset / scrollView.frame.size.width
+        
+        let isPagingForward = pageOffset > previousPageOffset ?? 0.0
+        if scrollView.isDragging {
+            if isPagingForward && pagePosition >= CGFloat(self.currentPageIndex + 1) {
+                self.updateCurrentPageIndexIfNeeded(self.currentPageIndex + 1)
+                return true
+            } else if !isPagingForward && pagePosition <= CGFloat(self.currentPageIndex - 1) {
+                self.updateCurrentPageIndexIfNeeded(self.currentPageIndex - 1)
+                return true
+            }
+        }
+
+        return false
+    }
+    
+    /// Safely update the current page index.
+    ///
+    /// - Parameter index: the proposed index.
+    private func updateCurrentPageIndexIfNeeded(_ index: Int) {
+        guard self.currentPageIndex != index, index >= 0 &&
+            index < self.viewControllers?.count ?? 0 else {
+            return
+        }
+        self.currentPageIndex = index
     }
 }
