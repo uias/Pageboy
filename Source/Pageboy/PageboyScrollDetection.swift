@@ -26,12 +26,14 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
         
         if let viewController = pageViewController.viewControllers?.first,
             let index = self.viewControllers?.index(of: viewController) {
-            self.currentPageIndex = index
+            self.updateCurrentPageIndexIfNeeded(index)
         }
         
     }
     
+    //
     // MARK: UIScrollViewDelegate
+    //
     
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let previousPageOffset = self.previousPageOffset ?? 0.0

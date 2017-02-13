@@ -36,11 +36,23 @@ public protocol PageboyViewControllerDelegate {
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
                                didScrollToOffset pageOffset: CGPoint,
                                direction: PageboyViewController.NavigationDirection)
+    
+    /// The page view controller did complete scroll to a new page.
+    ///
+    /// - Parameters:
+    ///   - pageboyViewController: The Pageboy view controller.
+    ///   - pageIndex: The new page index.
+    ///   - direction: The direction of the scroll.
+    func pageboyViewController(_ pageboyViewController: PageboyViewController,
+                               didScrollToPageWithIndex pageIndex: Int,
+                               direction: PageboyViewController.NavigationDirection)
 }
 
 open class PageboyViewController: UIViewController {
     
+    //
     // MARK: Types
+    //
     
     public enum NavigationDirection {
         case neutral
@@ -48,16 +60,31 @@ open class PageboyViewController: UIViewController {
         case regressive
     }
     
+    //
     // MARK: Properties
+    //
     
     internal var pageViewController: UIPageViewController!
     internal var viewControllers: [UIViewController]?
     
-    internal var currentPageIndex: Int = 0
+    internal var currentPageIndex: Int = 0 {
+        willSet {
+            let direction: NavigationDirection = newValue == currentPageIndex ? .neutral :
+                newValue > currentPageIndex ? .progressive : .regressive
+            self.delegate?.pageboyViewController(self,
+                                                 didScrollToPageWithIndex: newValue,
+                                                 direction: direction)
+        }
+    }
     internal var previousPageOffset: CGFloat?
     
+    private var _dataSource: PageboyViewControllerDataSource?
+    
+    //
     // MARK: Public Properties
-
+    //
+    
+    /// The orientation that the page view controller transitions on.
     public var navigationOrientation : UIPageViewControllerNavigationOrientation = .horizontal {
         didSet {
             guard self.pageViewController != nil else {
@@ -68,7 +95,7 @@ open class PageboyViewController: UIViewController {
         }
     }
     
-    private var _dataSource: PageboyViewControllerDataSource?
+    /// The object that is the data source for the page view controller. (Defaults to self)
     public var dataSource: PageboyViewControllerDataSource? {
         get {
             if let dataSource = _dataSource {
@@ -84,9 +111,12 @@ open class PageboyViewController: UIViewController {
         }
     }
     
+    /// The object that is the delegate for the page view controller.
     public var delegate: PageboyViewControllerDelegate?
     
+    //
     // MARK: Lifecycle
+    //
     
     open override func loadView() {
         super.loadView()
@@ -94,7 +124,9 @@ open class PageboyViewController: UIViewController {
         self.setUpPageViewController()
     }
     
+    //
     // MARK: Set Up
+    //
     
     private func setUpPageViewController(reloadViewControllers: Bool = true) {
         if self.pageViewController != nil { // destroy existing page VC

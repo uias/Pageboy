@@ -36,5 +36,11 @@ class PageViewController: PageboyViewController, PageboyViewControllerDelegate {
                                direction: PageboyViewController.NavigationDirection) {
         print(pageOffset)
     }
+    
+    func pageboyViewController(_ pageboyViewController: PageboyViewController,
+                               didScrollToPageWithIndex pageIndex: Int,
+                               direction: PageboyViewController.NavigationDirection) {
+        
+    }
 }
 
