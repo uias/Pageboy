@@ -9,10 +9,11 @@
 /* Begin PBXBuildFile section */
 		468A39DD1E45554400DFD827 /* Pageboy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46EED5F31E4554C000C6B537 /* Pageboy.framework */; };
 		D623B1E21E1D32D700527F3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D623B1E11E1D32D700527F3D /* AppDelegate.swift */; };
-		D623B1E41E1D32D700527F3D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D623B1E31E1D32D700527F3D /* ViewController.swift */; };
+		D623B1E41E1D32D700527F3D /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D623B1E31E1D32D700527F3D /* PageViewController.swift */; };
 		D623B1E71E1D32D700527F3D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D623B1E51E1D32D700527F3D /* Main.storyboard */; };
 		D623B1E91E1D32D700527F3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D623B1E81E1D32D700527F3D /* Assets.xcassets */; };
 		D623B1EC1E1D32D700527F3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D623B1EA1E1D32D700527F3D /* LaunchScreen.storyboard */; };
+		D6ECCEC61E51B6FB00E9D5B3 /* ChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ECCEC51E51B6FB00E9D5B3 /* ChildViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,11 +37,12 @@
 		46EED5ED1E4554C000C6B537 /* Pageboy.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pageboy.xcodeproj; path = ../Source/Pageboy.xcodeproj; sourceTree = "<group>"; };
 		D623B1DE1E1D32D700527F3D /* Pageboy-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pageboy-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D623B1E11E1D32D700527F3D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D623B1E31E1D32D700527F3D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D623B1E31E1D32D700527F3D /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		D623B1E61E1D32D700527F3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D623B1E81E1D32D700527F3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D623B1EB1E1D32D700527F3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D623B1ED1E1D32D700527F3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D6ECCEC51E51B6FB00E9D5B3 /* ChildViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChildViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +87,8 @@
 			isa = PBXGroup;
 			children = (
 				D623B1E11E1D32D700527F3D /* AppDelegate.swift */,
-				D623B1E31E1D32D700527F3D /* ViewController.swift */,
+				D623B1E31E1D32D700527F3D /* PageViewController.swift */,
+				D6ECCEC51E51B6FB00E9D5B3 /* ChildViewController.swift */,
 				D623B1E51E1D32D700527F3D /* Main.storyboard */,
 				D623B1E81E1D32D700527F3D /* Assets.xcassets */,
 				D623B1EA1E1D32D700527F3D /* LaunchScreen.storyboard */,
@@ -189,8 +192,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D623B1E41E1D32D700527F3D /* ViewController.swift in Sources */,
+				D623B1E41E1D32D700527F3D /* PageViewController.swift in Sources */,
 				D623B1E21E1D32D700527F3D /* AppDelegate.swift in Sources */,
+				D6ECCEC61E51B6FB00E9D5B3 /* ChildViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
