@@ -12,7 +12,6 @@
 		D623B1E71E1D32D700527F3D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D623B1E51E1D32D700527F3D /* Main.storyboard */; };
 		D623B1E91E1D32D700527F3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D623B1E81E1D32D700527F3D /* Assets.xcassets */; };
 		D623B1EC1E1D32D700527F3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D623B1EA1E1D32D700527F3D /* LaunchScreen.storyboard */; };
-		D6E73A671E51F7BD00A8D5A5 /* Pageboy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46EED5F31E4554C000C6B537 /* Pageboy.framework */; };
 		D6E73A6C1E51F7C400A8D5A5 /* Pageboy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46EED5F31E4554C000C6B537 /* Pageboy.framework */; };
 		D6E73A6D1E51F7C400A8D5A5 /* Pageboy.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 46EED5F31E4554C000C6B537 /* Pageboy.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D6ECCEC61E51B6FB00E9D5B3 /* ChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ECCEC51E51B6FB00E9D5B3 /* ChildViewController.swift */; };
@@ -74,7 +73,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6E73A6C1E51F7C400A8D5A5 /* Pageboy.framework in Frameworks */,
-				D6E73A671E51F7BD00A8D5A5 /* Pageboy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,7 +153,6 @@
 				TargetAttributes = {
 					D623B1DD1E1D32D700527F3D = {
 						CreatedOnToolsVersion = 8.2;
-						DevelopmentTeam = 6GVCVGN5W5;
 						ProvisioningStyle = Manual;
 					};
 				};
@@ -351,13 +348,14 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 6GVCVGN5W5;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Pageboy-Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.msapsford.Pageboy-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5d5317d5-3226-4038-8413-982b705c13e8";
-				PROVISIONING_PROFILE_SPECIFIER = "All Devices All Apps";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -367,6 +365,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Pageboy-Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
