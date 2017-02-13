@@ -8,12 +8,20 @@
 
 import UIKit
 
-public protocol PageboyViewControllerDataSource {
+public protocol PageboyViewControllerDataSource: class {
     
+    
+    /// The view controllers to display in the Pageboy view controller.
+    ///
+    /// - Parameter pageboyViewController: The Pageboy view controller
+    /// - Returns: Array of view controllers
     func viewControllers(forPageboyViewController pageboyViewController: PageboyViewController) -> [UIViewController]?
     
+    /// The default page index to display in the Pageboy view controller.
+    ///
+    /// - Parameter pageboyViewController: The Pageboy view controller
+    /// - Returns: Default page index
     func defaultPageIndex(forPageboyViewController pageboyViewController: PageboyViewController) -> Int
-    
 }
 
 open class PageboyViewController: UIViewController {
@@ -40,7 +48,10 @@ open class PageboyViewController: UIViewController {
             return self
         }
         set {
-            _dataSource = newValue
+            if _dataSource !== newValue {
+                _dataSource = newValue
+                self.reloadPages()
+            }
         }
     }
     
@@ -92,7 +103,6 @@ open class PageboyViewController: UIViewController {
                                                    completion: nil)
     }
 }
-
 
 // MARK: - UIPageViewControllerDataSource, UIPageViewControllerDelegate, PageboyViewControllerDataSource
 extension PageboyViewController: UIPageViewControllerDataSource, UIPageViewControllerDelegate, PageboyViewControllerDataSource {
