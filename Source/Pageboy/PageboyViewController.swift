@@ -56,8 +56,8 @@ open class PageboyViewController: UIViewController {
     
     public enum NavigationDirection {
         case neutral
-        case progressive
-        case regressive
+        case forward
+        case reverse
     }
     
     public typealias PageTransitionCompletion = (_ newViewController: UIViewController, _ animated: Bool, _ finished: Bool) -> Void
@@ -71,8 +71,8 @@ open class PageboyViewController: UIViewController {
     
     internal var currentPageIndex: Int = 0 {
         willSet {
-            let direction: NavigationDirection = newValue == currentPageIndex ? .neutral :
-                newValue > currentPageIndex ? .progressive : .regressive
+            let direction = NavigationDirection.forOffset(CGFloat(newValue),
+                                                          previousOffset: CGFloat(currentPageIndex))
             self.delegate?.pageboyViewController(self,
                                                  didScrollToPageWithIndex: newValue,
                                                  direction: direction)
@@ -171,7 +171,3 @@ open class PageboyViewController: UIViewController {
         }
     }
 }
-
-
-
-

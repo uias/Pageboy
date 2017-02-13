@@ -67,7 +67,7 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
         
         // provide scroll updates
         var offsetPoint: CGPoint!
-        let direction: NavigationDirection = pageOffset > previousPageOffset ? .progressive : .regressive
+        let direction = NavigationDirection.forOffset(pageOffset, previousOffset: previousPageOffset)
         if self.navigationOrientation == .horizontal {
             offsetPoint = CGPoint(x: pageOffset, y: scrollView.contentOffset.y)
         } else {
@@ -112,5 +112,31 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
                 return
         }
         self.currentPageIndex = index
+    }
+}
+
+
+// MARK: - NavigationDirection detection
+internal extension PageboyViewController.NavigationDirection {
+    
+    var pageViewControllerNavDirection: UIPageViewControllerNavigationDirection {
+        get {
+            switch self {
+                
+            case .reverse:
+                return .reverse
+                
+            default:
+                return .forward
+            }
+        }
+    }
+    
+    static func forOffset(_ offset: CGFloat,
+                          previousOffset: CGFloat) -> PageboyViewController.NavigationDirection {
+        if offset == previousOffset {
+            return .neutral
+        }
+        return  offset > previousOffset ? .forward : .reverse
     }
 }
