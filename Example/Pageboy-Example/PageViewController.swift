@@ -9,8 +9,14 @@
 import UIKit
 import Pageboy
 
-class PageViewController: PageboyViewController {
+class PageViewController: PageboyViewController, PageboyViewControllerDelegate {
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.delegate = self
+    }
+    
     override func viewControllers(forPageboyViewController pageboyViewController: PageboyViewController) -> [UIViewController]? {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         
@@ -23,5 +29,12 @@ class PageViewController: PageboyViewController {
         return viewControllers
     }
     
+    // MARK: PageboyViewControllerDelegate
+    
+    func pageboyViewController(_ pageboyViewController: PageboyViewController,
+                               didScrollToOffset pageOffset: CGPoint,
+                               direction: PageboyViewController.NavigationDirection) {
+        print(pageOffset)
+    }
 }
 

@@ -10,9 +10,11 @@ import Foundation
 
 internal extension PageboyViewController {
     
-    internal func reloadPages() {
+    internal func reloadPages(reloadViewControllers: Bool = true) {
         
-        self.viewControllers = self.dataSource?.viewControllers(forPageboyViewController: self)
+        if reloadViewControllers || self.viewControllers == nil {
+            self.viewControllers = self.dataSource?.viewControllers(forPageboyViewController: self)
+        }
         let defaultIndex = self.dataSource?.defaultPageIndex(forPageboyViewController: self) ?? 0
         
         guard defaultIndex < self.viewControllers?.count ?? 0,

@@ -24,7 +24,29 @@ public protocol PageboyViewControllerDataSource: class {
     func defaultPageIndex(forPageboyViewController pageboyViewController: PageboyViewController) -> Int
 }
 
+public protocol PageboyViewControllerDelegate {
+ 
+    
+    /// The page view controller did scroll to an offset between pages.
+    ///
+    /// - Parameters:
+    ///   - pageboyViewController: The Pageboy view controller.
+    ///   - pageOffset: The current offset.
+    ///   - direction: The direction of the scroll.
+    func pageboyViewController(_ pageboyViewController: PageboyViewController,
+                               didScrollToOffset pageOffset: CGPoint,
+                               direction: PageboyViewController.NavigationDirection)
+}
+
 open class PageboyViewController: UIViewController {
+    
+    // MARK: Types
+    
+    public enum NavigationDirection {
+        case neutral
+        case progressive
+        case regressive
+    }
     
     // MARK: Properties
     
@@ -38,7 +60,11 @@ open class PageboyViewController: UIViewController {
 
     public var navigationOrientation : UIPageViewControllerNavigationOrientation = .horizontal {
         didSet {
-            self.setUpPageViewController()
+            guard self.pageViewController != nil else {
+                return
+            }
+            
+            self.setUpPageViewController(reloadViewControllers: false)
         }
     }
     
@@ -58,6 +84,8 @@ open class PageboyViewController: UIViewController {
         }
     }
     
+    public var delegate: PageboyViewControllerDelegate?
+    
     // MARK: Lifecycle
     
     open override func loadView() {
@@ -68,7 +96,7 @@ open class PageboyViewController: UIViewController {
     
     // MARK: Set Up
     
-    private func setUpPageViewController() {
+    private func setUpPageViewController(reloadViewControllers: Bool = true) {
         if self.pageViewController != nil { // destroy existing page VC
             self.pageViewController?.view.removeFromSuperview()
             self.pageViewController?.removeFromParentViewController()
@@ -87,7 +115,7 @@ open class PageboyViewController: UIViewController {
         
         pageViewController.scrollView?.delegate = self
         
-        self.reloadPages()
+        self.reloadPages(reloadViewControllers: reloadViewControllers)
     }
 }
 
