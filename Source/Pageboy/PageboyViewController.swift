@@ -60,6 +60,8 @@ open class PageboyViewController: UIViewController {
         case regressive
     }
     
+    public typealias PageTransitionCompletion = (_ newViewController: UIViewController, _ animated: Bool, _ finished: Bool) -> Void
+    
     //
     // MARK: Properties
     //
@@ -148,6 +150,25 @@ open class PageboyViewController: UIViewController {
         pageViewController.scrollView?.delegate = self
         
         self.reloadPages(reloadViewControllers: reloadViewControllers)
+    }
+    
+    //
+    // MARK: Transitioning
+    //
+    
+    public func transitionToPage(atIndex index: Int,
+                                 animated: Bool,
+                                 completion: PageTransitionCompletion? = nil) {
+        if index != self.currentPageIndex {
+            
+            // transition to page
+            
+        } else {
+            guard let viewController = self.viewControllers?[index] else {
+                return
+            }
+            completion?(viewController, animated, false)
+        }
     }
 }
 
