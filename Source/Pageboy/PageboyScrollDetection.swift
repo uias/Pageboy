@@ -42,7 +42,7 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
     //
     
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let previousPageOffset = self.previousPageOffset ?? 0.0
+        let previousPagePosition = self.previousPagePosition ?? 0.0
         
         // calculate offset / page size for relative orientation
         var pageSize: CGFloat!
@@ -57,33 +57,70 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
         
         let scrollOffset = contentOffset - pageSize
         let pageOffset = (CGFloat(self.currentPageIndex) * pageSize) + scrollOffset
-        let pagePosition = pageOffset / pageSize
+        var pagePosition = pageOffset / pageSize
         
         // do not continue if a page change is detected
-        guard !self.detectCurrentPageIndexIfNeeded(pageOffset: pageOffset,
-                                                   pagePosition: pagePosition,
+        guard !self.detectCurrentPageIndexIfNeeded(pagePosition: pagePosition,
                                                    scrollView: scrollView) else {
             return
         }
         
         // do not continue if previous offset equals current
-        if let previousPageOffset = self.previousPageOffset, previousPageOffset == pageOffset {
+        if previousPagePosition == pageOffset {
             return
         }
         
+        // update relative page position for infinite overscroll if required
+        self.detectInfiniteOverscrollIfNeeded(pagePosition: &pagePosition)
+        
         // provide scroll updates
         var offsetPoint: CGPoint!
-        let direction = NavigationDirection.forOffset(pageOffset, previousOffset: previousPageOffset)
+        let direction = NavigationDirection.forOffset(pagePosition, previousOffset: previousPagePosition)
         if self.navigationOrientation == .horizontal {
-            offsetPoint = CGPoint(x: pageOffset, y: scrollView.contentOffset.y)
+            offsetPoint = CGPoint(x: pagePosition, y: scrollView.contentOffset.y)
         } else {
-            offsetPoint = CGPoint(x: scrollView.contentOffset.x, y: pageOffset)
+            offsetPoint = CGPoint(x: scrollView.contentOffset.x, y: pagePosition)
         }
         self.delegate?.pageboyViewController(self,
                                              didScrollToOffset: offsetPoint,
                                              direction: direction)
         
-        self.previousPageOffset = pageOffset
+        self.previousPagePosition = pagePosition
+    }
+    
+    //
+    // MARK: Utils
+    //
+    
+    /// Detect whether the scroll view is overscrolling while infinite scroll is enabled
+    /// Adjusts pagePosition if required.
+    ///
+    /// - Parameter pagePosition: the relative page position.
+    private func detectInfiniteOverscrollIfNeeded(pagePosition: inout CGFloat) {
+        let maxPagePosition = CGFloat((self.viewControllers?.count ?? 1) - 1)
+        let overscrolling = pagePosition < 0.0 || pagePosition > maxPagePosition
+        
+        guard self.isInfiniteScrollEnabled && overscrolling else {
+            return
+        }
+        
+        var integral: Double = 0.0
+        var progress = CGFloat(modf(fabs(Double(pagePosition)), &integral))
+        var maxInfinitePosition: CGFloat!
+        if pagePosition > 0.0 {
+            progress = 1.0 - progress
+            maxInfinitePosition = 0.0
+        } else {
+            maxInfinitePosition = maxPagePosition
+        }
+        
+        var infinitePagePosition = maxPagePosition * progress
+        if fmod(progress, 1.0) == 0.0 {
+            infinitePagePosition = maxInfinitePosition
+        }
+        
+        pagePosition = infinitePagePosition
+        print(overscrolling)
     }
     
     /// Detects whether a page boundary has been passed.
@@ -93,9 +130,9 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
     ///   - pageOffset: The current page scroll offset
     ///   - scrollView: The scroll view that is being scrolled.
     /// - Returns: Whether a page transition has been detected.
-    private func detectCurrentPageIndexIfNeeded(pageOffset: CGFloat, pagePosition: CGFloat, scrollView: UIScrollView) -> Bool {
+    private func detectCurrentPageIndexIfNeeded(pagePosition: CGFloat, scrollView: UIScrollView) -> Bool {
         
-        let isPagingForward = pageOffset > previousPageOffset ?? 0.0
+        let isPagingForward = pagePosition > self.previousPagePosition ?? 0.0
         if scrollView.isDragging {
             if isPagingForward && pagePosition >= CGFloat(self.currentPageIndex + 1) {
                 self.updateCurrentPageIndexIfNeeded(self.currentPageIndex + 1)

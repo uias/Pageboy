@@ -87,7 +87,7 @@ open class PageboyViewController: UIViewController {
                                                  direction: direction)
         }
     }
-    internal var previousPageOffset: CGFloat?
+    internal var previousPagePosition: CGFloat?
     
     private var _dataSource: PageboyViewControllerDataSource?
     
@@ -124,6 +124,9 @@ open class PageboyViewController: UIViewController {
     
     /// The object that is the delegate for the page view controller.
     public var delegate: PageboyViewControllerDelegate?
+    
+    /// Whether the page view controller should infinitely scroll at the end of page ranges.
+    public var isInfiniteScrollEnabled: Bool = false
     
     //
     // MARK: Lifecycle

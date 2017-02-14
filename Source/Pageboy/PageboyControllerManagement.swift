@@ -39,8 +39,12 @@ extension PageboyViewController: UIPageViewControllerDataSource, PageboyViewCont
             return nil
         }
         
-        if let index = viewControllers.index(of: viewController), index != 0 {
-            return viewControllers[index - 1]
+        if let index = viewControllers.index(of: viewController) {
+            if index != 0 {
+                return viewControllers[index - 1]
+            } else if self.isInfiniteScrollEnabled {
+                return viewControllers[viewControllers.count - 1]
+            }
         }
         return nil
     }
@@ -51,8 +55,12 @@ extension PageboyViewController: UIPageViewControllerDataSource, PageboyViewCont
             return nil
         }
         
-        if let index = viewControllers.index(of: viewController), index != viewControllers.count - 1 {
-            return viewControllers[index + 1]
+        if let index = viewControllers.index(of: viewController) {
+            if index != viewControllers.count - 1 {
+                return viewControllers[index + 1]
+            } else if self.isInfiniteScrollEnabled {
+                return viewControllers[0]
+            }
         }
         return nil
     }
