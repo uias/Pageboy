@@ -184,6 +184,14 @@ open class PageboyViewController: UIViewController {
     }
     
     //
+    // MARK: Page management
+    //
+    
+    public func reloadPages() {
+        self.reloadPages(reloadViewControllers: true)
+    }
+    
+    //
     // MARK: Transitioning
     //
     

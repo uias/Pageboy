@@ -10,7 +10,7 @@ import Foundation
 
 internal extension PageboyViewController {
     
-    internal func reloadPages(reloadViewControllers: Bool = true) {
+    internal func reloadPages(reloadViewControllers: Bool) {
         
         if reloadViewControllers || self.viewControllers == nil {
             self.viewControllers = self.dataSource?.viewControllers(forPageboyViewController: self)
