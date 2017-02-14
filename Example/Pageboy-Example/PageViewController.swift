@@ -11,12 +11,27 @@ import Pageboy
 
 class PageViewController: PageboyViewController, PageboyViewControllerDelegate {
 
+    //
+    // MARK: Outlets
+    //
+    
+    @IBOutlet weak var offsetLabel: UILabel!
+    @IBOutlet weak var pageLabel: UILabel!
+    
+    //
+    // MARK: Lifecycle
+    //
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.delegate = self
     }
 
+    //
+    // MARK: PageboyViewControllerDataSource
+    //
+    
     override func viewControllers(forPageboyViewController pageboyViewController: PageboyViewController) -> [UIViewController]? {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         
@@ -29,12 +44,14 @@ class PageViewController: PageboyViewController, PageboyViewControllerDelegate {
         return viewControllers
     }
     
+    //
     // MARK: PageboyViewControllerDelegate
+    //
     
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
                                didScrollToOffset pageOffset: CGPoint,
                                direction: PageboyViewController.NavigationDirection) {
-        print(pageOffset)
+        self.offsetLabel.text = "Current Offset: " + String(describing: pageOffset.x)
     }
     
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
@@ -46,7 +63,7 @@ class PageViewController: PageboyViewController, PageboyViewControllerDelegate {
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
                                didScrollToPageWithIndex pageIndex: Int,
                                direction: PageboyViewController.NavigationDirection) {
-        
+        self.pageLabel.text = "Current Page: " + String(describing: pageIndex)
     }
 }
 

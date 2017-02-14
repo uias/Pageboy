@@ -175,6 +175,7 @@ open class PageboyViewController: UIViewController {
         self.pageViewController = pageViewController
         
         self.view.addSubview(pageViewController.view)
+        self.view.sendSubview(toBack: pageViewController.view)
         pageViewController.didMove(toParentViewController: self)
         
         pageViewController.scrollView?.delegate = self
