@@ -13,7 +13,13 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
     
     public func pageViewController(_ pageViewController: UIPageViewController,
                                    willTransitionTo pendingViewControllers: [UIViewController]) {
+        guard let viewController = pendingViewControllers.first,
+            let index = self.viewControllers?.index(of: viewController) else {
+            return
+        }
         
+        let direction = NavigationDirection.forPage(index, previousPage: self.currentPageIndex)
+        self.delegate?.pageboyViewController(self, willScrollToPageAtIndex: index, direction: direction)
     }
     
     public func pageViewController(_ pageViewController: UIPageViewController,

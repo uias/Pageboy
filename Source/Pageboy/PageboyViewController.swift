@@ -26,6 +26,15 @@ public protocol PageboyViewControllerDataSource: class {
 
 public protocol PageboyViewControllerDelegate {
  
+    /// The page view controller will begin scrolling to a new page.
+    ///
+    /// - Parameters:
+    ///   - pageboyViewController: The Pageboy view controller.
+    ///   - pageIndex: The new page index.
+    ///   - direction: The direction of the scroll.
+    func pageboyViewController(_ pageboyViewController: PageboyViewController,
+                               willScrollToPageAtIndex pageIndex: Int,
+                               direction: PageboyViewController.NavigationDirection)
     
     /// The page view controller did scroll to an offset between pages.
     ///

@@ -40,7 +40,13 @@ class PageViewController: PageboyViewController, PageboyViewControllerDelegate {
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
                                didScrollToOffset pageOffset: CGPoint,
                                direction: PageboyViewController.NavigationDirection) {
-        print(pageOffset)
+        
+    }
+    
+    func pageboyViewController(_ pageboyViewController: PageboyViewController,
+                               willScrollToPageAtIndex pageIndex: Int,
+                               direction: PageboyViewController.NavigationDirection) {
+        
     }
     
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
