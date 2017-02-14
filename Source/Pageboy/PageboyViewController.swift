@@ -160,8 +160,20 @@ open class PageboyViewController: UIViewController {
                                  animated: Bool,
                                  completion: PageTransitionCompletion? = nil) {
         if index != self.currentPageIndex {
+            guard index >= 0 && index < self.viewControllers?.count ?? 0 else { return }
+            guard let viewController = self.viewControllers?[index] else { return }
             
-            // transition to page
+            let direction = NavigationDirection.forPage(index, previousPage: self.currentPageIndex)
+            self.pageViewController.setViewControllers([viewController],
+                                                       direction: direction.pageViewControllerNavDirection,
+                                                       animated: animated,
+                                                       completion:
+                { (finished) in
+                    if finished {
+                        self.currentPageIndex = index
+                    }
+                    completion?(viewController, animated, finished)
+            })
             
         } else {
             guard let viewController = self.viewControllers?[index] else {

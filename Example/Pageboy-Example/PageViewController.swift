@@ -17,6 +17,12 @@ class PageViewController: PageboyViewController, PageboyViewControllerDelegate {
         self.delegate = self
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.transitionToPage(atIndex: 2, animated: false)
+    }
+    
     override func viewControllers(forPageboyViewController pageboyViewController: PageboyViewController) -> [UIViewController]? {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         

@@ -132,6 +132,11 @@ internal extension PageboyViewController.NavigationDirection {
         }
     }
     
+    static func forPage(_ page: Int,
+                          previousPage: Int) -> PageboyViewController.NavigationDirection {
+        return self.forOffset(CGFloat(page), previousOffset: CGFloat(previousPage))
+    }
+    
     static func forOffset(_ offset: CGFloat,
                           previousOffset: CGFloat) -> PageboyViewController.NavigationDirection {
         if offset == previousOffset {
