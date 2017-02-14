@@ -146,6 +146,22 @@ open class PageboyViewController: UIViewController {
         }
     }
     
+    /// Whether user interaction is enabled on the page view controller.
+    ///
+    /// Default is TRUE
+    public var isUserInteractionEnabled: Bool = true {
+        didSet {
+            self.pageViewController.scrollView?.isUserInteractionEnabled = isUserInteractionEnabled
+        }
+    }
+    
+    /// Whether the page view controller is currently transitioning between pages.
+    private(set) var isTransitioning = false {
+        didSet {
+            self.isUserInteractionEnabled = !self.isTransitioning
+        }
+    }
+    
     //
     // MARK: Lifecycle
     //
@@ -187,6 +203,10 @@ open class PageboyViewController: UIViewController {
     // MARK: Page management
     //
     
+    
+    /// Reload the view controllers in the page view controller. 
+    /// This reloads the dataSource entirely, calling viewControllers(forPageboyViewController:)
+    /// and defaultPageIndex(forPageboyViewController:).
     public func reloadPages() {
         self.reloadPages(reloadViewControllers: true)
     }
@@ -195,14 +215,22 @@ open class PageboyViewController: UIViewController {
     // MARK: Transitioning
     //
     
+    /// Transition the page view controller to a new page.
+    ///
+    /// - parameter index:      The index of the new page.
+    /// - parameter animated:   Whether to animate the transition.
+    /// - parameter completion: The completion closure.
     public func transitionToPage(atIndex index: Int,
                                  animated: Bool,
                                  completion: PageTransitionCompletion? = nil) {
+        guard self.isTransitioning == false else { return }
+        
         if index != self.currentPageIndex {
             guard index >= 0 && index < self.viewControllers?.count ?? 0 else { return }
             guard let viewController = self.viewControllers?[index] else { return }
             
             let direction = NavigationDirection.forPage(index, previousPage: self.currentPageIndex)
+            self.isTransitioning = true
             self.pageViewController.setViewControllers([viewController],
                                                        direction: direction.pageViewControllerNavDirection,
                                                        animated: animated,
@@ -212,6 +240,7 @@ open class PageboyViewController: UIViewController {
                         self.currentPageIndex = index
                     }
                     completion?(viewController, animated, finished)
+                    self.isTransitioning = false
             })
             
         } else {
