@@ -126,7 +126,25 @@ open class PageboyViewController: UIViewController {
     public var delegate: PageboyViewControllerDelegate?
     
     /// Whether the page view controller should infinitely scroll at the end of page ranges.
+    ///
+    /// Default is FALSE.
     public var isInfiniteScrollEnabled: Bool = false
+    
+    /// Whether scroll is enabled on the page view controller.
+    ///
+    /// Default is TRUE.
+    public var isScrollEnabled: Bool = true {
+        didSet {
+            self.pageViewController.scrollView?.isScrollEnabled = isScrollEnabled
+        }
+    }
+    
+    /// Whether the page view controller is currently being dragged.
+    public var isDragging: Bool {
+        get {
+            return self.pageViewController.scrollView?.isDragging ?? false
+        }
+    }
     
     //
     // MARK: Lifecycle
