@@ -26,6 +26,14 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
                                    didFinishAnimating finished: Bool,
                                    previousViewControllers: [UIViewController],
                                    transitionCompleted completed: Bool) {
+        guard completed == true else {
+            return
+        }
+        
+        if let viewController = pageViewController.viewControllers?.first,
+            let index = self.viewControllers?.index(of: viewController) {
+            self.updateCurrentPageIndexIfNeeded(index)
+        }
     }
     
     //
