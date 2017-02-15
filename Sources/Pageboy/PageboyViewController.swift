@@ -96,8 +96,8 @@ open class PageboyViewController: UIViewController {
     //
     // MARK: Variables
     //
-    internal var pageViewController: UIPageViewController!
     
+    internal var pageViewController: UIPageViewController!
     internal var previousPagePosition: CGFloat?
     
     private var _dataSource: PageboyViewControllerDataSource?
