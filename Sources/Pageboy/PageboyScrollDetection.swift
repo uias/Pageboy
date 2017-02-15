@@ -85,6 +85,7 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
         } else {
             positionPoint = CGPoint(x: scrollView.contentOffset.x, y: pagePosition)
         }
+        self.currentPosition = positionPoint
         self.delegate?.pageboyViewController(self,
                                              didScrollToPosition: positionPoint,
                                              direction: direction)

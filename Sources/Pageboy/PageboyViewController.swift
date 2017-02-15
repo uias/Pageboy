@@ -189,6 +189,9 @@ open class PageboyViewController: UIViewController {
         }
     }
     
+    /// The relative page position that the page view controller is currently at.
+    public internal(set) var currentPosition: CGPoint?
+    
     /// The view controller that the page view controller is currently at.
     public var currentViewController: UIViewController? {
         get {
