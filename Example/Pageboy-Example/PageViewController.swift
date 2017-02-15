@@ -65,20 +65,8 @@ class PageViewController: PageboyViewController, PageboyViewControllerDelegate {
     }
     
     // 
-    // MARK: Bar Buttons
+    // MARK: Actions
     //
-    
-    func addBarButtons() {
-        
-        let previousBarButton = UIBarButtonItem(title: "Previous", style: .plain, target: self, action: #selector(previousPage(_:)))
-        let nextBarButton = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(nextPage(_:)))
-        self.navigationItem.setLeftBarButton(previousBarButton, animated: false)
-        self.navigationItem.setRightBarButton(nextBarButton, animated: false)
-        self.previousBarButton = previousBarButton
-        self.nextBarButton = nextBarButton
-        
-        self.updateBarButtonStates(index: self.currentIndex ?? 0)
-    }
     
     @objc func nextPage(_ sender: UIBarButtonItem) {
         self.transitionToPage(.next, animated: true)
@@ -86,11 +74,6 @@ class PageViewController: PageboyViewController, PageboyViewControllerDelegate {
     
     @objc func previousPage(_ sender: UIBarButtonItem) {
         self.transitionToPage(.previous, animated: true)
-    }
-    
-    func updateBarButtonStates(index: Int) {
-        self.previousBarButton?.isEnabled = index != 0
-        self.nextBarButton?.isEnabled = index != (self.viewControllers?.count ?? 0) - 1
     }
     
     //
