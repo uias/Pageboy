@@ -25,7 +25,7 @@
             </objects>
             <point key="canvasLocation" x="-844" y="37"/>
         </scene>
-        <!--Page View Controller-->
+        <!--Pageboy-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="PageViewController" customModule="Pageboy_Example" customModuleProvider="target" sceneMemberID="viewController">
@@ -58,7 +58,7 @@
                             <constraint firstItem="6wE-cv-fvA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="rWK-Ix-ZyL"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="wg0-LJ-0PX"/>
+                    <navigationItem key="navigationItem" title="Pageboy" id="wg0-LJ-0PX"/>
                     <connections>
                         <outlet property="offsetLabel" destination="6wE-cv-fvA" id="gDK-CG-HpX"/>
                         <outlet property="pageLabel" destination="0Fp-LH-zNg" id="hrZ-Qa-9LO"/>
