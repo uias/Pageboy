@@ -19,15 +19,41 @@ class PageViewController: PageboyViewController, PageboyViewControllerDelegate {
     @IBOutlet weak var pageLabel: UILabel!
     
     //
+    // MARK: Properties
+    //
+    
+    var previousBarButton: UIBarButtonItem?
+    var nextBarButton: UIBarButtonItem?
+    
+    //
     // MARK: Lifecycle
     //
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let previousBarButton = UIBarButtonItem(title: "Previous", style: .plain, target: self, action: #selector(previousPage(_:)))
+        let nextBarButton = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(nextPage(_:)))
+        self.navigationItem.setLeftBarButton(previousBarButton, animated: false)
+        self.navigationItem.setRightBarButton(nextBarButton, animated: false)
+        self.previousBarButton = previousBarButton
+        self.nextBarButton = nextBarButton
+        
         self.delegate = self
     }
 
+    // 
+    // MARK: Actions
+    //
+    
+    @objc func nextPage(_ sender: UIBarButtonItem) {
+        self.transitionToPage(.next, animated: true)
+    }
+    
+    @objc func previousPage(_ sender: UIBarButtonItem) {
+        self.transitionToPage(.previous, animated: true)
+    }
+    
     //
     // MARK: PageboyViewControllerDataSource
     //

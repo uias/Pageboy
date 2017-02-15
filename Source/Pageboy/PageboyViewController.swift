@@ -63,16 +63,32 @@ open class PageboyViewController: UIViewController {
     // MARK: Types
     //
     
+    /// The direction that the page view controller travelled.
+    ///
+    /// - neutral: No movement.
+    /// - forward: Moved in a positive direction.
+    /// - reverse: Moved in a negative direction.
     public enum NavigationDirection {
         case neutral
         case forward
         case reverse
     }
     
+    /// The index of a page in the page view controller.
+    ///
+    /// - next: The next page if available.
+    /// - previous: The previous page if available.
+    /// - atIndex: A custom specified page index.
+    public enum PageIndex {
+        case next
+        case previous
+        case atIndex(index: Int)
+    }
+    
     public typealias PageTransitionCompletion = (_ newViewController: UIViewController, _ animated: Bool, _ finished: Bool) -> Void
     
     //
-    // MARK: Properties
+    // MARK: Variables
     //
     
     internal var pageViewController: UIPageViewController!
@@ -92,7 +108,7 @@ open class PageboyViewController: UIViewController {
     private var _dataSource: PageboyViewControllerDataSource?
     
     //
-    // MARK: Public Properties
+    // MARK: Properties
     //
     
     /// The orientation that the page view controller transitions on.
@@ -173,10 +189,67 @@ open class PageboyViewController: UIViewController {
     }
     
     //
+    // MARK: Page management
+    //
+    
+    /// Reload the view controllers in the page view controller. 
+    /// This reloads the dataSource entirely, calling viewControllers(forPageboyViewController:)
+    /// and defaultPageIndex(forPageboyViewController:).
+    public func reloadPages() {
+        self.reloadPages(reloadViewControllers: true)
+    }
+    
+    //
+    // MARK: Transitioning
+    //
+    
+    /// Transition the page view controller to a new page.
+    ///
+    /// - parameter index:      The index of the new page.
+    /// - parameter animated:   Whether to animate the transition.
+    /// - parameter completion: The completion closure.
+    public func transitionToPage(_ index: PageIndex,
+                                 animated: Bool,
+                                 completion: PageTransitionCompletion? = nil) {
+        guard self.isTransitioning == false else { return }
+        
+        let rawIndex = self.indexValue(forPageIndex: index)
+        if rawIndex != self.currentPageIndex {
+            guard rawIndex >= 0 && rawIndex < self.viewControllers?.count ?? 0 else { return }
+            guard let viewController = self.viewControllers?[rawIndex] else { return }
+            
+            let direction = NavigationDirection.forPage(rawIndex, previousPage: self.currentPageIndex)
+            self.isTransitioning = true
+            self.pageViewController.setViewControllers([viewController],
+                                                       direction: direction.pageViewControllerNavDirection,
+                                                       animated: animated,
+                                                       completion:
+                { (finished) in
+                    if finished {
+                        self.currentPageIndex = rawIndex
+                    }
+                    completion?(viewController, animated, finished)
+                    self.isTransitioning = false
+            })
+            
+        } else {
+            guard let viewController = self.viewControllers?[rawIndex] else {
+                return
+            }
+            completion?(viewController, animated, false)
+        }
+    }
+    
+}
+
+// MARK: - Page view controller Set up & Utilities
+internal extension PageboyViewController {
+    
+    //
     // MARK: Set Up
     //
     
-    private func setUpPageViewController(reloadViewControllers: Bool = true) {
+    internal func setUpPageViewController(reloadViewControllers: Bool = true) {
         if self.pageViewController != nil { // destroy existing page VC
             self.pageViewController?.view.removeFromSuperview()
             self.pageViewController?.removeFromParentViewController()
@@ -198,56 +271,22 @@ open class PageboyViewController: UIViewController {
         
         self.reloadPages(reloadViewControllers: reloadViewControllers)
     }
-    
+
     //
-    // MARK: Page management
-    //
-    
-    
-    /// Reload the view controllers in the page view controller. 
-    /// This reloads the dataSource entirely, calling viewControllers(forPageboyViewController:)
-    /// and defaultPageIndex(forPageboyViewController:).
-    public func reloadPages() {
-        self.reloadPages(reloadViewControllers: true)
-    }
-    
-    //
-    // MARK: Transitioning
+    // MARK: Utilities
     //
     
-    /// Transition the page view controller to a new page.
-    ///
-    /// - parameter index:      The index of the new page.
-    /// - parameter animated:   Whether to animate the transition.
-    /// - parameter completion: The completion closure.
-    public func transitionToPage(atIndex index: Int,
-                                 animated: Bool,
-                                 completion: PageTransitionCompletion? = nil) {
-        guard self.isTransitioning == false else { return }
-        
-        if index != self.currentPageIndex {
-            guard index >= 0 && index < self.viewControllers?.count ?? 0 else { return }
-            guard let viewController = self.viewControllers?[index] else { return }
+    internal func indexValue(forPageIndex pageIndex: PageIndex) -> Int {
+        switch pageIndex {
             
-            let direction = NavigationDirection.forPage(index, previousPage: self.currentPageIndex)
-            self.isTransitioning = true
-            self.pageViewController.setViewControllers([viewController],
-                                                       direction: direction.pageViewControllerNavDirection,
-                                                       animated: animated,
-                                                       completion:
-                { (finished) in
-                    if finished {
-                        self.currentPageIndex = index
-                    }
-                    completion?(viewController, animated, finished)
-                    self.isTransitioning = false
-            })
+        case .next:
+            return self.currentPageIndex + 1
             
-        } else {
-            guard let viewController = self.viewControllers?[index] else {
-                return
-            }
-            completion?(viewController, animated, false)
+        case .previous:
+            return self.currentPageIndex - 1
+            
+        case .atIndex(let index):
+            return index
         }
     }
 }
