@@ -88,7 +88,8 @@ class PageViewController: PageboyViewController, PageboyViewControllerDelegate {
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
                                didScrollToOffset pageOffset: CGPoint,
                                direction: PageboyViewController.NavigationDirection) {
-        self.offsetLabel.text = "Current Offset: " + String(describing: pageOffset.x)
+        
+        self.offsetLabel.text = "Current Offset: " + String(format: "%.3f", pageOffset.x)
     }
     
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
@@ -100,8 +101,8 @@ class PageViewController: PageboyViewController, PageboyViewControllerDelegate {
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
                                didScrollToPageWithIndex pageIndex: Int,
                                direction: PageboyViewController.NavigationDirection) {
-        self.pageLabel.text = "Current Page: " + String(describing: pageIndex)
         
+        self.pageLabel.text = "Current Page: " + String(describing: pageIndex)
         self.updateBarButtonStates()
     }
 }
