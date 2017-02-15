@@ -15,14 +15,15 @@ internal extension PageboyViewController {
         if reloadViewControllers || self.viewControllers == nil {
             self.viewControllers = self.dataSource?.viewControllers(forPageboyViewController: self)
         }
-        let defaultIndex = self.dataSource?.defaultPageIndex(forPageboyViewController: self) ?? 0
+        let defaultIndex = self.dataSource?.defaultPageIndex(forPageboyViewController: self) ?? .first
+        let defaultIndexValue = self.indexValue(forPageIndex: defaultIndex)
         
-        guard defaultIndex < self.viewControllers?.count ?? 0,
-            let viewController = self.viewControllers?[defaultIndex] else {
+        guard defaultIndexValue < self.viewControllers?.count ?? 0,
+            let viewController = self.viewControllers?[defaultIndexValue] else {
                 return
         }
         
-        self.currentIndex = defaultIndex
+        self.currentIndex = defaultIndexValue
         self.pageViewController.setViewControllers([viewController],
                                                    direction: .forward,
                                                    animated: false,
@@ -73,7 +74,7 @@ extension PageboyViewController: UIPageViewControllerDataSource, PageboyViewCont
         return nil
     }
     
-    open func defaultPageIndex(forPageboyViewController pageboyViewController: PageboyViewController) -> Int {
-        return 0
+    public func defaultPageIndex(forPageboyViewController pageboyViewController: PageboyViewController) -> PageboyViewController.PageIndex? {
+        return nil
     }
 }

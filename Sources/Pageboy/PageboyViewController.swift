@@ -21,7 +21,7 @@ public protocol PageboyViewControllerDataSource: class {
     ///
     /// - Parameter pageboyViewController: The Pageboy view controller
     /// - Returns: Default page index
-    func defaultPageIndex(forPageboyViewController pageboyViewController: PageboyViewController) -> Int
+    func defaultPageIndex(forPageboyViewController pageboyViewController: PageboyViewController) -> PageboyViewController.PageIndex?
 }
 
 public protocol PageboyViewControllerDelegate {
