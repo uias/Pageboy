@@ -92,4 +92,75 @@ class PageboyTransitionTests: PageboyTests {
         XCTAssert(self.pageboyViewController.currentIndex == 3,
                   "Not transitioning to previous index correctly.")
     }
+    
+    /// Test successful transition reports offsets correctly.
+    func testSuccessfulTransitionOffsetReporting() {
+        self.dataSource.numberOfPages = 5
+        self.pageboyViewController.dataSource = self.dataSource
+        
+        self.pageboyViewController.transitionToPage(.atIndex(index: 1), animated: true)
+        { (newViewController, animated, finished) in
+            
+            XCTAssert(self.delegate.lastRecordedPageOffset?.x == 1.0 &&
+                self.delegate.lastRecordedPageIndex == 1 &&
+                self.pageboyViewController.currentIndex == 1,
+                      "Not reporting complete transition offset values correctly.")
+        }
+    }
+    
+    /// Test partial user interacted transition reports offsets correctly.
+    func testPartialTransitionOffsetReporting() {
+        self.dataSource.numberOfPages = 5
+        self.pageboyViewController.dataSource = self.dataSource
+        
+        // simulate scroll
+        let boundsWidth = self.pageboyViewController.view.frame.size.width
+        self.pageboyViewController.pageViewController.scrollView?.setContentOffset(CGPoint(x: boundsWidth + (boundsWidth / 2.0), y: 0.0),
+                                                                                   animated: false)
+        
+        XCTAssert(String(format:"%.1f", self.delegate.lastRecordedPageOffset?.x ?? 0.0) == "0.5" &&
+            self.pageboyViewController.currentIndex == 0,
+                  "Not reporting partial user interacted transition offset values correctly.")
+        
+    }
+    
+    /// Test successful transition reports direction correctly.
+    func testSuccessfulTransitionDirectionReporting() {
+        self.dataSource.numberOfPages = 5
+        self.pageboyViewController.dataSource = self.dataSource
+        
+        self.pageboyViewController.transitionToPage(.last, animated: false)
+        self.pageboyViewController.transitionToPage(.atIndex(index: 0), animated: true)
+        { (newViewController, animated, finished) in
+            
+            XCTAssert(self.pageboyViewController.currentIndex == 0 &&
+                      self.delegate.lastRecordedDirection == .reverse,
+                      "Not reporting complete transition direction values correctly")
+        }
+    }
+    
+    /// Test partial user interacted transition reports direction correctly.
+    func testPartialTransitionDirectionReporting() {
+        self.dataSource.numberOfPages = 5
+        self.pageboyViewController.dataSource = self.dataSource
+        
+        // simulate scroll
+        let boundsWidth = self.pageboyViewController.view.frame.size.width
+        self.pageboyViewController.pageViewController.scrollView?.setContentOffset(CGPoint(x: boundsWidth + (boundsWidth / 2.0), y: 0.0),
+                                                                                   animated: false)
+
+        XCTAssert(self.delegate.lastRecordedDirection == .forward && self.pageboyViewController.currentIndex == 0,
+                  "Not reporting partial user interacted transition direction values correctly.")
+    }
+    
+    /// Test unsuccessful animated transition to current page 
+    func testUnsuccessfulTransitionToCurrentPage() {
+        self.dataSource.numberOfPages = 5
+        self.pageboyViewController.dataSource = self.dataSource
+
+        self.pageboyViewController.transitionToPage(.first, animated: true) { (viewController, animated, finished) in
+            XCTAssert(finished == false && self.pageboyViewController.currentIndex == 0,
+                      "Not handling unsuccessful transition to current page correctly.")
+        }
+    }
 }

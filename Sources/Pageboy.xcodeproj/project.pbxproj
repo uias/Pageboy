@@ -18,6 +18,7 @@
 		D681E3451E548737007C08F5 /* PageboyDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D681E3441E548737007C08F5 /* PageboyDataSourceTests.swift */; };
 		D681E3491E5489A1007C08F5 /* PageboyTransitionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D681E3481E5489A1007C08F5 /* PageboyTransitionTests.swift */; };
 		D681E34B1E548C0E007C08F5 /* PageboyConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D681E34A1E548C0E007C08F5 /* PageboyConfigurationTests.swift */; };
+		D681E34D1E548D12007C08F5 /* TestPageboyDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D681E34C1E548D12007C08F5 /* TestPageboyDelegate.swift */; };
 		D6E73A7B1E5207B100A8D5A5 /* PageboyScrollDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E73A7A1E5207B100A8D5A5 /* PageboyScrollDetection.swift */; };
 		D6E73A7D1E52083F00A8D5A5 /* PageboyControllerManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E73A7C1E52083F00A8D5A5 /* PageboyControllerManagement.swift */; };
 		D6ECCEC21E51AFE500E9D5B3 /* PageViewControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ECCEC11E51AFE500E9D5B3 /* PageViewControllerUtils.swift */; };
@@ -48,6 +49,7 @@
 		D681E3441E548737007C08F5 /* PageboyDataSourceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageboyDataSourceTests.swift; sourceTree = "<group>"; };
 		D681E3481E5489A1007C08F5 /* PageboyTransitionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageboyTransitionTests.swift; sourceTree = "<group>"; };
 		D681E34A1E548C0E007C08F5 /* PageboyConfigurationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageboyConfigurationTests.swift; sourceTree = "<group>"; };
+		D681E34C1E548D12007C08F5 /* TestPageboyDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestPageboyDelegate.swift; sourceTree = "<group>"; };
 		D6E73A7A1E5207B100A8D5A5 /* PageboyScrollDetection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageboyScrollDetection.swift; sourceTree = "<group>"; };
 		D6E73A7C1E52083F00A8D5A5 /* PageboyControllerManagement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageboyControllerManagement.swift; sourceTree = "<group>"; };
 		D6ECCEC11E51AFE500E9D5B3 /* PageViewControllerUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewControllerUtils.swift; sourceTree = "<group>"; };
@@ -98,7 +100,7 @@
 				D6E73A7C1E52083F00A8D5A5 /* PageboyControllerManagement.swift */,
 				D6E73A7A1E5207B100A8D5A5 /* PageboyScrollDetection.swift */,
 				D6ECCEC01E51AFDB00E9D5B3 /* Utilities */,
-				D623B1BB1E1D0C6A00527F3D /* Info.plist */,
+				D681E34E1E5492D2007C08F5 /* Resources */,
 			);
 			path = Pageboy;
 			sourceTree = "<group>";
@@ -119,11 +121,20 @@
 		D681E33D1E5477C2007C08F5 /* TestComponents */ = {
 			isa = PBXGroup;
 			children = (
+				D681E34C1E548D12007C08F5 /* TestPageboyDelegate.swift */,
 				D681E3421E547901007C08F5 /* TestPageboyDataSource.swift */,
 				D681E33E1E5477D3007C08F5 /* TestPageboyViewController.swift */,
 				D681E3401E5478E6007C08F5 /* TestPageChildViewController.swift */,
 			);
 			path = TestComponents;
+			sourceTree = "<group>";
+		};
+		D681E34E1E5492D2007C08F5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D623B1BB1E1D0C6A00527F3D /* Info.plist */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		D6ECCEC01E51AFDB00E9D5B3 /* Utilities */ = {
@@ -282,6 +293,7 @@
 				D681E3431E547901007C08F5 /* TestPageboyDataSource.swift in Sources */,
 				D681E33F1E5477D3007C08F5 /* TestPageboyViewController.swift in Sources */,
 				D623B1C61E1D0C6B00527F3D /* PageboyTests.swift in Sources */,
+				D681E34D1E548D12007C08F5 /* TestPageboyDelegate.swift in Sources */,
 				D681E3411E5478E6007C08F5 /* TestPageChildViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

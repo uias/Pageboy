@@ -13,6 +13,7 @@ class PageboyTests: XCTestCase {
     
     var pageboyViewController: TestPageBoyViewController!
     var dataSource: TestPageboyDataSource!
+    var delegate: TestPageboyDelegate!
     
     //
     // MARK: Environment
@@ -23,14 +24,20 @@ class PageboyTests: XCTestCase {
         
         self.pageboyViewController = TestPageBoyViewController()
         self.dataSource = TestPageboyDataSource()
+        self.delegate = TestPageboyDelegate()
         
         self.pageboyViewController.loadViewIfNeeded()
+        self.pageboyViewController.delegate = delegate
+        
+        let bounds = UIScreen.main.bounds
+        self.pageboyViewController.view.frame = bounds
     }
     
     override func tearDown() {
         
         self.pageboyViewController = nil
         self.dataSource = nil
+        self.delegate = nil
         
         super.tearDown()
     }
