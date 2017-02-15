@@ -124,7 +124,6 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
         }
         
         pagePosition = infinitePagePosition
-        print(overscrolling)
     }
     
     /// Detects whether a page boundary has been passed.
@@ -148,6 +147,11 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
                 self.updateCurrentPageIndexIfNeeded(currentIndex - 1)
                 return true
             }
+        }
+        
+        let isOnPage = pagePosition.truncatingRemainder(dividingBy: 1) == 0
+        if isOnPage {
+            self.currentIndex = currentIndex
         }
         
         return false
