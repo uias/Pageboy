@@ -133,6 +133,7 @@ class PageViewController: PageboyViewController, PageboyViewControllerDelegate {
         
         self.pageLabel.text = "Current Page: " + String(describing: pageIndex)
         self.updateAppearance(pageOffset: CGFloat(pageIndex))
+        self.updateBarButtonStates(index: pageIndex)
     }
 }
 
