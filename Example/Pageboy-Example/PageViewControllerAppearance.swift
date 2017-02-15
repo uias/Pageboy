@@ -23,7 +23,6 @@ extension PageViewController {
         
         var integral: Double = 0.0
         let percentage = CGFloat(modf(Double(offset), &integral))
-        print(percentage)
         let lowerIndex = Int(floor(pageOffset))
         let upperIndex = Int(ceil(pageOffset))
         
