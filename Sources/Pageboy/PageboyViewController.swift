@@ -246,6 +246,10 @@ open class PageboyViewController: UIViewController {
             guard let viewController = self.viewControllers?[rawIndex] else { return }
             
             let direction = NavigationDirection.forPage(rawIndex, previousPage: self.currentIndex ?? rawIndex)
+            self.delegate?.pageboyViewController(self,
+                                                 willScrollToPageAtIndex: rawIndex,
+                                                 direction: direction)
+            
             self.isTransitioning = true
             self.pageViewController.setViewControllers([viewController],
                                                        direction: direction.pageViewControllerNavDirection,

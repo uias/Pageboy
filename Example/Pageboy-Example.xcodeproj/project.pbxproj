@@ -16,6 +16,7 @@
 		D681E3341E546A90007C08F5 /* Pageboy.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D681E3241E546A7D007C08F5 /* Pageboy.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D681E3511E54959B007C08F5 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D681E3501E54959B007C08F5 /* GradientView.swift */; };
 		D681E3541E549F7E007C08F5 /* PageViewControllerAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D681E3531E549F7E007C08F5 /* PageViewControllerAppearance.swift */; };
+		D681E3561E54ABE8007C08F5 /* TransparentNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D681E3551E54ABE8007C08F5 /* TransparentNavigationBar.swift */; };
 		D6ECCEC61E51B6FB00E9D5B3 /* ChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ECCEC51E51B6FB00E9D5B3 /* ChildViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +69,7 @@
 		D681E31E1E546A7D007C08F5 /* Pageboy.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pageboy.xcodeproj; path = ../Sources/Pageboy.xcodeproj; sourceTree = "<group>"; };
 		D681E3501E54959B007C08F5 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		D681E3531E549F7E007C08F5 /* PageViewControllerAppearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewControllerAppearance.swift; sourceTree = "<group>"; };
+		D681E3551E54ABE8007C08F5 /* TransparentNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransparentNavigationBar.swift; sourceTree = "<group>"; };
 		D6ECCEC51E51B6FB00E9D5B3 /* ChildViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChildViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -137,6 +139,7 @@
 			children = (
 				D681E3531E549F7E007C08F5 /* PageViewControllerAppearance.swift */,
 				D681E3501E54959B007C08F5 /* GradientView.swift */,
+				D681E3551E54ABE8007C08F5 /* TransparentNavigationBar.swift */,
 			);
 			name = "Example Components";
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 			files = (
 				D623B1E41E1D32D700527F3D /* PageViewController.swift in Sources */,
 				D623B1E21E1D32D700527F3D /* AppDelegate.swift in Sources */,
+				D681E3561E54ABE8007C08F5 /* TransparentNavigationBar.swift in Sources */,
 				D681E3541E549F7E007C08F5 /* PageViewControllerAppearance.swift in Sources */,
 				D681E3511E54959B007C08F5 /* GradientView.swift in Sources */,
 				D6ECCEC61E51B6FB00E9D5B3 /* ChildViewController.swift in Sources */,

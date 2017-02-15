@@ -77,7 +77,7 @@ class PageViewController: PageboyViewController, PageboyViewControllerDelegate {
         self.previousBarButton = previousBarButton
         self.nextBarButton = nextBarButton
         
-        self.updateBarButtonStates()
+        self.updateBarButtonStates(index: self.currentIndex ?? 0)
     }
     
     @objc func nextPage(_ sender: UIBarButtonItem) {
@@ -88,9 +88,9 @@ class PageViewController: PageboyViewController, PageboyViewControllerDelegate {
         self.transitionToPage(.previous, animated: true)
     }
     
-    func updateBarButtonStates() {
-        self.previousBarButton?.isEnabled = self.currentIndex != 0
-        self.nextBarButton?.isEnabled = self.currentIndex != (self.viewControllers?.count ?? 0) - 1
+    func updateBarButtonStates(index: Int) {
+        self.previousBarButton?.isEnabled = index != 0
+        self.nextBarButton?.isEnabled = index != (self.viewControllers?.count ?? 0) - 1
     }
     
     //
@@ -124,7 +124,7 @@ class PageViewController: PageboyViewController, PageboyViewControllerDelegate {
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
                                willScrollToPageAtIndex pageIndex: Int,
                                direction: PageboyViewController.NavigationDirection) {
-        
+        self.updateBarButtonStates(index: pageIndex)
     }
     
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
@@ -132,7 +132,6 @@ class PageViewController: PageboyViewController, PageboyViewControllerDelegate {
                                direction: PageboyViewController.NavigationDirection) {
         
         self.pageLabel.text = "Current Page: " + String(describing: pageIndex)
-        self.updateBarButtonStates()
         self.updateAppearance(pageOffset: CGFloat(pageIndex))
     }
 }
