@@ -15,9 +15,15 @@ extension PageViewController {
     //
     
     func updateAppearance(pageOffset: CGFloat) {
-        var integral: Double = 0.0
-        let percentage = CGFloat(modf(fabs(Double(pageOffset)), &integral))
         
+        var offset = pageOffset
+        if offset < 0.0 {
+            offset = 1.0 + offset
+        }
+        
+        var integral: Double = 0.0
+        let percentage = CGFloat(modf(Double(offset), &integral))
+        print(percentage)
         let lowerIndex = Int(floor(pageOffset))
         let upperIndex = Int(ceil(pageOffset))
         
@@ -36,11 +42,11 @@ extension PageViewController {
     }
     
     func gradient(forIndex index: Int) -> GradientConfig {
-        if index < self.gradients.count {
-            return self.gradients[index]
-        } else {
-            return GradientConfig.defaultGradient
+        guard index >= 0 && index < self.gradients.count else {
+            return .defaultGradient
         }
+        
+        return self.gradients[index]
     }
     
     func interpolate(betweenColor colorA: UIColor,
