@@ -78,15 +78,15 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
         self.detectInfiniteOverscrollIfNeeded(pagePosition: &pagePosition)
         
         // provide scroll updates
-        var offsetPoint: CGPoint!
-        let direction = NavigationDirection.forOffset(pagePosition, previousOffset: previousPagePosition)
+        var positionPoint: CGPoint!
+        let direction = NavigationDirection.forPosition(pagePosition, previous: previousPagePosition)
         if self.navigationOrientation == .horizontal {
-            offsetPoint = CGPoint(x: pagePosition, y: scrollView.contentOffset.y)
+            positionPoint = CGPoint(x: pagePosition, y: scrollView.contentOffset.y)
         } else {
-            offsetPoint = CGPoint(x: scrollView.contentOffset.x, y: pagePosition)
+            positionPoint = CGPoint(x: scrollView.contentOffset.x, y: pagePosition)
         }
         self.delegate?.pageboyViewController(self,
-                                             didScrollToOffset: offsetPoint,
+                                             didScrollToPosition: positionPoint,
                                              direction: direction)
         
         self.previousPagePosition = pagePosition
@@ -184,14 +184,14 @@ internal extension PageboyViewController.NavigationDirection {
     
     static func forPage(_ page: Int,
                           previousPage: Int) -> PageboyViewController.NavigationDirection {
-        return self.forOffset(CGFloat(page), previousOffset: CGFloat(previousPage))
+        return self.forPosition(CGFloat(page), previous: CGFloat(previousPage))
     }
     
-    static func forOffset(_ offset: CGFloat,
-                          previousOffset: CGFloat) -> PageboyViewController.NavigationDirection {
-        if offset == previousOffset {
+    static func forPosition(_ position: CGFloat,
+                            previous previousPosition: CGFloat) -> PageboyViewController.NavigationDirection {
+        if position == previousPosition {
             return .neutral
         }
-        return  offset > previousOffset ? .forward : .reverse
+        return  position > previousPosition ? .forward : .reverse
     }
 }

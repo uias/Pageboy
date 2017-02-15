@@ -11,14 +11,14 @@ import Pageboy
 
 class TestPageboyDelegate: PageboyViewControllerDelegate {
     
-    var lastRecordedPageOffset: CGPoint?
+    var lastRecordedPagePosition: CGPoint?
     var lastRecordedPageIndex: Int?
     var lastRecordedDirection: PageboyViewController.NavigationDirection?
     
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
-                               didScrollToOffset pageOffset: CGPoint,
+                               didScrollToPosition pagePosition: CGPoint,
                                direction: PageboyViewController.NavigationDirection) {
-        lastRecordedPageOffset = pageOffset
+        lastRecordedPagePosition = pagePosition
         lastRecordedDirection = direction
     }
     

@@ -40,10 +40,10 @@ public protocol PageboyViewControllerDelegate {
     ///
     /// - Parameters:
     ///   - pageboyViewController: The Pageboy view controller.
-    ///   - pageOffset: The current offset.
+    ///   - pagePosition: The current relative page position.
     ///   - direction: The direction of the scroll.
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
-                               didScrollToOffset pageOffset: CGPoint,
+                               didScrollToPosition pagePosition: CGPoint,
                                direction: PageboyViewController.NavigationDirection)
     
     /// The page view controller did complete scroll to a new page.
@@ -181,8 +181,8 @@ open class PageboyViewController: UIViewController {
         didSet {
             guard let currentIndex = self.currentIndex else { return }
             
-            let direction = NavigationDirection.forOffset(CGFloat(currentIndex),
-                                                          previousOffset: CGFloat(oldValue ?? currentIndex))
+            let direction = NavigationDirection.forPosition(CGFloat(currentIndex),
+                                                            previous: CGFloat(oldValue ?? currentIndex))
             self.delegate?.pageboyViewController(self,
                                                  didScrollToPageWithIndex: currentIndex,
                                                  direction: direction)

@@ -101,7 +101,7 @@ class PageboyTransitionTests: PageboyTests {
         self.pageboyViewController.transitionToPage(.atIndex(index: 1), animated: true)
         { (newViewController, animated, finished) in
             
-            XCTAssert(self.delegate.lastRecordedPageOffset?.x == 1.0 &&
+            XCTAssert(self.delegate.lastRecordedPagePosition?.x == 1.0 &&
                 self.delegate.lastRecordedPageIndex == 1 &&
                 self.pageboyViewController.currentIndex == 1,
                       "Not reporting complete transition offset values correctly.")
@@ -118,7 +118,7 @@ class PageboyTransitionTests: PageboyTests {
         self.pageboyViewController.pageViewController.scrollView?.setContentOffset(CGPoint(x: boundsWidth + (boundsWidth / 2.0), y: 0.0),
                                                                                    animated: false)
         
-        XCTAssert(String(format:"%.1f", self.delegate.lastRecordedPageOffset?.x ?? 0.0) == "0.5" &&
+        XCTAssert(String(format:"%.1f", self.delegate.lastRecordedPagePosition?.x ?? 0.0) == "0.5" &&
             self.pageboyViewController.currentIndex == 0,
                   "Not reporting partial user interacted transition offset values correctly.")
         
