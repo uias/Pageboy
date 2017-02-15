@@ -99,6 +99,7 @@ open class PageboyViewController: UIViewController {
     
     internal var pageViewController: UIPageViewController!
     internal var previousPagePosition: CGFloat?
+    internal var expectedTransitionIndex: Int?
     
     private var _dataSource: PageboyViewControllerDataSource?
     
