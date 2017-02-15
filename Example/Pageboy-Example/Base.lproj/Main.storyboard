@@ -105,15 +105,24 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="swipe me &gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bIS-p2-cmU">
+                                <rect key="frame" x="150.5" y="356.5" width="74" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="0cc-Dw-8mt" firstAttribute="centerX" secondItem="454-9C-Wci" secondAttribute="centerX" id="EYF-z1-2o5"/>
+                            <constraint firstItem="bIS-p2-cmU" firstAttribute="centerX" secondItem="454-9C-Wci" secondAttribute="centerX" id="MzV-na-IoD"/>
                             <constraint firstItem="0cc-Dw-8mt" firstAttribute="centerY" secondItem="454-9C-Wci" secondAttribute="centerY" id="gNX-2D-f5g"/>
+                            <constraint firstItem="bIS-p2-cmU" firstAttribute="top" secondItem="0cc-Dw-8mt" secondAttribute="bottom" constant="8" id="pJX-lJ-MwA"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="label" destination="0cc-Dw-8mt" id="ELl-Pw-7x5"/>
+                        <outlet property="promptLabel" destination="bIS-p2-cmU" id="Bw7-jC-cnk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Lq-0D-F4L" userLabel="First Responder" sceneMemberID="firstResponder"/>

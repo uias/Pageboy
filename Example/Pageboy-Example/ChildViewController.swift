@@ -11,6 +11,8 @@ import UIKit
 class ChildViewController: UIViewController {
 
     @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var promptLabel: UILabel!
+
     var index: Int?
     
     override func viewDidLoad() {
@@ -18,6 +20,7 @@ class ChildViewController: UIViewController {
 
         if let index = self.index {
             self.label.text = "Page " + String(index)
+            self.promptLabel.isHidden = index != 1
         }
     }
 
