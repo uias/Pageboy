@@ -260,7 +260,17 @@ open class PageboyViewController: UIViewController {
                                                        completion:
                 { (finished) in
                     if finished {
+                        let isVertical = self.navigationOrientation == .vertical
+                        self.currentPosition = CGPoint(x: isVertical ? 0.0 : CGFloat(rawIndex),
+                                                       y: isVertical ? CGFloat(rawIndex) : 0.0)
                         self.currentIndex = rawIndex
+                        
+                        // if not animated call position delegate update manually
+                        if !animated {
+                            self.delegate?.pageboyViewController(self,
+                                                                 didScrollToPosition: self.currentPosition!,
+                                                                 direction: direction)
+                        }
                     }
                     completion?(viewController, animated, finished)
                     self.isTransitioning = false
