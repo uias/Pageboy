@@ -85,6 +85,8 @@ open class PageboyViewController: UIViewController {
         case atIndex(index: Int)
     }
     
+    
+    /// Completion of a page transition.
     public typealias PageTransitionCompletion = (_ newViewController: UIViewController, _ animated: Bool, _ finished: Bool) -> Void
     
     //

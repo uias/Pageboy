@@ -11,26 +11,59 @@ import XCTest
 
 class PageboyTests: XCTestCase {
     
+    var pageboyViewController: TestPageBoyViewController!
+    var dataSource: TestPageboyDataSource!
+    
+    //
+    // MARK: Environment
+    //
+    
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        
+        self.pageboyViewController = TestPageBoyViewController()
+        self.dataSource = TestPageboyDataSource()
+        
+        self.pageboyViewController.loadViewIfNeeded()
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        
+        self.pageboyViewController = nil
+        self.dataSource = nil
+        
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    //
+    // MARK: Tests - Set Up
+    //
+    
+    /// Test the pageboy view controller successfully loading view controllers from the data source.
+    func testPageboyViewControllerValidSetUp() {
+        self.dataSource.numberOfPages = 1
+        self.pageboyViewController.dataSource = self.dataSource
+        
+        XCTAssert(self.pageboyViewController.viewControllers?.count == 1,
+                  "View Controllers were not successfully loaded from the data source.")
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    /// Test the pageboy view controller successfully loading an empty view controller array from
+    /// the data source.
+    func testPageboyViewControllerEmptySetUp() {
+        self.dataSource.numberOfPages = 0
+        self.pageboyViewController.dataSource = self.dataSource
+        
+        XCTAssert(self.pageboyViewController.viewControllers?.count == 0,
+                  "Empty view controller array not successfully loaded from the data source.")
+    }
+    
+    /// Test the pageboy view controller successfully loading a nil array from the data source.
+    func testPageboyViewControllerNilSetUp() {
+        self.pageboyViewController.dataSource = self.dataSource
+        
+        XCTAssert(self.pageboyViewController.viewControllers == nil,
+                  "View Controller array is not nil when data source returns nil.")
     }
     
 }
