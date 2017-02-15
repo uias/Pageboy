@@ -12,6 +12,7 @@ import Pageboy
 class TestPageboyDataSource: Any, PageboyViewControllerDataSource {
     
     var numberOfPages: Int?
+    var defaultIndex: PageboyViewController.PageIndex?
     private var viewControllers = [UIViewController]()
     
     func viewControllers(forPageboyViewController pageboyViewController: PageboyViewController) -> [UIViewController]? {
@@ -28,7 +29,7 @@ class TestPageboyDataSource: Any, PageboyViewControllerDataSource {
         return viewControllers
     }
     
-    func defaultPageIndex(forPageboyViewController pageboyViewController: PageboyViewController) -> Int {
-        return 0
+    func defaultPageIndex(forPageboyViewController pageboyViewController: PageboyViewController) -> PageboyViewController.PageIndex? {
+        return defaultIndex
     }
 }

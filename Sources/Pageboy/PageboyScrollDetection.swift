@@ -18,7 +18,7 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
             return
         }
         
-        let direction = NavigationDirection.forPage(index, previousPage: self.currentIndex)
+        let direction = NavigationDirection.forPage(index, previousPage: self.currentIndex ?? index)
         self.delegate?.pageboyViewController(self, willScrollToPageAtIndex: index, direction: direction)
     }
     
@@ -42,6 +42,10 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
     //
     
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard let currentIndex = self.currentIndex else {
+            return
+        }
+        
         let previousPagePosition = self.previousPagePosition ?? 0.0
         
         // calculate offset / page size for relative orientation
@@ -56,7 +60,7 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
         }
         
         let scrollOffset = contentOffset - pageSize
-        let pageOffset = (CGFloat(self.currentIndex) * pageSize) + scrollOffset
+        let pageOffset = (CGFloat(currentIndex) * pageSize) + scrollOffset
         var pagePosition = pageOffset / pageSize
         
         // do not continue if a page change is detected
@@ -131,14 +135,17 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
     ///   - scrollView: The scroll view that is being scrolled.
     /// - Returns: Whether a page transition has been detected.
     private func detectCurrentPageIndexIfNeeded(pagePosition: CGFloat, scrollView: UIScrollView) -> Bool {
+        guard let currentIndex = self.currentIndex else {
+            return false
+        }
         
         let isPagingForward = pagePosition > self.previousPagePosition ?? 0.0
         if scrollView.isDragging {
-            if isPagingForward && pagePosition >= CGFloat(self.currentIndex + 1) {
-                self.updateCurrentPageIndexIfNeeded(self.currentIndex + 1)
+            if isPagingForward && pagePosition >= CGFloat(currentIndex + 1) {
+                self.updateCurrentPageIndexIfNeeded(currentIndex + 1)
                 return true
-            } else if !isPagingForward && pagePosition <= CGFloat(self.currentIndex - 1) {
-                self.updateCurrentPageIndexIfNeeded(self.currentIndex - 1)
+            } else if !isPagingForward && pagePosition <= CGFloat(currentIndex - 1) {
+                self.updateCurrentPageIndexIfNeeded(currentIndex - 1)
                 return true
             }
         }

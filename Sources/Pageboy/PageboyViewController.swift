@@ -177,10 +177,12 @@ open class PageboyViewController: UIViewController {
     public internal(set) var viewControllers: [UIViewController]?
     
     /// The page index that the page view controller is currently at.
-    public internal(set) var currentIndex: Int = 0 {
+    public internal(set) var currentIndex: Int? {
         didSet {
+            guard let currentIndex = self.currentIndex else { return }
+            
             let direction = NavigationDirection.forOffset(CGFloat(currentIndex),
-                                                          previousOffset: CGFloat(oldValue))
+                                                          previousOffset: CGFloat(oldValue ?? currentIndex))
             self.delegate?.pageboyViewController(self,
                                                  didScrollToPageWithIndex: currentIndex,
                                                  direction: direction)
@@ -190,7 +192,8 @@ open class PageboyViewController: UIViewController {
     /// The view controller that the page view controller is currently at.
     public var currentViewController: UIViewController? {
         get {
-            guard self.viewControllers?.count ?? 0 > currentIndex else {
+            guard let currentIndex = self.currentIndex,
+                self.viewControllers?.count ?? 0 > currentIndex else {
                 return nil
             }
             return self.viewControllers?[currentIndex]
@@ -242,7 +245,7 @@ open class PageboyViewController: UIViewController {
             guard rawIndex >= 0 && rawIndex < self.viewControllers?.count ?? 0 else { return }
             guard let viewController = self.viewControllers?[rawIndex] else { return }
             
-            let direction = NavigationDirection.forPage(rawIndex, previousPage: self.currentIndex)
+            let direction = NavigationDirection.forPage(rawIndex, previousPage: self.currentIndex ?? rawIndex)
             self.isTransitioning = true
             self.pageViewController.setViewControllers([viewController],
                                                        direction: direction.pageViewControllerNavDirection,
@@ -305,10 +308,16 @@ internal extension PageboyViewController {
         switch pageIndex {
             
         case .next:
-            return self.currentIndex + 1
+            guard let currentIndex = self.currentIndex else {
+                return 0
+            }
+            return currentIndex + 1
             
         case .previous:
-            return self.currentIndex - 1
+            guard let currentIndex = self.currentIndex else {
+                return 0
+            }
+            return currentIndex - 1
             
         case .first:
             return 0
