@@ -12,29 +12,29 @@
 		D623B1E71E1D32D700527F3D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D623B1E51E1D32D700527F3D /* Main.storyboard */; };
 		D623B1E91E1D32D700527F3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D623B1E81E1D32D700527F3D /* Assets.xcassets */; };
 		D623B1EC1E1D32D700527F3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D623B1EA1E1D32D700527F3D /* LaunchScreen.storyboard */; };
-		D6E73A6C1E51F7C400A8D5A5 /* Pageboy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46EED5F31E4554C000C6B537 /* Pageboy.framework */; };
-		D6E73A6D1E51F7C400A8D5A5 /* Pageboy.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 46EED5F31E4554C000C6B537 /* Pageboy.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D681E3331E546A90007C08F5 /* Pageboy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D681E3241E546A7D007C08F5 /* Pageboy.framework */; };
+		D681E3341E546A90007C08F5 /* Pageboy.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D681E3241E546A7D007C08F5 /* Pageboy.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D6ECCEC61E51B6FB00E9D5B3 /* ChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ECCEC51E51B6FB00E9D5B3 /* ChildViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		46EED5F21E4554C000C6B537 /* PBXContainerItemProxy */ = {
+		D681E3231E546A7D007C08F5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 46EED5ED1E4554C000C6B537 /* Pageboy.xcodeproj */;
+			containerPortal = D681E31E1E546A7D007C08F5 /* Pageboy.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = D623B1B71E1D0C6A00527F3D;
 			remoteInfo = Pageboy;
 		};
-		46EED5F41E4554C000C6B537 /* PBXContainerItemProxy */ = {
+		D681E3251E546A7D007C08F5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 46EED5ED1E4554C000C6B537 /* Pageboy.xcodeproj */;
+			containerPortal = D681E31E1E546A7D007C08F5 /* Pageboy.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = D623B1C01E1D0C6B00527F3D;
 			remoteInfo = PageboyTests;
 		};
-		D6E73A6E1E51F7C400A8D5A5 /* PBXContainerItemProxy */ = {
+		D681E3351E546A90007C08F5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 46EED5ED1E4554C000C6B537 /* Pageboy.xcodeproj */;
+			containerPortal = D681E31E1E546A7D007C08F5 /* Pageboy.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = D623B1B61E1D0C6A00527F3D;
 			remoteInfo = Pageboy;
@@ -48,7 +48,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D6E73A6D1E51F7C400A8D5A5 /* Pageboy.framework in Embed Frameworks */,
+				D681E3341E546A90007C08F5 /* Pageboy.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -56,7 +56,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		46EED5ED1E4554C000C6B537 /* Pageboy.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pageboy.xcodeproj; path = ../Source/Pageboy.xcodeproj; sourceTree = "<group>"; };
 		D623B1DE1E1D32D700527F3D /* Pageboy-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pageboy-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D623B1E11E1D32D700527F3D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D623B1E31E1D32D700527F3D /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +63,7 @@
 		D623B1E81E1D32D700527F3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D623B1EB1E1D32D700527F3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D623B1ED1E1D32D700527F3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D681E31E1E546A7D007C08F5 /* Pageboy.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pageboy.xcodeproj; path = ../Sources/Pageboy.xcodeproj; sourceTree = "<group>"; };
 		D6ECCEC51E51B6FB00E9D5B3 /* ChildViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChildViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -72,26 +72,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6E73A6C1E51F7C400A8D5A5 /* Pageboy.framework in Frameworks */,
+				D681E3331E546A90007C08F5 /* Pageboy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		46EED5EE1E4554C000C6B537 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				46EED5F31E4554C000C6B537 /* Pageboy.framework */,
-				46EED5F51E4554C000C6B537 /* PageboyTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		D623B1D51E1D32D700527F3D = {
 			isa = PBXGroup;
 			children = (
-				46EED5ED1E4554C000C6B537 /* Pageboy.xcodeproj */,
+				D681E31E1E546A7D007C08F5 /* Pageboy.xcodeproj */,
 				D623B1E01E1D32D700527F3D /* Pageboy-Example */,
 				D623B1DF1E1D32D700527F3D /* Products */,
 			);
@@ -119,6 +110,15 @@
 			path = "Pageboy-Example";
 			sourceTree = "<group>";
 		};
+		D681E31F1E546A7D007C08F5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D681E3241E546A7D007C08F5 /* Pageboy.framework */,
+				D681E3261E546A7D007C08F5 /* PageboyTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -134,7 +134,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				D6E73A6F1E51F7C400A8D5A5 /* PBXTargetDependency */,
+				D681E3361E546A90007C08F5 /* PBXTargetDependency */,
 			);
 			name = "Pageboy-Example";
 			productName = "Pageboy-Example";
@@ -153,7 +153,8 @@
 				TargetAttributes = {
 					D623B1DD1E1D32D700527F3D = {
 						CreatedOnToolsVersion = 8.2;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = 6GVCVGN5W5;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -170,8 +171,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 46EED5EE1E4554C000C6B537 /* Products */;
-					ProjectRef = 46EED5ED1E4554C000C6B537 /* Pageboy.xcodeproj */;
+					ProductGroup = D681E31F1E546A7D007C08F5 /* Products */;
+					ProjectRef = D681E31E1E546A7D007C08F5 /* Pageboy.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -182,18 +183,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		46EED5F31E4554C000C6B537 /* Pageboy.framework */ = {
+		D681E3241E546A7D007C08F5 /* Pageboy.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = Pageboy.framework;
-			remoteRef = 46EED5F21E4554C000C6B537 /* PBXContainerItemProxy */;
+			remoteRef = D681E3231E546A7D007C08F5 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		46EED5F51E4554C000C6B537 /* PageboyTests.xctest */ = {
+		D681E3261E546A7D007C08F5 /* PageboyTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = PageboyTests.xctest;
-			remoteRef = 46EED5F41E4554C000C6B537 /* PBXContainerItemProxy */;
+			remoteRef = D681E3251E546A7D007C08F5 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -225,10 +226,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		D6E73A6F1E51F7C400A8D5A5 /* PBXTargetDependency */ = {
+		D681E3361E546A90007C08F5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Pageboy;
-			targetProxy = D6E73A6E1E51F7C400A8D5A5 /* PBXContainerItemProxy */;
+			targetProxy = D681E3351E546A90007C08F5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -349,7 +350,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 6GVCVGN5W5;
 				INFOPLIST_FILE = "Pageboy-Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.msapsford.Pageboy-Example";
@@ -366,7 +367,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 6GVCVGN5W5;
 				INFOPLIST_FILE = "Pageboy-Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.msapsford.Pageboy-Example";

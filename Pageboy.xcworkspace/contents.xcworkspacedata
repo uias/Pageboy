@@ -5,6 +5,6 @@
       location = "group:Example/Pageboy-Example.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Source/Pageboy.xcodeproj">
+      location = "group:Sources/Pageboy.xcodeproj">
    </FileRef>
 </Workspace>
