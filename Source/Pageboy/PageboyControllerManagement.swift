@@ -22,7 +22,7 @@ internal extension PageboyViewController {
                 return
         }
         
-        self.currentPageIndex = defaultIndex
+        self.currentIndex = defaultIndex
         self.pageViewController.setViewControllers([viewController],
                                                    direction: .forward,
                                                    animated: false,

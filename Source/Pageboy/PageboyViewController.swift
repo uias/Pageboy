@@ -94,15 +94,6 @@ open class PageboyViewController: UIViewController {
     internal var pageViewController: UIPageViewController!
     internal var viewControllers: [UIViewController]?
     
-    internal var currentPageIndex: Int = 0 {
-        willSet {
-            let direction = NavigationDirection.forOffset(CGFloat(newValue),
-                                                          previousOffset: CGFloat(currentPageIndex))
-            self.delegate?.pageboyViewController(self,
-                                                 didScrollToPageWithIndex: newValue,
-                                                 direction: direction)
-        }
-    }
     internal var previousPagePosition: CGFloat?
     
     private var _dataSource: PageboyViewControllerDataSource?
@@ -141,11 +132,6 @@ open class PageboyViewController: UIViewController {
     /// The object that is the delegate for the page view controller.
     public var delegate: PageboyViewControllerDelegate?
     
-    /// Whether the page view controller should infinitely scroll at the end of page ranges.
-    ///
-    /// Default is FALSE.
-    public var isInfiniteScrollEnabled: Bool = false
-    
     /// Whether scroll is enabled on the page view controller.
     ///
     /// Default is TRUE.
@@ -175,6 +161,32 @@ open class PageboyViewController: UIViewController {
     private(set) var isTransitioning = false {
         didSet {
             self.isUserInteractionEnabled = !self.isTransitioning
+        }
+    }
+    
+    /// Whether the page view controller should infinitely scroll at the end of page ranges.
+    ///
+    /// Default is FALSE.
+    public var isInfiniteScrollEnabled: Bool = false
+    
+    /// The page index that the page view controller is currently at.
+    public internal(set) var currentIndex: Int = 0 {
+        willSet {
+            let direction = NavigationDirection.forOffset(CGFloat(newValue),
+                                                          previousOffset: CGFloat(currentIndex))
+            self.delegate?.pageboyViewController(self,
+                                                 didScrollToPageWithIndex: newValue,
+                                                 direction: direction)
+        }
+    }
+    
+    /// The view controller that the page view controller is currently at.
+    public var currentViewController: UIViewController? {
+        get {
+            guard self.viewControllers?.count ?? 0 > currentIndex else {
+                return nil
+            }
+            return self.viewControllers?[currentIndex]
         }
     }
     
@@ -211,14 +223,19 @@ open class PageboyViewController: UIViewController {
     public func transitionToPage(_ index: PageIndex,
                                  animated: Bool,
                                  completion: PageTransitionCompletion? = nil) {
+        
+        // guard against any current transition operation
         guard self.isTransitioning == false else { return }
+        guard self.isDragging == false else { return }
         
         let rawIndex = self.indexValue(forPageIndex: index)
-        if rawIndex != self.currentPageIndex {
+        if rawIndex != self.currentIndex {
+            
+            // guard against invalid page indexing
             guard rawIndex >= 0 && rawIndex < self.viewControllers?.count ?? 0 else { return }
             guard let viewController = self.viewControllers?[rawIndex] else { return }
             
-            let direction = NavigationDirection.forPage(rawIndex, previousPage: self.currentPageIndex)
+            let direction = NavigationDirection.forPage(rawIndex, previousPage: self.currentIndex)
             self.isTransitioning = true
             self.pageViewController.setViewControllers([viewController],
                                                        direction: direction.pageViewControllerNavDirection,
@@ -226,7 +243,7 @@ open class PageboyViewController: UIViewController {
                                                        completion:
                 { (finished) in
                     if finished {
-                        self.currentPageIndex = rawIndex
+                        self.currentIndex = rawIndex
                     }
                     completion?(viewController, animated, finished)
                     self.isTransitioning = false
@@ -280,10 +297,10 @@ internal extension PageboyViewController {
         switch pageIndex {
             
         case .next:
-            return self.currentPageIndex + 1
+            return self.currentIndex + 1
             
         case .previous:
-            return self.currentPageIndex - 1
+            return self.currentIndex - 1
             
         case .atIndex(let index):
             return index

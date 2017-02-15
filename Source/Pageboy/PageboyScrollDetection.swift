@@ -18,7 +18,7 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
             return
         }
         
-        let direction = NavigationDirection.forPage(index, previousPage: self.currentPageIndex)
+        let direction = NavigationDirection.forPage(index, previousPage: self.currentIndex)
         self.delegate?.pageboyViewController(self, willScrollToPageAtIndex: index, direction: direction)
     }
     
@@ -56,7 +56,7 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
         }
         
         let scrollOffset = contentOffset - pageSize
-        let pageOffset = (CGFloat(self.currentPageIndex) * pageSize) + scrollOffset
+        let pageOffset = (CGFloat(self.currentIndex) * pageSize) + scrollOffset
         var pagePosition = pageOffset / pageSize
         
         // do not continue if a page change is detected
@@ -134,11 +134,11 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
         
         let isPagingForward = pagePosition > self.previousPagePosition ?? 0.0
         if scrollView.isDragging {
-            if isPagingForward && pagePosition >= CGFloat(self.currentPageIndex + 1) {
-                self.updateCurrentPageIndexIfNeeded(self.currentPageIndex + 1)
+            if isPagingForward && pagePosition >= CGFloat(self.currentIndex + 1) {
+                self.updateCurrentPageIndexIfNeeded(self.currentIndex + 1)
                 return true
-            } else if !isPagingForward && pagePosition <= CGFloat(self.currentPageIndex - 1) {
-                self.updateCurrentPageIndexIfNeeded(self.currentPageIndex - 1)
+            } else if !isPagingForward && pagePosition <= CGFloat(self.currentIndex - 1) {
+                self.updateCurrentPageIndexIfNeeded(self.currentIndex - 1)
                 return true
             }
         }
@@ -150,11 +150,11 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
     ///
     /// - Parameter index: the proposed index.
     private func updateCurrentPageIndexIfNeeded(_ index: Int) {
-        guard self.currentPageIndex != index, index >= 0 &&
+        guard self.currentIndex != index, index >= 0 &&
             index < self.viewControllers?.count ?? 0 else {
                 return
         }
-        self.currentPageIndex = index
+        self.currentIndex = index
     }
 }
 
