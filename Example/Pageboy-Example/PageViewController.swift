@@ -11,13 +11,39 @@ import Pageboy
 
 class PageViewController: PageboyViewController, PageboyViewControllerDelegate {
 
+    // MARK: Types
+    
+    struct GradientConfig {
+        let topColor: UIColor
+        let bottomColor: UIColor
+        
+        static var defaultGradient: GradientConfig {
+            return GradientConfig(topColor: .black, bottomColor: .black)
+        }
+    }
+    
+    //
+    // MARK: Constants
+    //
+    
+    let numberOfPages = 5
+    
+    let gradients: [GradientConfig] = [
+        GradientConfig(topColor: UIColor.red, bottomColor: UIColor.black),
+        GradientConfig(topColor: UIColor.blue, bottomColor: UIColor.black),
+        GradientConfig(topColor: UIColor.green, bottomColor: UIColor.black),
+        GradientConfig(topColor: UIColor.yellow, bottomColor: UIColor.black),
+        GradientConfig(topColor: UIColor.red, bottomColor: UIColor.black)
+    ]
+    
     //
     // MARK: Outlets
     //
     
     @IBOutlet weak var offsetLabel: UILabel!
     @IBOutlet weak var pageLabel: UILabel!
-    
+    @IBOutlet weak var gradientView: GradientView!
+
     //
     // MARK: Properties
     //
@@ -32,10 +58,12 @@ class PageViewController: PageboyViewController, PageboyViewControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addBarButtons()
+        self.view.sendSubview(toBack: self.gradientView)
         
         self.delegate = self
+        self.updateAppearance(pageOffset: 0.0)
     }
-
+    
     // 
     // MARK: Bar Buttons
     //
@@ -73,7 +101,7 @@ class PageViewController: PageboyViewController, PageboyViewControllerDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         
         var viewControllers = [UIViewController]()
-        for i in 0..<5 {
+        for i in 0..<numberOfPages {
             let viewController = storyboard.instantiateViewController(withIdentifier: "ChildViewController") as! ChildViewController
             viewController.index = i + 1
             viewControllers.append(viewController)
@@ -90,6 +118,7 @@ class PageViewController: PageboyViewController, PageboyViewControllerDelegate {
                                direction: PageboyViewController.NavigationDirection) {
         
         self.offsetLabel.text = "Current Offset: " + String(format: "%.3f", pageOffset.x)
+        self.updateAppearance(pageOffset: pageOffset.x)
     }
     
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
@@ -104,6 +133,7 @@ class PageViewController: PageboyViewController, PageboyViewControllerDelegate {
         
         self.pageLabel.text = "Current Page: " + String(describing: pageIndex)
         self.updateBarButtonStates()
+        self.updateAppearance(pageOffset: CGFloat(pageIndex))
     }
 }
 

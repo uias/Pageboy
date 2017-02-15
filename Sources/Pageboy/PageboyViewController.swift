@@ -297,6 +297,8 @@ internal extension PageboyViewController {
         
         pageViewController.scrollView?.delegate = self
         
+        self.pageViewController.view.backgroundColor = .clear
+        
         self.reloadPages(reloadViewControllers: reloadViewControllers)
     }
 
