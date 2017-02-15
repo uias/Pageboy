@@ -78,10 +78,14 @@ open class PageboyViewController: UIViewController {
     ///
     /// - next: The next page if available.
     /// - previous: The previous page if available.
+    /// - first: The first page.
+    /// - last: The last page.
     /// - atIndex: A custom specified page index.
     public enum PageIndex {
         case next
         case previous
+        case first
+        case last
         case atIndex(index: Int)
     }
     
@@ -305,6 +309,12 @@ internal extension PageboyViewController {
             
         case .previous:
             return self.currentIndex - 1
+            
+        case .first:
+            return 0
+            
+        case .last:
+            return (self.viewControllers?.count ?? 1) - 1
             
         case .atIndex(let index):
             return index
