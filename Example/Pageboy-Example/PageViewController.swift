@@ -31,6 +31,16 @@ class PageViewController: PageboyViewController, PageboyViewControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.addBarButtons()
+        
+        self.delegate = self
+    }
+
+    // 
+    // MARK: Bar Buttons
+    //
+    
+    func addBarButtons() {
         
         let previousBarButton = UIBarButtonItem(title: "Previous", style: .plain, target: self, action: #selector(previousPage(_:)))
         let nextBarButton = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(nextPage(_:)))
@@ -39,12 +49,8 @@ class PageViewController: PageboyViewController, PageboyViewControllerDelegate {
         self.previousBarButton = previousBarButton
         self.nextBarButton = nextBarButton
         
-        self.delegate = self
+        self.updateBarButtonStates()
     }
-
-    // 
-    // MARK: Actions
-    //
     
     @objc func nextPage(_ sender: UIBarButtonItem) {
         self.transitionToPage(.next, animated: true)
@@ -52,6 +58,11 @@ class PageViewController: PageboyViewController, PageboyViewControllerDelegate {
     
     @objc func previousPage(_ sender: UIBarButtonItem) {
         self.transitionToPage(.previous, animated: true)
+    }
+    
+    func updateBarButtonStates() {
+        self.previousBarButton?.isEnabled = self.currentIndex != 0
+        self.nextBarButton?.isEnabled = self.currentIndex != (self.viewControllers?.count ?? 0) - 1
     }
     
     //
@@ -90,6 +101,8 @@ class PageViewController: PageboyViewController, PageboyViewControllerDelegate {
                                didScrollToPageWithIndex pageIndex: Int,
                                direction: PageboyViewController.NavigationDirection) {
         self.pageLabel.text = "Current Page: " + String(describing: pageIndex)
+        
+        self.updateBarButtonStates()
     }
 }
 

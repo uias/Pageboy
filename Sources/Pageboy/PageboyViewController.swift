@@ -90,9 +90,7 @@ open class PageboyViewController: UIViewController {
     //
     // MARK: Variables
     //
-    
     internal var pageViewController: UIPageViewController!
-    internal var viewControllers: [UIViewController]?
     
     internal var previousPagePosition: CGFloat?
     
@@ -169,13 +167,16 @@ open class PageboyViewController: UIViewController {
     /// Default is FALSE.
     public var isInfiniteScrollEnabled: Bool = false
     
+    /// The view controllers that are displayed in the page view controller.
+    public internal(set) var viewControllers: [UIViewController]?
+    
     /// The page index that the page view controller is currently at.
     public internal(set) var currentIndex: Int = 0 {
-        willSet {
-            let direction = NavigationDirection.forOffset(CGFloat(newValue),
-                                                          previousOffset: CGFloat(currentIndex))
+        didSet {
+            let direction = NavigationDirection.forOffset(CGFloat(currentIndex),
+                                                          previousOffset: CGFloat(oldValue))
             self.delegate?.pageboyViewController(self,
-                                                 didScrollToPageWithIndex: newValue,
+                                                 didScrollToPageWithIndex: currentIndex,
                                                  direction: direction)
         }
     }
