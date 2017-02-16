@@ -6,9 +6,12 @@
 A page view controller done properly. 
 
 ## Features
-- Simplified data source management.
-- Enhanced delegation; featuring exact relative positional data and reliable updates.
-- Infinite scrolling support.
+- [x] Simplified data source management.
+- [x] Enhanced delegation; featuring exact relative positional data and reliable updates.
+- [x] Infinite scrolling support.
+
+#### Upcoming
+- [] Automatic timer-based page transitioning.
 
 ## Installation
 Listenable is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
@@ -89,7 +92,7 @@ func pageboyViewController(_ pageboyViewController: PageboyViewController,
 	```swift
 	public func reloadPages()
 	``` 
-- `scrollToPage` - Scroll the page view controller to a new page.
+- `scrollToPage` - Scroll the page view controller to a new page programatically.
 
 	```swift
 	public func scrollToPage(_ pageIndex: PageIndex,
@@ -124,3 +127,10 @@ func pageboyViewController(_ pageboyViewController: PageboyViewController,
 	- `neutral` - No movement
 	- `forward` - Moved in a positive direction (Towards n+1).
 	- `reverse` - Moved in a negative direction (Towards n-1).
+
+## Contributing
+Bug reports and pull requests are welcome on GitHub at [https://github.com/MerrickSapsford/Pageboy](https://github.com/MerrickSapsford/Pageboy).
+
+## License
+
+The library is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
