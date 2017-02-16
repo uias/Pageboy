@@ -11,7 +11,7 @@ A page view controller done properly.
 - [x] Infinite scrolling support.
 
 #### Upcoming
-- [] Automatic timer-based page transitioning.
+- [ ] Automatic timer-based page transitioning.
 
 ## Installation
 Listenable is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
