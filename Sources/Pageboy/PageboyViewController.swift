@@ -101,8 +101,6 @@ open class PageboyViewController: UIViewController {
     internal var previousPagePosition: CGFloat?
     internal var expectedTransitionIndex: Int?
     
-    private var _dataSource: PageboyViewControllerDataSource?
-    
     //
     // MARK: Properties
     //
@@ -120,17 +118,8 @@ open class PageboyViewController: UIViewController {
     
     /// The object that is the data source for the page view controller. (Defaults to self)
     public var dataSource: PageboyViewControllerDataSource? {
-        get {
-            if let dataSource = _dataSource {
-                return dataSource
-            }
-            return self
-        }
-        set {
-            if _dataSource !== newValue {
-                _dataSource = newValue
-                self.reloadPages()
-            }
+        didSet {
+            self.reloadPages()
         }
     }
     

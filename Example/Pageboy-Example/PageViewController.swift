@@ -60,6 +60,7 @@ class PageViewController: PageboyViewController, PageboyViewControllerDelegate {
         self.addBarButtons()
         self.view.sendSubview(toBack: self.gradientView)
         
+        self.dataSource = self
         self.delegate = self
         self.updateAppearance(pageOffset: 0.0)
     }
