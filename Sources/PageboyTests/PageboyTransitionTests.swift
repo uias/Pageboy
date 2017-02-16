@@ -17,7 +17,7 @@ class PageboyTransitionTests: PageboyTests {
         self.pageboyViewController.dataSource = self.dataSource
         let transitionIndex = 2
         
-        self.pageboyViewController.transitionToPage(.atIndex(index: transitionIndex), animated: false)
+        self.pageboyViewController.scrollToPage(.atIndex(index: transitionIndex), animated: false)
         
         XCTAssert(self.pageboyViewController.currentIndex == transitionIndex,
                   "Not transitioning to valid custom index correctly (Non animated).")
@@ -29,7 +29,7 @@ class PageboyTransitionTests: PageboyTests {
         self.pageboyViewController.dataSource = self.dataSource
         let transitionIndex = 3
         
-        self.pageboyViewController.transitionToPage(.atIndex(index: transitionIndex), animated: true)
+        self.pageboyViewController.scrollToPage(.atIndex(index: transitionIndex), animated: true)
         { (newViewController, animated, finished) in
             XCTAssert(self.pageboyViewController.currentIndex == transitionIndex,
                       "Not transitioning to valid custom index correctly (Animated).")
@@ -42,7 +42,7 @@ class PageboyTransitionTests: PageboyTests {
         self.pageboyViewController.dataSource = self.dataSource
         let transitionIndex = 6
         
-        self.pageboyViewController.transitionToPage(.atIndex(index: transitionIndex), animated: false)
+        self.pageboyViewController.scrollToPage(.atIndex(index: transitionIndex), animated: false)
         
         XCTAssert(self.pageboyViewController.currentIndex == 0,
                   "Not handling out of bounds transition index request correctly.")
@@ -53,7 +53,7 @@ class PageboyTransitionTests: PageboyTests {
         self.dataSource.numberOfPages = 5
         self.pageboyViewController.dataSource = self.dataSource
         
-        self.pageboyViewController.transitionToPage(.first, animated: false)
+        self.pageboyViewController.scrollToPage(.first, animated: false)
         
         XCTAssert(self.pageboyViewController.currentIndex == 0,
                   "Not transitioning to first index correctly.")
@@ -64,7 +64,7 @@ class PageboyTransitionTests: PageboyTests {
         self.dataSource.numberOfPages = 5
         self.pageboyViewController.dataSource = self.dataSource
         
-        self.pageboyViewController.transitionToPage(.last, animated: false)
+        self.pageboyViewController.scrollToPage(.last, animated: false)
         
         XCTAssert(self.pageboyViewController.currentIndex == 4,
                   "Not transitioning to last index correctly.")
@@ -75,7 +75,7 @@ class PageboyTransitionTests: PageboyTests {
         self.dataSource.numberOfPages = 5
         self.pageboyViewController.dataSource = self.dataSource
         
-        self.pageboyViewController.transitionToPage(.next, animated: false)
+        self.pageboyViewController.scrollToPage(.next, animated: false)
         
         XCTAssert(self.pageboyViewController.currentIndex == 1,
                   "Not transitioning to next index correctly.")
@@ -86,8 +86,8 @@ class PageboyTransitionTests: PageboyTests {
         self.dataSource.numberOfPages = 5
         self.pageboyViewController.dataSource = self.dataSource
         
-        self.pageboyViewController.transitionToPage(.last, animated: false)
-        self.pageboyViewController.transitionToPage(.previous, animated: false)
+        self.pageboyViewController.scrollToPage(.last, animated: false)
+        self.pageboyViewController.scrollToPage(.previous, animated: false)
         
         XCTAssert(self.pageboyViewController.currentIndex == 3,
                   "Not transitioning to previous index correctly.")
@@ -98,7 +98,7 @@ class PageboyTransitionTests: PageboyTests {
         self.dataSource.numberOfPages = 5
         self.pageboyViewController.dataSource = self.dataSource
         
-        self.pageboyViewController.transitionToPage(.atIndex(index: 1), animated: true)
+        self.pageboyViewController.scrollToPage(.atIndex(index: 1), animated: true)
         { (newViewController, animated, finished) in
             
             XCTAssert(self.delegate.lastRecordedPagePosition?.x == 1.0 &&
@@ -129,8 +129,8 @@ class PageboyTransitionTests: PageboyTests {
         self.dataSource.numberOfPages = 5
         self.pageboyViewController.dataSource = self.dataSource
         
-        self.pageboyViewController.transitionToPage(.last, animated: false)
-        self.pageboyViewController.transitionToPage(.atIndex(index: 0), animated: true)
+        self.pageboyViewController.scrollToPage(.last, animated: false)
+        self.pageboyViewController.scrollToPage(.atIndex(index: 0), animated: true)
         { (newViewController, animated, finished) in
             
             XCTAssert(self.pageboyViewController.currentIndex == 0 &&
@@ -158,7 +158,7 @@ class PageboyTransitionTests: PageboyTests {
         self.dataSource.numberOfPages = 5
         self.pageboyViewController.dataSource = self.dataSource
 
-        self.pageboyViewController.transitionToPage(.first, animated: true) { (viewController, animated, finished) in
+        self.pageboyViewController.scrollToPage(.first, animated: true) { (viewController, animated, finished) in
             XCTAssert(finished == false && self.pageboyViewController.currentIndex == 0,
                       "Not handling unsuccessful transition to current page correctly.")
         }
