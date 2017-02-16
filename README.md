@@ -3,7 +3,7 @@
 [![CocoaPods](https://img.shields.io/cocoapods/v/Pageboy.svg)]()
 [![codecov](https://codecov.io/gh/MerrickSapsford/Pageboy/branch/develop/graph/badge.svg)](https://codecov.io/gh/MerrickSapsford/Pageboy)
 
-A page view controller done properly. 
+**Pageboy** is a simple, highly informative page view controller.
 
 ## Features
 - [x] Simplified data source management.
