@@ -151,10 +151,10 @@ open class PageboyViewController: UIViewController {
         }
     }
     
-    /// Whether the page view controller is currently transitioning between pages.
-    private(set) var isTransitioning = false {
+    /// Whether the page view controller is currently animating a scroll between pages.
+    private(set) var isScrollingAnimated = false {
         didSet {
-            self.isUserInteractionEnabled = !self.isTransitioning
+            self.isUserInteractionEnabled = !self.isScrollingAnimated
         }
     }
     
@@ -228,7 +228,7 @@ open class PageboyViewController: UIViewController {
                              completion: PageTransitionCompletion? = nil) {
         
         // guard against any current transition operation
-        guard self.isTransitioning == false else { return }
+        guard self.isScrollingAnimated == false else { return }
         guard self.isDragging == false else { return }
         
         let rawIndex = self.indexValue(forPageIndex: index)
@@ -243,7 +243,7 @@ open class PageboyViewController: UIViewController {
                                                  willScrollToPageAtIndex: rawIndex,
                                                  direction: direction)
             
-            self.isTransitioning = true
+            self.isScrollingAnimated = true
             self.pageViewController.setViewControllers([viewController],
                                                        direction: direction.pageViewControllerNavDirection,
                                                        animated: animated,
@@ -263,7 +263,7 @@ open class PageboyViewController: UIViewController {
                         }
                     }
                     completion?(viewController, animated, finished)
-                    self.isTransitioning = false
+                    self.isScrollingAnimated = false
             })
             
         } else {
