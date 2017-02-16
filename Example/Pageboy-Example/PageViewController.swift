@@ -70,11 +70,11 @@ class PageViewController: PageboyViewController, PageboyViewControllerDataSource
     //
     
     @objc func nextPage(_ sender: UIBarButtonItem) {
-        self.transitionToPage(.next, animated: true)
+        self.scrollToPage(.next, animated: true)
     }
     
     @objc func previousPage(_ sender: UIBarButtonItem) {
-        self.transitionToPage(.previous, animated: true)
+        self.scrollToPage(.previous, animated: true)
     }
     
     //

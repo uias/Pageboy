@@ -218,14 +218,14 @@ open class PageboyViewController: UIViewController {
     // MARK: Transitioning
     //
     
-    /// Transition the page view controller to a new page.
+    /// Scroll the page view controller to a new page.
     ///
     /// - parameter index:      The index of the new page.
     /// - parameter animated:   Whether to animate the transition.
     /// - parameter completion: The completion closure.
-    public func transitionToPage(_ index: PageIndex,
-                                 animated: Bool,
-                                 completion: PageTransitionCompletion? = nil) {
+    public func scrollToPage(_ index: PageIndex,
+                             animated: Bool,
+                             completion: PageTransitionCompletion? = nil) {
         
         // guard against any current transition operation
         guard self.isTransitioning == false else { return }
