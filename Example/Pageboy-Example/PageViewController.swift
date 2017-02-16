@@ -9,7 +9,7 @@
 import UIKit
 import Pageboy
 
-class PageViewController: PageboyViewController, PageboyViewControllerDelegate {
+class PageViewController: PageboyViewController, PageboyViewControllerDataSource, PageboyViewControllerDelegate {
 
     // MARK: Types
     
@@ -81,7 +81,7 @@ class PageViewController: PageboyViewController, PageboyViewControllerDelegate {
     // MARK: PageboyViewControllerDataSource
     //
     
-    override func viewControllers(forPageboyViewController pageboyViewController: PageboyViewController) -> [UIViewController]? {
+    func viewControllers(forPageboyViewController pageboyViewController: PageboyViewController) -> [UIViewController]? {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         
         var viewControllers = [UIViewController]()
@@ -91,6 +91,10 @@ class PageViewController: PageboyViewController, PageboyViewControllerDelegate {
             viewControllers.append(viewController)
         }
         return viewControllers
+    }
+    
+    func defaultPageIndex(forPageboyViewController pageboyViewController: PageboyViewController) -> PageboyViewController.PageIndex? {
+        return nil
     }
     
     //

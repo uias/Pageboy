@@ -32,7 +32,7 @@ internal extension PageboyViewController {
 }
 
 // MARK: - UIPageViewControllerDataSource, PageboyViewControllerDataSource
-extension PageboyViewController: UIPageViewControllerDataSource, PageboyViewControllerDataSource {
+extension PageboyViewController: UIPageViewControllerDataSource {
     
     public func pageViewController(_ pageViewController: UIPageViewController,
                                    viewControllerBefore viewController: UIViewController) -> UIViewController? {
@@ -63,18 +63,6 @@ extension PageboyViewController: UIPageViewControllerDataSource, PageboyViewCont
                 return viewControllers[0]
             }
         }
-        return nil
-    }
-    
-    //
-    // MARK: PageboyViewControllerDataSource
-    //
-    
-    open func viewControllers(forPageboyViewController pageboyViewController: PageboyViewController) -> [UIViewController]? {
-        return nil
-    }
-    
-    public func defaultPageIndex(forPageboyViewController pageboyViewController: PageboyViewController) -> PageboyViewController.PageIndex? {
         return nil
     }
 }
