@@ -23,7 +23,7 @@ And run `pod install`.
 ## Usage
 ### Getting Started
 
-1) Create an instance of a `PageboyViewController` and provide it with a `PageboyViewControllerDataSource` dataSource.
+1) Create an instance of a `PageboyViewController` and provide it with a `PageboyViewControllerDataSource` data source.
 
 ```swift
 class PageViewController: PageBoyViewController, PageboyViewControllerDataSource {
