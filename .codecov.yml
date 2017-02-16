@@ -1,0 +1,4 @@
+codecov:
+
+  ignore:
+    - "Sources/PageboyTests/**/*"
