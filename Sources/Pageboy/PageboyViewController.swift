@@ -30,30 +30,30 @@ public protocol PageboyViewControllerDelegate {
     ///
     /// - Parameters:
     ///   - pageboyViewController: The Pageboy view controller.
-    ///   - pageIndex: The new page index.
+    ///   - index: The new page index.
     ///   - direction: The direction of the scroll.
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
-                               willScrollToPageAtIndex pageIndex: Int,
+                               willScrollToPageAtIndex index: Int,
                                direction: PageboyViewController.NavigationDirection)
     
     /// The page view controller did scroll to an offset between pages.
     ///
     /// - Parameters:
     ///   - pageboyViewController: The Pageboy view controller.
-    ///   - pagePosition: The current relative page position.
+    ///   - position: The current relative page position.
     ///   - direction: The direction of the scroll.
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
-                               didScrollToPosition pagePosition: CGPoint,
+                               didScrollToPosition position: CGPoint,
                                direction: PageboyViewController.NavigationDirection)
     
     /// The page view controller did complete scroll to a new page.
     ///
     /// - Parameters:
     ///   - pageboyViewController: The Pageboy view controller.
-    ///   - pageIndex: The new page index.
+    ///   - index: The new page index.
     ///   - direction: The direction of the scroll.
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
-                               didScrollToPageWithIndex pageIndex: Int,
+                               didScrollToPageWithIndex index: Int,
                                direction: PageboyViewController.NavigationDirection)
 }
 
@@ -223,7 +223,7 @@ open class PageboyViewController: UIViewController {
     /// - parameter index:      The index of the new page.
     /// - parameter animated:   Whether to animate the transition.
     /// - parameter completion: The completion closure.
-    public func scrollToPage(_ index: PageIndex,
+    public func scrollToPage(_ pageIndex: PageIndex,
                              animated: Bool,
                              completion: PageTransitionCompletion? = nil) {
         
@@ -231,7 +231,7 @@ open class PageboyViewController: UIViewController {
         guard self.isScrollingAnimated == false else { return }
         guard self.isDragging == false else { return }
         
-        let rawIndex = self.indexValue(forPageIndex: index)
+        let rawIndex = self.indexValue(forPageIndex: pageIndex  )
         if rawIndex != self.currentIndex {
             
             // guard against invalid page indexing
