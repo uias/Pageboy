@@ -29,10 +29,10 @@ And run `pod install`.
 
 ```swift
 class PageViewController: PageBoyViewController, PageboyViewControllerDataSource {
-		
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
-			
+
 		self.dataSource = self
 	}
 }
@@ -45,15 +45,15 @@ func viewControllers(forPageboyViewController pageboyViewController: PageboyView
 	// return array of view controllers
 	return [viewController1, viewController2]
 }
-	
+
 func defaultPageIndex(forPageboyViewController pageboyViewController: PageboyViewController) -> PageboyViewController.PageIndex? {
 	// use default index
 	return nil
 }
-	
+
 ```
 
-3) Assign a delegate if you want, and enjoy simplistic paging. 
+3) Enjoy.
 
 ### Delegation
 
@@ -75,7 +75,7 @@ Called when the page view controller was scrolled to a relative position along t
 func pageboyViewController(_ pageboyViewController: PageboyViewController,
                                didScrollToPosition position: CGPoint,
                                direction: PageboyViewController.NavigationDirection)
-``` 
+```
 
 #### didScrollToPage
 Called when the page view controller did successfully complete a scroll transition to a page.
@@ -84,23 +84,23 @@ Called when the page view controller did successfully complete a scroll transiti
 func pageboyViewController(_ pageboyViewController: PageboyViewController,
                                didScrollToPageWithIndex index: Int,
                                direction: PageboyViewController.NavigationDirection)
-``` 
+```
 
 ## Additional functionality
 
 ### Functions
 - `reloadPages` - Reload the view controllers in the page view controller. (Refreshes the data source).
-	
+
 	```swift
 	public func reloadPages()
-	``` 
+	```
 - `scrollToPage` - Scroll the page view controller to a new page programatically.
 
 	```swift
 	public func scrollToPage(_ pageIndex: PageIndex,
                              animated: Bool,
                              completion: PageTransitionCompletion? = nil)
-	``` 
+	```
 
 ### Properties
 - `isInfiniteScrollEnabled`: `Bool` - Whether the page view controller should infinitely scroll  between page limits (i.e. able to continuously scroll to first page from last).
