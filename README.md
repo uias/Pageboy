@@ -65,7 +65,8 @@ Called when the page view controller is about to embark on a transition to a new
 ```swift
 func pageboyViewController(_ pageboyViewController: PageboyViewController,
                                willScrollToPageAtIndex index: Int,
-                               direction: PageboyViewController.NavigationDirection)
+                               direction: PageboyViewController.NavigationDirection,
+                               animated: Bool)
 ```
 
 #### didScrollToPosition
@@ -82,8 +83,9 @@ Called when the page view controller did successfully complete a scroll transiti
 
 ```swift
 func pageboyViewController(_ pageboyViewController: PageboyViewController,
-                               didScrollToPageWithIndex index: Int,
-                               direction: PageboyViewController.NavigationDirection)
+                               didScrollToPageAtIndex index: Int,
+                               direction: PageboyViewController.NavigationDirection,
+                               animated: Bool)
 ```
 
 ## Additional functionality
