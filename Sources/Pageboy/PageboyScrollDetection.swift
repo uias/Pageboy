@@ -20,7 +20,9 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
         
         self.expectedTransitionIndex = index
         let direction = NavigationDirection.forPage(index, previousPage: self.currentIndex ?? index)
-        self.delegate?.pageboyViewController(self, willScrollToPageAtIndex: index, direction: direction)
+        self.delegate?.pageboyViewController(self, willScrollToPageAtIndex: index,
+                                             direction: direction,
+                                             animated: false)
     }
     
     public func pageViewController(_ pageViewController: UIPageViewController,
