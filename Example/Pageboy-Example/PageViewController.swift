@@ -62,7 +62,15 @@ class PageViewController: PageboyViewController, PageboyViewControllerDataSource
         
         self.dataSource = self
         self.delegate = self
-        self.updateAppearance(pageOffset: 0.0)
+        
+        self.updateAppearance(pageOffset: self.currentPosition?.x ?? 0.0)
+        self.updateStatusLabels()
+        self.updateBarButtonStates(index: self.currentIndex ?? 0)
+    }
+
+    func updateStatusLabels() {
+        self.offsetLabel.text = "Current Position: " + String(format: "%.3f", self.currentPosition?.x ?? 0.0)
+        self.pageLabel.text = "Current Page: " + String(describing: self.currentIndex ?? 0)
     }
     
     // 
@@ -101,14 +109,11 @@ class PageViewController: PageboyViewController, PageboyViewControllerDataSource
     // MARK: PageboyViewControllerDelegate
     //
     
-    
-    
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
                                didScrollToPosition position: CGPoint,
                                direction: PageboyViewController.NavigationDirection) {
-        
-        self.offsetLabel.text = "Current Position: " + String(format: "%.3f", position.x)
         self.updateAppearance(pageOffset: position.x)
+        self.updateStatusLabels()
     }
     
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
@@ -120,9 +125,9 @@ class PageViewController: PageboyViewController, PageboyViewControllerDataSource
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
                                didScrollToPageWithIndex index: Int,
                                direction: PageboyViewController.NavigationDirection) {
-        
-        self.pageLabel.text = "Current Page: " + String(describing: index)
         self.updateAppearance(pageOffset: CGFloat(index))
+        self.updateStatusLabels()
+
         self.updateBarButtonStates(index: index)
     }
 }
