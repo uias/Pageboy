@@ -212,6 +212,17 @@ open class PageboyViewController: UIViewController {
         self.setUpPageViewController()
     }
     
+    open override func viewWillTransition(to size: CGSize,
+                                          with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        
+        // ignore scroll updates during orientation change
+        self.pageViewController.scrollView?.delegate = nil
+        coordinator.animate(alongsideTransition: nil) { (context) in
+            self.pageViewController.scrollView?.delegate = self
+        }
+    }
+    
     //
     // MARK: Page management
     //
