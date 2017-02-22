@@ -191,10 +191,9 @@ open class PageboyViewController: UIViewController {
             
             let positionValue = self.navigationOrientation == .horizontal ?
                 currentPosition.x : currentPosition.y
-            var integral: Double = 0.0
-            let progress = CGFloat(modf(fabs(Double(positionValue)), &integral))
             
-            if progress == 0.0 { // currently on a page
+            let isOnPage = positionValue.truncatingRemainder(dividingBy: 1) == 0
+            if isOnPage { // currently on a page
                 let positionIndex = Int(positionValue)
                 guard self.currentIndex != positionIndex else {
                     return
