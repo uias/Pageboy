@@ -124,7 +124,7 @@ class PageViewController: PageboyViewController, PageboyViewControllerDataSource
     }
     
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
-                               didScrollToPageWithIndex index: Int,
+                               didScrollToPageAtIndex index: Int,
                                direction: PageboyViewController.NavigationDirection,
                                animated: Bool) {
         self.updateAppearance(pageOffset: CGFloat(index))

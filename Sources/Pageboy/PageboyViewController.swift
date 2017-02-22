@@ -56,7 +56,7 @@ public protocol PageboyViewControllerDelegate {
     ///   - direction: The direction of the scroll.
     ///   - animation: Whether the scroll was animated.
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
-                               didScrollToPageWithIndex index: Int,
+                               didScrollToPageAtIndex index: Int,
                                direction: PageboyViewController.NavigationDirection,
                                animated: Bool)
 }
@@ -182,7 +182,7 @@ open class PageboyViewController: UIViewController {
             let direction = NavigationDirection.forPosition(CGFloat(currentIndex),
                                                             previous: CGFloat(oldValue ?? currentIndex))
             self.delegate?.pageboyViewController(self,
-                                                 didScrollToPageWithIndex: currentIndex,
+                                                 didScrollToPageAtIndex: currentIndex,
                                                  direction: direction,
                                                  animated: self.isScrollingAnimated)
         }
