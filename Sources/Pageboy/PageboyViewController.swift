@@ -170,6 +170,7 @@ open class PageboyViewController: UIViewController {
     public internal(set) var currentIndex: Int? {
         didSet {
             guard let currentIndex = self.currentIndex else { return }
+            guard currentIndex != oldValue else { return }
             
             // ensure position keeps in sync
             self.currentPosition = CGPoint(x: self.navigationOrientation == .horizontal ? CGFloat(currentIndex) : 0.0,
@@ -183,27 +184,7 @@ open class PageboyViewController: UIViewController {
     }
     
     /// The relative page position that the page view controller is currently at.
-    public internal(set) var currentPosition: CGPoint? {
-        didSet {
-            guard let currentPosition = currentPosition else {
-                return
-            }
-            
-            let positionValue = self.navigationOrientation == .horizontal ?
-                currentPosition.x : currentPosition.y
-            
-            let isOnPage = positionValue.truncatingRemainder(dividingBy: 1) == 0
-            if isOnPage { // currently on a page
-                let positionIndex = Int(positionValue)
-                guard self.currentIndex != positionIndex else {
-                    return
-                }
-                
-                // ensure currentIndex is keeps in sync
-                self.currentIndex = positionIndex
-            }
-        }
-    }
+    public internal(set) var currentPosition: CGPoint?
     
     /// The view controller that the page view controller is currently at.
     public var currentViewController: UIViewController? {
