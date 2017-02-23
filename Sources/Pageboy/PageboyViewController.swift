@@ -174,7 +174,6 @@ open class PageboyViewController: UIViewController {
     public internal(set) var currentIndex: Int? {
         didSet {
             guard let currentIndex = self.currentIndex else { return }
-            guard currentIndex != oldValue else { return }
             
             // ensure position keeps in sync
             self.currentPosition = CGPoint(x: self.navigationOrientation == .horizontal ? CGFloat(currentIndex) : 0.0,
