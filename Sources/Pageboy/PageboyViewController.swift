@@ -44,9 +44,11 @@ public protocol PageboyViewControllerDelegate {
     ///   - pageboyViewController: The Pageboy view controller.
     ///   - position: The current relative page position.
     ///   - direction: The direction of the scroll.
+    ///   - animated: Whether the scroll is being animated.
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
                                didScrollToPosition position: CGPoint,
-                               direction: PageboyViewController.NavigationDirection)
+                               direction: PageboyViewController.NavigationDirection,
+                               animated: Bool)
     
     /// The page view controller did complete scroll to a new page.
     ///
@@ -279,7 +281,8 @@ open class PageboyViewController: UIViewController {
                         if !animated {
                             self.delegate?.pageboyViewController(self,
                                                                  didScrollToPosition: self.currentPosition!,
-                                                                 direction: direction)
+                                                                 direction: direction,
+                                                                 animated: animated)
                         }
                     }
                     completion?(viewController, animated, finished)

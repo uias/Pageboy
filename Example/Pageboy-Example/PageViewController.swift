@@ -118,7 +118,8 @@ class PageViewController: PageboyViewController, PageboyViewControllerDataSource
     
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
                                didScrollToPosition position: CGPoint,
-                               direction: PageboyViewController.NavigationDirection) {
+                               direction: PageboyViewController.NavigationDirection,
+                               animated: Bool) {
         self.updateAppearance(pageOffset: position.x)
         self.updateStatusLabels()
     }
