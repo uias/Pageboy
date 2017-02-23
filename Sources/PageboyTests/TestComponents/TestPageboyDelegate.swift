@@ -23,7 +23,8 @@ class TestPageboyDelegate: PageboyViewControllerDelegate {
     
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
                                didScrollToPosition pagePosition: CGPoint,
-                               direction: PageboyViewController.NavigationDirection) {
+                               direction: PageboyViewController.NavigationDirection,
+                               animated: Bool) {
         lastRecordedPagePosition = pagePosition
         lastRecordedDirection = direction
     }
