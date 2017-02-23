@@ -32,9 +32,11 @@ public protocol PageboyViewControllerDelegate {
     ///   - pageboyViewController: The Pageboy view controller.
     ///   - index: The new page index.
     ///   - direction: The direction of the scroll.
+    ///   - animation: Whether the scroll will be animated.
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
                                willScrollToPageAtIndex index: Int,
-                               direction: PageboyViewController.NavigationDirection)
+                               direction: PageboyViewController.NavigationDirection,
+                               animated: Bool)
     
     /// The page view controller did scroll to an offset between pages.
     ///
@@ -42,9 +44,11 @@ public protocol PageboyViewControllerDelegate {
     ///   - pageboyViewController: The Pageboy view controller.
     ///   - position: The current relative page position.
     ///   - direction: The direction of the scroll.
+    ///   - animated: Whether the scroll is being animated.
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
                                didScrollToPosition position: CGPoint,
-                               direction: PageboyViewController.NavigationDirection)
+                               direction: PageboyViewController.NavigationDirection,
+                               animated: Bool)
     
     /// The page view controller did complete scroll to a new page.
     ///
@@ -52,9 +56,11 @@ public protocol PageboyViewControllerDelegate {
     ///   - pageboyViewController: The Pageboy view controller.
     ///   - index: The new page index.
     ///   - direction: The direction of the scroll.
+    ///   - animation: Whether the scroll was animated.
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
-                               didScrollToPageWithIndex index: Int,
-                               direction: PageboyViewController.NavigationDirection)
+                               didScrollToPageAtIndex index: Int,
+                               direction: PageboyViewController.NavigationDirection,
+                               animated: Bool)
 }
 
 open class PageboyViewController: UIViewController {
@@ -170,7 +176,6 @@ open class PageboyViewController: UIViewController {
     public internal(set) var currentIndex: Int? {
         didSet {
             guard let currentIndex = self.currentIndex else { return }
-            guard currentIndex != oldValue else { return }
             
             // ensure position keeps in sync
             self.currentPosition = CGPoint(x: self.navigationOrientation == .horizontal ? CGFloat(currentIndex) : 0.0,
@@ -178,8 +183,9 @@ open class PageboyViewController: UIViewController {
             let direction = NavigationDirection.forPosition(CGFloat(currentIndex),
                                                             previous: CGFloat(oldValue ?? currentIndex))
             self.delegate?.pageboyViewController(self,
-                                                 didScrollToPageWithIndex: currentIndex,
-                                                 direction: direction)
+                                                 didScrollToPageAtIndex: currentIndex,
+                                                 direction: direction,
+                                                 animated: self.isScrollingAnimated)
         }
     }
     
@@ -205,6 +211,17 @@ open class PageboyViewController: UIViewController {
         super.loadView()
         
         self.setUpPageViewController()
+    }
+    
+    open override func viewWillTransition(to size: CGSize,
+                                          with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        
+        // ignore scroll updates during orientation change
+        self.pageViewController.scrollView?.delegate = nil
+        coordinator.animate(alongsideTransition: nil) { (context) in
+            self.pageViewController.scrollView?.delegate = self
+        }
     }
     
     //
@@ -245,7 +262,8 @@ open class PageboyViewController: UIViewController {
             let direction = NavigationDirection.forPage(rawIndex, previousPage: self.currentIndex ?? rawIndex)
             self.delegate?.pageboyViewController(self,
                                                  willScrollToPageAtIndex: rawIndex,
-                                                 direction: direction)
+                                                 direction: direction,
+                                                 animated: animated)
             
             self.isScrollingAnimated = true
             self.pageViewController.setViewControllers([viewController],
@@ -263,7 +281,8 @@ open class PageboyViewController: UIViewController {
                         if !animated {
                             self.delegate?.pageboyViewController(self,
                                                                  didScrollToPosition: self.currentPosition!,
-                                                                 direction: direction)
+                                                                 direction: direction,
+                                                                 animated: animated)
                         }
                     }
                     completion?(viewController, animated, finished)

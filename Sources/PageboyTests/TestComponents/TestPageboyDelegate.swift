@@ -16,20 +16,23 @@ class TestPageboyDelegate: PageboyViewControllerDelegate {
     var lastRecordedDirection: PageboyViewController.NavigationDirection?
     
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
+                               willScrollToPageAtIndex pageIndex: Int,
+                               direction: PageboyViewController.NavigationDirection,
+                               animated: Bool) {
+    }
+    
+    func pageboyViewController(_ pageboyViewController: PageboyViewController,
                                didScrollToPosition pagePosition: CGPoint,
-                               direction: PageboyViewController.NavigationDirection) {
+                               direction: PageboyViewController.NavigationDirection,
+                               animated: Bool) {
         lastRecordedPagePosition = pagePosition
         lastRecordedDirection = direction
     }
     
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
-                               willScrollToPageAtIndex pageIndex: Int,
-                               direction: PageboyViewController.NavigationDirection) {
-    }
-    
-    func pageboyViewController(_ pageboyViewController: PageboyViewController,
-                               didScrollToPageWithIndex pageIndex: Int,
-                               direction: PageboyViewController.NavigationDirection) {
+                               didScrollToPageAtIndex pageIndex: Int,
+                               direction: PageboyViewController.NavigationDirection,
+                               animated: Bool) {
         lastRecordedPageIndex = pageIndex
         lastRecordedDirection = direction
     }

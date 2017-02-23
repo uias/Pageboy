@@ -20,7 +20,9 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
         
         self.expectedTransitionIndex = index
         let direction = NavigationDirection.forPage(index, previousPage: self.currentIndex ?? index)
-        self.delegate?.pageboyViewController(self, willScrollToPageAtIndex: index, direction: direction)
+        self.delegate?.pageboyViewController(self, willScrollToPageAtIndex: index,
+                                             direction: direction,
+                                             animated: false)
     }
     
     public func pageViewController(_ pageViewController: UIPageViewController,
@@ -85,10 +87,14 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
         } else {
             positionPoint = CGPoint(x: scrollView.contentOffset.x, y: pagePosition)
         }
+        
+        // ignore duplicate updates
+        guard self.currentPosition != positionPoint else { return }
         self.currentPosition = positionPoint
         self.delegate?.pageboyViewController(self,
                                              didScrollToPosition: positionPoint,
-                                             direction: direction)
+                                             direction: direction,
+                                             animated: self.isScrollingAnimated)
         
         self.previousPagePosition = pagePosition
     }
