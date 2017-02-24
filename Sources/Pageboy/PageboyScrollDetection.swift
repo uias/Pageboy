@@ -61,8 +61,9 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
             contentOffset = scrollView.contentOffset.y
         }
         
+        let scrollIndexDiff = CGFloat(abs((self.expectedTransitionIndex ?? currentIndex + 1) - currentIndex))
         let scrollOffset = contentOffset - pageSize
-        let pageOffset = (CGFloat(currentIndex) * pageSize) + scrollOffset
+        let pageOffset = (CGFloat(currentIndex) * pageSize) + (scrollOffset * scrollIndexDiff)
         var pagePosition = pageOffset / pageSize
         
         // do not continue if a page change is detected

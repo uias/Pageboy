@@ -102,4 +102,18 @@ class PageboyDataSourceTests: PageboyTests {
                   "Default Page index is not using correct .last PageIndex when specified.")
     }
     
+    /// Test whether reloadPages fully reloads 
+    /// PageboyViewController.
+    func testPageboyViewControllerReloadBehavior() {
+        self.dataSource.numberOfPages = 5
+        self.pageboyViewController.dataSource = self.dataSource
+        let initialPageCount = self.pageboyViewController.viewControllers?.count
+        
+        self.dataSource.numberOfPages = 3
+        self.pageboyViewController.reloadPages()
+        let reloadPageCount = self.pageboyViewController.viewControllers?.count
+        
+        XCTAssert(initialPageCount == 5 && reloadPageCount == 3,
+                  "reloadPages is not correctly reloading view controllers.")
+    }
 }
