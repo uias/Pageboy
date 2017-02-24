@@ -13,16 +13,24 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
     
     public func pageViewController(_ pageViewController: UIPageViewController,
                                    willTransitionTo pendingViewControllers: [UIViewController]) {
+        self.pageViewController(pageViewController,
+                                willTransitionTo: pendingViewControllers,
+                                animated: false)
+    }
+    
+    internal func pageViewController(_ pageViewController: UIPageViewController,
+                                     willTransitionTo pendingViewControllers: [UIViewController],
+                                     animated: Bool) {
         guard let viewController = pendingViewControllers.first,
             let index = self.viewControllers?.index(of: viewController) else {
-            return
+                return
         }
         
         self.expectedTransitionIndex = index
         let direction = NavigationDirection.forPage(index, previousPage: self.currentIndex ?? index)
         self.delegate?.pageboyViewController(self, willScrollToPageAtIndex: index,
                                              direction: direction,
-                                             animated: false)
+                                             animated: animated)
     }
     
     public func pageViewController(_ pageViewController: UIPageViewController,
