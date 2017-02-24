@@ -20,6 +20,7 @@ class TestPageboyDataSource: Any, PageboyViewControllerDataSource {
             return nil
         }
         
+        viewControllers.removeAll()
         for index in 0..<numberOfPages {
             let viewController = TestPageChildViewController()
             viewController.index = index
