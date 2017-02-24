@@ -80,8 +80,8 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
             return
         }
         
-        // do not continue if previous offset equals current
-        if previousPagePosition == pageOffset {
+        // do not continue if previous position equals current
+        if previousPagePosition == pagePosition {
             return
         }
         
@@ -167,6 +167,7 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
         
         let isOnPage = pagePosition.truncatingRemainder(dividingBy: 1) == 0
         if isOnPage {
+            guard currentIndex != self.currentIndex else { return false}
             self.currentIndex = currentIndex
         }
         
