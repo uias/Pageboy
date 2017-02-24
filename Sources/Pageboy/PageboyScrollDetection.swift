@@ -13,16 +13,24 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
     
     public func pageViewController(_ pageViewController: UIPageViewController,
                                    willTransitionTo pendingViewControllers: [UIViewController]) {
+        self.pageViewController(pageViewController,
+                                willTransitionTo: pendingViewControllers,
+                                animated: false)
+    }
+    
+    internal func pageViewController(_ pageViewController: UIPageViewController,
+                                     willTransitionTo pendingViewControllers: [UIViewController],
+                                     animated: Bool) {
         guard let viewController = pendingViewControllers.first,
             let index = self.viewControllers?.index(of: viewController) else {
-            return
+                return
         }
         
         self.expectedTransitionIndex = index
         let direction = NavigationDirection.forPage(index, previousPage: self.currentIndex ?? index)
         self.delegate?.pageboyViewController(self, willScrollToPageAtIndex: index,
                                              direction: direction,
-                                             animated: false)
+                                             animated: animated)
     }
     
     public func pageViewController(_ pageViewController: UIPageViewController,
@@ -72,8 +80,8 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
             return
         }
         
-        // do not continue if previous offset equals current
-        if previousPagePosition == pageOffset {
+        // do not continue if previous position equals current
+        if previousPagePosition == pagePosition {
             return
         }
         
@@ -159,6 +167,7 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
         
         let isOnPage = pagePosition.truncatingRemainder(dividingBy: 1) == 0
         if isOnPage {
+            guard currentIndex != self.currentIndex else { return false}
             self.currentIndex = currentIndex
         }
         

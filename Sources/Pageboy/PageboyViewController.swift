@@ -261,9 +261,10 @@ open class PageboyViewController: UIViewController {
             
             let direction = NavigationDirection.forPage(rawIndex, previousPage: self.currentIndex ?? rawIndex)
             self.pageViewController(self.pageViewController,
-                                    willTransitionTo: [viewController])
+                                    willTransitionTo: [viewController],
+                                    animated: animated)
             
-            self.isScrollingAnimated = true
+            self.isScrollingAnimated = animated
             self.pageViewController.setViewControllers([viewController],
                                                        direction: direction.pageViewControllerNavDirection,
                                                        animated: animated,
