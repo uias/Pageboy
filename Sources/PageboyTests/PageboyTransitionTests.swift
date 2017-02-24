@@ -153,7 +153,7 @@ class PageboyTransitionTests: PageboyTests {
                   "Not reporting partial user interacted transition direction values correctly.")
     }
     
-    /// Test unsuccessful animated transition to current page 
+    /// Test unsuccessful animated transition to current page.
     func testUnsuccessfulTransitionToCurrentPage() {
         self.dataSource.numberOfPages = 5
         self.pageboyViewController.dataSource = self.dataSource
@@ -163,4 +163,39 @@ class PageboyTransitionTests: PageboyTests {
                       "Not handling unsuccessful transition to current page correctly.")
         }
     }
+    
+    /// Test animated flags are correct for animated transitions.
+    func testAnimatedTransitionAnimatedFlags() {
+        self.dataSource.numberOfPages = 5
+        self.pageboyViewController.dataSource = self.dataSource
+        let transitionIndex = 3
+        
+        self.pageboyViewController.scrollToPage(.atIndex(index: transitionIndex), animated: true)
+        { (newViewController, animated, finished) in
+            
+            XCTAssert(self.pageboyViewController.currentIndex == transitionIndex &&
+                      self.delegate.lastWillScrollToPageAnimated == true &&
+                      self.delegate.lastDidScrollToPageAtIndexAnimated == true &&
+                      self.delegate.lastDidScrollToPositionAnimated == true,
+                      "Animated flags for an animated scrollToPage are incorrect.")
+        }
+    }
+    
+    /// Test animated flags are correct for non-animated transitions.
+    func testNonAnimatedTransitionAnimatedFlags() {
+        self.dataSource.numberOfPages = 5
+        self.pageboyViewController.dataSource = self.dataSource
+        let transitionIndex = 3
+        
+        self.pageboyViewController.scrollToPage(.atIndex(index: transitionIndex), animated: false)
+        { (newViewController, animated, finished) in
+            
+            XCTAssert(self.pageboyViewController.currentIndex == transitionIndex &&
+                self.delegate.lastWillScrollToPageAnimated == false &&
+                self.delegate.lastDidScrollToPageAtIndexAnimated == false &&
+                self.delegate.lastDidScrollToPositionAnimated == false,
+                      "Animated flags for an non animated scrollToPage are incorrect.")
+        }
+    }
+
 }
