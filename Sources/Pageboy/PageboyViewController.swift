@@ -24,7 +24,7 @@ public protocol PageboyViewControllerDataSource: class {
     func defaultPageIndex(forPageboyViewController pageboyViewController: PageboyViewController) -> PageboyViewController.PageIndex?
 }
 
-public protocol PageboyViewControllerDelegate {
+public protocol PageboyViewControllerDelegate: class {
  
     /// The page view controller will begin scrolling to a new page.
     ///
@@ -123,14 +123,14 @@ open class PageboyViewController: UIViewController {
     }
     
     /// The object that is the data source for the page view controller. (Defaults to self)
-    public var dataSource: PageboyViewControllerDataSource? {
+    public weak var dataSource: PageboyViewControllerDataSource? {
         didSet {
             self.reloadPages()
         }
     }
     
     /// The object that is the delegate for the page view controller.
-    public var delegate: PageboyViewControllerDelegate?
+    public weak var delegate: PageboyViewControllerDelegate?
     
     /// Whether scroll is enabled on the page view controller.
     ///
