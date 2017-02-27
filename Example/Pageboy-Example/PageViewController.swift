@@ -113,6 +113,7 @@ class PageViewController: PageboyViewController, PageboyViewControllerDataSource
                                willScrollToPageAtIndex index: Int,
                                direction: PageboyViewController.NavigationDirection,
                                animated: Bool) {
+        
         self.updateBarButtonStates(index: index)
     }
     
@@ -120,6 +121,7 @@ class PageViewController: PageboyViewController, PageboyViewControllerDataSource
                                didScrollToPosition position: CGPoint,
                                direction: PageboyViewController.NavigationDirection,
                                animated: Bool) {
+
         self.updateAppearance(pageOffset: position.x)
         self.updateStatusLabels()
     }
@@ -128,6 +130,7 @@ class PageViewController: PageboyViewController, PageboyViewControllerDataSource
                                didScrollToPageAtIndex index: Int,
                                direction: PageboyViewController.NavigationDirection,
                                animated: Bool) {
+        
         self.updateAppearance(pageOffset: CGFloat(index))
         self.updateStatusLabels()
 
