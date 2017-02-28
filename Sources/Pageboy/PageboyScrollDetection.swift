@@ -69,7 +69,7 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
             contentOffset = scrollView.contentOffset.y
         }
         
-        let scrollIndexDiff = CGFloat(abs((self.expectedTransitionIndex ?? currentIndex + 1) - currentIndex))
+        let scrollIndexDiff = CGFloat(max(1, abs((self.expectedTransitionIndex ?? currentIndex + 1) - currentIndex)))
         let scrollOffset = contentOffset - pageSize
         let pageOffset = (CGFloat(currentIndex) * pageSize) + (scrollOffset * scrollIndexDiff)
         var pagePosition = pageOffset / pageSize
@@ -96,6 +96,8 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
         } else {
             positionPoint = CGPoint(x: scrollView.contentOffset.x, y: pagePosition)
         }
+        
+        print(positionPoint)
         
         // ignore duplicate updates
         guard self.currentPosition != positionPoint else { return }
