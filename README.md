@@ -16,7 +16,7 @@
 - [ ] Automatic timer-based page transitioning.
 
 ## Installation
-Listenable is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
+Pageboy is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
 ```ruby
 pod 'Pageboy'
 ```
@@ -25,7 +25,7 @@ And run `pod install`.
 ## Usage
 ### Getting Started
 
-1) Create an instance of a `PageboyViewController` and provide it with a `PageboyViewControllerDataSource` data source.
+1) Create an instance of a `PageboyViewController` and provide it with a `PageboyViewControllerDataSource`.
 
 ```swift
 class PageViewController: PageBoyViewController, PageboyViewControllerDataSource {
