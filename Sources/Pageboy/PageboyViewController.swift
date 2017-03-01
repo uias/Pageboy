@@ -167,7 +167,11 @@ open class PageboyViewController: UIViewController {
     /// Whether the page view controller should infinitely scroll at the end of page ranges.
     ///
     /// Default is FALSE.
-    public var isInfiniteScrollEnabled: Bool = false
+    public var isInfiniteScrollEnabled: Bool = false {
+        didSet {
+            self.reloadCurrentPageSoftly()
+        }
+    }
     
     /// The view controllers that are displayed in the page view controller.
     public internal(set) var viewControllers: [UIViewController]?
@@ -233,6 +237,15 @@ open class PageboyViewController: UIViewController {
     /// and defaultPageIndex(forPageboyViewController:).
     public func reloadPages() {
         self.reloadPages(reloadViewControllers: true)
+    }
+    
+    /// Reload the currently active page into the page view controller if possible. 
+    /// Does not reload from dataSource.
+    private func reloadCurrentPageSoftly() {
+        guard let currentIndex = self.currentIndex else { return }
+        guard let currentViewController = self.viewControllers?[currentIndex] else { return }
+        
+        self.pageViewController.setViewControllers([currentViewController], direction: .forward, animated: false, completion: nil)
     }
     
     //
