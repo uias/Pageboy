@@ -104,9 +104,7 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
         } else {
             positionPoint = CGPoint(x: scrollView.contentOffset.x, y: pagePosition)
         }
-        
-        print(positionPoint)
-        
+                
         // ignore duplicate updates
         guard self.currentPosition != positionPoint else { return }
         self.currentPosition = positionPoint
