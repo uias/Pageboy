@@ -114,9 +114,7 @@ class PageboyTransitionTests: PageboyTests {
         self.pageboyViewController.dataSource = self.dataSource
         
         // simulate scroll
-        let boundsWidth = self.pageboyViewController.view.frame.size.width
-        self.pageboyViewController.pageViewController.scrollView?.setContentOffset(CGPoint(x: boundsWidth + (boundsWidth / 2.0), y: 0.0),
-                                                                                   animated: false)
+        self.simulateScroll(toPosition: 0.5)
         
         XCTAssert(String(format:"%.1f", self.delegate.lastRecordedPagePosition?.x ?? 0.0) == "0.5" &&
             self.pageboyViewController.currentIndex == 0,
@@ -145,9 +143,7 @@ class PageboyTransitionTests: PageboyTests {
         self.pageboyViewController.dataSource = self.dataSource
         
         // simulate scroll
-        let boundsWidth = self.pageboyViewController.view.frame.size.width
-        self.pageboyViewController.pageViewController.scrollView?.setContentOffset(CGPoint(x: boundsWidth + (boundsWidth / 2.0), y: 0.0),
-                                                                                   animated: false)
+        self.simulateScroll(toPosition: 0.5)
 
         XCTAssert(self.delegate.lastRecordedDirection == .forward && self.pageboyViewController.currentIndex == 0,
                   "Not reporting partial user interacted transition direction values correctly.")
@@ -197,5 +193,15 @@ class PageboyTransitionTests: PageboyTests {
                       "Animated flags for an non animated scrollToPage are incorrect.")
         }
     }
-
+    
+    // MARK: Utils
+    
+    func simulateScroll(toPosition position: CGFloat) {
+        let targetIndex = Int(position.rounded())
+        
+        let boundsWidth = self.pageboyViewController.view.frame.size.width
+        self.pageboyViewController.expectedTransitionIndex = targetIndex
+        self.pageboyViewController.pageViewController.scrollView?.setContentOffset(CGPoint(x: boundsWidth + (boundsWidth * position), y: 0.0),
+                                                                                   animated: false)
+    }
 }
