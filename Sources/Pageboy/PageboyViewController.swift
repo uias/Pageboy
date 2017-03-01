@@ -374,3 +374,17 @@ internal extension PageboyViewController {
         }
     }
 }
+
+// MARK: - NavigationDirection: CustomStringConvertible
+extension PageboyViewController.NavigationDirection: CustomStringConvertible {
+    public var description: String {
+        switch self {
+        case .forward:
+            return "Forward"
+        case .reverse:
+            return "Reverse"
+        default:
+            return "Neutral"
+        }
+    }
+}
