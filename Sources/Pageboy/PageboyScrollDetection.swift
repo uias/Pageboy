@@ -69,10 +69,18 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
             contentOffset = scrollView.contentOffset.y
         }
         
-        let scrollIndexDiff = CGFloat(max(1, abs((self.expectedTransitionIndex ?? currentIndex + 1) - currentIndex)))
-        let scrollOffset = contentOffset - pageSize
-        let pageOffset = (CGFloat(currentIndex) * pageSize) + (scrollOffset * scrollIndexDiff)
-        var pagePosition = pageOffset / pageSize
+        guard let scrollIndexDiff = self.pageScrollIndexDiff(forCurrentIndex: currentIndex,
+                                                       expectedIndex: self.expectedTransitionIndex,
+                                                       currentContentOffset: contentOffset,
+                                                       pageSize: pageSize) else {
+                                                        return
+        }
+        
+        guard var pagePosition = self.pagePosition(forContentOffset: contentOffset,
+                                                   pageSize: pageSize,
+                                                   indexDiff: scrollIndexDiff) else {
+                                                        return
+        }
         
         // do not continue if a page change is detected
         guard !self.detectCurrentPageIndexIfNeeded(pagePosition: pagePosition,
@@ -96,7 +104,9 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
         } else {
             positionPoint = CGPoint(x: scrollView.contentOffset.x, y: pagePosition)
         }
-                
+        
+        print(positionPoint)
+        
         // ignore duplicate updates
         guard self.currentPosition != positionPoint else { return }
         self.currentPosition = positionPoint
@@ -117,13 +127,11 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
     ///
     /// - Parameter pagePosition: the relative page position.
     private func detectInfiniteOverscrollIfNeeded(pagePosition: inout CGFloat) {
-        let maxPagePosition = CGFloat((self.viewControllers?.count ?? 1) - 1)
-        let overscrolling = pagePosition < 0.0 || pagePosition > maxPagePosition
-        
-        guard self.isInfiniteScrollEnabled && overscrolling else {
+        guard self.isInfinitelyScrolling(forPosition: pagePosition) else {
             return
         }
         
+        let maxPagePosition = CGFloat((self.viewControllers?.count ?? 1) - 1)
         var integral: Double = 0.0
         var progress = CGFloat(modf(fabs(Double(pagePosition)), &integral))
         var maxInfinitePosition: CGFloat!
@@ -140,6 +148,20 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
         }
         
         pagePosition = infinitePagePosition
+    }
+    
+    /// Whether a position is infinitely scrolling between end ranges
+    ///
+    /// - Parameter pagePosition: The position.
+    /// - Returns: Whether the position is infinitely scrolling.
+    private func isInfinitelyScrolling(forPosition pagePosition: CGFloat) -> Bool {
+        let maxPagePosition = CGFloat((self.viewControllers?.count ?? 1) - 1)
+        let overscrolling = pagePosition < 0.0 || pagePosition > maxPagePosition
+        
+        guard self.isInfiniteScrollEnabled && overscrolling else {
+            return false
+        }
+        return true
     }
     
     /// Detects whether a page boundary has been passed.
@@ -183,6 +205,52 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
                 return
         }
         self.currentIndex = index
+    }
+    
+    /// Calculate the expected index diff for a page scroll.
+    ///
+    /// - Parameters:
+    ///   - index: The current index.
+    ///   - expectedIndex: The target page index.
+    ///   - currentContentOffset: The current content offset.
+    ///   - pageSize: The size of each page.
+    /// - Returns: The expected index diff.
+    private func pageScrollIndexDiff(forCurrentIndex index: Int?,
+                                     expectedIndex: Int?,
+                                     currentContentOffset: CGFloat,
+                                     pageSize: CGFloat) -> CGFloat? {
+        guard let index = index, let expectedIndex = expectedIndex else {
+            return nil
+        }
+        
+        let expectedDiff = CGFloat(max(1, abs(expectedIndex - index)))
+        let expectedPosition = self.pagePosition(forContentOffset: currentContentOffset,
+                                                 pageSize: pageSize,
+                                                 indexDiff: expectedDiff) ?? CGFloat(index)
+        
+        guard self.isInfinitelyScrolling(forPosition: expectedPosition) == false else {
+            return 1
+        }
+        return expectedDiff
+    }
+    
+    /// Calculate the relative page position.
+    ///
+    /// - Parameters:
+    ///   - contentOffset: The current contentOffset.
+    ///   - pageSize: The current page size.
+    ///   - indexDiff: The expected difference between current / target page indexes.
+    /// - Returns: The relative page position.
+    private func pagePosition(forContentOffset contentOffset: CGFloat,
+                                       pageSize: CGFloat,
+                                       indexDiff: CGFloat) -> CGFloat? {
+        guard let currentIndex = self.currentIndex else {
+            return nil
+        }
+        
+        let scrollOffset = contentOffset - pageSize
+        let pageOffset = (CGFloat(currentIndex) * pageSize) + (scrollOffset * indexDiff)
+        return pageOffset / pageSize
     }
 }
 
