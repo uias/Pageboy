@@ -217,10 +217,11 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
                                      expectedIndex: Int?,
                                      currentContentOffset: CGFloat,
                                      pageSize: CGFloat) -> CGFloat? {
-        guard let index = index, let expectedIndex = expectedIndex else {
+        guard let index = index else {
             return nil
         }
         
+        let expectedIndex = expectedIndex ?? index
         let expectedDiff = CGFloat(max(1, abs(expectedIndex - index)))
         let expectedPosition = self.pagePosition(forContentOffset: currentContentOffset,
                                                  pageSize: pageSize,
