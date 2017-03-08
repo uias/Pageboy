@@ -20,6 +20,9 @@ pod 'Pageboy'
 ```
 And run `pod install`.
 
+## Requirements
+Pageboy requires iOS 9.0 or above.
+
 ## Usage
 ### Getting Started
 
