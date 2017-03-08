@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "9.0"
   s.requires_arc = true
 
-  s.version      = "0.4.8"
+  s.version      = "0.4.9"
   s.summary      = "A simple, highly informative page view controller."
   s.description  = <<-DESC
   					Pageboy is a page view controller that provides simplified data source management, enhanced delegation and other useful features.

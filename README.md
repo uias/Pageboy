@@ -11,9 +11,7 @@
 - [x] Simplified data source management.
 - [x] Enhanced delegation; featuring exact relative positional data and reliable updates.
 - [x] Infinite scrolling support.
-
-#### Upcoming
-- [ ] Automatic timer-based page transitioning.
+- [x] Automatic timer-based page transitioning.
 
 ## Installation
 Pageboy is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
@@ -114,6 +112,7 @@ func pageboyViewController(_ pageboyViewController: PageboyViewController,
 - `currentViewController`: `UIViewController?` - The view controller that the page view controller is currently at.
 - `currentIndex`: `Int?` - The page index that the page view controller is currently at.
 - `currentPosition`: `CGPoint?` - The relative page position that the page view controller is currently at.
+- `autoScroller`: `PageboyAutoScroller` - Object that can be used for adding time-based auto scrolling behaviour.
 
 #### Interaction State
 - `isScrollEnabled`: `Bool` - Whether scroll is enabled on the page view controller.

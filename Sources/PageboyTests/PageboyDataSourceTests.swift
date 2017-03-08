@@ -33,7 +33,7 @@ class PageboyDataSourceTests: PageboyTests {
     func testPageboyViewControllerNilSetUp() {
         self.pageboyViewController.dataSource = self.dataSource
         
-        XCTAssert(self.pageboyViewController.viewControllers == nil,
+        XCTAssertNil(self.pageboyViewController.viewControllers,
                   "View Controller array is not nil when data source returns nil.")
     }
     
@@ -65,7 +65,7 @@ class PageboyDataSourceTests: PageboyTests {
         self.dataSource.defaultIndex = .atIndex(index: 4)
         self.pageboyViewController.dataSource = self.dataSource
         
-        XCTAssert(self.pageboyViewController.currentIndex == nil,
+        XCTAssertNil(self.pageboyViewController.currentIndex,
                   "Default page index is not correctly erroring when out of range index specified.")
     }
     

@@ -207,6 +207,9 @@ open class PageboyViewController: UIViewController {
         }
     }
     
+    /// Auto Scroller for automatic time-based page transitions.
+    public let autoScroller = PageboyAutoScroller()
+    
     //
     // MARK: Lifecycle
     //
@@ -214,6 +217,7 @@ open class PageboyViewController: UIViewController {
     open override func loadView() {
         super.loadView()
         
+        self.autoScroller.handler = self
         self.setUpPageViewController()
     }
     
@@ -297,6 +301,7 @@ open class PageboyViewController: UIViewController {
                                                                  animated: animated)
                         }
                     }
+                    self.autoScroller.didFinishScrollIfEnabled()
                     completion?(viewController, animated, finished)
                     self.isScrollingAnimated = false
             })
@@ -305,6 +310,7 @@ open class PageboyViewController: UIViewController {
             guard let viewController = self.viewControllers?[rawIndex] else {
                 return
             }
+            self.autoScroller.didFinishScrollIfEnabled()
             completion?(viewController, animated, false)
         }
     }
@@ -355,13 +361,21 @@ internal extension PageboyViewController {
             guard let currentIndex = self.currentIndex else {
                 return 0
             }
-            return currentIndex + 1
+            var proposedIndex = currentIndex + 1
+            if self.isInfiniteScrollEnabled && proposedIndex == self.viewControllers?.count { // scroll back to first index
+                proposedIndex = 0
+            }
+            return proposedIndex
             
         case .previous:
             guard let currentIndex = self.currentIndex else {
                 return 0
             }
-            return currentIndex - 1
+            var proposedIndex = currentIndex - 1
+            if self.isInfiniteScrollEnabled && proposedIndex < 0 { // scroll to last index
+                proposedIndex = 0
+            }
+            return proposedIndex
             
         case .first:
             return 0
@@ -386,5 +400,13 @@ extension PageboyViewController.NavigationDirection: CustomStringConvertible {
         default:
             return "Neutral"
         }
+    }
+}
+
+// MARK: - PageboyAutoScrollerHandler
+extension PageboyViewController: PageboyAutoScrollerHandler {
+    
+    func autoScroller(didRequestAutoScroll autoScroller: PageboyAutoScroller, animated: Bool) {
+        self.scrollToPage(.next, animated: animated)
     }
 }
