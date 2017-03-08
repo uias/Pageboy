@@ -17,10 +17,17 @@ internal protocol PageboyAutoScrollerHandler {
     func autoScroller(didRequestAutoScroll autoScroller: PageboyAutoScroller)
 }
 
+/// Delegate protocol for observing auto scroll events.
 public protocol PageboyAutoScrollerDelegate {
     
+    /// The auto scroller will begin a scroll animation on the page view controller.
+    ///
+    /// - Parameter autoScroller: The auto scroller.
     func autoScroller(willBeginScrollAnimation autoScroller: PageboyAutoScroller)
     
+    /// The auto scroller did finish a scroll animation on the page view controller.
+    ///
+    /// - Parameter autoScroller: The auto scroller.
     func autoScroller(didFinishScrollAnimation autoScroller: PageboyAutoScroller)
 }
 
