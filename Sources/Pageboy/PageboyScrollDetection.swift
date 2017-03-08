@@ -116,6 +116,12 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
         self.previousPagePosition = pagePosition
     }
     
+    public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        if self.autoScroller.cancelsOnDrag {
+            self.autoScroller.disable()
+        }
+    }
+    
     //
     // MARK: Utils
     //

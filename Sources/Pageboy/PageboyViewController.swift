@@ -207,6 +207,7 @@ open class PageboyViewController: UIViewController {
         }
     }
     
+    /// Auto Scroller for automatic time-based page transitions.
     public let autoScroller = PageboyAutoScroller()
     
     //
@@ -358,13 +359,21 @@ internal extension PageboyViewController {
             guard let currentIndex = self.currentIndex else {
                 return 0
             }
-            return currentIndex + 1
+            var proposedIndex = currentIndex + 1
+            if self.isInfiniteScrollEnabled && proposedIndex == self.viewControllers?.count { // scroll back to first index
+                proposedIndex = 0
+            }
+            return proposedIndex
             
         case .previous:
             guard let currentIndex = self.currentIndex else {
                 return 0
             }
-            return currentIndex - 1
+            var proposedIndex = currentIndex - 1
+            if self.isInfiniteScrollEnabled && proposedIndex < 0 { // scroll to last index
+                proposedIndex = 0
+            }
+            return proposedIndex
             
         case .first:
             return 0
