@@ -73,7 +73,7 @@ public class PageboyAutoScroller: Any {
     /// Whether auto scrolling restarts when a page view controller scroll ends.
     public var restartsOnScrollEnd: Bool = false
     /// Whether the auto scrolling transitions should be animated.
-    public var scrollIsAnimated: Bool = true
+    public var animateScroll: Bool = true
     
     /// The object that acts as a delegate to the auto scroller.
     public var delegate: PageboyAutoScrollerDelegate?
@@ -182,6 +182,6 @@ internal extension PageboyAutoScroller {
     @objc func timerDidElapse(_ timer: Timer) {
         self.isScrolling = true
         self.delegate?.autoScroller(willBeginScrollAnimation: self)
-        self.handler?.autoScroller(didRequestAutoScroll: self, animated: self.scrollIsAnimated)
+        self.handler?.autoScroller(didRequestAutoScroll: self, animated: self.animateScroll)
     }
 }
