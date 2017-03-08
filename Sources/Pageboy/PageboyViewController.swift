@@ -406,7 +406,7 @@ extension PageboyViewController.NavigationDirection: CustomStringConvertible {
 // MARK: - PageboyAutoScrollerHandler
 extension PageboyViewController: PageboyAutoScrollerHandler {
     
-    func autoScroller(didRequestAutoScroll autoScroller: PageboyAutoScroller) {
-        self.scrollToPage(.next, animated: true)
+    func autoScroller(didRequestAutoScroll autoScroller: PageboyAutoScroller, animated: Bool) {
+        self.scrollToPage(.next, animated: animated)
     }
 }

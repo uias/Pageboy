@@ -14,7 +14,8 @@ internal protocol PageboyAutoScrollerHandler {
     /// Auto scroller requires a scroll.
     ///
     /// - Parameter autoScroller: The auto scroller.
-    func autoScroller(didRequestAutoScroll autoScroller: PageboyAutoScroller)
+    /// - Parameter animated: Whether the scroll should be animated.
+func autoScroller(didRequestAutoScroll autoScroller: PageboyAutoScroller, animated: Bool)
 }
 
 /// Delegate protocol for observing auto scroll events.
@@ -71,6 +72,8 @@ public class PageboyAutoScroller: Any {
     public var cancelsOnScroll: Bool = true
     /// Whether auto scrolling restarts when a page view controller scroll ends.
     public var restartsOnScrollEnd: Bool = false
+    /// Whether the auto scrolling transitions should be animated.
+    public var scrollIsAnimated: Bool = true
     
     /// The object that acts as a delegate to the auto scroller.
     public var delegate: PageboyAutoScrollerDelegate?
@@ -179,6 +182,6 @@ internal extension PageboyAutoScroller {
     @objc func timerDidElapse(_ timer: Timer) {
         self.isScrolling = true
         self.delegate?.autoScroller(willBeginScrollAnimation: self)
-        self.handler?.autoScroller(didRequestAutoScroll: self)
+        self.handler?.autoScroller(didRequestAutoScroll: self, animated: self.scrollIsAnimated)
     }
 }
