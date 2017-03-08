@@ -66,6 +66,8 @@ class PageViewController: PageboyViewController, PageboyViewControllerDataSource
         self.updateAppearance(pageOffset: self.currentPosition?.x ?? 0.0)
         self.updateStatusLabels()
         self.updateBarButtonStates(index: self.currentIndex ?? 0)
+        
+        self.autoScroller.enable(withIntermissionDuration: .short)
     }
 
     func updateStatusLabels() {

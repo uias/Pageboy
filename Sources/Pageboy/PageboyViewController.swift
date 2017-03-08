@@ -207,6 +207,8 @@ open class PageboyViewController: UIViewController {
         }
     }
     
+    public let autoScroller = PageboyAutoScroller()
+    
     //
     // MARK: Lifecycle
     //
@@ -214,6 +216,7 @@ open class PageboyViewController: UIViewController {
     open override func loadView() {
         super.loadView()
         
+        self.autoScroller.delegate = self
         self.setUpPageViewController()
     }
     
@@ -386,5 +389,13 @@ extension PageboyViewController.NavigationDirection: CustomStringConvertible {
         default:
             return "Neutral"
         }
+    }
+}
+
+// MARK: - PageboyAutoScrollerDelegate
+extension PageboyViewController: PageboyAutoScrollerDelegate {
+    
+    func autoScroller(didRequestAutoScroll autoScroller: PageboyAutoScroller) {
+        self.scrollToPage(.next, animated: true)
     }
 }
