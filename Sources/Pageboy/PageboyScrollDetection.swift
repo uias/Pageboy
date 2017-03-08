@@ -117,8 +117,22 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
     }
     
     public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        if self.autoScroller.cancelsOnDrag {
-            self.autoScroller.disable()
+        if self.autoScroller.cancelsOnScroll {
+            self.autoScroller.cancel()
+        }
+    }
+    
+    public func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        self.scrollView(didEndScrolling: scrollView)
+    }
+    
+    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        self.scrollView(didEndScrolling: scrollView)
+    }
+    
+    private func scrollView(didEndScrolling scrollView: UIScrollView) {
+        if self.autoScroller.restartsOnScrollEnd {
+            self.autoScroller.restart()
         }
     }
     

@@ -20,6 +20,10 @@ internal protocol PageboyAutoScrollerDelegate {
 /// Object that provides auto scrolling framework to PageboyViewController
 public class PageboyAutoScroller: Any {
     
+    //
+    // MARK: Types
+    //
+    
     /// Duration spent on each page.
     ///
     /// - short: Short (5 seconds)
@@ -31,18 +35,25 @@ public class PageboyAutoScroller: Any {
         case custom(duration: TimeInterval)
     }
 
+    //
     // MARK: Properties
+    //
     
     fileprivate var timer: Timer?
     private var isEnabled: Bool = false
+    private var wasEnabled: Bool?
     internal var delegate: PageboyAutoScrollerDelegate?
     
-    /// The duration spent on each page during auto scrolling.
+    /// The duration spent on each page during auto scrolling. Default: .short
     private(set) public var intermissionDuration: IntermissionDuration = .short
-    /// Whether auto scrolling is disabled on drag of a scroll view.
-    public var cancelsOnDrag: Bool = true
+    /// Whether auto scrolling is disabled on drag of the page view controller.
+    public var cancelsOnScroll: Bool = true
+    /// Whether auto scrolling restarts when a page view controller scroll ends.
+    public var restartsOnScrollEnd: Bool = false
     
+    //
     // MARK: State
+    //
     
     /// Enable auto scrolling behaviour.
     ///
@@ -68,6 +79,25 @@ public class PageboyAutoScroller: Any {
         
         self.destroyTimer()
         self.isEnabled = false
+    }
+    
+    /// Cancel the current auto scrolling behaviour.
+    internal func cancel() {
+        guard self.isEnabled else {
+            return
+        }
+        self.wasEnabled = true
+        self.disable()
+    }
+    
+    /// Restart auto scrolling behaviour if it was previously cancelled.
+    internal func restart() {
+        guard self.wasEnabled == true && !self.isEnabled else {
+            return
+        }
+        
+        self.wasEnabled = nil
+        self.enable()
     }
 }
 
