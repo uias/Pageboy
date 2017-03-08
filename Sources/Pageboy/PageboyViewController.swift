@@ -217,7 +217,7 @@ open class PageboyViewController: UIViewController {
     open override func loadView() {
         super.loadView()
         
-        self.autoScroller.delegate = self
+        self.autoScroller.handler = self
         self.setUpPageViewController()
     }
     
@@ -301,6 +301,7 @@ open class PageboyViewController: UIViewController {
                                                                  animated: animated)
                         }
                     }
+                    self.autoScroller.didFinishScrollIfEnabled()
                     completion?(viewController, animated, finished)
                     self.isScrollingAnimated = false
             })
@@ -309,6 +310,7 @@ open class PageboyViewController: UIViewController {
             guard let viewController = self.viewControllers?[rawIndex] else {
                 return
             }
+            self.autoScroller.didFinishScrollIfEnabled()
             completion?(viewController, animated, false)
         }
     }
@@ -401,8 +403,8 @@ extension PageboyViewController.NavigationDirection: CustomStringConvertible {
     }
 }
 
-// MARK: - PageboyAutoScrollerDelegate
-extension PageboyViewController: PageboyAutoScrollerDelegate {
+// MARK: - PageboyAutoScrollerHandler
+extension PageboyViewController: PageboyAutoScrollerHandler {
     
     func autoScroller(didRequestAutoScroll autoScroller: PageboyAutoScroller) {
         self.scrollToPage(.next, animated: true)

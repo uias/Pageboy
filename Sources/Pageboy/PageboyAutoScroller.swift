@@ -9,12 +9,19 @@
 import Foundation
 
 /// Internal protocol for handling auto scroller events.
-internal protocol PageboyAutoScrollerDelegate {
+internal protocol PageboyAutoScrollerHandler {
     
     /// Auto scroller requires a scroll.
     ///
     /// - Parameter autoScroller: The auto scroller.
     func autoScroller(didRequestAutoScroll autoScroller: PageboyAutoScroller)
+}
+
+public protocol PageboyAutoScrollerDelegate {
+    
+    func autoScroller(willBeginScrollAnimation autoScroller: PageboyAutoScroller)
+    
+    func autoScroller(didFinishScrollAnimation autoScroller: PageboyAutoScroller)
 }
 
 /// Object that provides auto scrolling framework to PageboyViewController
@@ -39,10 +46,17 @@ public class PageboyAutoScroller: Any {
     // MARK: Properties
     //
     
+    /// The timer
     fileprivate var timer: Timer?
+    /// Whether the auto scroller is enabled.
     private var isEnabled: Bool = false
+    /// Whether the auto scroller was enabled previous to a cancel event
     private var wasEnabled: Bool?
-    internal var delegate: PageboyAutoScrollerDelegate?
+    /// Whether a scroll animation is currently active.
+    internal fileprivate(set) var isScrolling: Bool?
+    
+    /// The object that acts as a handler for auto scroll events.
+    internal var handler: PageboyAutoScrollerHandler?
     
     /// The duration spent on each page during auto scrolling. Default: .short
     private(set) public var intermissionDuration: IntermissionDuration = .short
@@ -50,6 +64,9 @@ public class PageboyAutoScroller: Any {
     public var cancelsOnScroll: Bool = true
     /// Whether auto scrolling restarts when a page view controller scroll ends.
     public var restartsOnScrollEnd: Bool = false
+    
+    /// The object that acts as a delegate to the auto scroller.
+    public var delegate: PageboyAutoScrollerDelegate?
     
     //
     // MARK: State
@@ -118,6 +135,9 @@ internal extension PageboyAutoScroller.IntermissionDuration {
 // MARK: - Timer
 internal extension PageboyAutoScroller {
     
+    /// Initialize auto scrolling timer
+    ///
+    /// - Parameter duration: The duration for the timer.
     func createTimer(withDuration duration: TimeInterval) {
         guard self.timer == nil else {
             return
@@ -129,6 +149,7 @@ internal extension PageboyAutoScroller {
                                           userInfo: nil, repeats: true)
     }
     
+    /// Remove auto scrolling timer
     func destroyTimer() {
         guard self.timer != nil else {
             return
@@ -138,7 +159,19 @@ internal extension PageboyAutoScroller {
         self.timer = nil
     }
     
+    /// Called when a scroll animation is finished
+    func didFinishScrollIfEnabled() {
+        guard self.isScrolling == true else {
+            return
+        }
+        
+        self.isScrolling = nil
+        self.delegate?.autoScroller(didFinishScrollAnimation: self)
+    }
+    
     @objc func timerDidElapse(_ timer: Timer) {
-        self.delegate?.autoScroller(didRequestAutoScroll: self)
+        self.isScrolling = true
+        self.delegate?.autoScroller(willBeginScrollAnimation: self)
+        self.handler?.autoScroller(didRequestAutoScroll: self)
     }
 }
