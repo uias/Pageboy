@@ -1,9 +1,5 @@
 language: objective-c
 osx_image: xcode8.2
-branches:
-  only:
-  - master
-  - develop
 
 script:
 - xcodebuild -workspace Pageboy.xcworkspace -scheme Pageboy -destination 'platform=iOS
