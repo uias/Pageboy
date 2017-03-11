@@ -134,6 +134,9 @@ func pageboyViewController(_ pageboyViewController: PageboyViewController,
 	- `forward` - Moved in a positive direction (Towards n+1).
 	- `reverse` - Moved in a negative direction (Towards n-1).
 
+## Getting In Touch
+Please feel free to contact me on [Twitter](https://twitter.com/MerrickSapsford).
+
 ## Contributing
 Bug reports and pull requests are welcome on GitHub at [https://github.com/MerrickSapsford/Pageboy](https://github.com/MerrickSapsford/Pageboy).
 
