@@ -190,9 +190,8 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
     ///   - scrollView: The scroll view that is being scrolled.
     /// - Returns: Whether a page transition has been detected.
     private func detectCurrentPageIndexIfNeeded(pagePosition: CGFloat, scrollView: UIScrollView) -> Bool {
-        guard let currentIndex = self.currentIndex else {
-            return false
-        }
+        guard let currentIndex = self.currentIndex else { return false }
+        guard scrollView.isDecelerating == false else { return false }
         
         let isPagingForward = pagePosition > self.previousPagePosition ?? 0.0
         if scrollView.isDragging {
