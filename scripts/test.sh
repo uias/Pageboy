@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 
-bash <(curl -s https://codecov.io/bash)
+if [ "$TRAVIS_BRANCH" == "master" ] || [ "$TRAVIS_BRANCH" == "develop" ]; then
+    sh <(curl -s https://codecov.io/bash)
+fi

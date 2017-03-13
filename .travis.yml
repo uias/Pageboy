@@ -8,12 +8,13 @@ script:
 
 deploy:
   - provider: script
+    script: ./scripts/test.sh
+    on:
+      all_branches: true
+  - provider: script
     script: ./scripts/push.sh
     on:
       tags: true
-
-after_deploy:
-  - bash <(curl -s https://codecov.io/bash)
 
 notifications:
   slack:
