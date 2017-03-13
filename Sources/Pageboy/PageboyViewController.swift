@@ -148,6 +148,9 @@ open class PageboyViewController: UIViewController {
         }
     }
     
+    /// default YES. if YES, bounces past edge of content and back again.
+    public var bounces: Bool = true
+    
     /// Whether user interaction is enabled on the page view controller.
     ///
     /// Default is TRUE
