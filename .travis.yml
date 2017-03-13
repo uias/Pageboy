@@ -7,13 +7,14 @@ script:
 - pod lib lint --quick
 
 deploy:
-  provider: script
-  script: ./scripts/push.sh
-  on:
-    tags: true
-
-after_success:
-- bash <(curl -s https://codecov.io/bash)
+  - provider: script
+    script: ./scripts/test.sh
+    on:
+      all_branches: true
+  - provider: script
+    script: ./scripts/push.sh
+    on:
+      tags: true
 
 notifications:
   slack:
