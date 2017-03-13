@@ -194,6 +194,7 @@ class PageboyTransitionTests: PageboyTests {
         }
     }
     
+    /// Test bounces flag is correctly adhered to when set to false.
     func testBouncingDisabledTransition() {
         self.dataSource.numberOfPages = 2
         self.pageboyViewController.dataSource = self.dataSource
