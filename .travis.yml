@@ -8,7 +8,7 @@ script:
 
 deploy:
   - provider: script
-    script: bash <(curl -s https://codecov.io/bash)
+    script: ./scripts/test.sh
     on:
       all_branches: true
   - provider: script
