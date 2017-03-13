@@ -52,6 +52,10 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
     //
     
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard self.updateContentOffsetForBounceIfNeeded(scrollView: scrollView) == false else {
+            return
+        }
+
         guard let currentIndex = self.currentIndex else {
             return
         }
@@ -128,6 +132,10 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
     
     public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         self.scrollView(didEndScrolling: scrollView)
+    }
+    
+    public func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        self.updateContentOffsetForBounceIfNeeded(scrollView: scrollView)
     }
     
     private func scrollView(didEndScrolling scrollView: UIScrollView) {
@@ -269,6 +277,23 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
         let scrollOffset = contentOffset - pageSize
         let pageOffset = (CGFloat(currentIndex) * pageSize) + (scrollOffset * indexDiff)
         return pageOffset / pageSize
+    }
+    
+    /// Update the scroll view contentOffset for bouncing preference if required.
+    ///
+    /// - Parameter scrollView: The scroll view.
+    /// - Returns: Whether the contentOffset was manipulated to achieve bouncing preference.
+    @discardableResult private func updateContentOffsetForBounceIfNeeded(scrollView: UIScrollView) -> Bool {
+        guard self.bounces == false else { return false }
+        
+        let previousContentOffset = scrollView.contentOffset
+        if self.currentIndex == 0 && scrollView.contentOffset.x < scrollView.bounds.size.width {
+            scrollView.contentOffset = CGPoint(x: scrollView.bounds.size.width, y: 0.0)
+        }
+        if self.currentIndex == (self.viewControllers?.count ?? 1) - 1 && scrollView.contentOffset.x > scrollView.bounds.size.width {
+            scrollView.contentOffset = CGPoint(x: scrollView.bounds.size.width, y: 0.0)
+        }
+        return previousContentOffset != scrollView.contentOffset
     }
 }
 
