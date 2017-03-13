@@ -194,6 +194,17 @@ class PageboyTransitionTests: PageboyTests {
         }
     }
     
+    func testBouncingDisabledTransition() {
+        self.dataSource.numberOfPages = 2
+        self.pageboyViewController.dataSource = self.dataSource
+        self.pageboyViewController.bounces = false
+        
+        self.simulateScroll(toPosition: -0.1)
+        
+        XCTAssert(self.pageboyViewController.currentPosition!.x == 0.0,
+                  "Bounces flag is not adhered to when setting contentOffset when false.")
+    }
+    
     // MARK: Utils
     
     func simulateScroll(toPosition position: CGFloat) {
