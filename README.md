@@ -29,7 +29,7 @@ Pageboy requires iOS 9.0 or above.
 1) Create an instance of a `PageboyViewController` and provide it with a `PageboyViewControllerDataSource`.
 
 ```swift
-class PageViewController: PageBoyViewController, PageboyViewControllerDataSource {
+class PageViewController: PageboyViewController, PageboyViewControllerDataSource {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
