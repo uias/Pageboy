@@ -1,6 +1,7 @@
 <p align="center">
     <img src="Artwork/logo.png" width="890" alt="Pageboy"/>
 </p>
+
 [![Build Status](https://travis-ci.org/msaps/Pageboy.svg?branch=develop)](https://travis-ci.org/msaps/Pageboy)
 [![CocoaPods](https://img.shields.io/cocoapods/v/Pageboy.svg)]()
 [![codecov](https://codecov.io/gh/msaps/Pageboy/branch/develop/graph/badge.svg)](https://codecov.io/gh/msaps/Pageboy)
