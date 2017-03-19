@@ -6,6 +6,8 @@
 [![CocoaPods](https://img.shields.io/cocoapods/v/Pageboy.svg)]()
 [![codecov](https://codecov.io/gh/msaps/Pageboy/branch/develop/graph/badge.svg)](https://codecov.io/gh/msaps/Pageboy)
 
+**TL;DR** *UIPageViewController done properly.*
+
 **Pageboy** is a simple, highly informative page view controller.
 
 ## Features
