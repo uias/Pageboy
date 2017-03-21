@@ -13,7 +13,7 @@ class TestPageboyDataSource: Any, PageboyViewControllerDataSource {
     
     var numberOfPages: Int?
     var defaultIndex: PageboyViewController.PageIndex?
-    private var viewControllers = [UIViewController]()
+    private(set) var viewControllers = [UIViewController]()
     
     func viewControllers(forPageboyViewController pageboyViewController: PageboyViewController) -> [UIViewController]? {
         guard let numberOfPages = self.numberOfPages else {
