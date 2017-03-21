@@ -60,7 +60,7 @@ public class PageboyAutoScroller: Any {
     /// Whether the auto scroller is enabled.
     public private(set) var isEnabled: Bool = false
     /// Whether the auto scroller was enabled previous to a cancel event
-    private var wasEnabled: Bool?
+    internal var wasEnabled: Bool?
     /// Whether a scroll animation is currently active.
     internal fileprivate(set) var isScrolling: Bool?
     
@@ -68,7 +68,7 @@ public class PageboyAutoScroller: Any {
     internal var handler: PageboyAutoScrollerHandler?
     
     /// The duration spent on each page during auto scrolling. Default: .short
-    private(set) public var intermissionDuration: IntermissionDuration = .short
+    public private(set) var intermissionDuration: IntermissionDuration = .short
     /// Whether auto scrolling is disabled on drag of the page view controller.
     public var cancelsOnScroll: Bool = true
     /// Whether auto scrolling restarts when a page view controller scroll ends.
