@@ -13,6 +13,7 @@ class PageboyAutoScrollTests: PageboyTests {
 
     var autoScrollExpectation: XCTestExpectation?
     
+    /// Test that PageboyAutoScroller enables correctly.
     func testAutoScrollEnabling() {
         self.dataSource.numberOfPages = 3
         self.pageboyViewController.dataSource = self.dataSource
@@ -30,6 +31,18 @@ class PageboyAutoScrollTests: PageboyTests {
             XCTAssert(self.pageboyViewController.currentIndex == currentIndex + 1,
                       "PageboyAutoScroller does not auto scroll correctly when enabled.")
         }
+    }
+    /// Test that PageboyAutoScroller supports cancellation.
+    func testAutoScrollCancellation() {
+        self.dataSource.numberOfPages = 3
+        self.pageboyViewController.dataSource = self.dataSource
+        
+        self.pageboyViewController.autoScroller.enable(withIntermissionDuration: .long)
+        let wasEnabled = self.pageboyViewController.autoScroller.isEnabled
+        self.pageboyViewController.autoScroller.cancel()
+        
+        XCTAssert(self.pageboyViewController.autoScroller.isEnabled == false && wasEnabled,
+                  "PageboyAutoScroller does not allow cancellation correctly.")
     }
 }
 
