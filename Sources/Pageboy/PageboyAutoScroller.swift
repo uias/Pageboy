@@ -56,8 +56,9 @@ public class PageboyAutoScroller: Any {
     
     /// The timer
     fileprivate var timer: Timer?
+    
     /// Whether the auto scroller is enabled.
-    private var isEnabled: Bool = false
+    public private(set) var isEnabled: Bool = false
     /// Whether the auto scroller was enabled previous to a cancel event
     private var wasEnabled: Bool?
     /// Whether a scroll animation is currently active.
