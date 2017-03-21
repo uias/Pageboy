@@ -2,9 +2,9 @@
     <img src="Artwork/logo.png" width="890" alt="Pageboy"/>
 </p>
 
-[![Build Status](https://travis-ci.org/msaps/Pageboy.svg?branch=develop)](https://travis-ci.org/msaps/Pageboy)
+[![Build Status](https://travis-ci.org/YorkUI/Pageboy.svg?branch=master)](https://travis-ci.org/YorkUI/Pageboy)
 [![CocoaPods](https://img.shields.io/cocoapods/v/Pageboy.svg)]()
-[![codecov](https://codecov.io/gh/msaps/Pageboy/branch/develop/graph/badge.svg)](https://codecov.io/gh/msaps/Pageboy)
+[![codecov](https://codecov.io/gh/YorkUI/Pageboy/branch/master/graph/badge.svg)](https://codecov.io/gh/YorkUI/Pageboy)
 
 **TL;DR** *UIPageViewController done properly.*
 
