@@ -15,6 +15,8 @@ class TestPageboyDataSource: Any, PageboyViewControllerDataSource {
     var defaultIndex: PageboyViewController.PageIndex?
     private(set) var viewControllers = [UIViewController]()
     
+    private(set) var reloadCount = 0
+    
     func viewControllers(forPageboyViewController pageboyViewController: PageboyViewController) -> [UIViewController]? {
         guard let numberOfPages = self.numberOfPages else {
             return nil
@@ -27,6 +29,7 @@ class TestPageboyDataSource: Any, PageboyViewControllerDataSource {
             viewControllers.append(viewController)
         }
         
+        reloadCount += 1
         return viewControllers
     }
     
