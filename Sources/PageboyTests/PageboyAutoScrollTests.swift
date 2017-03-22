@@ -32,6 +32,7 @@ class PageboyAutoScrollTests: PageboyTests {
                       "PageboyAutoScroller does not auto scroll correctly when enabled.")
         }
     }
+    
     /// Test that PageboyAutoScroller disables correctly.
     func testAutoScrollDisable() {
         self.dataSource.numberOfPages = 3
@@ -44,6 +45,7 @@ class PageboyAutoScrollTests: PageboyTests {
             self.pageboyViewController.autoScroller.wasEnabled != true,
                   "PageboyAutoScroller does not disable correctly.")
     }
+    
     /// Test that PageboyAutoScroller supports cancellation.
     func testAutoScrollCancellation() {
         self.dataSource.numberOfPages = 3
@@ -56,6 +58,7 @@ class PageboyAutoScrollTests: PageboyTests {
             self.pageboyViewController.autoScroller.wasEnabled == true,
                   "PageboyAutoScroller does not allow cancellation correctly.")
     }
+    
     /// Test that PageboyAutoScroller supports restarting.
     func testAutoScrollRestart() {
         self.dataSource.numberOfPages = 3
