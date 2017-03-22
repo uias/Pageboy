@@ -117,6 +117,17 @@ class PageboyDataSourceTests: PageboyTests {
                   "reloadPages is not correctly reloading view controllers.")
     }
     
+    /// Test that reloadCurrentPageSoftly does not cause a data source reload.
+    func testPageboyViewControllerSoftReloadBehavior() {
+        self.dataSource.numberOfPages = 5
+        self.pageboyViewController.dataSource = self.dataSource
+        
+        self.pageboyViewController.isInfiniteScrollEnabled = true
+        
+        XCTAssertTrue(self.dataSource.reloadCount == 1,
+                      "reloadCurrentPageSoftly causes the data source to reload")
+    }
+    
     /// Test that the UIPageViewController data source is 
     /// returning correct pageViewController:viewControllerAfter: values.
     func testPageViewControllerDataSourceNextController() {
