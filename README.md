@@ -141,7 +141,7 @@ func pageboyViewController(_ pageboyViewController: PageboyViewController,
 Please feel free to contact me on [Twitter](https://twitter.com/MerrickSapsford).
 
 ## Contributing
-Bug reports and pull requests are welcome on GitHub at [https://github.com/MerrickSapsford/Pageboy](https://github.com/MerrickSapsford/Pageboy).
+Bug reports and pull requests are welcome on GitHub at [https://github.com/uias/Pageboy](https://github.com/uias/Pageboy).
 
 ## License
 
