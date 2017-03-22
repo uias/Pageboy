@@ -116,4 +116,73 @@ class PageboyDataSourceTests: PageboyTests {
         XCTAssert(initialPageCount == 5 && reloadPageCount == 3,
                   "reloadPages is not correctly reloading view controllers.")
     }
+    
+    /// Test that reloadCurrentPageSoftly does not cause a data source reload.
+    func testPageboyViewControllerSoftReloadBehavior() {
+        self.dataSource.numberOfPages = 5
+        self.pageboyViewController.dataSource = self.dataSource
+        
+        self.pageboyViewController.isInfiniteScrollEnabled = true
+        
+        XCTAssertTrue(self.dataSource.reloadCount == 1,
+                      "reloadCurrentPageSoftly causes the data source to reload")
+    }
+    
+    /// Test that the UIPageViewController data source is 
+    /// returning correct pageViewController:viewControllerAfter: values.
+    func testPageViewControllerDataSourceNextController() {
+        self.dataSource.numberOfPages = 3
+        self.pageboyViewController.dataSource = self.dataSource
+        
+        let viewController = self.dataSource.viewControllers[0]
+        let nextViewController = self.pageboyViewController.pageViewController(self.pageboyViewController.pageViewController,
+                                                                               viewControllerAfter: viewController)
+        
+        XCTAssert(nextViewController === self.dataSource.viewControllers[1],
+                  "pageViewController:viewControllerAfter is returning an incorrect view controller")
+    }
+    
+    /// Test that the UIPageViewController data source is
+    /// returning nil from pageViewController:viewControllerAfter: at the end of the pages.
+    func testPageViewControllerDataSourceNilNextController() {
+        self.dataSource.numberOfPages = 3
+        self.dataSource.defaultIndex = .last
+        self.pageboyViewController.dataSource = self.dataSource
+        
+        let viewController = self.dataSource.viewControllers[2]
+        let nextViewController = self.pageboyViewController.pageViewController(self.pageboyViewController.pageViewController,
+                                                                               viewControllerAfter: viewController)
+        
+        XCTAssertNil(nextViewController,
+                  "pageViewController:viewControllerAfter is returning an incorrect view controller when at the end of pages.")
+    }
+    
+    /// Test that the UIPageViewController data source is
+    /// returning correct pageViewController:viewControllerBefore: values.
+    func testPageViewControllerDataSourcePreviousController() {
+        self.dataSource.numberOfPages = 3
+        self.dataSource.defaultIndex = .atIndex(index: 1)
+        self.pageboyViewController.dataSource = self.dataSource
+        
+        let viewController = self.dataSource.viewControllers[1]
+        let previousViewController = self.pageboyViewController.pageViewController(self.pageboyViewController.pageViewController,
+                                                                               viewControllerBefore: viewController)
+        
+        XCTAssert(previousViewController === self.dataSource.viewControllers[0],
+                  "pageViewController:viewControllerBefore is returning an incorrect view controller")
+    }
+    
+    /// Test that the UIPageViewController data source is
+    /// returning nil from pageViewController:viewControllerBefore: at the start of the pages.
+    func testPageViewControllerDataSourceNilPreviousController() {
+        self.dataSource.numberOfPages = 3
+        self.pageboyViewController.dataSource = self.dataSource
+        
+        let viewController = self.dataSource.viewControllers[0]
+        let previousViewController = self.pageboyViewController.pageViewController(self.pageboyViewController.pageViewController,
+                                                                               viewControllerBefore: viewController)
+        
+        XCTAssertNil(previousViewController,
+                  "pageViewController:viewControllerBefore is returning an incorrect view controller when at the start of pages.")
+    }
 }

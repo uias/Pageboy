@@ -13,6 +13,7 @@ class PageboyAutoScrollTests: PageboyTests {
 
     var autoScrollExpectation: XCTestExpectation?
     
+    /// Test that PageboyAutoScroller enables correctly.
     func testAutoScrollEnabling() {
         self.dataSource.numberOfPages = 3
         self.pageboyViewController.dataSource = self.dataSource
@@ -30,6 +31,49 @@ class PageboyAutoScrollTests: PageboyTests {
             XCTAssert(self.pageboyViewController.currentIndex == currentIndex + 1,
                       "PageboyAutoScroller does not auto scroll correctly when enabled.")
         }
+    }
+    
+    /// Test that PageboyAutoScroller disables correctly.
+    func testAutoScrollDisable() {
+        self.dataSource.numberOfPages = 3
+        self.pageboyViewController.dataSource = self.dataSource
+        
+        self.pageboyViewController.autoScroller.enable(withIntermissionDuration: .long)
+        self.pageboyViewController.autoScroller.disable()
+        
+        XCTAssert(self.pageboyViewController.autoScroller.isEnabled == false &&
+            self.pageboyViewController.autoScroller.wasEnabled != true,
+                  "PageboyAutoScroller does not disable correctly.")
+    }
+    
+    /// Test that PageboyAutoScroller supports cancellation.
+    func testAutoScrollCancellation() {
+        self.dataSource.numberOfPages = 3
+        self.pageboyViewController.dataSource = self.dataSource
+        
+        self.pageboyViewController.autoScroller.enable(withIntermissionDuration: .long)
+        self.pageboyViewController.autoScroller.cancel()
+        
+        XCTAssert(self.pageboyViewController.autoScroller.isEnabled == false &&
+            self.pageboyViewController.autoScroller.wasEnabled == true,
+                  "PageboyAutoScroller does not allow cancellation correctly.")
+    }
+    
+    /// Test that PageboyAutoScroller supports restarting.
+    func testAutoScrollRestart() {
+        self.dataSource.numberOfPages = 3
+        self.pageboyViewController.dataSource = self.dataSource
+        
+        self.pageboyViewController.autoScroller.enable(withIntermissionDuration: .long)
+        self.pageboyViewController.autoScroller.cancel()
+        
+        let isEnabled = self.pageboyViewController.autoScroller.isEnabled
+        let wasEnabled = self.pageboyViewController.autoScroller.wasEnabled ?? false
+        
+        self.pageboyViewController.autoScroller.restart()
+        
+        XCTAssertTrue(self.pageboyViewController.autoScroller.isEnabled && !isEnabled && wasEnabled,
+                  "PageboyAutoScroller does not allow restarting correctly.")
     }
 }
 
