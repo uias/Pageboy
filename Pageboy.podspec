@@ -4,10 +4,10 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "9.0"
   s.requires_arc = true
 
-  s.version      = "0.4.12"
+  s.version      = "1.0.0"
   s.summary      = "A simple, highly informative page view controller."
   s.description  = <<-DESC
-  					Pageboy is a page view controller that provides simplified data source management, enhanced delegation and other useful features.
+  					A page view controller that provides simplified data source management, enhanced delegation and other useful features.
                    DESC
 
   s.homepage          = "https://github.com/MerrickSapsford/Pageboy"
