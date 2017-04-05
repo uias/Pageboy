@@ -9,7 +9,7 @@
 import Foundation
 
 /// Internal protocol for handling auto scroller events.
-internal protocol PageboyAutoScrollerHandler {
+internal protocol PageboyAutoScrollerHandler: class {
     
     /// Auto scroller requires a scroll.
     ///
@@ -65,7 +65,7 @@ public class PageboyAutoScroller: Any {
     internal fileprivate(set) var isScrolling: Bool?
     
     /// The object that acts as a handler for auto scroll events.
-    internal var handler: PageboyAutoScrollerHandler?
+    internal weak var handler: PageboyAutoScrollerHandler?
     
     /// The duration spent on each page during auto scrolling. Default: .short
     public private(set) var intermissionDuration: IntermissionDuration = .short
