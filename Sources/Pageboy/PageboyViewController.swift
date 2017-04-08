@@ -106,7 +106,7 @@ open class PageboyViewController: UIViewController {
     internal var pageViewController: UIPageViewController!
     internal var previousPagePosition: CGFloat?
     internal var expectedTransitionIndex: Int?
-    
+
     //
     // MARK: Properties
     //
@@ -120,6 +120,14 @@ open class PageboyViewController: UIViewController {
             
             self.setUpPageViewController(reloadViewControllers: false)
         }
+    }
+
+    open override var childViewControllerForStatusBarStyle: UIViewController? {
+        return self.currentViewController
+    }
+
+    open override var childViewControllerForStatusBarHidden: UIViewController? {
+        return self.currentViewController
     }
     
     /// The object that is the data source for the page view controller. (Defaults to self)
@@ -183,6 +191,8 @@ open class PageboyViewController: UIViewController {
     public internal(set) var currentIndex: Int? {
         didSet {
             guard let currentIndex = self.currentIndex else { return }
+
+            self.setNeedsStatusBarAppearanceUpdate()
             
             // ensure position keeps in sync
             self.currentPosition = CGPoint(x: self.navigationOrientation == .horizontal ? CGFloat(currentIndex) : 0.0,
@@ -193,6 +203,7 @@ open class PageboyViewController: UIViewController {
                                                  didScrollToPageAtIndex: currentIndex,
                                                  direction: direction,
                                                  animated: self.isScrollingAnimated)
+
         }
     }
     
