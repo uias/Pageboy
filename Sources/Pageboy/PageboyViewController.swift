@@ -340,7 +340,8 @@ internal extension PageboyViewController {
         pageViewController.delegate = self
         pageViewController.dataSource = self
         self.pageViewController = pageViewController
-        
+
+        self.addChildViewController(pageViewController)
         self.view.addSubview(pageViewController.view)
         pageViewController.view.pageboyPinToSuperviewEdges()
         self.view.sendSubview(toBack: pageViewController.view)
