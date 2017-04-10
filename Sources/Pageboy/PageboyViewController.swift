@@ -200,7 +200,9 @@ open class PageboyViewController: UIViewController {
         didSet {
             guard let currentIndex = self.currentIndex else { return }
 
-            self.setNeedsStatusBarAppearanceUpdate()
+            UIView.animate(withDuration: 0.3) { 
+                self.setNeedsStatusBarAppearanceUpdate()
+            }
             
             // ensure position keeps in sync
             self.currentPosition = CGPoint(x: self.navigationOrientation == .horizontal ? CGFloat(currentIndex) : 0.0,
