@@ -121,13 +121,19 @@ open class PageboyViewController: UIViewController {
             self.setUpPageViewController(reloadViewControllers: false)
         }
     }
-
-    open override var childViewControllerForStatusBarStyle: UIViewController? {
-        return self.currentViewController
+    
+    open override var preferredStatusBarStyle: UIStatusBarStyle {
+        if let currentViewController = self.currentViewController {
+            return currentViewController.preferredStatusBarStyle
+        }
+        return super.preferredStatusBarStyle
     }
-
-    open override var childViewControllerForStatusBarHidden: UIViewController? {
-        return self.currentViewController
+    
+    open override var prefersStatusBarHidden: Bool {
+        if let currentViewController = self.currentViewController {
+            return currentViewController.prefersStatusBarHidden
+        }
+        return super.prefersStatusBarHidden
     }
     
     /// The object that is the data source for the page view controller. (Defaults to self)
