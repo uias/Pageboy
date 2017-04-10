@@ -122,6 +122,7 @@ open class PageboyViewController: UIViewController {
         }
     }
     
+    /// Preferred status bar style of the current view controller.
     open override var preferredStatusBarStyle: UIStatusBarStyle {
         if let currentViewController = self.currentViewController {
             return currentViewController.preferredStatusBarStyle
@@ -129,6 +130,7 @@ open class PageboyViewController: UIViewController {
         return super.preferredStatusBarStyle
     }
     
+    /// Preferred status bar hidden of the current view controller.
     open override var prefersStatusBarHidden: Bool {
         if let currentViewController = self.currentViewController {
             return currentViewController.prefersStatusBarHidden
