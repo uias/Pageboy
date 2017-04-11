@@ -121,13 +121,21 @@ open class PageboyViewController: UIViewController {
             self.setUpPageViewController(reloadViewControllers: false)
         }
     }
-
-    open override var childViewControllerForStatusBarStyle: UIViewController? {
-        return self.currentViewController
+    
+    /// Preferred status bar style of the current view controller.
+    open override var preferredStatusBarStyle: UIStatusBarStyle {
+        if let currentViewController = self.currentViewController {
+            return currentViewController.preferredStatusBarStyle
+        }
+        return super.preferredStatusBarStyle
     }
-
-    open override var childViewControllerForStatusBarHidden: UIViewController? {
-        return self.currentViewController
+    
+    /// Preferred status bar hidden of the current view controller.
+    open override var prefersStatusBarHidden: Bool {
+        if let currentViewController = self.currentViewController {
+            return currentViewController.prefersStatusBarHidden
+        }
+        return super.prefersStatusBarHidden
     }
     
     /// The object that is the data source for the page view controller. (Defaults to self)
@@ -192,7 +200,9 @@ open class PageboyViewController: UIViewController {
         didSet {
             guard let currentIndex = self.currentIndex else { return }
 
-            self.setNeedsStatusBarAppearanceUpdate()
+            UIView.animate(withDuration: 0.3) { 
+                self.setNeedsStatusBarAppearanceUpdate()
+            }
             
             // ensure position keeps in sync
             self.currentPosition = CGPoint(x: self.navigationOrientation == .horizontal ? CGFloat(currentIndex) : 0.0,
