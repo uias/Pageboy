@@ -106,7 +106,7 @@ open class PageboyViewController: UIViewController {
     internal var pageViewController: UIPageViewController!
     internal var previousPagePosition: CGFloat?
     internal var expectedTransitionIndex: Int?
-    
+
     //
     // MARK: Properties
     //
@@ -120,6 +120,22 @@ open class PageboyViewController: UIViewController {
             
             self.setUpPageViewController(reloadViewControllers: false)
         }
+    }
+    
+    /// Preferred status bar style of the current view controller.
+    open override var preferredStatusBarStyle: UIStatusBarStyle {
+        if let currentViewController = self.currentViewController {
+            return currentViewController.preferredStatusBarStyle
+        }
+        return super.preferredStatusBarStyle
+    }
+    
+    /// Preferred status bar hidden of the current view controller.
+    open override var prefersStatusBarHidden: Bool {
+        if let currentViewController = self.currentViewController {
+            return currentViewController.prefersStatusBarHidden
+        }
+        return super.prefersStatusBarHidden
     }
     
     /// The object that is the data source for the page view controller. (Defaults to self)
@@ -183,6 +199,10 @@ open class PageboyViewController: UIViewController {
     public internal(set) var currentIndex: Int? {
         didSet {
             guard let currentIndex = self.currentIndex else { return }
+
+            UIView.animate(withDuration: 0.3) { 
+                self.setNeedsStatusBarAppearanceUpdate()
+            }
             
             // ensure position keeps in sync
             self.currentPosition = CGPoint(x: self.navigationOrientation == .horizontal ? CGFloat(currentIndex) : 0.0,
@@ -193,6 +213,7 @@ open class PageboyViewController: UIViewController {
                                                  didScrollToPageAtIndex: currentIndex,
                                                  direction: direction,
                                                  animated: self.isScrollingAnimated)
+
         }
     }
     
@@ -341,6 +362,7 @@ internal extension PageboyViewController {
         pageViewController.dataSource = self
         self.pageViewController = pageViewController
         
+        self.addChildViewController(pageViewController)
         self.view.addSubview(pageViewController.view)
         pageViewController.view.pageboyPinToSuperviewEdges()
         self.view.sendSubview(toBack: pageViewController.view)
