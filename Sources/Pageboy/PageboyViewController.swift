@@ -92,6 +92,9 @@ open class PageboyViewController: UIViewController {
         case previous
         case first
         case last
+        case at(index: Int)
+        
+        @available(*, deprecated: 1.0.3, message: "Use at(index: Int)")
         case atIndex(index: Int)
     }
     
@@ -407,8 +410,11 @@ internal extension PageboyViewController {
             
         case .last:
             return (self.viewControllers?.count ?? 1) - 1
-            
+
         case .atIndex(let index):
+            return index
+
+        case .at(let index):
             return index
         }
     }
