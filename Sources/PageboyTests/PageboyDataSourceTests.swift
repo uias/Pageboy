@@ -51,7 +51,7 @@ class PageboyDataSourceTests: PageboyTests {
     /// in defaultPageIndex(forPageboyViewController:).
     func testPageboyViewControllerDefaultPageIndexCustom() {
         self.dataSource.numberOfPages = 3
-        self.dataSource.defaultIndex = .atIndex(index: 1)
+        self.dataSource.defaultIndex = .at(index: 1)
         self.pageboyViewController.dataSource = self.dataSource
         
         XCTAssert(self.pageboyViewController.currentIndex == 1,
@@ -62,7 +62,7 @@ class PageboyDataSourceTests: PageboyTests {
     /// in defaultPageIndex(forPageboyViewController:).
     func testPageboyViewControllerDefaultPageIndexOutOfRange() {
         self.dataSource.numberOfPages = 3
-        self.dataSource.defaultIndex = .atIndex(index: 4)
+        self.dataSource.defaultIndex = .at(index: 4)
         self.pageboyViewController.dataSource = self.dataSource
         
         XCTAssertNil(self.pageboyViewController.currentIndex,
@@ -161,7 +161,7 @@ class PageboyDataSourceTests: PageboyTests {
     /// returning correct pageViewController:viewControllerBefore: values.
     func testPageViewControllerDataSourcePreviousController() {
         self.dataSource.numberOfPages = 3
-        self.dataSource.defaultIndex = .atIndex(index: 1)
+        self.dataSource.defaultIndex = .at(index: 1)
         self.pageboyViewController.dataSource = self.dataSource
         
         let viewController = self.dataSource.viewControllers[1]
