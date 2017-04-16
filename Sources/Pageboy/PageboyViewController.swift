@@ -92,9 +92,10 @@ open class PageboyViewController: UIViewController {
         case previous
         case first
         case last
+        case at(index: Int)
+        
         @available(*, deprecated: 1.0.3, message: "Use at(index: Int)")
         case atIndex(index: Int)
-        case at(index: Int)
     }
     
     
