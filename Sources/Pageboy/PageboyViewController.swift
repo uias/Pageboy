@@ -61,6 +61,16 @@ public protocol PageboyViewControllerDelegate: class {
                                didScrollToPageAtIndex index: Int,
                                direction: PageboyViewController.NavigationDirection,
                                animated: Bool)
+    
+    /// The page view controller did reload its view controllers.
+    ///
+    /// - Parameters:
+    ///   - pageboyViewController: The Pageboy view controller.
+    ///   - viewControllers: The new view controllers.
+    ///   - currentIndex: The current page index.
+    func pageboyViewController(_ pageboyViewController: PageboyViewController,
+                               didReload viewControllers: [UIViewController],
+                               currentIndex: PageboyViewController.PageIndex)
 }
 
 open class PageboyViewController: UIViewController {

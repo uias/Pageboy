@@ -44,4 +44,9 @@ class TestPageboyDelegate: PageboyViewControllerDelegate {
         lastRecordedDirection = direction
     }
     
+    func pageboyViewController(_ pageboyViewController: PageboyViewController,
+                               didReload viewControllers: [UIViewController],
+                               currentIndex: PageboyViewController.PageIndex) {
+        
+    }
 }

@@ -136,5 +136,10 @@ class PageViewController: PageboyViewController, PageboyViewControllerDataSource
 
         self.updateBarButtonStates(index: index)
     }
+    
+    func pageboyViewController(_ pageboyViewController: PageboyViewController,
+                               didReload viewControllers: [UIViewController]) {
+        
+    }
 }
 
