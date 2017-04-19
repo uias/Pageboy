@@ -86,9 +86,9 @@ Called when the page view controller is about to embark on a transition to a new
 
 ```swift
 func pageboyViewController(_ pageboyViewController: PageboyViewController,
-                               willScrollToPageAtIndex index: Int,
-                               direction: PageboyViewController.NavigationDirection,
-                               animated: Bool)
+                             willScrollToPageAtIndex index: Int,
+                             direction: PageboyViewController.NavigationDirection,
+                             animated: Bool)
 ```
 
 #### didScrollToPosition
@@ -96,8 +96,8 @@ Called when the page view controller was scrolled to a relative position along t
 
 ```swift
 func pageboyViewController(_ pageboyViewController: PageboyViewController,
-                               didScrollToPosition position: CGPoint,
-                               direction: PageboyViewController.NavigationDirection)
+                             didScrollToPosition position: CGPoint,
+                             direction: PageboyViewController.NavigationDirection)
 ```
 
 #### didScrollToPage
@@ -105,9 +105,9 @@ Called when the page view controller did successfully complete a scroll transiti
 
 ```swift
 func pageboyViewController(_ pageboyViewController: PageboyViewController,
-                               didScrollToPageAtIndex index: Int,
-                               direction: PageboyViewController.NavigationDirection,
-                               animated: Bool)
+                             didScrollToPageAtIndex index: Int,
+                             direction: PageboyViewController.NavigationDirection,
+                             animated: Bool)
 ```
 
 #### didReload
@@ -115,8 +115,8 @@ Called when the page view controller reloads its child view controllers.
 
 ```swift
 func pageboyViewController(_ pageboyViewController: PageboyViewController,
-                                    didReload viewControllers: [UIViewController],
-                                    currentIndex: PageboyViewController.PageIndex)
+                             didReload viewControllers: [UIViewController],
+                             currentIndex: PageboyViewController.PageIndex)
 ```
 
 ## Additional functionality
@@ -131,8 +131,8 @@ func pageboyViewController(_ pageboyViewController: PageboyViewController,
 
 	```swift
 	public func scrollToPage(_ pageIndex: PageIndex,
-                             animated: Bool,
-                             completion: PageTransitionCompletion? = nil)
+                                   animated: Bool,
+                                   completion: PageTransitionCompletion? = nil)
 	```
 
 ### Properties
