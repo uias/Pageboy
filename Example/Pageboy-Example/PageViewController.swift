@@ -138,7 +138,8 @@ class PageViewController: PageboyViewController, PageboyViewControllerDataSource
     }
     
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
-                               didReload viewControllers: [UIViewController]) {
+                               didReload viewControllers: [UIViewController],
+                               currentIndex: PageboyViewController.PageIndex) {
         
     }
 }
