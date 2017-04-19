@@ -131,8 +131,8 @@ func pageboyViewController(_ pageboyViewController: PageboyViewController,
 
 	```swift
 	public func scrollToPage(_ pageIndex: PageIndex,
-                                   animated: Bool,
-                                   completion: PageTransitionCompletion? = nil)
+                               animated: Bool,
+                               completion: PageTransitionCompletion? = nil)
 	```
 
 ### Properties
