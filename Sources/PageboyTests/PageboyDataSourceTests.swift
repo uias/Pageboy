@@ -117,6 +117,21 @@ class PageboyDataSourceTests: PageboyTests {
                   "reloadPages is not correctly reloading view controllers.")
     }
     
+    /// Test that reloadPages successfully calls 
+    /// appropriate delegate function.
+    func testPageboyViewControllerReloadDelegate() {
+        self.dataSource.numberOfPages = 5
+        self.pageboyViewController.dataSource = self.dataSource
+
+        self.dataSource.numberOfPages = 3
+        self.pageboyViewController.reloadPages()
+        
+        let reloadPageCount = self.delegate.lastDidReloadViewControllers?.count
+        
+        XCTAssertTrue(reloadPageCount == 3,
+                      "reloadPages does not call didReloadViewControllers delegate function.")
+    }
+    
     /// Test that reloadCurrentPageSoftly does not cause a data source reload.
     func testPageboyViewControllerSoftReloadBehavior() {
         self.dataSource.numberOfPages = 5

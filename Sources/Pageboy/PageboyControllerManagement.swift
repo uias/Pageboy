@@ -28,6 +28,11 @@ internal extension PageboyViewController {
                                                    direction: .forward,
                                                    animated: false,
                                                    completion: nil)
+        
+        guard let viewControllers = self.viewControllers else { return }
+        self.delegate?.pageboyViewController(self,
+                                             didReload: viewControllers,
+                                             currentIndex: defaultIndex)
     }
 }
 
