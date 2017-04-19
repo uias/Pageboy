@@ -19,6 +19,9 @@ class TestPageboyDelegate: PageboyViewControllerDelegate {
     var lastDidScrollToPositionAnimated: Bool?
     var lastDidScrollToPageAtIndexAnimated: Bool?
 
+    var lastDidReloadViewControllers: [UIViewController]?
+    var lastDidReloadCurrentIndex: PageboyViewController.PageIndex?
+    
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
                                willScrollToPageAtIndex pageIndex: Int,
                                direction: PageboyViewController.NavigationDirection,
@@ -44,4 +47,10 @@ class TestPageboyDelegate: PageboyViewControllerDelegate {
         lastRecordedDirection = direction
     }
     
+    func pageboyViewController(_ pageboyViewController: PageboyViewController,
+                               didReload viewControllers: [UIViewController],
+                               currentIndex: PageboyViewController.PageIndex) {
+        self.lastDidReloadViewControllers = viewControllers
+        self.lastDidReloadCurrentIndex = currentIndex
+    }
 }
