@@ -110,6 +110,15 @@ func pageboyViewController(_ pageboyViewController: PageboyViewController,
                                animated: Bool)
 ```
 
+#### didReload
+Called when the page view controller reloads its child view controllers.
+
+```swift
+func pageboyViewController(_ pageboyViewController: PageboyViewController,
+                                    didReload viewControllers: [UIViewController],
+                                    currentIndex: PageboyViewController.PageIndex)
+```
+
 ## Additional functionality
 
 ### Functions
