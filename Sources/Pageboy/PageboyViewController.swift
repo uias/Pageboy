@@ -313,7 +313,18 @@ open class PageboyViewController: UIViewController {
             guard rawIndex >= 0 && rawIndex < self.viewControllers?.count ?? 0 else { return }
             guard let viewController = self.viewControllers?[rawIndex] else { return }
             
-            let direction = NavigationDirection.forPage(rawIndex, previousPage: self.currentIndex ?? rawIndex)
+            var direction = NavigationDirection.forPage(rawIndex, previousPage: self.currentIndex ?? rawIndex)
+            
+            if isInfiniteScrollEnabled {
+                switch pageIndex {
+                case .next:
+                    direction = .forward
+                case .previous:
+                    direction = .reverse
+                default: break
+                }
+            }
+            
             self.pageViewController(self.pageViewController,
                                     willTransitionTo: [viewController],
                                     animated: animated)
@@ -411,7 +422,7 @@ internal extension PageboyViewController {
             }
             var proposedIndex = currentIndex - 1
             if self.isInfiniteScrollEnabled && proposedIndex < 0 { // scroll to last index
-                proposedIndex = 0
+                proposedIndex = (self.viewControllers?.count ?? 1) - 1
             }
             return proposedIndex
             
