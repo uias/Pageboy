@@ -251,8 +251,8 @@ open class PageboyViewController: UIViewController {
     // MARK: Lifecycle
     //
     
-    open override func loadView() {
-        super.loadView()
+    open override func viewDidLoad() {
+        super.viewDidLoad()
         
         self.autoScroller.handler = self
         self.setUpPageViewController()
