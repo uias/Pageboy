@@ -464,7 +464,7 @@ extension PageboyViewController: PageboyAutoScrollerHandler {
 }
 
 // MARK: - PageboyViewControllerDelegate default implementations
-extension PageboyViewControllerDelegate {
+public extension PageboyViewControllerDelegate {
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
                                willScrollToPageAtIndex index: Int,
                                direction: PageboyViewController.NavigationDirection,
