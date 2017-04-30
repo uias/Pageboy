@@ -462,3 +462,26 @@ extension PageboyViewController: PageboyAutoScrollerHandler {
         self.scrollToPage(.next, animated: animated)
     }
 }
+
+// MARK: - PageboyViewControllerDelegate default implementations
+extension PageboyViewControllerDelegate {
+    func pageboyViewController(_ pageboyViewController: PageboyViewController,
+                               willScrollToPageAtIndex index: Int,
+                               direction: PageboyViewController.NavigationDirection,
+                               animated: Bool) {}
+    
+    func pageboyViewController(_ pageboyViewController: PageboyViewController,
+                               didScrollToPosition position: CGPoint,
+                               direction: PageboyViewController.NavigationDirection,
+                               animated: Bool) {}
+    
+    func pageboyViewController(_ pageboyViewController: PageboyViewController,
+                               didScrollToPageAtIndex index: Int,
+                               direction: PageboyViewController.NavigationDirection,
+                               animated: Bool) {}
+    
+    func pageboyViewController(_ pageboyViewController: PageboyViewController,
+                               didReload viewControllers: [UIViewController],
+                               currentIndex: PageboyViewController.PageIndex) {}
+
+}
