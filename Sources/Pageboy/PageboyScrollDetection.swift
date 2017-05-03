@@ -202,7 +202,7 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
         guard scrollView.isDecelerating == false else { return false }
         
         let isPagingForward = pagePosition > self.previousPagePosition ?? 0.0
-        if scrollView.isDragging {
+        if scrollView.isTracking {
             if isPagingForward && pagePosition >= CGFloat(currentIndex + 1) {
                 self.updateCurrentPageIndexIfNeeded(currentIndex + 1)
                 return true
