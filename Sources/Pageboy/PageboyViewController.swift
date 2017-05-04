@@ -170,11 +170,14 @@ open class PageboyViewController: UIViewController {
         }
     }
     
+    /// Whether the page view controller is currently being touched.
+    public var isTracking: Bool {
+        return self.pageViewController.scrollView?.isTracking ?? false
+    }
+    
     /// Whether the page view controller is currently being dragged.
     public var isDragging: Bool {
-        get {
             return self.pageViewController.scrollView?.isDragging ?? false
-        }
     }
     
     /// default YES. if YES, bounces past edge of content and back again.
@@ -304,7 +307,7 @@ open class PageboyViewController: UIViewController {
         
         // guard against any current transition operation
         guard self.isScrollingAnimated == false else { return }
-        guard self.isDragging == false else { return }
+        guard self.isTracking == false else { return }
         
         let rawIndex = self.indexValue(forPageIndex: pageIndex  )
         if rawIndex != self.currentIndex {
