@@ -175,7 +175,7 @@ open class PageboyViewController: UIViewController {
     /// Whether the page view controller is currently being dragged.
     public var isDragging: Bool {
         get {
-			return self.isScrolling
+            return self.isScrolling
         }
     }
     
