@@ -59,8 +59,9 @@ class PageViewController: PageboyViewController, PageboyViewControllerDataSource
         super.viewDidLoad()
         self.addBarButtons()
         self.view.sendSubview(toBack: self.gradientView)
-		self.bounces = false
-		self.isInfiniteScrollEnabled = true
+		
+        self.bounces = true
+        
         self.dataSource = self
         self.delegate = self
 		

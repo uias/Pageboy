@@ -120,7 +120,7 @@ open class PageboyViewController: UIViewController {
     internal var previousPagePosition: CGFloat?
     internal var expectedTransitionIndex: Int?
 
-	internal var isScrolling:Bool = false //This is used to track actual scrolling of the pages in UIScrollViewDelegate implementation.
+    internal var isScrolling:Bool = false //This is used to track actual scrolling of the pages in UIScrollViewDelegate implementation.
 	
     //
     // MARK: Properties

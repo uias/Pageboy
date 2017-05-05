@@ -119,8 +119,8 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
                                              animated: self.isScrollingAnimated)
         
         self.previousPagePosition = pagePosition
-		
-		self.isScrolling = true
+
+        self.isScrolling = true
     }
     
     public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
@@ -139,7 +139,7 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
     
     public func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         self.updateContentOffsetForBounceIfNeeded(scrollView: scrollView)
-		self.isScrolling = false
+        self.isScrolling = false
     }
     
     private func scrollView(didEndScrolling scrollView: UIScrollView) {
@@ -148,7 +148,7 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
             self.autoScroller.restart()
         }
 		
-		self.isScrolling = false
+        self.isScrolling = false
     }
     
     //
