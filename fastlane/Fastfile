@@ -25,7 +25,7 @@ before_all do
     # Push new Github release
     github_release = set_github_release(
       repository_name: "uias/Pageboy",
-      api_token: ENV['GITHUB_TOKEN'],
+      api_token: ENV['427d147afda6d88e014e3bf68b0cfb0d90b1e7be'],
       name: version,
       tag_name: version,
       commitish: "master"
