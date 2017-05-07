@@ -18,9 +18,6 @@ before_all do
   lane :deploy do
     ensure_git_branch # ensure on master
 
-    # Perform tests
-    test
-
     # update Podspec version
     version = version_bump_podspec(path: "Pageboy.podspec", bump_type: "patch")
     git_commit(path: ["./Pageboy.podspec"], message: "Bumped to version #{version}")
