@@ -4,11 +4,6 @@ fastlane_version "2.26.1"
 default_platform :ios
 
 platform :ios do
-  before_all do
-    # ENV["SLACK_URL"] = "https://hooks.slack.com/services/..."
-    
-    
-  end
 
   desc "Runs all the tests"
   lane :test do
@@ -18,6 +13,9 @@ platform :ios do
   desc "Deploy a new version to CocoaPods and GitHub"
   lane :deploy do
     ensure_git_branch # ensure on master
+
+    # Perform tests
+    test
 
     # update Podspec version
     version = version_bump_podspec(path: "Pageboy.podspec", bump_type: "patch")
@@ -37,20 +35,15 @@ platform :ios do
     # Push spec
     pod_push(allow_warnings: true, verbose: true)
 
-  end
-
-  after_all do |lane|
-    # This block is called, only if the executed lane was successful
-
-    # slack(
-    #   message: "Successfully deployed new App Update."
-    # )
+    slack(
+      message: "Pageboy v#{version} released!" 
+    )
   end
 
   error do |lane, exception|
-    # slack(
-    #   message: exception.message,
-    #   success: false
-    # )
+    slack(
+      message: exception.message,
+      success: false
+    )
   end
 end
