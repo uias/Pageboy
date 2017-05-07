@@ -1,0 +1,50 @@
+
+fastlane_version "2.26.1"
+
+default_platform :ios
+
+platform :ios do
+
+before_all do
+    ENV["SLACK_URL"] = "https://hooks.slack.com/services/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"
+  end
+
+  desc "Runs all the tests"
+  lane :test do
+    scan(workspace: "Pageboy.xcworkspace", scheme: "Pageboy", clean: true)
+  end
+
+  desc "Deploy a new version to CocoaPods and GitHub"
+  lane :deploy do
+    ensure_git_branch # ensure on master
+
+    # update Podspec version
+    version = version_bump_podspec(path: "Pageboy.podspec", bump_type: "patch")
+    git_commit(path: ["./Pageboy.podspec"], message: "Bumped to version #{version}")
+    push_to_git_remote(remote_branch: 'master', force: false, tags: true)
+
+    # Push new Github release
+    github_release = set_github_release(
+      repository_name: "uias/Pageboy",
+      api_token: ENV['GITHUB_TOKEN'],
+      name: version,
+      tag_name: version,
+      commitish: "master"
+    )
+    sh("git fetch --tags")
+
+    # Push spec
+    pod_push(allow_warnings: true, verbose: true)
+
+    slack(
+      message: "Pageboy v#{version} released!" 
+    )
+  end
+
+  error do |lane, exception|
+    slack(
+      message: exception.message,
+      success: false
+    )
+  end
+end
