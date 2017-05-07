@@ -1,8 +1,7 @@
 language: objective-c
 osx_image: xcode8.2
 before_install:
-- gem install bundler
-- bundle install
+- gem update fastlane --no-ri --no-rdoc --no-document
 script:
 - bundle exec fastlane test
 after_success:
