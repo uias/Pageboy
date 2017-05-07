@@ -16,10 +16,11 @@ before_all do
 
   desc "Deploy a new version to CocoaPods and GitHub"
   lane :deploy do
+    podspec = "Pageboy.podspec"
 
     # update Podspec version
-    version = version_bump_podspec(path: "Pageboy.podspec", bump_type: "patch")
-    git_commit(path: ["./Pageboy.podspec"], message: "Bumped to version #{version}")
+    version = version_bump_podspec(path: podspec, bump_type: "patch")
+    git_commit(path: [podspec], message: "Bumped to version #{version}")
     push_to_git_remote(remote_branch: 'master', force: false, tags: true)
 
     # Push new Github release
@@ -31,6 +32,7 @@ before_all do
       commitish: "master"
     )
     sh("git fetch --tags")
+    push_to_git_remote(remote_branch: 'master', force: false, tags: true)
 
     # Push spec
     pod_push(allow_warnings: true, verbose: true)
