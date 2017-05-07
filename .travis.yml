@@ -1,11 +1,12 @@
 language: objective-c
 osx_image: xcode8.2
+before_install:
+- gem update fastlane --no-ri --no-rdoc --no-document
 script:
-- xcodebuild -workspace Pageboy.xcworkspace -scheme Pageboy -destination 'platform=iOS
-  Simulator,name=iPhone 7,OS=10.1' build test
-- pod lib lint --quick
+- fastlane test
+after_success:
+- fastlane deploy
 after_success:
 - bash <(curl -s https://codecov.io/bash)
 notifications:
-  slack:
-    secure: b6iZg8K9EyG1cmyXAR6WBAl9WQUXVmVMC//V0h40G4jVVGclN8MWzSOMNytyCrqSULeOfmTSl7SFY1vEjzuK/yyx6NMEeLbIS3oinz/Dh5quzPM2pXl/dKrDGeYpeewJohFOMawJsaSi/vuwxMf4x3nqRe9IRvnBWtNwsMRdOcQ6C4z1lWI1zIrObKsItwCp2gsi2EwgAhSGRAr0QGC7jgV/bK0ztVgAa/0oEU86V2Ki4XWXIDbO0OkDpb+/9i+3ZYSsr3E83JhGxMafU1iKYkd2Qi1/rmvpR/+u2Qp2NWDNdIUrB+AcSSrFQhZ13mrBZiqDUVsWt1lRo8ffigFt9JKBuA+F9haF/ir2jMKTij4/MFQfioVtrGACCvn6OamQpbFREfC2JjhFfu3K320a2n3HHcqIFvacZQOF29rGmSg26A8Y8mrFr77q/83VtzRj7hXoxrhhh0VoP0WuVvrpBwZNQZ0P69X2QZV2M59r7bjt8hy1B5LtiGtF1LZkClbqVi+zCm+ZqhCDh/cGUqoMKvoxqZKFf6ljYmyqa/8mQdQzTbvs4MWcDdfqcMA7U3Q1HhKPcQbreZkCg1t8K26nAJpQO7ZJ2KefatS9ejBsZViefaDDMC1qUx8xzd2xxGv0v/11OcKXbsHX2ydR8zzUcwkQYyFNNDHmDdJzbw/JkSA=
+  email: false
