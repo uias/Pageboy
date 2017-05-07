@@ -5,10 +5,6 @@ default_platform :ios
 
 platform :ios do
 
-before_all do
-    ENV["SLACK_URL"] = "https://hooks.slack.com/services/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"
-  end
-
   desc "Runs all the tests"
   lane :test do
     scan(workspace: "Pageboy.xcworkspace", scheme: "Pageboy", clean: true)
@@ -21,7 +17,6 @@ before_all do
     # update Podspec version
     version = version_bump_podspec(path: podspec, bump_type: "patch")
     git_commit(path: [podspec], message: "Bumped to version #{version}")
-    push_to_git_remote(remote_branch: 'master', force: false, tags: true)
 
     # Push new Github release
     github_release = set_github_release(
@@ -29,6 +24,7 @@ before_all do
       api_token: ENV["GITHUB_TOKEN"],
       name: version,
       tag_name: version,
+      description: "#{version} release.",
       commitish: "master"
     )
     sh("git fetch --tags")

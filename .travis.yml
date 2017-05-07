@@ -3,7 +3,8 @@ osx_image: xcode8.2
 before_install:
 - gem update fastlane --no-ri --no-rdoc --no-document
 - git remote set-url origin "https://${GITHUB_TOKEN}@github.com/uias/Pageboy.git"
-script: .travis/build.sh
+script: 
+- fastlane test
 after_success:
 - bash <(curl -s https://codecov.io/bash)
 notifications:
