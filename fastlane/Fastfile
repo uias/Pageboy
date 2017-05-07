@@ -5,6 +5,10 @@ default_platform :ios
 
 platform :ios do
 
+before_all do
+    ENV["SLACK_URL"] = "  https://hooks.slack.com/services/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"
+  end
+
   desc "Runs all the tests"
   lane :test do
     scan(workspace: "Pageboy.xcworkspace", scheme: "Pageboy", clean: true)
