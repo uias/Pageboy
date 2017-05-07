@@ -16,6 +16,10 @@ before_all do
 
   desc "Deploy a new version to CocoaPods and GitHub"
   lane :deploy do
+
+    # Run tests
+    test
+
     ensure_git_branch # ensure on master
 
     # update Podspec version
@@ -38,13 +42,6 @@ before_all do
 
     slack(
       message: "Pageboy v#{version} released!" 
-    )
-  end
-
-  error do |lane, exception|
-    slack(
-      message: exception.message,
-      success: false
     )
   end
 end
