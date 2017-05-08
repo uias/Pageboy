@@ -4,7 +4,7 @@ before_install:
 - gem update fastlane --no-ri --no-rdoc --no-document
 - git remote set-url origin "https://${GITHUB_TOKEN}@github.com/uias/Pageboy.git"
 script: 
-- fastlane test
+- .travis/build.sh
 after_success:
 - bash <(curl -s https://codecov.io/bash)
 notifications:

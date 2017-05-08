@@ -5,7 +5,7 @@ default_platform :ios
 
 platform :ios do
 
-  desc "Runs all the tests"
+  desc "Run unit tests"
   lane :test do
     scan(workspace: "Pageboy.xcworkspace", scheme: "Pageboy", clean: true)
   end
@@ -15,8 +15,7 @@ platform :ios do
     podspec = "Pageboy.podspec"
 
     # update Podspec version
-    version = version_bump_podspec(path: podspec, bump_type: "patch")
-    git_commit(path: [podspec], message: "Bumped to version #{version}")
+    version = version_get_podspec(path: podspec)
 
     # Push new Github release
     github_release = set_github_release(
@@ -27,8 +26,6 @@ platform :ios do
       description: "#{version} release.",
       commitish: "master"
     )
-    sh("git fetch --tags")
-    push_to_git_remote(remote_branch: 'master', force: false, tags: true)
 
     # Push spec
     pod_push(allow_warnings: true, verbose: true)
