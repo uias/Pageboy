@@ -90,8 +90,8 @@
 		D623B1D51E1D32D700527F3D = {
 			isa = PBXGroup;
 			children = (
-				D681E31E1E546A7D007C08F5 /* Pageboy.xcodeproj */,
 				D623B1E01E1D32D700527F3D /* Pageboy-Example */,
+				D6CC55831ECCCCB700A7FBB4 /* Frameworks */,
 				D623B1DF1E1D32D700527F3D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -145,6 +145,14 @@
 				E8F663AA1E9C387D00F601AC /* NavigationControllerUtils.swift */,
 			);
 			name = "Example Components";
+			sourceTree = "<group>";
+		};
+		D6CC55831ECCCCB700A7FBB4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D681E31E1E546A7D007C08F5 /* Pageboy.xcodeproj */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -389,6 +397,7 @@
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -404,6 +413,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.msapsford.Pageboy-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
