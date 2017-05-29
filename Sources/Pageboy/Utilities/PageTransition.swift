@@ -19,20 +19,32 @@ internal protocol PageTransitionDelegate: class {
 
 internal class PageTransition: NSObject, CAAnimationDelegate {
     
+    // MARK: Types
+    
     public enum Style {
         case push
     }
+    
+    typealias Completion = (Bool) -> Void
+    
+    // MARK: Properties
     
     let style: Style
     private var animation: CATransition
     private var isAnimating: Bool = false
     
-    internal weak var delegate: PageTransitionDelegate?
+    private(set) weak var delegate: PageTransitionDelegate?
     
     private(set) var startTime: CFTimeInterval?
     
-    init(with style: Style) {
+    private var completion: Completion?
+    
+    // MARK: Init
+    
+    init(with style: Style,
+         delegate: PageTransitionDelegate) {
         self.style = style
+        self.delegate = delegate
         
         let animation = CATransition()
         animation.duration = 1.0
@@ -51,7 +63,10 @@ internal class PageTransition: NSObject, CAAnimationDelegate {
     /// Start the transition animation on a layer.
     ///
     /// - Parameter layer: The layer to animate.
-    func start(on layer: CALayer) {
+    /// - Parameter completion: Completion of the transition.
+    func start(on layer: CALayer,
+               completion: @escaping Completion) {
+        self.completion = completion
         self.startTime = CACurrentMediaTime()
         layer.add(self.animation,
                   forKey: "transition")
@@ -83,6 +98,7 @@ internal class PageTransition: NSObject, CAAnimationDelegate {
     
     public func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
         isAnimating = false
+        completion?(flag)
         delegate?.pageTransition(self, didFinish: flag)
     }
 }

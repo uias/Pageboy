@@ -112,7 +112,6 @@ open class PageboyViewController: UIViewController {
     
     /// Completion of a page scroll.
     public typealias PageScrollCompletion = (_ newViewController: UIViewController, _ animated: Bool, _ finished: Bool) -> Void
-    internal typealias TransitionCompletion = (_ finished: Bool) -> Void
     
     //
     // MARK: Variables
@@ -345,7 +344,7 @@ open class PageboyViewController: UIViewController {
             
             self.isScrollingAnimated = animated
             
-            let scrollCompletion: TransitionCompletion = { (finished) in
+            let transitionCompletion: PageTransition.Completion = { (finished) in
                 if finished {
                     let isVertical = self.navigationOrientation == .vertical
                     self.currentPosition = CGPoint(x: isVertical ? 0.0 : CGFloat(rawIndex),
@@ -367,14 +366,14 @@ open class PageboyViewController: UIViewController {
             
             self.performTransition(with: direction,
                                    animated: animated,
-                                   completion: scrollCompletion)
+                                   completion: transitionCompletion)
             self.pageViewController.setViewControllers([viewController],
                                                        direction: direction.pageViewControllerNavDirection,
                                                        animated: false,
                                                        completion:
                 { (finished) in
                     guard animated == false else { return }
-                    scrollCompletion(finished)
+                    transitionCompletion(finished)
             })
             
         } else {

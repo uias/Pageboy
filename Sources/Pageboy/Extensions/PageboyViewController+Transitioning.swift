@@ -29,15 +29,18 @@ public extension PageboyViewController {
     
     internal func performTransition(with direction: NavigationDirection,
                            animated: Bool,
-                           completion: TransitionCompletion) {
+                           completion: @escaping PageTransition.Completion) {
         guard animated == true else { return }
         guard self.activeTransition == nil else { return }
         
-        self.activeTransition = PageTransition(with: self.transitionStyle)
-        self.activeTransition?.delegate = self
+        // create a transition and unpause display link
+        self.activeTransition = PageTransition(with: self.transitionStyle,
+                                               delegate: self)
         self.transitionDisplayLink?.isPaused = false
         
-        self.activeTransition?.start(on: self.pageViewController.view.layer)
+        // start transition
+        self.activeTransition?.start(on: self.pageViewController.view.layer,
+                                     completion: completion)
     }
 }
 
