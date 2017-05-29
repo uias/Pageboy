@@ -73,6 +73,7 @@ public protocol PageboyViewControllerDelegate: class {
                                currentIndex: PageboyViewController.PageIndex)
 }
 
+/// A simple, highly informative page view controller.
 open class PageboyViewController: UIViewController {
     
     //
@@ -96,7 +97,7 @@ open class PageboyViewController: UIViewController {
     /// - previous: The previous page if available.
     /// - first: The first page.
     /// - last: The last page.
-    /// - atIndex: A custom specified page index.
+    /// - at: A custom specified page index.
     public enum PageIndex {
         case next
         case previous
@@ -297,7 +298,7 @@ open class PageboyViewController: UIViewController {
     }
     
     //
-    // MARK: Transitioning
+    // MARK: Scrolling
     //
     
     /// Scroll the page view controller to a new page.
@@ -313,7 +314,7 @@ open class PageboyViewController: UIViewController {
         guard self.isScrollingAnimated == false else { return }
         guard self.isTracking == false else { return }
         
-        let rawIndex = self.indexValue(forPageIndex: pageIndex  )
+        let rawIndex = self.indexValue(for: pageIndex  )
         if rawIndex != self.currentIndex {
             
             // guard against invalid page indexing
@@ -370,80 +371,4 @@ open class PageboyViewController: UIViewController {
         }
     }
     
-}
-
-// MARK: - Page view controller Set up & Utilities
-internal extension PageboyViewController {
-    
-    //
-    // MARK: Set Up
-    //
-    
-    internal func setUpPageViewController(reloadViewControllers: Bool = true) {
-        if self.pageViewController != nil { // destroy existing page VC
-            self.pageViewController?.view.removeFromSuperview()
-            self.pageViewController?.removeFromParentViewController()
-            self.pageViewController = nil
-        }
-        
-        let pageViewController = UIPageViewController(transitionStyle: .scroll,
-                                                      navigationOrientation: self.navigationOrientation,
-                                                      options: nil)
-        pageViewController.delegate = self
-        pageViewController.dataSource = self
-        self.pageViewController = pageViewController
-        
-        self.addChildViewController(pageViewController)
-        self.view.addSubview(pageViewController.view)
-        pageViewController.view.pageboyPinToSuperviewEdges()
-        self.view.sendSubview(toBack: pageViewController.view)
-        pageViewController.didMove(toParentViewController: self)
-        
-        pageViewController.scrollView?.delegate = self
-        
-        self.pageViewController.view.backgroundColor = .clear
-        
-        self.reloadPages(reloadViewControllers: reloadViewControllers)
-    }
-
-    //
-    // MARK: Utilities
-    //
-    
-    internal func indexValue(forPageIndex pageIndex: PageIndex) -> Int {
-        switch pageIndex {
-            
-        case .next:
-            guard let currentIndex = self.currentIndex else {
-                return 0
-            }
-            var proposedIndex = currentIndex + 1
-            if self.isInfiniteScrollEnabled && proposedIndex == self.viewControllers?.count { // scroll back to first index
-                proposedIndex = 0
-            }
-            return proposedIndex
-            
-        case .previous:
-            guard let currentIndex = self.currentIndex else {
-                return 0
-            }
-            var proposedIndex = currentIndex - 1
-            if self.isInfiniteScrollEnabled && proposedIndex < 0 { // scroll to last index
-                proposedIndex = (self.viewControllers?.count ?? 1) - 1
-            }
-            return proposedIndex
-            
-        case .first:
-            return 0
-            
-        case .last:
-            return (self.viewControllers?.count ?? 1) - 1
-
-        case .atIndex(let index):
-            return index
-
-        case .at(let index):
-            return index
-        }
-    }
 }
