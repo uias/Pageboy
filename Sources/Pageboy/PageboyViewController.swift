@@ -161,25 +161,22 @@ open class PageboyViewController: UIViewController {
     /// The object that is the delegate for the page view controller.
     public weak var delegate: PageboyViewControllerDelegate?
     
-    /// Whether scroll is enabled on the page view controller.
-    ///
-    /// Default is TRUE.
-    public var isScrollEnabled: Bool = true {
-        didSet {
-            self.pageViewController.scrollView?.isScrollEnabled = isScrollEnabled
-        }
-    }
-    
     /// Whether the page view controller is currently being touched.
     public var isTracking: Bool {
         return self.pageViewController.scrollView?.isTracking ?? false
     }
-    
     /// Whether the page view controller is currently being dragged.
     public var isDragging: Bool {
             return self.pageViewController.scrollView?.isDragging ?? false
     }
-    
+    // default is YES. if NO, we immediately call -touchesShouldBegin:withEvent:inContentView:. this has no effect on presses
+    public var delaysContentTouches: Bool {
+        set {
+            self.pageViewController.scrollView?.delaysContentTouches = newValue
+        } get {
+            return self.pageViewController.scrollView?.delaysContentTouches ?? false
+        }
+    }
     /// default YES. if YES, bounces past edge of content and back again.
     public var bounces: Bool = true
     
@@ -191,20 +188,27 @@ open class PageboyViewController: UIViewController {
             self.pageViewController.scrollView?.isUserInteractionEnabled = isUserInteractionEnabled
         }
     }
-    
-    /// Whether the page view controller is currently animating a scroll between pages.
-    private(set) var isScrollingAnimated = false {
+    /// Whether scroll is enabled on the page view controller.
+    ///
+    /// Default is TRUE.
+    public var isScrollEnabled: Bool = true {
         didSet {
-            self.isUserInteractionEnabled = !self.isScrollingAnimated
+            self.pageViewController.scrollView?.isScrollEnabled = isScrollEnabled
         }
     }
-    
     /// Whether the page view controller should infinitely scroll at the end of page ranges.
     ///
     /// Default is FALSE.
     public var isInfiniteScrollEnabled: Bool = false {
         didSet {
             self.reloadCurrentPageSoftly()
+        }
+    }
+    
+    /// Whether the page view controller is currently animating a scroll between pages.
+    private(set) var isScrollingAnimated = false {
+        didSet {
+            self.isUserInteractionEnabled = !self.isScrollingAnimated
         }
     }
     
