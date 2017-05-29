@@ -112,6 +112,7 @@ open class PageboyViewController: UIViewController {
     
     /// Completion of a page transition.
     public typealias PageTransitionCompletion = (_ newViewController: UIViewController, _ animated: Bool, _ finished: Bool) -> Void
+    internal typealias ScrollCompletion = (_ finished: Bool) -> Void
     
     //
     // MARK: Variables
@@ -341,29 +342,36 @@ open class PageboyViewController: UIViewController {
             
             self.isScrollingAnimated = animated
             
-            self.performTransition(with: direction, animated: animated)
+            let scrollCompletion: ScrollCompletion = { (finished) in
+                if finished {
+                    let isVertical = self.navigationOrientation == .vertical
+                    self.currentPosition = CGPoint(x: isVertical ? 0.0 : CGFloat(rawIndex),
+                                                   y: isVertical ? CGFloat(rawIndex) : 0.0)
+                    self.currentIndex = rawIndex
+                    
+                    // if not animated call position delegate update manually
+                    if !animated {
+                        self.delegate?.pageboyViewController(self,
+                                                             didScrollToPosition: self.currentPosition!,
+                                                             direction: direction,
+                                                             animated: animated)
+                    }
+                }
+                self.autoScroller.didFinishScrollIfEnabled()
+                completion?(viewController, animated, finished)
+                self.isScrollingAnimated = false
+            }
+            
+            self.performTransition(with: direction,
+                                   animated: animated,
+                                   completion: scrollCompletion)
             self.pageViewController.setViewControllers([viewController],
                                                        direction: direction.pageViewControllerNavDirection,
                                                        animated: false,
                                                        completion:
                 { (finished) in
-                    if finished {
-                        let isVertical = self.navigationOrientation == .vertical
-                        self.currentPosition = CGPoint(x: isVertical ? 0.0 : CGFloat(rawIndex),
-                                                       y: isVertical ? CGFloat(rawIndex) : 0.0)
-                        self.currentIndex = rawIndex
-                        
-                        // if not animated call position delegate update manually
-                        if !animated {
-                            self.delegate?.pageboyViewController(self,
-                                                                 didScrollToPosition: self.currentPosition!,
-                                                                 direction: direction,
-                                                                 animated: animated)
-                        }
-                    }
-                    self.autoScroller.didFinishScrollIfEnabled()
-                    completion?(viewController, animated, finished)
-                    self.isScrollingAnimated = false
+                    guard animated == false else { return }
+                    scrollCompletion(finished)
             })
             
         } else {
