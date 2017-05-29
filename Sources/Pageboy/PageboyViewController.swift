@@ -214,8 +214,9 @@ open class PageboyViewController: UIViewController {
         }
     }
     
-    var transitionStyle: TransitionStyle = .push
+    var transitionStyle: PageTransition.Style = .push
     internal var transitionDisplayLink: CADisplayLink?
+    internal var activeTransition: PageTransition?
     
     /// The view controllers that are displayed in the page view controller.
     public internal(set) var viewControllers: [UIViewController]?

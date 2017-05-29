@@ -10,10 +10,6 @@ import UIKit
 
 public extension PageboyViewController {
     
-    public enum TransitionStyle {
-        case push
-    }
-    
     // MARK: Set Up
     
     internal func setUpTransitioning() {
@@ -28,24 +24,33 @@ public extension PageboyViewController {
     // MARK: Animation
     
     func displayLinkDidTick() {
-        print("tick")
+        self.activeTransition?.tick()
     }
     
     internal func performTransition(with direction: NavigationDirection,
                            animated: Bool,
                            completion: TransitionCompletion) {
         guard animated == true else { return }
+        guard self.activeTransition == nil else { return }
         
-        let animation = CATransition()
-        animation.duration = 1.0
-        animation.startProgress = 0.0
-        animation.endProgress = 1.0
-        animation.type = "push"
-        animation.subtype = direction == .reverse ? kCATransitionFromLeft : kCATransitionFromRight
-        animation.fillMode = kCAFillModeBackwards
-        self.pageViewController.view.layer.add(animation, forKey: nil)
+        self.activeTransition = PageTransition(with: self.transitionStyle)
+        self.activeTransition?.delegate = self
+        self.transitionDisplayLink?.isPaused = false
+        
+        self.activeTransition?.start(on: self.pageViewController.view.layer)
+    }
+}
 
-        
-//        completion(true)
+extension PageboyViewController: PageTransitionDelegate {
+    
+    func pageTransition(_ transition: PageTransition,
+                        didFinish finished: Bool) {
+        self.transitionDisplayLink?.isPaused = true
+        self.activeTransition = nil
+    }
+    
+    func pageTransition(_ transition: PageTransition,
+                        didUpdateWith percentComplete: CGFloat) {
+        print(percentComplete)
     }
 }

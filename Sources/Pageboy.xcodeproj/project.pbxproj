@@ -27,6 +27,7 @@
 		D6CC55811ECCC5BE00A7FBB4 /* PageboyViewController+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CC55801ECCC5BE00A7FBB4 /* PageboyViewController+Extras.swift */; };
 		D6ECCEC21E51AFE500E9D5B3 /* PageViewControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ECCEC11E51AFE500E9D5B3 /* PageViewControllerUtils.swift */; };
 		D6F561361EDCAD6D0033C654 /* PageboyViewController+Transitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F561351EDCAD6D0033C654 /* PageboyViewController+Transitioning.swift */; };
+		D6F561391EDCC3320033C654 /* PageTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F561381EDCC3320033C654 /* PageTransition.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		D6CC55801ECCC5BE00A7FBB4 /* PageboyViewController+Extras.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PageboyViewController+Extras.swift"; sourceTree = "<group>"; };
 		D6ECCEC11E51AFE500E9D5B3 /* PageViewControllerUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewControllerUtils.swift; sourceTree = "<group>"; };
 		D6F561351EDCAD6D0033C654 /* PageboyViewController+Transitioning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PageboyViewController+Transitioning.swift"; sourceTree = "<group>"; };
+		D6F561381EDCC3320033C654 /* PageTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageTransition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +175,7 @@
 			children = (
 				D6ECCEC11E51AFE500E9D5B3 /* PageViewControllerUtils.swift */,
 				D681E3371E546FA2007C08F5 /* PageboyAutoLayout.swift */,
+				D6F561381EDCC3320033C654 /* PageTransition.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 				D623B1D21E1D2DF200527F3D /* PageboyViewController.swift in Sources */,
 				D681E3381E546FA2007C08F5 /* PageboyAutoLayout.swift in Sources */,
 				D6CC557F1ECCC55F00A7FBB4 /* PageboyViewController+ScrollDetection.swift in Sources */,
+				D6F561391EDCC3320033C654 /* PageTransition.swift in Sources */,
 				D6ECCEC21E51AFE500E9D5B3 /* PageViewControllerUtils.swift in Sources */,
 				D6F561361EDCAD6D0033C654 /* PageboyViewController+Transitioning.swift in Sources */,
 				D6CC55811ECCC5BE00A7FBB4 /* PageboyViewController+Extras.swift in Sources */,
