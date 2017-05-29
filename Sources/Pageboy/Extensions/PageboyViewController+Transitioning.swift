@@ -54,6 +54,13 @@ extension PageboyViewController: PageTransitionDelegate {
     
     func pageTransition(_ transition: PageTransition,
                         didUpdateWith percentComplete: CGFloat) {
-        print(percentComplete)
+        
+        let bounds = pageViewController.scrollView?.bounds.size.width ?? 0.0
+        let currentPosition = CGFloat(self.currentIndex ?? 0) + percentComplete
+        let point = CGPoint(x: currentPosition, y: 0.0)
+        
+        // TODO - Add support for orientations and direction etc.
+        // TODO - Update all requisite positional values
+        self.delegate?.pageboyViewController(self, didScrollToPosition: point, direction: .forward, animated: true)
     }
 }

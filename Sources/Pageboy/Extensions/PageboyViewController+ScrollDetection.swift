@@ -52,7 +52,6 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
     //
     
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print(scrollView.contentOffset.x)
         guard self.updateContentOffsetForBounceIfNeeded(scrollView: scrollView) == false else {
             return
         }
