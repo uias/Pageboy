@@ -110,9 +110,9 @@ open class PageboyViewController: UIViewController {
     }
     
     
-    /// Completion of a page transition.
-    public typealias PageTransitionCompletion = (_ newViewController: UIViewController, _ animated: Bool, _ finished: Bool) -> Void
-    internal typealias ScrollCompletion = (_ finished: Bool) -> Void
+    /// Completion of a page scroll.
+    public typealias PageScrollCompletion = (_ newViewController: UIViewController, _ animated: Bool, _ finished: Bool) -> Void
+    internal typealias TransitionCompletion = (_ finished: Bool) -> Void
     
     //
     // MARK: Variables
@@ -311,7 +311,7 @@ open class PageboyViewController: UIViewController {
     /// - parameter completion: The completion closure.
     public func scrollToPage(_ pageIndex: PageIndex,
                              animated: Bool,
-                             completion: PageTransitionCompletion? = nil) {
+                             completion: PageScrollCompletion? = nil) {
         
         // guard against any current transition operation
         guard self.isScrollingAnimated == false else { return }
@@ -342,7 +342,7 @@ open class PageboyViewController: UIViewController {
             
             self.isScrollingAnimated = animated
             
-            let scrollCompletion: ScrollCompletion = { (finished) in
+            let scrollCompletion: TransitionCompletion = { (finished) in
                 if finished {
                     let isVertical = self.navigationOrientation == .vertical
                     self.currentPosition = CGPoint(x: isVertical ? 0.0 : CGFloat(rawIndex),

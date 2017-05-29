@@ -16,7 +16,7 @@ public extension PageboyViewController {
     
     internal func performTransition(with direction: NavigationDirection,
                            animated: Bool,
-                           completion: ScrollCompletion) {
+                           completion: TransitionCompletion) {
         guard animated == true else { return }
         
         let animation = CATransition()
@@ -28,6 +28,6 @@ public extension PageboyViewController {
         animation.fillMode = kCAFillModeBackwards
         self.pageViewController.view.layer.add(animation, forKey: nil)
         
-        completion(true)
+//        completion(true)
     }
 }
