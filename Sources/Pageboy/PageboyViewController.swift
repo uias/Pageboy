@@ -215,6 +215,7 @@ open class PageboyViewController: UIViewController {
     }
     
     var transitionStyle: TransitionStyle = .push
+    internal var transitionDisplayLink: CADisplayLink?
     
     /// The view controllers that are displayed in the page view controller.
     public internal(set) var viewControllers: [UIViewController]?
@@ -266,6 +267,7 @@ open class PageboyViewController: UIViewController {
         super.viewDidLoad()
         
         self.autoScroller.handler = self
+        self.setUpTransitioning()
         self.setUpPageViewController()
     }
     

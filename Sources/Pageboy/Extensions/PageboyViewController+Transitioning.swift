@@ -14,6 +14,23 @@ public extension PageboyViewController {
         case push
     }
     
+    // MARK: Set Up
+    
+    internal func setUpTransitioning() {
+        guard self.transitionDisplayLink == nil else { return }
+        
+        let transitionDisplayLink = CADisplayLink(target: self, selector: #selector(displayLinkDidTick))
+        transitionDisplayLink.isPaused = true
+        transitionDisplayLink.add(to: RunLoop.main, forMode: .commonModes)
+        self.transitionDisplayLink = transitionDisplayLink
+    }
+    
+    // MARK: Animation
+    
+    func displayLinkDidTick() {
+        print("tick")
+    }
+    
     internal func performTransition(with direction: NavigationDirection,
                            animated: Bool,
                            completion: TransitionCompletion) {
@@ -27,6 +44,7 @@ public extension PageboyViewController {
         animation.subtype = direction == .reverse ? kCATransitionFromLeft : kCATransitionFromRight
         animation.fillMode = kCAFillModeBackwards
         self.pageViewController.view.layer.add(animation, forKey: nil)
+
         
 //        completion(true)
     }
