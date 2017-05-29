@@ -213,6 +213,8 @@ open class PageboyViewController: UIViewController {
         }
     }
     
+    var transitionStyle: TransitionStyle = .push
+    
     /// The view controllers that are displayed in the page view controller.
     public internal(set) var viewControllers: [UIViewController]?
     
@@ -338,9 +340,11 @@ open class PageboyViewController: UIViewController {
                                     animated: animated)
             
             self.isScrollingAnimated = animated
+            
+            self.performTransition(with: direction, animated: animated)
             self.pageViewController.setViewControllers([viewController],
                                                        direction: direction.pageViewControllerNavDirection,
-                                                       animated: animated,
+                                                       animated: false,
                                                        completion:
                 { (finished) in
                     if finished {
