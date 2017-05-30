@@ -46,12 +46,11 @@ internal class TransitionOperation: NSObject, CAAnimationDelegate {
         self.action = action
         self.delegate = delegate
         
-        let animation = CATransition()
-        animation.duration = 1.0
+        var animation = CATransition()
         animation.startProgress = 0.0
         animation.endProgress = 1.0
-        animation.type = "push"
-        animation.subtype = kCATransitionFromRight
+        transition.configure(transition: &animation)
+        animation.subtype = action.transitionSubType
         animation.fillMode = kCAFillModeBackwards
         self.animation = animation
         

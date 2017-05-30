@@ -12,15 +12,15 @@ public extension PageboyViewController {
     
     struct Transition {
         
-        enum Style {
-            case scroll
+        enum Style: String {
+            case push = "push"
         }
         
         let style: Style
         let duration: TimeInterval
         
         static var defaultTransition: Transition {
-            return Transition(style: .scroll, duration: 0.3)
+            return Transition(style: .push, duration: 0.3)
         }
     }
 }
@@ -55,7 +55,8 @@ public extension PageboyViewController {
         // create a transition and unpause display link
         let action = TransitionOperation.Action(startIndex: from,
                                                 endIndex: to,
-                                                direction: direction)
+                                                direction: direction,
+                                                orientation: self.navigationOrientation)
         self.activeTransition = TransitionOperation(for: self.transition,
                                                     action: action,
                                                     delegate: self)
@@ -78,12 +79,24 @@ extension PageboyViewController: TransitionOperationDelegate {
     func transitionOperation(_ operation: TransitionOperation,
                              didUpdateWith percentComplete: CGFloat) {
         
-        let bounds = pageViewController.scrollView?.bounds.size.width ?? 0.0
-        let currentPosition = CGFloat(self.currentIndex ?? 0) + percentComplete
-        let point = CGPoint(x: currentPosition, y: 0.0)
+        let isReverse = operation.action.direction == .reverse
+        let isVertical = operation.action.orientation == .vertical
         
-        // TODO - Add support for orientations and direction etc.
-        // TODO - Update all requisite positional values
-        self.delegate?.pageboyViewController(self, didScrollToPosition: point, direction: .forward, animated: true)
+        let currentIndex = CGFloat(self.currentIndex ?? 0)
+        let currentPosition = isReverse ? currentIndex - percentComplete : currentIndex + percentComplete
+        let point = CGPoint(x: isVertical ? 0.0 : currentPosition,
+                            y: isVertical ? currentPosition : 0.0)
+        
+        self.delegate?.pageboyViewController(self, didScrollToPosition: point,
+                                             direction: operation.action.direction,
+                                             animated: true)
+    }
+}
+
+internal extension PageboyViewController.Transition {
+    
+    func configure(transition: inout CATransition) {
+        transition.duration = self.duration
+        transition.type = self.style.rawValue
     }
 }

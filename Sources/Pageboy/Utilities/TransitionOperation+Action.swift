@@ -15,6 +15,33 @@ internal extension TransitionOperation {
         let startIndex: Int
         let endIndex: Int
         let direction: PageboyViewController.NavigationDirection
+        let orientation: UIPageViewControllerNavigationOrientation
         
+    }
+}
+
+internal extension TransitionOperation.Action {
+    
+    var transitionSubType: String {
+        switch orientation {
+            
+        case .horizontal:
+            switch direction {
+                
+            case .reverse:
+                return kCATransitionFromLeft
+            default:
+                return kCATransitionFromRight
+            }
+            
+        case .vertical:
+            switch direction {
+                
+            case .reverse:
+                return kCATransitionFromTop
+            default:
+                return kCATransitionFromBottom
+            }
+        }
     }
 }
