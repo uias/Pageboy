@@ -213,9 +213,9 @@ open class PageboyViewController: UIViewController {
         }
     }
     
-    var transitionStyle: PageTransition.Style = .push
+    var transition = Transition.defaultTransition
     internal var transitionDisplayLink: CADisplayLink?
-    internal var activeTransition: PageTransition?
+    internal var activeTransition: TransitionOperation?
     
     /// The view controllers that are displayed in the page view controller.
     public internal(set) var viewControllers: [UIViewController]?
@@ -344,7 +344,7 @@ open class PageboyViewController: UIViewController {
             
             self.isScrollingAnimated = animated
             
-            let transitionCompletion: PageTransition.Completion = { (finished) in
+            let transitionCompletion: TransitionOperation.Completion = { (finished) in
                 if finished {
                     let isVertical = self.navigationOrientation == .vertical
                     self.currentPosition = CGPoint(x: isVertical ? 0.0 : CGFloat(rawIndex),
@@ -364,7 +364,9 @@ open class PageboyViewController: UIViewController {
                 self.isScrollingAnimated = false
             }
             
-            self.performTransition(with: direction,
+            self.performTransition(from: currentIndex ?? 0,
+                                   to: rawIndex,
+                                   with: direction,
                                    animated: animated,
                                    completion: transitionCompletion)
             self.pageViewController.setViewControllers([viewController],

@@ -10,6 +10,23 @@ import UIKit
 
 public extension PageboyViewController {
     
+    struct Transition {
+        
+        enum Style {
+            case scroll
+        }
+        
+        let style: Style
+        let duration: TimeInterval
+        
+        static var defaultTransition: Transition {
+            return Transition(style: .scroll, duration: 0.3)
+        }
+    }
+}
+
+public extension PageboyViewController {
+    
     // MARK: Set Up
     
     internal func setUpTransitioning() {
@@ -27,15 +44,21 @@ public extension PageboyViewController {
         self.activeTransition?.tick()
     }
     
-    internal func performTransition(with direction: NavigationDirection,
-                           animated: Bool,
-                           completion: @escaping PageTransition.Completion) {
+    internal func performTransition(from: Int,
+                                    to: Int,
+                                    with direction: NavigationDirection,
+                                    animated: Bool,
+                                    completion: @escaping TransitionOperation.Completion) {
         guard animated == true else { return }
         guard self.activeTransition == nil else { return }
         
         // create a transition and unpause display link
-        self.activeTransition = PageTransition(with: self.transitionStyle,
-                                               delegate: self)
+        let action = TransitionOperation.Action(startIndex: from,
+                                                endIndex: to,
+                                                direction: direction)
+        self.activeTransition = TransitionOperation(for: self.transition,
+                                                    action: action,
+                                                    delegate: self)
         self.transitionDisplayLink?.isPaused = false
         
         // start transition
@@ -44,16 +67,16 @@ public extension PageboyViewController {
     }
 }
 
-extension PageboyViewController: PageTransitionDelegate {
+extension PageboyViewController: TransitionOperationDelegate {
     
-    func pageTransition(_ transition: PageTransition,
-                        didFinish finished: Bool) {
+    func transitionOperation(_ operation: TransitionOperation,
+                             didFinish finished: Bool) {
         self.transitionDisplayLink?.isPaused = true
         self.activeTransition = nil
     }
     
-    func pageTransition(_ transition: PageTransition,
-                        didUpdateWith percentComplete: CGFloat) {
+    func transitionOperation(_ operation: TransitionOperation,
+                             didUpdateWith percentComplete: CGFloat) {
         
         let bounds = pageViewController.scrollView?.bounds.size.width ?? 0.0
         let currentPosition = CGFloat(self.currentIndex ?? 0) + percentComplete

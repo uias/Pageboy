@@ -1,5 +1,5 @@
 //
-//  PageTransition.swift
+//  TransitionOperation.swift
 //  Pageboy
 //
 //  Created by Merrick Sapsford on 29/05/2017.
@@ -8,32 +8,30 @@
 
 import UIKit
 
-internal protocol PageTransitionDelegate: class {
+internal protocol TransitionOperationDelegate: class {
     
-    func pageTransition(_ transition: PageTransition,
-                        didFinish finished: Bool)
+    func transitionOperation(_ operation: TransitionOperation,
+                             didFinish finished: Bool)
     
-    func pageTransition(_ transition: PageTransition,
+    func transitionOperation(_ operation: TransitionOperation,
                         didUpdateWith percentComplete: CGFloat)
 }
 
-internal class PageTransition: NSObject, CAAnimationDelegate {
+internal class TransitionOperation: NSObject, CAAnimationDelegate {
     
     // MARK: Types
-    
-    public enum Style {
-        case push
-    }
     
     typealias Completion = (Bool) -> Void
     
     // MARK: Properties
     
-    let style: Style
+    let transition: PageboyViewController.Transition
+    let action: Action
+    
     private var animation: CATransition
     private var isAnimating: Bool = false
     
-    private(set) weak var delegate: PageTransitionDelegate?
+    private(set) weak var delegate: TransitionOperationDelegate?
     
     private(set) var startTime: CFTimeInterval?
     
@@ -41,9 +39,11 @@ internal class PageTransition: NSObject, CAAnimationDelegate {
     
     // MARK: Init
     
-    init(with style: Style,
-         delegate: PageTransitionDelegate) {
-        self.style = style
+    init(for transition: PageboyViewController.Transition,
+         action: Action,
+         delegate: TransitionOperationDelegate) {
+        self.transition = transition
+        self.action = action
         self.delegate = delegate
         
         let animation = CATransition()
@@ -75,7 +75,7 @@ internal class PageTransition: NSObject, CAAnimationDelegate {
     /// Perform a frame tick on the transition.
     func tick() {
         guard isAnimating else { return }
-        delegate?.pageTransition(self, didUpdateWith: percentComplete)
+        delegate?.transitionOperation(self, didUpdateWith: percentComplete)
     }
     
     /// The total duration of the transition.
@@ -99,7 +99,7 @@ internal class PageTransition: NSObject, CAAnimationDelegate {
     public func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
         isAnimating = false
         completion?(flag)
-        delegate?.pageTransition(self, didFinish: flag)
+        delegate?.transitionOperation(self, didFinish: flag)
     }
 }
 
