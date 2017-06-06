@@ -23,6 +23,7 @@ class PageboyAutoScrollTests: PageboyTests {
         
         self.autoScrollExpectation = expectation(description: "autoScroll")
         
+        self.pageboyViewController.autoScroller.animateScroll = false
         self.pageboyViewController.autoScroller.delegate = self
         self.pageboyViewController.autoScroller.enable(withIntermissionDuration: .custom(duration: 3.0))
         
