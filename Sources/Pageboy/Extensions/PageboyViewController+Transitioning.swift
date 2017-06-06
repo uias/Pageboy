@@ -8,16 +8,23 @@
 
 import UIKit
 
+// MARK: - PageboyViewController transition configuration.
 public extension PageboyViewController {
     
     /// Transition for a page scroll.
     struct Transition {
         
-        /// Style for the transition
+        /// Style for the transition.
         ///
-        /// - push: slide the new page in (Default).
+        /// - push: Slide the new page in (Default).
+        /// - fade: Fade the new page in.
+        /// - moveIn: Move the new page in over the top of the current page.
+        /// - reveal: Reveal the new page under the current page.
         enum Style: String {
             case push = "push"
+            case fade = "fade"
+            case moveIn = "moveIn"
+            case reveal = "reveal"
         }
         
         /// The style for the transition.
@@ -25,13 +32,15 @@ public extension PageboyViewController {
         /// The duration of the transition.
         let duration: TimeInterval
         
+        /// Default transition (Push, 0.3 second duration).
         static var defaultTransition: Transition {
             return Transition(style: .push, duration: 0.3)
         }
     }
 }
 
-public extension PageboyViewController {
+// MARK: - Custom PageboyViewController transitioning.
+internal extension PageboyViewController {
     
     // MARK: Set Up
     
@@ -50,6 +59,14 @@ public extension PageboyViewController {
         self.activeTransition?.tick()
     }
     
+    /// Perform a transition to a new page index.
+    ///
+    /// - Parameters:
+    ///   - from: The current index.
+    ///   - to: The new index.
+    ///   - direction: The direction of travel.
+    ///   - animated: Whether to animate the transition.
+    ///   - completion: Action on the completion of the transition.
     internal func performTransition(from: Int,
                                     to: Int,
                                     with direction: NavigationDirection,
