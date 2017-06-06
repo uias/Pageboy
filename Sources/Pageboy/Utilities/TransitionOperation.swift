@@ -10,31 +10,50 @@ import UIKit
 
 internal protocol TransitionOperationDelegate: class {
     
+    /// A transition operation did finish.
+    ///
+    /// - Parameters:
+    ///   - operation: The operation.
+    ///   - finished: Whether it successfully finished.
     func transitionOperation(_ operation: TransitionOperation,
                              didFinish finished: Bool)
     
+    /// A transition operation did progress.
+    ///
+    /// - Parameters:
+    ///   - operation: The operation.
+    ///   - percentComplete: The percent that the operation is complete.
     func transitionOperation(_ operation: TransitionOperation,
                         didUpdateWith percentComplete: CGFloat)
 }
 
+/// An operation for performing a PageboyViewController transition
 internal class TransitionOperation: NSObject, CAAnimationDelegate {
     
     // MARK: Types
     
+    /// Operation completion action.
     typealias Completion = (Bool) -> Void
     
     // MARK: Properties
     
+    /// The transition for the operation.
     let transition: PageboyViewController.Transition
+    /// The action that is occuring as part of the transition.
     let action: Action
     
+    /// The raw animation for the operation.
     private var animation: CATransition
+    /// Whether the operation is currently animating.
     private var isAnimating: Bool = false
     
+    /// The object that acts as a delegate to the operation
     private(set) weak var delegate: TransitionOperationDelegate?
     
+    /// The time that the operation did start.
     private(set) var startTime: CFTimeInterval?
     
+    /// Action to execute when the operation is complete.
     private var completion: Completion?
     
     // MARK: Init

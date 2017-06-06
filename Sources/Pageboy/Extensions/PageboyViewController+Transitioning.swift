@@ -10,13 +10,19 @@ import UIKit
 
 public extension PageboyViewController {
     
+    /// Transition for a page scroll.
     struct Transition {
         
+        /// Style for the transition
+        ///
+        /// - push: slide the new page in (Default).
         enum Style: String {
             case push = "push"
         }
         
+        /// The style for the transition.
         let style: Style
+        /// The duration of the transition.
         let duration: TimeInterval
         
         static var defaultTransition: Transition {
