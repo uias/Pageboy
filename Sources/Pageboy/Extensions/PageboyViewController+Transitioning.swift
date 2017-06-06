@@ -12,7 +12,7 @@ import UIKit
 public extension PageboyViewController {
     
     /// Transition for a page scroll.
-    struct Transition {
+    public struct Transition {
         
         /// Style for the transition.
         ///
@@ -20,7 +20,7 @@ public extension PageboyViewController {
         /// - fade: Fade the new page in.
         /// - moveIn: Move the new page in over the top of the current page.
         /// - reveal: Reveal the new page under the current page.
-        enum Style: String {
+        public enum Style: String {
             case push = "push"
             case fade = "fade"
             case moveIn = "moveIn"
@@ -28,13 +28,25 @@ public extension PageboyViewController {
         }
         
         /// The style for the transition.
-        let style: Style
+        public let style: Style
         /// The duration of the transition.
-        let duration: TimeInterval
+        public let duration: TimeInterval
         
         /// Default transition (Push, 0.3 second duration).
-        static var defaultTransition: Transition {
+        public static var defaultTransition: Transition {
             return Transition(style: .push, duration: 0.3)
+        }
+        
+        // MARK: Init
+        
+        /// Initialize a transition.
+        ///
+        /// - Parameters:
+        ///   - style: The style to use.
+        ///   - duration: The duration to transition for.
+        public init(style: Style, duration: TimeInterval) {
+            self.style = style
+            self.duration = duration
         }
     }
 }
