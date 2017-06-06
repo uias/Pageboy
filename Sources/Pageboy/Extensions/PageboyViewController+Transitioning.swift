@@ -87,9 +87,11 @@ extension PageboyViewController: TransitionOperationDelegate {
         let point = CGPoint(x: isVertical ? 0.0 : currentPosition,
                             y: isVertical ? currentPosition : 0.0)
         
+        self.currentPosition = point
         self.delegate?.pageboyViewController(self, didScrollToPosition: point,
                                              direction: operation.action.direction,
                                              animated: true)
+        self.previousPagePosition = currentPosition
     }
 }
 
