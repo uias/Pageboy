@@ -18,6 +18,7 @@
 - [x] Enhanced delegation; featuring exact relative positional data and reliable updates.
 - [x] Infinite scrolling support.
 - [x] Automatic timer-based page transitioning.
+- [x] Support for custom page transitions.
 
 ## Installation
 ### CocoaPods
