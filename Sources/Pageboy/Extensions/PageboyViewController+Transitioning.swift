@@ -67,7 +67,7 @@ internal extension PageboyViewController {
     
     // MARK: Animation
     
-    func displayLinkDidTick() {
+    @objc func displayLinkDidTick() {
         self.activeTransition?.tick()
     }
     
