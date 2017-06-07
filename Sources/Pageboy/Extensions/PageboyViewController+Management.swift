@@ -32,7 +32,7 @@ internal extension PageboyViewController {
         
         self.addChildViewController(pageViewController)
         self.view.addSubview(pageViewController.view)
-        pageViewController.view.pageboyPinToSuperviewEdges()
+        pageViewController.view.pinToSuperviewEdges()
         self.view.sendSubview(toBack: pageViewController.view)
         pageViewController.didMove(toParentViewController: self)
         
