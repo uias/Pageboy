@@ -6,7 +6,7 @@
 //  Copyright © 2017 Merrick Sapsford. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 // MARK: - Paging Set Up and Configuration
 internal extension PageboyViewController {
@@ -32,7 +32,7 @@ internal extension PageboyViewController {
         
         self.addChildViewController(pageViewController)
         self.view.addSubview(pageViewController.view)
-        pageViewController.view.pageboyPinToSuperviewEdges()
+        pageViewController.view.pinToSuperviewEdges()
         self.view.sendSubview(toBack: pageViewController.view)
         pageViewController.didMove(toParentViewController: self)
         

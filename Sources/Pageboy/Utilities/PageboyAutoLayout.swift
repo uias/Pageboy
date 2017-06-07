@@ -10,10 +10,11 @@ import UIKit
 
 internal extension UIView {
     
-    @discardableResult func pageboyPinToSuperviewEdges() -> [NSLayoutConstraint]? {
+    @discardableResult func pinToSuperviewEdges() -> [NSLayoutConstraint]? {
         guard self.superview != nil else {
             return nil
         }
+        self.translatesAutoresizingMaskIntoConstraints = false
         
         let views = ["view" : self]
         var constraints = [NSLayoutConstraint]()

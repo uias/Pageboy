@@ -23,19 +23,6 @@ class PageboyTransitionTests: PageboyTests {
                   "Not transitioning to valid custom index correctly (Non animated).")
     }
     
-    /// Test transition to a valid custom PageIndex animated
-    func testSuccessfulTransitionToCustomIndexAnimated() {
-        self.dataSource.numberOfPages = 5
-        self.pageboyViewController.dataSource = self.dataSource
-        let transitionIndex = 3
-        
-        self.pageboyViewController.scrollToPage(.at(index: transitionIndex), animated: true)
-        { (newViewController, animated, finished) in
-            XCTAssert(self.pageboyViewController.currentIndex == transitionIndex,
-                      "Not transitioning to valid custom index correctly (Animated).")
-        }
-    }
-    
     /// Test attempting transition to an out of bounds custom PageIndex
     func testHandlingTransitionToOutOfBoundsCustomIndex() {
         self.dataSource.numberOfPages = 5
@@ -93,21 +80,6 @@ class PageboyTransitionTests: PageboyTests {
                   "Not transitioning to previous index correctly.")
     }
     
-    /// Test successful transition reports offsets correctly.
-    func testSuccessfulTransitionOffsetReporting() {
-        self.dataSource.numberOfPages = 5
-        self.pageboyViewController.dataSource = self.dataSource
-        
-        self.pageboyViewController.scrollToPage(.at(index: 1), animated: true)
-        { (newViewController, animated, finished) in
-            
-            XCTAssert(self.delegate.lastRecordedPagePosition?.x == 1.0 &&
-                self.delegate.lastRecordedPageIndex == 1 &&
-                self.pageboyViewController.currentIndex == 1,
-                      "Not reporting complete transition offset values correctly.")
-        }
-    }
-    
     /// Test partial user interacted transition reports offsets correctly.
     func testPartialTransitionOffsetReporting() {
         self.dataSource.numberOfPages = 5
@@ -122,21 +94,6 @@ class PageboyTransitionTests: PageboyTests {
         
     }
     
-    /// Test successful transition reports direction correctly.
-    func testSuccessfulTransitionDirectionReporting() {
-        self.dataSource.numberOfPages = 5
-        self.pageboyViewController.dataSource = self.dataSource
-        
-        self.pageboyViewController.scrollToPage(.last, animated: false)
-        self.pageboyViewController.scrollToPage(.at(index: 0), animated: true)
-        { (newViewController, animated, finished) in
-            
-            XCTAssert(self.pageboyViewController.currentIndex == 0 &&
-                      self.delegate.lastRecordedDirection == .reverse,
-                      "Not reporting complete transition direction values correctly")
-        }
-    }
-    
     /// Test partial user interacted transition reports direction correctly.
     func testPartialTransitionDirectionReporting() {
         self.dataSource.numberOfPages = 5
@@ -147,34 +104,6 @@ class PageboyTransitionTests: PageboyTests {
 
         XCTAssert(self.delegate.lastRecordedDirection == .forward && self.pageboyViewController.currentIndex == 0,
                   "Not reporting partial user interacted transition direction values correctly.")
-    }
-    
-    /// Test unsuccessful animated transition to current page.
-    func testUnsuccessfulTransitionToCurrentPage() {
-        self.dataSource.numberOfPages = 5
-        self.pageboyViewController.dataSource = self.dataSource
-
-        self.pageboyViewController.scrollToPage(.first, animated: true) { (viewController, animated, finished) in
-            XCTAssert(finished == false && self.pageboyViewController.currentIndex == 0,
-                      "Not handling unsuccessful transition to current page correctly.")
-        }
-    }
-    
-    /// Test animated flags are correct for animated transitions.
-    func testAnimatedTransitionAnimatedFlags() {
-        self.dataSource.numberOfPages = 5
-        self.pageboyViewController.dataSource = self.dataSource
-        let transitionIndex = 3
-        
-        self.pageboyViewController.scrollToPage(.at(index: transitionIndex), animated: true)
-        { (newViewController, animated, finished) in
-            
-            XCTAssert(self.pageboyViewController.currentIndex == transitionIndex &&
-                      self.delegate.lastWillScrollToPageAnimated == true &&
-                      self.delegate.lastDidScrollToPageAtIndexAnimated == true &&
-                      self.delegate.lastDidScrollToPositionAnimated == true,
-                      "Animated flags for an animated scrollToPage are incorrect.")
-        }
     }
     
     /// Test animated flags are correct for non-animated transitions.
