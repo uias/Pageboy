@@ -6,7 +6,7 @@
 //  Copyright © 2017 Merrick Sapsford. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 // MARK: - Paging Set Up and Configuration
 internal extension PageboyViewController {
