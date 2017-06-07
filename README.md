@@ -121,7 +121,6 @@ func pageboyViewController(_ pageboyViewController: PageboyViewController,
 
 ## Additional functionality
 
-### Functions
 - `reloadPages` - Reload the view controllers in the page view controller. (Refreshes the data source).
 
 	```swift
@@ -135,34 +134,44 @@ func pageboyViewController(_ pageboyViewController: PageboyViewController,
                                completion: PageTransitionCompletion? = nil)
 	```
 
+### Transitioning
+Pageboy also provides custom animated transition support. This can be customised via the `.transition` property on `PageboyViewController`. 
+
+```swift
+pageboyViewController.transition = Transition(style: .push, duration: 1.0)
+```
+
+The following styles are available: 
+
+- `.push`
+- `.fade`
+- `.moveIn`
+- `.reveal`
+
+### AutoScrolling
+`PageboyAutoScroller` is available to set up timer based automatic scrolling of the `PageboyViewController`:
+
+```swift
+pageboyViewController.autoScroller.enable()
+```
+Support for custom intermission duration and other scroll behaviors is also available.
+
 ### Properties
-- `isInfiniteScrollEnabled`: `Bool` - Whether the page view controller should infinitely scroll  between page limits (i.e. able to continuously scroll to first page from last).
-- `navigationOrientation`: `UIPageViewControllerNavigationOrientation` - The orientation that the page view controller transitions on.
+#### View Controller Management
 - `viewControllers`: `[UIViewController]?` - The view controllers that are displayed in the page view controller.
 - `currentViewController`: `UIViewController?` - The view controller that the page view controller is currently at.
+
+#### Positional Data
 - `currentIndex`: `Int?` - The page index that the page view controller is currently at.
 - `currentPosition`: `CGPoint?` - The relative page position that the page view controller is currently at.
-- `autoScroller`: `PageboyAutoScroller` - Object that can be used for adding time-based auto scrolling behaviour.
 
-#### Interaction State
+#### Interaction
 - `isScrollEnabled`: `Bool` - Whether scroll is enabled on the page view controller.
 - `isDragging`: `Bool` -  Whether the page view controller is currently being dragged.
 - `isScrollingAnimated`: `Bool` - Whether the page view controller is currently animating a scroll between pages.
 - `isUserInteractionEnabled`: `Bool` - Whether user interaction is enabled on the page view controller.
-
-### Types
-#### Enums
-- `PageIndex` - The index of a page in the page view controller.  
-	- `next` - The next page if available. (n+1)
-	- `previous` - The previous page if available. (n-1)
-	- `first` - The first page in the view controller array.
-	- `last` - The last page in the view controller array.
-	- `atIndex(index: Int)` - A custom specified index.
-
-- `NavigationDirection` - The direction that the page view controller travelled.
-	- `neutral` - No movement
-	- `forward` - Moved in a positive direction (Towards n+1).
-	- `reverse` - Moved in a negative direction (Towards n-1).
+- `navigationOrientation`: `UIPageViewControllerNavigationOrientation` - The orientation that the page view controller transitions on.
+- `isInfiniteScrollEnabled`: `Bool` - Whether the page view controller should infinitely scroll  between page limits (i.e. able to continuously scroll to first page from last).
 
 ## Getting In Touch
 Please feel free to contact me on [Twitter](https://twitter.com/MerrickSapsford).
