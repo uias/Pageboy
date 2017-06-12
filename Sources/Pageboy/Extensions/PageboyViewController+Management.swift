@@ -37,8 +37,10 @@ internal extension PageboyViewController {
         pageViewController.didMove(toParentViewController: self)
         
         pageViewController.scrollView?.delegate = self
-        
-        self.pageViewController.view.backgroundColor = .clear
+        pageViewController.view.backgroundColor = .clear
+        pageViewController.scrollView?.delaysContentTouches = delaysContentTouches
+        pageViewController.scrollView?.isScrollEnabled = isScrollEnabled
+        pageViewController.scrollView?.isUserInteractionEnabled = isUserInteractionEnabled
         
         self.reloadPages(reloadViewControllers: reloadViewControllers)
     }
@@ -60,10 +62,10 @@ internal extension PageboyViewController {
         }
         
         self.currentIndex = defaultIndexValue
-        self.pageViewController.setViewControllers([viewController],
-                                                   direction: .forward,
-                                                   animated: false,
-                                                   completion: nil)
+        self.pageViewController?.setViewControllers([viewController],
+                                                    direction: .forward,
+                                                    animated: false,
+                                                    completion: nil)
         
         guard let viewControllers = self.viewControllers else { return }
         self.delegate?.pageboyViewController(self,
