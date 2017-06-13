@@ -117,7 +117,7 @@ open class PageboyViewController: UIViewController {
     // MARK: Variables
     //
     
-    internal var pageViewController: UIPageViewController!
+    internal var pageViewController: UIPageViewController?
     internal var previousPagePosition: CGFloat?
     internal var expectedTransitionIndex: Int?
 
@@ -128,10 +128,7 @@ open class PageboyViewController: UIViewController {
     /// The orientation that the page view controller transitions on.
     public var navigationOrientation : UIPageViewControllerNavigationOrientation = .horizontal {
         didSet {
-            guard self.pageViewController != nil else {
-                return
-            }
-            
+            guard self.pageViewController != nil else { return }
             self.setUpPageViewController(reloadViewControllers: false)
         }
     }
@@ -164,18 +161,16 @@ open class PageboyViewController: UIViewController {
     
     /// Whether the page view controller is currently being touched.
     public var isTracking: Bool {
-        return self.pageViewController.scrollView?.isTracking ?? false
+        return self.pageViewController?.scrollView?.isTracking ?? false
     }
     /// Whether the page view controller is currently being dragged.
     public var isDragging: Bool {
-            return self.pageViewController.scrollView?.isDragging ?? false
+            return self.pageViewController?.scrollView?.isDragging ?? false
     }
     // default is YES. if NO, we immediately call -touchesShouldBegin:withEvent:inContentView:. this has no effect on presses
-    public var delaysContentTouches: Bool {
-        set {
-            self.pageViewController.scrollView?.delaysContentTouches = newValue
-        } get {
-            return self.pageViewController.scrollView?.delaysContentTouches ?? false
+    public var delaysContentTouches: Bool = true {
+        didSet {
+            self.pageViewController?.scrollView?.delaysContentTouches = delaysContentTouches
         }
     }
     /// default YES. if YES, bounces past edge of content and back again.
@@ -186,7 +181,7 @@ open class PageboyViewController: UIViewController {
     /// Default is TRUE
     public var isUserInteractionEnabled: Bool = true {
         didSet {
-            self.pageViewController.scrollView?.isUserInteractionEnabled = isUserInteractionEnabled
+            self.pageViewController?.scrollView?.isUserInteractionEnabled = isUserInteractionEnabled
         }
     }
     /// Whether scroll is enabled on the page view controller.
@@ -194,7 +189,7 @@ open class PageboyViewController: UIViewController {
     /// Default is TRUE.
     public var isScrollEnabled: Bool = true {
         didSet {
-            self.pageViewController.scrollView?.isScrollEnabled = isScrollEnabled
+            self.pageViewController?.scrollView?.isScrollEnabled = isScrollEnabled
         }
     }
     /// Whether the page view controller should infinitely scroll at the end of page ranges.
@@ -279,9 +274,9 @@ open class PageboyViewController: UIViewController {
         super.viewWillTransition(to: size, with: coordinator)
         
         // ignore scroll updates during orientation change
-        self.pageViewController.scrollView?.delegate = nil
+        self.pageViewController?.scrollView?.delegate = nil
         coordinator.animate(alongsideTransition: nil) { (context) in
-            self.pageViewController.scrollView?.delegate = self
+            self.pageViewController?.scrollView?.delegate = self
         }
     }
     
@@ -302,7 +297,8 @@ open class PageboyViewController: UIViewController {
         guard let currentIndex = self.currentIndex else { return }
         guard let currentViewController = self.viewControllers?[currentIndex] else { return }
         
-        self.pageViewController.setViewControllers([currentViewController], direction: .forward, animated: false, completion: nil)
+        self.pageViewController?.setViewControllers([currentViewController], direction: .forward,
+                                                    animated: false, completion: nil)
     }
     
     //
@@ -321,6 +317,7 @@ open class PageboyViewController: UIViewController {
         // guard against any current transition operation
         guard self.isScrollingAnimated == false else { return }
         guard self.isTracking == false else { return }
+        guard let pageViewController = self.pageViewController else { return }
         
         let rawIndex = self.indexValue(for: pageIndex  )
         if rawIndex != self.currentIndex {
@@ -341,7 +338,7 @@ open class PageboyViewController: UIViewController {
                 }
             }
             
-            self.pageViewController(self.pageViewController,
+            self.pageViewController(pageViewController,
                                     willTransitionTo: [viewController],
                                     animated: animated)
             
@@ -372,10 +369,10 @@ open class PageboyViewController: UIViewController {
                                    with: direction,
                                    animated: animated,
                                    completion: transitionCompletion)
-            self.pageViewController.setViewControllers([viewController],
-                                                       direction: direction.pageViewControllerNavDirection,
-                                                       animated: false,
-                                                       completion:
+            self.pageViewController?.setViewControllers([viewController],
+                                                        direction: direction.pageViewControllerNavDirection,
+                                                        animated: false,
+                                                        completion:
                 { (finished) in
                     guard animated == false else { return }
                     transitionCompletion(finished)

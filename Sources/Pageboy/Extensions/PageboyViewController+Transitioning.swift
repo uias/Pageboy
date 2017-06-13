@@ -86,6 +86,7 @@ internal extension PageboyViewController {
                                     completion: @escaping TransitionOperation.Completion) {
         guard animated == true else { return }
         guard self.activeTransition == nil else { return }
+        guard let pageViewController = self.pageViewController else { return }
         
         // create a transition and unpause display link
         let action = TransitionOperation.Action(startIndex: from,
@@ -98,7 +99,7 @@ internal extension PageboyViewController {
         self.transitionDisplayLink?.isPaused = false
         
         // start transition
-        self.activeTransition?.start(on: self.pageViewController.view.layer,
+        self.activeTransition?.start(on: pageViewController.view.layer,
                                      completion: completion)
     }
 }
