@@ -276,7 +276,8 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
         
         let scrollOffset = contentOffset - pageSize
         let pageOffset = (CGFloat(currentIndex) * pageSize) + (scrollOffset * indexDiff)
-        return pageOffset / pageSize
+        let position = pageOffset / pageSize
+        return position.isFinite ? position : 0
     }
     
     /// Update the scroll view contentOffset for bouncing preference if required.
