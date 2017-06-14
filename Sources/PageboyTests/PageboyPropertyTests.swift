@@ -31,7 +31,7 @@ class PageboyPropertyTests: PageboyTests {
         
         self.pageboyViewController.isScrollEnabled = false
         
-        XCTAssertTrue(self.pageboyViewController.pageViewController.scrollView?.isScrollEnabled == false,
+        XCTAssertTrue(self.pageboyViewController.pageViewController?.scrollView?.isScrollEnabled == false,
                       "isScrollEnabled does not update the internal scrollView correctly.")
     }
 }

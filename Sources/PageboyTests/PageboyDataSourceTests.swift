@@ -150,7 +150,7 @@ class PageboyDataSourceTests: PageboyTests {
         self.pageboyViewController.dataSource = self.dataSource
         
         let viewController = self.dataSource.viewControllers[0]
-        let nextViewController = self.pageboyViewController.pageViewController(self.pageboyViewController.pageViewController,
+        let nextViewController = self.pageboyViewController.pageViewController(self.pageboyViewController.pageViewController!,
                                                                                viewControllerAfter: viewController)
         
         XCTAssert(nextViewController === self.dataSource.viewControllers[1],
@@ -165,7 +165,7 @@ class PageboyDataSourceTests: PageboyTests {
         self.pageboyViewController.dataSource = self.dataSource
         
         let viewController = self.dataSource.viewControllers[2]
-        let nextViewController = self.pageboyViewController.pageViewController(self.pageboyViewController.pageViewController,
+        let nextViewController = self.pageboyViewController.pageViewController(self.pageboyViewController.pageViewController!,
                                                                                viewControllerAfter: viewController)
         
         XCTAssertNil(nextViewController,
@@ -180,7 +180,7 @@ class PageboyDataSourceTests: PageboyTests {
         self.pageboyViewController.dataSource = self.dataSource
         
         let viewController = self.dataSource.viewControllers[1]
-        let previousViewController = self.pageboyViewController.pageViewController(self.pageboyViewController.pageViewController,
+        let previousViewController = self.pageboyViewController.pageViewController(self.pageboyViewController.pageViewController!,
                                                                                viewControllerBefore: viewController)
         
         XCTAssert(previousViewController === self.dataSource.viewControllers[0],
@@ -194,7 +194,7 @@ class PageboyDataSourceTests: PageboyTests {
         self.pageboyViewController.dataSource = self.dataSource
         
         let viewController = self.dataSource.viewControllers[0]
-        let previousViewController = self.pageboyViewController.pageViewController(self.pageboyViewController.pageViewController,
+        let previousViewController = self.pageboyViewController.pageViewController(self.pageboyViewController.pageViewController!,
                                                                                viewControllerBefore: viewController)
         
         XCTAssertNil(previousViewController,

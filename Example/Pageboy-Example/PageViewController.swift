@@ -9,7 +9,7 @@
 import UIKit
 import Pageboy
 
-class PageViewController: PageboyViewController, PageboyViewControllerDataSource, PageboyViewControllerDelegate {
+class PageViewController: PageboyViewController {
 
     // MARK: Types
     
@@ -69,14 +69,12 @@ class PageViewController: PageboyViewController, PageboyViewControllerDataSource
     }
 
     func updateStatusLabels() {
-        let offsetValue =  navigationOrientation.rawValue == 0 ? self.currentPosition?.x : self.currentPosition?.y
+        let offsetValue =  navigationOrientation == .horizontal ? self.currentPosition?.x : self.currentPosition?.y
         self.offsetLabel.text = "Current Position: " + String(format: "%.3f", offsetValue ?? 0.0)
         self.pageLabel.text = "Current Page: " + String(describing: self.currentIndex ?? 0)
     }
     
-    // 
     // MARK: Actions
-    //
     
     @objc func nextPage(_ sender: UIBarButtonItem) {
         self.scrollToPage(.next, animated: true)
@@ -85,10 +83,10 @@ class PageViewController: PageboyViewController, PageboyViewControllerDataSource
     @objc func previousPage(_ sender: UIBarButtonItem) {
         self.scrollToPage(.previous, animated: true)
     }
-    
-    //
-    // MARK: PageboyViewControllerDataSource
-    //
+}
+
+// MARK: PageboyViewControllerDataSource
+extension PageViewController: PageboyViewControllerDataSource {
     
     func viewControllers(forPageboyViewController pageboyViewController: PageboyViewController) -> [UIViewController]? {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
@@ -105,10 +103,10 @@ class PageViewController: PageboyViewController, PageboyViewControllerDataSource
     func defaultPageIndex(forPageboyViewController pageboyViewController: PageboyViewController) -> PageboyViewController.PageIndex? {
         return nil
     }
-    
-    //
-    // MARK: PageboyViewControllerDelegate
-    //
+}
+
+// MARK: PageboyViewControllerDelegate
+extension PageViewController: PageboyViewControllerDelegate {
     
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
                                willScrollToPageAtIndex index: Int,
@@ -134,7 +132,7 @@ class PageViewController: PageboyViewController, PageboyViewControllerDataSource
         
         self.updateAppearance(pageOffset: CGFloat(index))
         self.updateStatusLabels()
-
+        
         self.updateBarButtonStates(index: index)
     }
     

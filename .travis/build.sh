@@ -1,6 +1,6 @@
 #!/bin/bash
 
 fastlane test
-if [ "${TRAVIS_BRANCH}" = "master" ]; then
+if [ -z "${TRAVIS_TAG}" ]; then
     fastlane deploy
 fi
