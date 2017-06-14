@@ -373,7 +373,9 @@ internal extension PageboyViewController {
     //
     
     internal func setUpPageViewController(reloadViewControllers: Bool = true) {
+        var existingZIndex: Int?
         if self.pageViewController != nil { // destroy existing page VC
+            existingZIndex = self.view.subviews.index(of: self.pageViewController!.view)
             self.pageViewController?.view.removeFromSuperview()
             self.pageViewController?.removeFromParentViewController()
             self.pageViewController = nil
@@ -389,11 +391,14 @@ internal extension PageboyViewController {
         self.addChildViewController(pageViewController)
         self.view.addSubview(pageViewController.view)
         pageViewController.view.pageboyPinToSuperviewEdges()
-        self.view.sendSubview(toBack: pageViewController.view)
-        pageViewController.didMove(toParentViewController: self)
-        
+      
+        if let existingZIndex = existingZIndex {
+          self.view.insertSubview(pageViewController.view, at: existingZIndex)
+        }   else {
+          self.view.addSubview(pageViewController.view)
+        }
         pageViewController.scrollView?.delegate = self
-        
+        pageViewController.didMove(toParentViewController: self)
         self.pageViewController.view.backgroundColor = .clear
         
         self.reloadPages(reloadViewControllers: reloadViewControllers)

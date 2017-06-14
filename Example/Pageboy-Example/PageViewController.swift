@@ -66,10 +66,12 @@ class PageViewController: PageboyViewController, PageboyViewControllerDataSource
         self.updateAppearance(pageOffset: self.currentPosition?.x ?? 0.0)
         self.updateStatusLabels()
         self.updateBarButtonStates(index: self.currentIndex ?? 0)
+        self.navigationOrientation = .horizontal
     }
 
     func updateStatusLabels() {
-        self.offsetLabel.text = "Current Position: " + String(format: "%.3f", self.currentPosition?.x ?? 0.0)
+        let offsetValue =  navigationOrientation.rawValue == 0 ? self.currentPosition?.x : self.currentPosition?.y
+        self.offsetLabel.text = "Current Position: " + String(format: "%.3f", offsetValue ?? 0.0)
         self.pageLabel.text = "Current Page: " + String(describing: self.currentIndex ?? 0)
     }
     
