@@ -66,7 +66,6 @@ class PageViewController: PageboyViewController, PageboyViewControllerDataSource
         self.updateAppearance(pageOffset: self.currentPosition?.x ?? 0.0)
         self.updateStatusLabels()
         self.updateBarButtonStates(index: self.currentIndex ?? 0)
-        self.navigationOrientation = .horizontal
     }
 
     func updateStatusLabels() {
@@ -121,7 +120,8 @@ class PageViewController: PageboyViewController, PageboyViewControllerDataSource
                                direction: PageboyViewController.NavigationDirection,
                                animated: Bool) {
         
-        self.updateAppearance(pageOffset: position.x)
+        let isVertical = navigationOrientation == .vertical
+        self.updateAppearance(pageOffset: isVertical ? position.y : position.x)
         self.updateStatusLabels()
         
         self.updateBarButtonStates(index: pageboyViewController.currentIndex ?? 0)
