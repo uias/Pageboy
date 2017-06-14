@@ -142,7 +142,7 @@ class PageboyTransitionTests: PageboyTests {
         
         let boundsWidth = self.pageboyViewController.view.frame.size.width
         self.pageboyViewController.expectedTransitionIndex = targetIndex
-        self.pageboyViewController.pageViewController.scrollView?.setContentOffset(CGPoint(x: boundsWidth + (boundsWidth * position), y: 0.0),
+        self.pageboyViewController.pageViewController?.scrollView?.setContentOffset(CGPoint(x: boundsWidth + (boundsWidth * position), y: 0.0),
                                                                                    animated: false)
     }
 }
