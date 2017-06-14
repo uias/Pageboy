@@ -44,9 +44,9 @@ internal extension TransitionOperation.Action {
             switch direction {
                 
             case .reverse:
-                return kCATransitionFromTop
-            default:
                 return kCATransitionFromBottom
+            default:
+                return kCATransitionFromTop
             }
         }
     }
