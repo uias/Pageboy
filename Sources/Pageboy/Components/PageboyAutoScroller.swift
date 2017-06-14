@@ -15,7 +15,7 @@ internal protocol PageboyAutoScrollerHandler: class {
     ///
     /// - Parameter autoScroller: The auto scroller.
     /// - Parameter animated: Whether the scroll should be animated.
-func autoScroller(didRequestAutoScroll autoScroller: PageboyAutoScroller, animated: Bool)
+    func autoScroller(didRequestAutoScroll autoScroller: PageboyAutoScroller, animated: Bool)
 }
 
 /// Delegate protocol for observing auto scroll events.

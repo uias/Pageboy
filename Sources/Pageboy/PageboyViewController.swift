@@ -73,6 +73,7 @@ public protocol PageboyViewControllerDelegate: class {
                                currentIndex: PageboyViewController.PageIndex)
 }
 
+/// A simple, highly informative page view controller.
 open class PageboyViewController: UIViewController {
     
     //
@@ -96,7 +97,7 @@ open class PageboyViewController: UIViewController {
     /// - previous: The previous page if available.
     /// - first: The first page.
     /// - last: The last page.
-    /// - atIndex: A custom specified page index.
+    /// - at: A custom specified page index.
     public enum PageIndex {
         case next
         case previous
@@ -109,14 +110,14 @@ open class PageboyViewController: UIViewController {
     }
     
     
-    /// Completion of a page transition.
-    public typealias PageTransitionCompletion = (_ newViewController: UIViewController, _ animated: Bool, _ finished: Bool) -> Void
+    /// Completion of a page scroll.
+    public typealias PageScrollCompletion = (_ newViewController: UIViewController, _ animated: Bool, _ finished: Bool) -> Void
     
     //
     // MARK: Variables
     //
     
-    internal var pageViewController: UIPageViewController!
+    internal var pageViewController: UIPageViewController?
     internal var previousPagePosition: CGFloat?
     internal var expectedTransitionIndex: Int?
 
@@ -127,10 +128,7 @@ open class PageboyViewController: UIViewController {
     /// The orientation that the page view controller transitions on.
     public var navigationOrientation : UIPageViewControllerNavigationOrientation = .horizontal {
         didSet {
-            guard self.pageViewController != nil else {
-                return
-            }
-            
+            guard self.pageViewController != nil else { return }
             self.setUpPageViewController(reloadViewControllers: false)
         }
     }
@@ -161,22 +159,20 @@ open class PageboyViewController: UIViewController {
     /// The object that is the delegate for the page view controller.
     public weak var delegate: PageboyViewControllerDelegate?
     
-    /// Whether scroll is enabled on the page view controller.
-    ///
-    /// Default is TRUE.
-    public var isScrollEnabled: Bool = true {
-        didSet {
-            self.pageViewController.scrollView?.isScrollEnabled = isScrollEnabled
-        }
+    /// Whether the page view controller is currently being touched.
+    public var isTracking: Bool {
+        return self.pageViewController?.scrollView?.isTracking ?? false
     }
-    
     /// Whether the page view controller is currently being dragged.
     public var isDragging: Bool {
-        get {
-            return self.pageViewController.scrollView?.isDragging ?? false
+            return self.pageViewController?.scrollView?.isDragging ?? false
+    }
+    // default is YES. if NO, we immediately call -touchesShouldBegin:withEvent:inContentView:. this has no effect on presses
+    public var delaysContentTouches: Bool = true {
+        didSet {
+            self.pageViewController?.scrollView?.delaysContentTouches = delaysContentTouches
         }
     }
-    
     /// default YES. if YES, bounces past edge of content and back again.
     public var bounces: Bool = true
     
@@ -185,7 +181,23 @@ open class PageboyViewController: UIViewController {
     /// Default is TRUE
     public var isUserInteractionEnabled: Bool = true {
         didSet {
-            self.pageViewController.scrollView?.isUserInteractionEnabled = isUserInteractionEnabled
+            self.pageViewController?.scrollView?.isUserInteractionEnabled = isUserInteractionEnabled
+        }
+    }
+    /// Whether scroll is enabled on the page view controller.
+    ///
+    /// Default is TRUE.
+    public var isScrollEnabled: Bool = true {
+        didSet {
+            self.pageViewController?.scrollView?.isScrollEnabled = isScrollEnabled
+        }
+    }
+    /// Whether the page view controller should infinitely scroll at the end of page ranges.
+    ///
+    /// Default is FALSE.
+    public var isInfiniteScrollEnabled: Bool = false {
+        didSet {
+            self.reloadCurrentPageSoftly()
         }
     }
     
@@ -196,14 +208,12 @@ open class PageboyViewController: UIViewController {
         }
     }
     
-    /// Whether the page view controller should infinitely scroll at the end of page ranges.
-    ///
-    /// Default is FALSE.
-    public var isInfiniteScrollEnabled: Bool = false {
-        didSet {
-            self.reloadCurrentPageSoftly()
-        }
-    }
+    /// The transition to use when animating scrolls between pages.
+    public var transition = Transition.defaultTransition
+    /// The display link for transitioning.
+    internal var transitionDisplayLink: CADisplayLink?
+    /// The active transition operation.
+    internal var activeTransition: TransitionOperation?
     
     /// The view controllers that are displayed in the page view controller.
     public internal(set) var viewControllers: [UIViewController]?
@@ -255,6 +265,7 @@ open class PageboyViewController: UIViewController {
         super.viewDidLoad()
         
         self.autoScroller.handler = self
+        self.setUpTransitioning()
         self.setUpPageViewController()
     }
     
@@ -263,9 +274,9 @@ open class PageboyViewController: UIViewController {
         super.viewWillTransition(to: size, with: coordinator)
         
         // ignore scroll updates during orientation change
-        self.pageViewController.scrollView?.delegate = nil
+        self.pageViewController?.scrollView?.delegate = nil
         coordinator.animate(alongsideTransition: nil) { (context) in
-            self.pageViewController.scrollView?.delegate = self
+            self.pageViewController?.scrollView?.delegate = self
         }
     }
     
@@ -286,11 +297,12 @@ open class PageboyViewController: UIViewController {
         guard let currentIndex = self.currentIndex else { return }
         guard let currentViewController = self.viewControllers?[currentIndex] else { return }
         
-        self.pageViewController.setViewControllers([currentViewController], direction: .forward, animated: false, completion: nil)
+        self.pageViewController?.setViewControllers([currentViewController], direction: .forward,
+                                                    animated: false, completion: nil)
     }
     
     //
-    // MARK: Transitioning
+    // MARK: Scrolling
     //
     
     /// Scroll the page view controller to a new page.
@@ -300,13 +312,14 @@ open class PageboyViewController: UIViewController {
     /// - parameter completion: The completion closure.
     public func scrollToPage(_ pageIndex: PageIndex,
                              animated: Bool,
-                             completion: PageTransitionCompletion? = nil) {
+                             completion: PageScrollCompletion? = nil) {
         
         // guard against any current transition operation
         guard self.isScrollingAnimated == false else { return }
-        guard self.isDragging == false else { return }
+        guard self.isTracking == false else { return }
+        guard let pageViewController = self.pageViewController else { return }
         
-        let rawIndex = self.indexValue(forPageIndex: pageIndex  )
+        let rawIndex = self.indexValue(for: pageIndex  )
         if rawIndex != self.currentIndex {
             
             // guard against invalid page indexing
@@ -325,33 +338,44 @@ open class PageboyViewController: UIViewController {
                 }
             }
             
-            self.pageViewController(self.pageViewController,
+            self.pageViewController(pageViewController,
                                     willTransitionTo: [viewController],
                                     animated: animated)
             
             self.isScrollingAnimated = animated
-            self.pageViewController.setViewControllers([viewController],
-                                                       direction: direction.pageViewControllerNavDirection,
-                                                       animated: animated,
-                                                       completion:
-                { (finished) in
-                    if finished {
-                        let isVertical = self.navigationOrientation == .vertical
-                        self.currentPosition = CGPoint(x: isVertical ? 0.0 : CGFloat(rawIndex),
-                                                       y: isVertical ? CGFloat(rawIndex) : 0.0)
-                        self.currentIndex = rawIndex
-                        
-                        // if not animated call position delegate update manually
-                        if !animated {
-                            self.delegate?.pageboyViewController(self,
-                                                                 didScrollToPosition: self.currentPosition!,
-                                                                 direction: direction,
-                                                                 animated: animated)
-                        }
+            
+            let transitionCompletion: TransitionOperation.Completion = { (finished) in
+                if finished {
+                    let isVertical = self.navigationOrientation == .vertical
+                    self.currentPosition = CGPoint(x: isVertical ? 0.0 : CGFloat(rawIndex),
+                                                   y: isVertical ? CGFloat(rawIndex) : 0.0)
+                    self.currentIndex = rawIndex
+                    
+                    // if not animated call position delegate update manually
+                    if !animated {
+                        self.delegate?.pageboyViewController(self,
+                                                             didScrollToPosition: self.currentPosition!,
+                                                             direction: direction,
+                                                             animated: animated)
                     }
-                    self.autoScroller.didFinishScrollIfEnabled()
-                    completion?(viewController, animated, finished)
-                    self.isScrollingAnimated = false
+                }
+                self.autoScroller.didFinishScrollIfEnabled()
+                completion?(viewController, animated, finished)
+                self.isScrollingAnimated = false
+            }
+            
+            self.performTransition(from: currentIndex ?? 0,
+                                   to: rawIndex,
+                                   with: direction,
+                                   animated: animated,
+                                   completion: transitionCompletion)
+            self.pageViewController?.setViewControllers([viewController],
+                                                        direction: direction.pageViewControllerNavDirection,
+                                                        animated: false,
+                                                        completion:
+                { (finished) in
+                    guard animated == false else { return }
+                    transitionCompletion(finished)
             })
             
         } else {
