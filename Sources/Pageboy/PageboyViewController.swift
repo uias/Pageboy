@@ -364,15 +364,9 @@ open class PageboyViewController: UIViewController {
                 self.isScrollingAnimated = false
             }
             
-            // account for right to left
-            var semanticDirection = direction
-            if view.layoutIsRightToLeft && navigationOrientation == .horizontal {
-                semanticDirection = semanticDirection == .forward ? .reverse : .forward
-            }
-            
             self.performTransition(from: currentIndex ?? 0,
                                    to: rawIndex,
-                                   with: semanticDirection,
+                                   with: direction,
                                    animated: animated,
                                    completion: transitionCompletion)
             self.pageViewController?.setViewControllers([viewController],
