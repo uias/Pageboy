@@ -65,12 +65,20 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
         // calculate offset / page size for relative orientation
         var pageSize: CGFloat!
         var contentOffset: CGFloat!
-        if self.navigationOrientation == .horizontal {
+        switch navigationOrientation {
+            
+        case .horizontal:
             pageSize = scrollView.frame.size.width
-            contentOffset = scrollView.contentOffset.x
-        } else {
+            if scrollView.layoutIsRightToLeft {
+                contentOffset = pageSize + (pageSize - scrollView.contentOffset.x)
+            } else {
+                contentOffset = scrollView.contentOffset.x
+            }
+            
+        case .vertical:
             pageSize = scrollView.frame.size.height
             contentOffset = scrollView.contentOffset.y
+            
         }
         
         guard let scrollIndexDiff = self.pageScrollIndexDiff(forCurrentIndex: currentIndex,
@@ -276,7 +284,8 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
         
         let scrollOffset = contentOffset - pageSize
         let pageOffset = (CGFloat(currentIndex) * pageSize) + (scrollOffset * indexDiff)
-        return pageOffset / pageSize
+        let position = pageOffset / pageSize
+        return position.isFinite ? position : 0
     }
     
     /// Update the scroll view contentOffset for bouncing preference if required.

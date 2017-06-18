@@ -15,7 +15,7 @@ class PageboyConfigurationTests: PageboyTests {
     func testPageboyNavigationOrientationChange() {
         self.pageboyViewController.navigationOrientation = .vertical
         
-        XCTAssert(self.pageboyViewController.pageViewController.navigationOrientation == .vertical,
+        XCTAssert(self.pageboyViewController.pageViewController?.navigationOrientation == .vertical,
                   "Could not configure Pageboy navigationOrientation correctly")
     }
 }
