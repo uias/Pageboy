@@ -174,8 +174,8 @@ Support for custom intermission duration and other scroll behaviors is also avai
 - `navigationOrientation`: `UIPageViewControllerNavigationOrientation` - The orientation that the page view controller transitions on.
 - `isInfiniteScrollEnabled`: `Bool` - Whether the page view controller should infinitely scroll  between page limits (i.e. able to continuously scroll to first page from last).
 
-## Getting In Touch
-Please feel free to contact me on [Twitter](https://twitter.com/MerrickSapsford).
+## About
+- Created by [Merrick Sapsford](https://github.com/msaps) ([@MerrickSapsford](https://twitter.com/MerrickSapsford))
 
 ## Contributing
 Bug reports and pull requests are welcome on GitHub at [https://github.com/uias/Pageboy](https://github.com/uias/Pageboy).

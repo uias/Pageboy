@@ -19,6 +19,9 @@ internal extension TransitionOperation {
         let endIndex: Int
         /// The direction of travel.
         let direction: PageboyViewController.NavigationDirection
+        /// The semantic direction of travel. In RtL languages,
+        /// this will be the opposite of direction on the horizontal axis.
+        let semanticDirection: PageboyViewController.NavigationDirection
         /// The orientation of the page view controller.
         let orientation: UIPageViewControllerNavigationOrientation
         
@@ -32,7 +35,7 @@ internal extension TransitionOperation.Action {
         switch orientation {
             
         case .horizontal:
-            switch direction {
+            switch semanticDirection {
                 
             case .reverse:
                 return kCATransitionFromLeft
@@ -41,7 +44,7 @@ internal extension TransitionOperation.Action {
             }
             
         case .vertical:
-            switch direction {
+            switch semanticDirection {
                 
             case .reverse:
                 return kCATransitionFromBottom
