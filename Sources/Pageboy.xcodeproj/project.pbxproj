@@ -29,6 +29,7 @@
 		D6F42C9E1EDE01DD006F0208 /* TransitionOperation+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F42C9D1EDE01DD006F0208 /* TransitionOperation+Action.swift */; };
 		D6F561361EDCAD6D0033C654 /* PageboyViewController+Transitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F561351EDCAD6D0033C654 /* PageboyViewController+Transitioning.swift */; };
 		D6F561391EDCC3320033C654 /* TransitionOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F561381EDCC3320033C654 /* TransitionOperation.swift */; };
+		D6F6F8F91EF6D672006397D0 /* LocalizationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F6F8F81EF6D672006397D0 /* LocalizationUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		D6F42C9D1EDE01DD006F0208 /* TransitionOperation+Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TransitionOperation+Action.swift"; sourceTree = "<group>"; };
 		D6F561351EDCAD6D0033C654 /* PageboyViewController+Transitioning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PageboyViewController+Transitioning.swift"; sourceTree = "<group>"; };
 		D6F561381EDCC3320033C654 /* TransitionOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionOperation.swift; sourceTree = "<group>"; };
+		D6F6F8F81EF6D672006397D0 /* LocalizationUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizationUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +181,7 @@
 				D681E3371E546FA2007C08F5 /* PageboyAutoLayout.swift */,
 				D6F561381EDCC3320033C654 /* TransitionOperation.swift */,
 				D6F42C9D1EDE01DD006F0208 /* TransitionOperation+Action.swift */,
+				D6F6F8F81EF6D672006397D0 /* LocalizationUtils.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				D6ECCEC21E51AFE500E9D5B3 /* PageViewControllerUtils.swift in Sources */,
 				D6F561361EDCAD6D0033C654 /* PageboyViewController+Transitioning.swift in Sources */,
 				D6CC55811ECCC5BE00A7FBB4 /* PageboyViewController+Extras.swift in Sources */,
+				D6F6F8F91EF6D672006397D0 /* LocalizationUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

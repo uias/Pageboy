@@ -365,9 +365,8 @@ open class PageboyViewController: UIViewController {
             }
             
             // account for right to left
-            let isRtoL = UIView.userInterfaceLayoutDirection(for: view.semanticContentAttribute) == .rightToLeft
             var semanticDirection = direction
-            if isRtoL && navigationOrientation == .horizontal {
+            if view.layoutIsRightToLeft && navigationOrientation == .horizontal {
                 semanticDirection = semanticDirection == .forward ? .reverse : .forward
             }
             
