@@ -310,21 +310,22 @@ open class PageboyViewController: UIViewController {
     /// - parameter index:      The index of the new page.
     /// - parameter animated:   Whether to animate the transition.
     /// - parameter completion: The completion closure.
-    public func scrollToPage(_ pageIndex: PageIndex,
+    /// - Returns: Whether the scroll was executed.
+    @discardableResult public func scrollToPage(_ pageIndex: PageIndex,
                              animated: Bool,
-                             completion: PageScrollCompletion? = nil) {
+                             completion: PageScrollCompletion? = nil) -> Bool {
         
         // guard against any current transition operation
-        guard self.isScrollingAnimated == false else { return }
-        guard self.isTracking == false else { return }
-        guard let pageViewController = self.pageViewController else { return }
+        guard self.isScrollingAnimated == false else { return false }
+        guard self.isTracking == false else { return false }
+        guard let pageViewController = self.pageViewController else { return false }
         
-        let rawIndex = self.indexValue(for: pageIndex  )
+        let rawIndex = self.indexValue(for: pageIndex)
         if rawIndex != self.currentIndex {
             
             // guard against invalid page indexing
-            guard rawIndex >= 0 && rawIndex < self.viewControllers?.count ?? 0 else { return }
-            guard let viewController = self.viewControllers?[rawIndex] else { return }
+            guard rawIndex >= 0 && rawIndex < self.viewControllers?.count ?? 0 else { return false }
+            guard let viewController = self.viewControllers?[rawIndex] else { return false }
             
             var direction = NavigationDirection.forPage(rawIndex, previousPage: self.currentIndex ?? rawIndex)
             
@@ -378,12 +379,14 @@ open class PageboyViewController: UIViewController {
                     transitionCompletion(finished)
             })
             
+            return true
+            
         } else {
-            guard let viewController = self.viewControllers?[rawIndex] else {
-                return
-            }
+            guard let viewController = self.viewControllers?[rawIndex] else { return false }
             self.autoScroller.didFinishScrollIfEnabled()
             completion?(viewController, animated, false)
+            
+            return false
         }
     }
     
