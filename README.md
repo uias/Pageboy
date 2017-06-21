@@ -43,7 +43,7 @@ github "uias/Pageboy"
 ```
 
 ## Requirements
-Pageboy requires iOS 9.0 or above.
+Pageboy requires iOS 8.0 or above.
 
 ## Usage
 ### Getting Started
