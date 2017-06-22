@@ -177,3 +177,58 @@ Released on 2017-03-01.
 #### Fixed
 - Fixed issue where infinite scroll would not provide scroll updates correctly.
 - Fixed issue with setting `isInfiniteScrollEnabled` not updating page view controller state correctly. 
+
+## [0.4.7](https://github.com/uias/Pageboy/releases/tag/0.4.7)
+Released on 2017-02-28.
+
+#### Fixed
+- Fixed issue where updates for scrolling outside of the page view controller `contentSize` would not be correctly reported.
+
+## [0.4.6](https://github.com/uias/Pageboy/releases/tag/0.4.6)
+Released on 2017-02-27.
+
+#### Updated
+- Ensured that `dataSource` for `PageboyViewController` is weakly referenced.
+- Ensured that `delegate` for `PageboyViewController` is weakly referenced.
+
+## [0.4.5](https://github.com/uias/Pageboy/releases/tag/0.4.5)
+Released on 2017-02-27.
+
+#### Fixed
+- Issue where `animated` parameter on `willScrollToPageAtIndex` would sometimes be incorrect.
+- Issue where duplicate positional updates would call `didScrollToPosition` multiple times.
+
+## [0.4.4](https://github.com/uias/Pageboy/releases/tag/0.4.4)
+Released on 2017-02-24.
+
+#### Updated
+- Improved positional reporting when traversing over multiple pages during a scroll operation.
+
+## [0.4.3](https://github.com/uias/Pageboy/releases/tag/0.4.3)
+Released on 2017-02-23.
+
+#### Updated
+- Added `animated` parameter to `willScrollToPageAtIndex`.
+- Added `animated` parameter to `didScrollToPosition`.
+- Added `animated` parameter to `didScrollToPageAtIndex`.
+
+#### Fixed
+- Fixed issues with `currentIndex` sync. 
+
+## [0.4.2](https://github.com/uias/Pageboy/releases/tag/0.4.2)
+Released on 2017-02-22.
+
+#### Fixed
+- Issue where `currentPosition` would not stay in sync with `currentIndex` in certain situations.
+- Issue where example app would not support custom default indexes correctly.
+
+## [0.4.1](https://github.com/uias/Pageboy/releases/tag/0.4.1)
+Released on 2017-02-17.
+
+#### Added
+- Swift Package Manager compatibility.
+
+## [0.4.0](https://github.com/uias/Pageboy/releases/tag/0.4.0)
+Released on 2017-02-17.
+
+**Pageboy** initial release - A simple, highly informative page view controller.
