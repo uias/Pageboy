@@ -141,3 +141,39 @@ Released on 2017-03-28.
 
 #### Updated
 - Just a quick version bump to 1.0.0.
+
+---
+
+## [0.4.12](https://github.com/uias/Pageboy/releases/tag/0.4.12)
+Released on 2017-03-22.
+
+#### Added
+- Improved test coverage for all components of `Pageboy`.
+
+#### Updated
+- `isEnabled` is now a public property of `PageboyAutoScroller`.
+
+## [0.4.11](https://github.com/uias/Pageboy/releases/tag/0.4.11)
+Released on 2017-03-13.
+
+#### Added
+- Added `bounces` property to enable/disable whether the page view controller should bounce at the end of page ranges. [#20](https://github.com/uias/Pageboy/issues/20)
+
+## [0.4.10](https://github.com/uias/Pageboy/releases/tag/0.4.10)
+Released on 2017-03-11. 
+
+#### Fixed
+- Fixed issue where scrolling aggressively, causing post-boundary deceleration would cause an incorrect `currentIndex` temporarily.
+
+## [0.4.9](https://github.com/uias/Pageboy/releases/tag/0.4.9)
+Released on 2017-03-08. 
+
+#### Added
+- `PageboyAutoScroller` which provides time-based auto scrolling behaviour to `PageboyViewController`. Available via the `autoScroller` property.
+
+## [0.4.8](https://github.com/uias/Pageboy/releases/tag/0.4.8)
+Released on 2017-03-01.
+
+#### Fixed
+- Fixed issue where infinite scroll would not provide scroll updates correctly.
+- Fixed issue with setting `isInfiniteScrollEnabled` not updating page view controller state correctly. 
