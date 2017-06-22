@@ -26,11 +26,16 @@ class PageboyTests: XCTestCase {
         self.dataSource = TestPageboyDataSource()
         self.delegate = TestPageboyDelegate()
         
-        self.pageboyViewController.loadViewIfNeeded()
         self.pageboyViewController.delegate = delegate
         
         let bounds = UIScreen.main.bounds
         self.pageboyViewController.view.frame = bounds
+        
+        if #available(iOS 9.0, *) {
+            self.pageboyViewController.loadViewIfNeeded()
+        } else {
+            self.pageboyViewController.loadView()
+        }
     }
     
     override func tearDown() {
