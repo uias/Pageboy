@@ -23,13 +23,13 @@ Released on 2017-06-19.
 Released on 2017-06-18.
 
 #### Added
-- #67 Improved support for Right-To-Left languages to `PageboyViewController`.
+- [#67](https://github.com/uias/Pageboy/issues/67) Improved support for Right-To-Left languages to `PageboyViewController`.
 - `parentPageboyViewController` property to `UIViewController` to provide access to parent `PageboyViewController` from child view controllers within the page view controller.
-- #70 Success result to `scrollToPage()` function in `PageboyViewController`.
+- [#70](https://github.com/uias/Pageboy/issues/70) Success result to `scrollToPage()` function in `PageboyViewController`.
      - Returns whether the scroll was able to be successfully executed.
 
 #### Fixed
-- #71 A potential error during layout with scroll positional updates.
+- [#71](https://github.com/uias/Pageboy/pull/71) A potential error during layout with scroll positional updates.
      - By AlexZd.
 
 ---
@@ -56,11 +56,11 @@ Released on 2017-06-12.
 Released on 2017-06-07.
 
 #### Added 
-- #57 Added support for custom scroll transitions to `PageboyViewController`.
+- [#57](https://github.com/uias/Pageboy/issues/57) Added support for custom scroll transitions to `PageboyViewController`.
      - Available via the `.transition` (`PageboyViewController.Transition`) property.
 
 #### Fixed
-- #61 Fixed AutoLayout issue with internal `UIPageViewController` when in-call status bar is visible.
+- [#61](https://github.com/uias/Pageboy/issues/61) Fixed AutoLayout issue with internal `UIPageViewController` when in-call status bar is visible.
 
 ---
 
@@ -104,7 +104,7 @@ Released on 2017-04-26.
 Released on 2017-04-22.
 
 #### Fixed
-- #44 Fix incorrect `scrollToPage` function behaviour when at the end of page ranges with infinite scrolling enabled.
+- [#44](https://github.com/uias/Pageboy/issues/44) Fix incorrect `scrollToPage` function behaviour when at the end of page ranges with infinite scrolling enabled.
      - `.next` used an incorrect animation when scrolling from the upper range to the lower range.
      - `.previous` failed to scroll to a page when scrolling from the lower range to the upper range.
 
@@ -118,7 +118,7 @@ Released on 2017-04-19.
 Released on 2017-04-16.
 
 #### Updated
-- #42 Rename `atIndex(index: Int)` to `at(index: Int)` in `PageboyViewController.PageIndex`.
+- [#42](https://github.com/uias/Pageboy/issues/42) Rename `atIndex(index: Int)` to `at(index: Int)` in `PageboyViewController.PageIndex`.
    - Deprecated `atIndex(index: Int)`.
 
 ## [1.0.2](https://github.com/uias/Pageboy/releases/tag/1.0.2)
@@ -134,7 +134,7 @@ Released on 2017-04-11.
 Released on 2017-04-05.
 
 #### Fixed
-- #34 Fixed issue in `PageboyAutoScroller` where `.handler` would not be released correctly.
+- [#34](https://github.com/uias/Pageboy/issues/34) Fixed issue in `PageboyAutoScroller` where `.handler` would not be released correctly.
 
 ## [1.0.0](https://github.com/uias/Pageboy/releases/tag/1.0.0)
 Released on 2017-03-28.
