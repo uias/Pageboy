@@ -5,7 +5,7 @@ Thanks for your interest in contributing to Pageboy! Please have a read through 
 You can help us reach that goal by contributing. Here are some ways you can contribute:
 
 - [Report any issues or bugs that you find](https://github.com/uias/Pageboy/issues/new)
-- [Open issues for any new features you'd like Marathon to have](https://github.com/uias/Pageboy/issues/new)
+- [Open issues for any new features you'd like Pageboy to have](https://github.com/uias/Pageboy/issues/new)
 - [Implement other tasks selected for development](https://github.com/uias/Pageboy/issues?q=is%3Aissue+is%3Aopen+label%3A%22ready+for+development%22)
 - [Help answer questions asked by the community](https://github.com/uias/Pageboy/issues?q=is%3Aopen+is%3Aissue+label%3Aquestion)
 - [Spread the word about Pageboy](https://twitter.com/intent/tweet?text=Pageboy,%20UIPageViewController%20done%20properly:%20https://github.com/uias/Pageboy)
