@@ -76,9 +76,7 @@ public protocol PageboyViewControllerDelegate: class {
 /// A simple, highly informative page view controller.
 open class PageboyViewController: UIViewController {
     
-    //
     // MARK: Types
-    //
     
     /// The direction that the page view controller travelled.
     ///
@@ -113,18 +111,12 @@ open class PageboyViewController: UIViewController {
     /// Completion of a page scroll.
     public typealias PageScrollCompletion = (_ newViewController: UIViewController, _ animated: Bool, _ finished: Bool) -> Void
     
-    //
-    // MARK: Variables
-    //
+    // MARK: Properties
     
     internal var pageViewController: UIPageViewController?
     internal var previousPagePosition: CGFloat?
     internal var expectedTransitionIndex: Int?
 
-    //
-    // MARK: Properties
-    //
-    
     /// The orientation that the page view controller transitions on.
     public var navigationOrientation : UIPageViewControllerNavigationOrientation = .horizontal {
         didSet {
@@ -257,10 +249,8 @@ open class PageboyViewController: UIViewController {
     /// Auto Scroller for automatic time-based page transitions.
     public let autoScroller = PageboyAutoScroller()
     
-    //
     // MARK: Lifecycle
-    //
-    
+
     open override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -280,30 +270,7 @@ open class PageboyViewController: UIViewController {
         }
     }
     
-    //
-    // MARK: Page management
-    //
-    
-    /// Reload the view controllers in the page view controller. 
-    /// This reloads the dataSource entirely, calling viewControllers(forPageboyViewController:)
-    /// and defaultPageIndex(forPageboyViewController:).
-    public func reloadPages() {
-        self.reloadPages(reloadViewControllers: true)
-    }
-    
-    /// Reload the currently active page into the page view controller if possible. 
-    /// Does not reload from dataSource.
-    private func reloadCurrentPageSoftly() {
-        guard let currentIndex = self.currentIndex else { return }
-        guard let currentViewController = self.viewControllers?[currentIndex] else { return }
-        
-        self.pageViewController?.setViewControllers([currentViewController], direction: .forward,
-                                                    animated: false, completion: nil)
-    }
-    
-    //
     // MARK: Scrolling
-    //
     
     /// Scroll the page view controller to a new page.
     ///
