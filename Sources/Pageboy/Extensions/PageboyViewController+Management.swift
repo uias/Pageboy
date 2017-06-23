@@ -8,6 +8,27 @@
 
 import UIKit
 
+// MARK: - VC Reloading
+public extension PageboyViewController {
+    
+    /// Reload the view controllers in the page view controller.
+    /// This reloads the dataSource entirely, calling viewControllers(forPageboyViewController:)
+    /// and defaultPageIndex(forPageboyViewController:).
+    public func reloadPages() {
+        self.reloadPages(reloadViewControllers: true)
+    }
+    
+    /// Reload the currently active page into the page view controller if possible.
+    /// Does not reload from dataSource.
+    internal func reloadCurrentPageSoftly() {
+        guard let currentIndex = self.currentIndex else { return }
+        guard let currentViewController = self.viewControllers?[currentIndex] else { return }
+        
+        self.pageViewController?.setViewControllers([currentViewController], direction: .forward,
+                                                    animated: false, completion: nil)
+    }
+}
+
 // MARK: - Paging Set Up and Configuration
 internal extension PageboyViewController {
     
