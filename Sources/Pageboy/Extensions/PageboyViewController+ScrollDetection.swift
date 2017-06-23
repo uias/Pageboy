@@ -11,6 +11,8 @@ import UIKit
 // MARK: - UIPageViewControllerDelegate, UIScrollViewDelegate
 extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDelegate {
     
+    // MARK: UIPageViewControllerDelegate
+    
     public func pageViewController(_ pageViewController: UIPageViewController,
                                    willTransitionTo pendingViewControllers: [UIViewController]) {
         self.pageViewController(pageViewController,
@@ -47,9 +49,7 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
         }
     }
     
-    //
     // MARK: UIScrollViewDelegate
-    //
     
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard self.updateContentOffsetForBounceIfNeeded(scrollView: scrollView) == false else {
@@ -152,9 +152,7 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
         }
     }
     
-    //
-    // MARK: Utils
-    //
+    // MARK: Calculations
     
     /// Detect whether the scroll view is overscrolling while infinite scroll is enabled
     /// Adjusts pagePosition if required.
