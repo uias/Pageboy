@@ -14,6 +14,8 @@ All notable changes to this project will be documented in this file.
 ---
 
 ## [1.3.0](https://github.com/uias/Pageboy/releases/tag/1.3.0)
+Released on 2017-06-23.
+
 #### Added
 - [#75](https://github.com/uias/Pageboy/issues/75) Support for iOS 8.
      - Project deployment target is now `8.0`.
