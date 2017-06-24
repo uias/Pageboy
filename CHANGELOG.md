@@ -13,8 +13,8 @@ All notable changes to this project will be documented in this file.
 
 ---
 
-## [1.3.1](https://github.com/uias/Pageboy/releases/tag/1.3.0)
-Released on 2017-06-23.
+## [1.3.1](https://github.com/uias/Pageboy/releases/tag/1.3.1)
+Released on 2017-06-24.
 
 #### Fixed
 - [#79](https://github.com/uias/Pageboy/issues/79) Add support for Right-to-Left language localisation to iOS 8.
