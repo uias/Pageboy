@@ -249,15 +249,22 @@ open class PageboyViewController: UIViewController {
     /// Auto Scroller for automatic time-based page transitions.
     public let autoScroller = PageboyAutoScroller()
     
+    
+    // MARK: object LifeCycle
+    deinit{
+        
+        self.viewControllers?.removeAll()
+    }
+    
     // MARK: Lifecycle
 
     open override func viewDidLoad() {
         super.viewDidLoad()
         
         self.autoScroller.handler = self
-        self.setUpTransitioning()
         self.setUpPageViewController()
     }
+
     
     open override func viewWillTransition(to size: CGSize,
                                           with coordinator: UIViewControllerTransitionCoordinator) {
