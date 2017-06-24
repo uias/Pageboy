@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 `Pageboy` adheres to [Semantic Versioning](http://semver.org/).
 
 #### 1.x Releases
-- `1.3.X` Releases - [1.3.0](#130)
+- `1.3.X` Releases - [1.3.0](#130) | [1.3.1](#131)
 - `1.2.X` Releases - [1.2.0](#120) | [1.2.1](#121)
 - `1.1.X` Releases - [1.1.0](#110) | [1.1.1](#111) | [1.1.2](#112)
 - `1.0.X` Releases - [1.0.0](#100) | [1.0.1](#101) | [1.0.2](#102) | [1.0.3](#103) | [1.0.4](#104) | [1.0.5](#105) | [1.0.6](#106) | [1.0.7](#107) | [1.0.8](#108) | [1.0.9](#109)
@@ -13,7 +13,15 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [1.3.1](https://github.com/uias/Pageboy/releases/tag/1.3.1)
+Released on 2017-06-24.
+
+#### Fixed
+- [#79](https://github.com/uias/Pageboy/issues/79) Add support for Right-to-Left language localisation to iOS 8.
+
 ## [1.3.0](https://github.com/uias/Pageboy/releases/tag/1.3.0)
+Released on 2017-06-23.
+
 #### Added
 - [#75](https://github.com/uias/Pageboy/issues/75) Support for iOS 8.
      - Project deployment target is now `8.0`.
