@@ -1,5 +1,5 @@
 //
-//  PageboyAutoLayout.swift
+//  UIView+AutoLayout.swift
 //  Pageboy
 //
 //  Created by Merrick Sapsford on 15/02/2017.
