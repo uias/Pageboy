@@ -134,8 +134,12 @@ extension PageboyViewController: TransitionOperationDelegate {
         let isReverse = operation.action.direction == .reverse
         let isVertical = operation.action.orientation == .vertical
         
+        /// Take into account the diff between startIndex and endIndex
+        let indexDiff = abs(operation.action.endIndex - operation.action.startIndex)
+        let diff = percentComplete * CGFloat(indexDiff)
+        
         let currentIndex = CGFloat(self.currentIndex ?? 0)
-        let currentPosition = isReverse ? currentIndex - percentComplete : currentIndex + percentComplete
+        let currentPosition = isReverse ? currentIndex - diff : currentIndex + diff
         let point = CGPoint(x: isVertical ? 0.0 : currentPosition,
                             y: isVertical ? currentPosition : 0.0)
         
