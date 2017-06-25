@@ -56,13 +56,18 @@ internal extension PageboyViewController {
     
     // MARK: Set Up
     
-    internal func setUpTransitioning() {
+    fileprivate func prepareForTransition() {
         guard self.transitionDisplayLink == nil else { return }
         
         let transitionDisplayLink = CADisplayLink(target: self, selector: #selector(displayLinkDidTick))
         transitionDisplayLink.isPaused = true
         transitionDisplayLink.add(to: RunLoop.main, forMode: .commonModes)
         self.transitionDisplayLink = transitionDisplayLink
+    }
+    
+    fileprivate func clearUpAfterTransition() {
+        self.transitionDisplayLink?.invalidate()
+        self.transitionDisplayLink = nil
     }
     
     // MARK: Animation
@@ -88,9 +93,7 @@ internal extension PageboyViewController {
         guard self.activeTransition == nil else { return }
         guard let pageViewController = self.pageViewController else { return }
         
-        // setup Transition 
-        // fixed issue #83 https://github.com/uias/Pageboy/issues/83
-        self.setUpTransitioning()
+        prepareForTransition()
         
         /// Calculate semantic direction for RtL languages
         var semanticDirection = direction
@@ -122,9 +125,7 @@ extension PageboyViewController: TransitionOperationDelegate {
         self.transitionDisplayLink?.isPaused = true
         self.activeTransition = nil
         
-        // fixed issue #83 https://github.com/uias/Pageboy/issues/83
-        self.transitionDisplayLink?.invalidate()
-        self.transitionDisplayLink = nil
+        clearUpAfterTransition()
     }
     
     func transitionOperation(_ operation: TransitionOperation,
