@@ -43,7 +43,8 @@ internal class TransitionOperation: NSObject, CAAnimationDelegate {
     let action: Action
     
     /// The raw animation for the operation.
-    private var animation: CATransition
+    private var animation: CATransition? // fixed issue #83 https://github.com/uias/Pageboy/issues/83
+    
     /// Whether the operation is currently animating.
     private var isAnimating: Bool = false
     
@@ -86,8 +87,10 @@ internal class TransitionOperation: NSObject, CAAnimationDelegate {
                completion: @escaping Completion) {
         self.completion = completion
         self.startTime = CACurrentMediaTime()
-        layer.add(self.animation,
-                  forKey: "transition")
+        if let animation = self.animation {
+            layer.add(animation,
+                      forKey: "transition")
+        }
     }
     
     /// Perform a frame tick on the transition.
@@ -96,10 +99,17 @@ internal class TransitionOperation: NSObject, CAAnimationDelegate {
         delegate?.transitionOperation(self, didUpdateWith: percentComplete)
     }
     
+    
+    
+    
     /// The total duration of the transition.
     var duration: CFTimeInterval {
+        guard let animation = self.animation else {
+            return 0.0
+        }
         return animation.duration
     }
+    
     /// The percent that the transition is complete.
     var percentComplete: CGFloat {
         guard self.isAnimating else { return 0.0 }
@@ -118,6 +128,7 @@ internal class TransitionOperation: NSObject, CAAnimationDelegate {
         isAnimating = false
         completion?(flag)
         delegate?.transitionOperation(self, didFinish: flag)
+        self.animation = nil
     }
 }
 

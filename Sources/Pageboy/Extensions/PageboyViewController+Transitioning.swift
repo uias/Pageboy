@@ -88,6 +88,10 @@ internal extension PageboyViewController {
         guard self.activeTransition == nil else { return }
         guard let pageViewController = self.pageViewController else { return }
         
+        // setup Transition 
+        // fixed issue #83 https://github.com/uias/Pageboy/issues/83
+        self.setUpTransitioning()
+        
         /// Calculate semantic direction for RtL languages
         var semanticDirection = direction
         if view.layoutIsRightToLeft && navigationOrientation == .horizontal {
@@ -117,6 +121,10 @@ extension PageboyViewController: TransitionOperationDelegate {
                              didFinish finished: Bool) {
         self.transitionDisplayLink?.isPaused = true
         self.activeTransition = nil
+        
+        // fixed issue #83 https://github.com/uias/Pageboy/issues/83
+        self.transitionDisplayLink?.invalidate()
+        self.transitionDisplayLink = nil
     }
     
     func transitionOperation(_ operation: TransitionOperation,
