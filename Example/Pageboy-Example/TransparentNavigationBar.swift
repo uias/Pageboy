@@ -18,7 +18,10 @@ class TransparentNavigationBar: UINavigationBar {
         var titleTextAttributes: [String : Any] = [NSForegroundColorAttributeName : UIColor.white]
         if #available(iOS 8.2, *) {
             titleTextAttributes[NSFontAttributeName] = UIFont.systemFont(ofSize: 18.0, weight: UIFontWeightRegular)
+        }else{
+            titleTextAttributes[NSFontAttributeName] = UIFont.systemFont(ofSize: 18.0)
         }
+        
         self.titleTextAttributes = titleTextAttributes
         self.tintColor = UIColor.white.withAlphaComponent(0.7)
         
