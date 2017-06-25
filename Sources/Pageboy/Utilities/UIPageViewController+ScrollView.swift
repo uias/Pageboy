@@ -1,5 +1,5 @@
 //
-//  PageViewControllerUtils.swift
+//  UIPageViewController+ScrollView.swift
 //  Pageboy
 //
 //  Created by Merrick Sapsford on 13/02/2017.

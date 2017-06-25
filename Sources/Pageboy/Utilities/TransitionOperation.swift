@@ -43,18 +43,32 @@ internal class TransitionOperation: NSObject, CAAnimationDelegate {
     let action: Action
     
     /// The raw animation for the operation.
-    private var animation: CATransition
+    private var animation: CATransition?
+    /// The time that the operation did start.
+    private(set) var startTime: CFTimeInterval?
+    
     /// Whether the operation is currently animating.
     private var isAnimating: Bool = false
     
     /// The object that acts as a delegate to the operation
     private(set) weak var delegate: TransitionOperationDelegate?
-    
-    /// The time that the operation did start.
-    private(set) var startTime: CFTimeInterval?
-    
     /// Action to execute when the operation is complete.
     private var completion: Completion?
+    
+    /// The total duration of the transition.
+    var duration: CFTimeInterval {
+        guard let animation = self.animation else {
+            return 0.0
+        }
+        return animation.duration
+    }
+    /// The percent that the transition is complete.
+    var percentComplete: CGFloat {
+        guard self.isAnimating else { return 0.0 }
+        
+        let percent = CGFloat((CACurrentMediaTime() - (startTime ?? CACurrentMediaTime())) / duration)
+        return max(0.0, min(1.0, percent))
+    }
     
     // MARK: Init
     
@@ -78,15 +92,22 @@ internal class TransitionOperation: NSObject, CAAnimationDelegate {
         animation.delegate = self
     }
     
+    // MARK: Transitioning
+    
     /// Start the transition animation on a layer.
     ///
     /// - Parameter layer: The layer to animate.
     /// - Parameter completion: Completion of the transition.
     func start(on layer: CALayer,
                completion: @escaping Completion) {
+        guard let animation = self.animation else {
+            completion(false)
+            return
+        }
+        
         self.completion = completion
         self.startTime = CACurrentMediaTime()
-        layer.add(self.animation,
+        layer.add(animation,
                   forKey: "transition")
     }
     
@@ -94,18 +115,6 @@ internal class TransitionOperation: NSObject, CAAnimationDelegate {
     func tick() {
         guard isAnimating else { return }
         delegate?.transitionOperation(self, didUpdateWith: percentComplete)
-    }
-    
-    /// The total duration of the transition.
-    var duration: CFTimeInterval {
-        return animation.duration
-    }
-    /// The percent that the transition is complete.
-    var percentComplete: CGFloat {
-        guard self.isAnimating else { return 0.0 }
-        
-        let percent = CGFloat((CACurrentMediaTime() - (startTime ?? CACurrentMediaTime())) / duration)
-        return max(0.0, min(1.0, percent))
     }
     
     // MARK: CAAnimationDelegate
@@ -118,6 +127,7 @@ internal class TransitionOperation: NSObject, CAAnimationDelegate {
         isAnimating = false
         completion?(flag)
         delegate?.transitionOperation(self, didFinish: flag)
+        self.animation = nil
     }
 }
 
