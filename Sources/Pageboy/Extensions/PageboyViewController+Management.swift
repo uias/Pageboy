@@ -54,15 +54,16 @@ internal extension PageboyViewController {
         self.pageViewController = pageViewController
         
         self.addChildViewController(pageViewController)
-        pageViewController.view.pinToSuperviewEdges()
-        
+      
         if let existingZIndex = existingZIndex {
             self.view.insertSubview(pageViewController.view, at: existingZIndex)
         } else {
             self.view.addSubview(pageViewController.view)
             self.view.sendSubview(toBack: pageViewController.view)
         }
-        
+      
+        pageViewController.view.pinToSuperviewEdges()
+      
         pageViewController.scrollView?.delegate = self
         pageViewController.view.backgroundColor = .clear
         pageViewController.scrollView?.delaysContentTouches = delaysContentTouches

@@ -12,7 +12,7 @@ internal extension UIView {
     
     @discardableResult func pinToSuperviewEdges() -> [NSLayoutConstraint]? {
         guard self.superview != nil else {
-            return nil
+            fatalError("superview can not be nil")
         }
         self.translatesAutoresizingMaskIntoConstraints = false
         
