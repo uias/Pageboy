@@ -104,7 +104,7 @@ extension PageViewController: PageboyViewControllerDataSource {
         return nil
     }
     
-    func defaultPageIndex(forPageboyViewController pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {
+    func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {
         return nil
     }
 }

@@ -81,7 +81,7 @@ internal extension PageboyViewController {
         if reloadViewControllers || self.viewControllers == nil {
             self.viewControllers = self.dataSource?.viewControllers(forPageboyViewController: self)
         }
-        let defaultIndex = self.dataSource?.defaultPageIndex(forPageboyViewController: self) ?? .first
+        let defaultIndex = self.dataSource?.defaultPage(for: self) ?? .first
         let defaultIndexValue = self.indexValue(for: defaultIndex)
         
         guard defaultIndexValue < self.viewControllers?.count ?? 0,

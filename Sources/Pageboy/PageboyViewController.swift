@@ -22,8 +22,8 @@ public protocol PageboyViewControllerDataSource: class {
     /// The default page index to display in the Pageboy view controller.
     ///
     /// - Parameter pageboyViewController: The Pageboy view controller
-    /// - Returns: Default page index
-    func defaultPageIndex(forPageboyViewController pageboyViewController: PageboyViewController) -> PageboyViewController.Page?
+    /// - Returns: Default page
+    func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page?
 }
 
 public protocol PageboyViewControllerDelegate: class {
@@ -283,11 +283,11 @@ open class PageboyViewController: UIViewController {
     
     /// Scroll the page view controller to a new page.
     ///
-    /// - parameter index:      The index of the new page.
+    /// - parameter page:      The index of the new page.
     /// - parameter animated:   Whether to animate the transition.
     /// - parameter completion: The completion closure.
     /// - Returns: Whether the scroll was executed.
-    @discardableResult public func scrollToPage(_ pageIndex: Page,
+    @discardableResult public func scrollToPage(_ page: Page,
                              animated: Bool,
                              completion: PageScrollCompletion? = nil) -> Bool {
         
@@ -296,7 +296,7 @@ open class PageboyViewController: UIViewController {
         guard self.isTracking == false else { return false }
         guard let pageViewController = self.pageViewController else { return false }
         
-        let rawIndex = self.indexValue(for: pageIndex)
+        let rawIndex = self.indexValue(for: page)
         if rawIndex != self.currentIndex {
             
             // guard against invalid page indexing
@@ -306,7 +306,7 @@ open class PageboyViewController: UIViewController {
             var direction = NavigationDirection.forPage(rawIndex, previousPage: self.currentIndex ?? rawIndex)
             
             if isInfiniteScrollEnabled {
-                switch pageIndex {
+                switch page {
                 case .next:
                     direction = .forward
                 case .previous:
