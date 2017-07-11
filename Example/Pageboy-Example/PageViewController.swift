@@ -100,7 +100,12 @@ extension PageViewController: PageboyViewControllerDataSource {
         return viewControllers
     }
     
-    func viewController(at index: PageboyViewController.PageIndex, for pageboyViewController: PageboyViewController) -> UIViewController? {
+    func numberOfViewControllers(in pageboyViewController: PageboyViewController) -> PageboyViewController.PageIndex {
+        return 5
+    }
+    
+    func viewController(at index: PageboyViewController.PageIndex,
+                        in pageboyViewController: PageboyViewController) -> UIViewController? {
         return nil
     }
     

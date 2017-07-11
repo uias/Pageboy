@@ -84,8 +84,10 @@ internal extension PageboyViewController {
         let defaultIndex = self.dataSource?.defaultPage(for: self) ?? .first
         let defaultIndexValue = self.indexValue(for: defaultIndex)
         
-        guard defaultIndexValue < self.viewControllers?.count ?? 0,
-            let viewController = self.viewControllers?[defaultIndexValue] else {
+        let viewControllerCount = dataSource?.numberOfViewControllers(in: self) ?? 0
+        
+        guard defaultIndexValue < viewControllerCount,
+            let viewController = viewController(at: defaultIndexValue) else {
                 return
         }
         
@@ -99,6 +101,10 @@ internal extension PageboyViewController {
         self.delegate?.pageboyViewController(self,
                                              didReload: viewControllers,
                                              currentPage: defaultIndex)
+    }
+    
+    internal func viewController(at index: PageIndex) -> UIViewController? {
+        return dataSource?.viewController(at: index, in: self)
     }
     
     // MARK: Utilities
