@@ -136,7 +136,6 @@ open class PageboyViewController: UIViewController {
         }
         return super.preferredStatusBarStyle
     }
-    
     /// Preferred status bar hidden of the current view controller.
     open override var prefersStatusBarHidden: Bool {
         if let currentViewController = self.currentViewController {
@@ -151,7 +150,6 @@ open class PageboyViewController: UIViewController {
             self.reloadPages()
         }
     }
-    
     /// The object that is the delegate for the page view controller.
     public weak var delegate: PageboyViewControllerDelegate?
     
@@ -211,6 +209,7 @@ open class PageboyViewController: UIViewController {
     /// The active transition operation.
     internal var activeTransition: TransitionOperation?
     
+    internal var viewControllerCount: Int?
     /// The view controllers that are displayed in the page view controller.
     public internal(set) var viewControllers: [UIViewController]?
     
@@ -235,10 +234,8 @@ open class PageboyViewController: UIViewController {
 
         }
     }
-    
     /// The relative page position that the page view controller is currently at.
     public internal(set) var currentPosition: CGPoint?
-    
     /// The view controller that the page view controller is currently at.
     public var currentViewController: UIViewController? {
         get {

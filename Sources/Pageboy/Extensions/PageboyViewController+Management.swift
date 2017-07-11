@@ -85,6 +85,7 @@ internal extension PageboyViewController {
         let defaultIndexValue = self.indexValue(for: defaultIndex)
         
         let viewControllerCount = dataSource?.numberOfViewControllers(in: self) ?? 0
+        self.viewControllerCount = viewControllerCount
         
         guard defaultIndexValue < viewControllerCount,
             let viewController = viewController(at: defaultIndexValue) else {
@@ -121,7 +122,7 @@ internal extension PageboyViewController {
                 return 0
             }
             var proposedIndex = currentIndex + 1
-            if self.isInfiniteScrollEnabled && proposedIndex == self.viewControllers?.count { // scroll back to first index
+            if self.isInfiniteScrollEnabled && proposedIndex == viewControllerCount { // scroll back to first index
                 proposedIndex = 0
             }
             return proposedIndex
@@ -132,7 +133,7 @@ internal extension PageboyViewController {
             }
             var proposedIndex = currentIndex - 1
             if self.isInfiniteScrollEnabled && proposedIndex < 0 { // scroll to last index
-                proposedIndex = (self.viewControllers?.count ?? 1) - 1
+                proposedIndex = (viewControllerCount ?? 1) - 1
             }
             return proposedIndex
             
@@ -140,7 +141,7 @@ internal extension PageboyViewController {
             return 0
             
         case .last:
-            return (self.viewControllers?.count ?? 1) - 1
+            return (viewControllerCount ?? 1) - 1
             
         case .at(let index):
             return index
