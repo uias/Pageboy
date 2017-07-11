@@ -103,12 +103,12 @@ internal extension PageboyViewController {
     
     // MARK: Utilities
     
-    /// Convert a PageIndex to a raw index integer.
+    /// Convert a Page to a raw PageIndex.
     ///
     /// - Parameter pageIndex: The page index to translate.
     /// - Returns: The raw index integer.
-    internal func indexValue(for pageIndex: Page) -> Int {
-        switch pageIndex {
+    internal func indexValue(for page: Page) -> Int {
+        switch page {
             
         case .next:
             guard let currentIndex = self.currentIndex else {
@@ -135,9 +135,6 @@ internal extension PageboyViewController {
             
         case .last:
             return (self.viewControllers?.count ?? 1) - 1
-            
-        case .atIndex(let index):
-            return index
             
         case .at(let index):
             return index

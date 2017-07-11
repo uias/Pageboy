@@ -17,7 +17,8 @@ public protocol PageboyViewControllerDataSource: class {
     /// - Returns: Array of view controllers
     func viewControllers(forPageboyViewController pageboyViewController: PageboyViewController) -> [UIViewController]?
     
-    func viewController(at index: Int, for pageBoyViewController: PageboyViewController) -> UIViewController?
+    func viewController(at index: PageboyViewController.PageIndex,
+                        for pageboyViewController: PageboyViewController) -> UIViewController?
     
     /// The default page index to display in the Pageboy view controller.
     ///
@@ -80,7 +81,7 @@ open class PageboyViewController: UIViewController {
     
     // MARK: Types
     
-//    typealias PageIndex = Int
+    public typealias PageIndex = Int
     
     /// The direction that the page view controller travelled.
     ///
@@ -105,10 +106,7 @@ open class PageboyViewController: UIViewController {
         case previous
         case first
         case last
-        case at(index: Int)
-        
-        @available(*, deprecated: 1.0.3, message: "Use at(index: Int)")
-        case atIndex(index: Int)
+        case at(index: PageIndex)
     }
     
     
@@ -119,7 +117,7 @@ open class PageboyViewController: UIViewController {
     
     internal var pageViewController: UIPageViewController?
     internal var previousPagePosition: CGFloat?
-    internal var expectedTransitionIndex: Int?
+    internal var expectedTransitionIndex: PageIndex?
 
     /// The orientation that the page view controller transitions on.
     public var navigationOrientation : UIPageViewControllerNavigationOrientation = .horizontal {
@@ -215,7 +213,7 @@ open class PageboyViewController: UIViewController {
     public internal(set) var viewControllers: [UIViewController]?
     
     /// The page index that the page view controller is currently at.
-    public internal(set) var currentIndex: Int? {
+    public internal(set) var currentIndex: PageIndex? {
         didSet {
             guard let currentIndex = self.currentIndex else { return }
 
