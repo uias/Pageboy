@@ -26,8 +26,6 @@ class PageViewController: PageboyViewController {
     // MARK: Constants
     //
     
-    let numberOfPages = 5
-    
     let gradients: [GradientConfig] = [
         GradientConfig(topColor: UIColor(red:0.01, green:0.00, blue:0.18, alpha:1.0), bottomColor: UIColor(red:0.00, green:0.53, blue:0.80, alpha:1.0)),
         GradientConfig(topColor: UIColor(red:0.20, green:0.08, blue:0.00, alpha:1.0), bottomColor: UIColor(red:0.69, green:0.36, blue:0.00, alpha:1.0)),
@@ -50,6 +48,18 @@ class PageViewController: PageboyViewController {
     
     var previousBarButton: UIBarButtonItem?
     var nextBarButton: UIBarButtonItem?
+    
+    let pageControllers: [UIViewController] = {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        
+        var viewControllers = [UIViewController]()
+        for i in 0 ..< 5 {
+            let viewController = storyboard.instantiateViewController(withIdentifier: "ChildViewController") as! ChildViewController
+            viewController.index = i + 1
+            viewControllers.append(viewController)
+        }
+        return viewControllers
+    }()
     
     //
     // MARK: Lifecycle
@@ -89,24 +99,16 @@ class PageViewController: PageboyViewController {
 extension PageViewController: PageboyViewControllerDataSource {
     
     func viewControllers(forPageboyViewController pageboyViewController: PageboyViewController) -> [UIViewController]? {
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        
-        var viewControllers = [UIViewController]()
-        for i in 0..<numberOfPages {
-            let viewController = storyboard.instantiateViewController(withIdentifier: "ChildViewController") as! ChildViewController
-            viewController.index = i + 1
-            viewControllers.append(viewController)
-        }
-        return viewControllers
+        return pageControllers
     }
     
     func numberOfViewControllers(in pageboyViewController: PageboyViewController) -> PageboyViewController.PageIndex {
-        return 5
+        return pageControllers.count
     }
     
     func viewController(at index: PageboyViewController.PageIndex,
                         in pageboyViewController: PageboyViewController) -> UIViewController? {
-        return nil
+        return pageControllers[index]
     }
     
     func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {
