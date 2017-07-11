@@ -107,7 +107,7 @@ internal extension PageboyViewController {
     ///
     /// - Parameter pageIndex: The page index to translate.
     /// - Returns: The raw index integer.
-    internal func indexValue(for page: Page) -> Int {
+    internal func indexValue(for page: Page) -> PageIndex {
         switch page {
             
         case .next:
