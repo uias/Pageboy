@@ -27,7 +27,7 @@ public extension PageboyViewControllerDelegate {
     
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
                                didReload viewControllers: [UIViewController],
-                               currentIndex: PageboyViewController.PageIndex) {}
+                               currentPage: PageboyViewController.Page) {}
 }
 
 // MARK: - NavigationDirection Descriptions

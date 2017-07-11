@@ -17,11 +17,13 @@ public protocol PageboyViewControllerDataSource: class {
     /// - Returns: Array of view controllers
     func viewControllers(forPageboyViewController pageboyViewController: PageboyViewController) -> [UIViewController]?
     
+    func viewController(at index: Int, for pageBoyViewController: PageboyViewController) -> UIViewController?
+    
     /// The default page index to display in the Pageboy view controller.
     ///
     /// - Parameter pageboyViewController: The Pageboy view controller
     /// - Returns: Default page index
-    func defaultPageIndex(forPageboyViewController pageboyViewController: PageboyViewController) -> PageboyViewController.PageIndex?
+    func defaultPageIndex(forPageboyViewController pageboyViewController: PageboyViewController) -> PageboyViewController.Page?
 }
 
 public protocol PageboyViewControllerDelegate: class {
@@ -67,16 +69,18 @@ public protocol PageboyViewControllerDelegate: class {
     /// - Parameters:
     ///   - pageboyViewController: The Pageboy view controller.
     ///   - viewControllers: The new view controllers.
-    ///   - currentIndex: The current page index.
+    ///   - currentPage: The current page.
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
                                didReload viewControllers: [UIViewController],
-                               currentIndex: PageboyViewController.PageIndex)
+                               currentPage: PageboyViewController.Page)
 }
 
 /// A simple, highly informative page view controller.
 open class PageboyViewController: UIViewController {
     
     // MARK: Types
+    
+//    typealias PageIndex = Int
     
     /// The direction that the page view controller travelled.
     ///
@@ -96,7 +100,7 @@ open class PageboyViewController: UIViewController {
     /// - first: The first page.
     /// - last: The last page.
     /// - at: A custom specified page index.
-    public enum PageIndex {
+    public enum Page {
         case next
         case previous
         case first
@@ -283,7 +287,7 @@ open class PageboyViewController: UIViewController {
     /// - parameter animated:   Whether to animate the transition.
     /// - parameter completion: The completion closure.
     /// - Returns: Whether the scroll was executed.
-    @discardableResult public func scrollToPage(_ pageIndex: PageIndex,
+    @discardableResult public func scrollToPage(_ pageIndex: Page,
                              animated: Bool,
                              completion: PageScrollCompletion? = nil) -> Bool {
         

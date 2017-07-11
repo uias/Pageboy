@@ -98,7 +98,7 @@ internal extension PageboyViewController {
         guard let viewControllers = self.viewControllers else { return }
         self.delegate?.pageboyViewController(self,
                                              didReload: viewControllers,
-                                             currentIndex: defaultIndex)
+                                             currentPage: defaultIndex)
     }
     
     // MARK: Utilities
@@ -107,7 +107,7 @@ internal extension PageboyViewController {
     ///
     /// - Parameter pageIndex: The page index to translate.
     /// - Returns: The raw index integer.
-    internal func indexValue(for pageIndex: PageIndex) -> Int {
+    internal func indexValue(for pageIndex: Page) -> Int {
         switch pageIndex {
             
         case .next:
