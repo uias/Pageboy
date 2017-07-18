@@ -211,6 +211,7 @@ open class PageboyViewController: UIViewController {
     internal var activeTransition: TransitionOperation?
     
     internal var viewControllerCount: Int?
+    internal var viewControllerMap = IndexedMap<WeakWrapper<UIViewController>>()
     /// The view controllers that are displayed in the page view controller.
     @available(*, deprecated: 2.0.0, message: "Will be removed")
     public internal(set) var viewControllers: [UIViewController]?

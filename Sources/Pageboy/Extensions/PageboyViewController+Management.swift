@@ -106,7 +106,12 @@ internal extension PageboyViewController {
     }
     
     internal func viewController(at index: PageIndex) -> UIViewController? {
-        return dataSource?.viewController(at: index, in: self)
+        let viewController = dataSource?.viewController(at: index, in: self)
+        if let viewController = viewController {
+            let wrapper = WeakWrapper<UIViewController>(with: viewController)
+            viewControllerMap.set(object: wrapper, for: index)
+        }
+        return viewController
     }
     
     // MARK: Utilities

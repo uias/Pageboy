@@ -108,6 +108,7 @@ extension PageViewController: PageboyViewControllerDataSource {
     
     func viewController(at index: PageboyViewController.PageIndex,
                         in pageboyViewController: PageboyViewController) -> UIViewController? {
+        print(index)
         return pageControllers[index]
     }
     
@@ -122,12 +123,15 @@ extension PageViewController: PageboyViewControllerDelegate {
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
                                willScrollToPageAtIndex index: Int,
                                direction: PageboyViewController.NavigationDirection,
-                               animated: Bool) {}
+                               animated: Bool) {
+        print("willScrollToPageAtIndex: \(index)")
+    }
     
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
                                didScrollToPosition position: CGPoint,
                                direction: PageboyViewController.NavigationDirection,
                                animated: Bool) {
+        print("didScrollToPosition: \(position)")
         
         let isVertical = navigationOrientation == .vertical
         self.updateAppearance(pageOffset: isVertical ? position.y : position.x)
@@ -140,7 +144,8 @@ extension PageViewController: PageboyViewControllerDelegate {
                                didScrollToPageAtIndex index: Int,
                                direction: PageboyViewController.NavigationDirection,
                                animated: Bool) {
-        
+        print("didScrollToPageAtIndex: \(index)")
+
         self.updateAppearance(pageOffset: CGFloat(index))
         self.updateStatusLabels()
         
