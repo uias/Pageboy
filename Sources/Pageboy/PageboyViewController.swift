@@ -15,6 +15,7 @@ public protocol PageboyViewControllerDataSource: class {
     ///
     /// - Parameter pageboyViewController: The Pageboy view controller
     /// - Returns: Array of view controllers
+    @available(*, deprecated: 2.0.0, message: "Will be removed")
     func viewControllers(forPageboyViewController pageboyViewController: PageboyViewController) -> [UIViewController]?
     
     func numberOfViewControllers(in pageboyViewController: PageboyViewController) -> PageboyViewController.PageIndex
@@ -211,6 +212,7 @@ open class PageboyViewController: UIViewController {
     
     internal var viewControllerCount: Int?
     /// The view controllers that are displayed in the page view controller.
+    @available(*, deprecated: 2.0.0, message: "Will be removed")
     public internal(set) var viewControllers: [UIViewController]?
     
     /// The page index that the page view controller is currently at.
