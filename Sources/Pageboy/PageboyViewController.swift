@@ -170,7 +170,6 @@ open class PageboyViewController: UIViewController {
     }
     /// default YES. if YES, bounces past edge of content and back again.
     public var bounces: Bool = true
-    
     /// Whether user interaction is enabled on the page view controller.
     ///
     /// Default is TRUE
@@ -212,9 +211,9 @@ open class PageboyViewController: UIViewController {
     
     internal var viewControllerCount: Int?
     internal var viewControllerMap = IndexedMap<WeakWrapper<UIViewController>>()
-    /// The view controllers that are displayed in the page view controller.
-    @available(*, deprecated: 2.0.0, message: "Will be removed")
-    public internal(set) var viewControllers: [UIViewController]?
+    public var pageCount: Int? {
+        return viewControllerCount
+    }
     
     /// The page index that the page view controller is currently at.
     public internal(set) var currentIndex: PageIndex? {

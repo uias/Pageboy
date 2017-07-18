@@ -32,4 +32,8 @@ internal class IndexedMap<T> {
         }
         return foundIndex
     }
+    
+    func clear() {
+        objects.removeAll()
+    }
 }

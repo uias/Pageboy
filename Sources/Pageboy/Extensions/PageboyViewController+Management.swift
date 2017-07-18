@@ -77,9 +77,8 @@ internal extension PageboyViewController {
     /// - Parameter reloadViewControllers: Reload the view controller data source.
     internal func reloadPages(reloadViewControllers: Bool) {
         
-        // TODO - Remove this when data source behaviour has been updated.
-        if reloadViewControllers || self.viewControllers == nil {
-            self.viewControllers = self.dataSource?.viewControllers(forPageboyViewController: self)
+        if reloadViewControllers {
+            viewControllerMap.clear()
         }
         
         let defaultPage = self.dataSource?.defaultPage(for: self) ?? .first
@@ -99,10 +98,10 @@ internal extension PageboyViewController {
                                                     animated: false,
                                                     completion: nil)
         
-        guard let viewControllers = self.viewControllers else { return }
-        self.delegate?.pageboyViewController(self,
-                                             didReload: viewControllers,
-                                             currentPage: defaultPage)
+//        guard let viewControllers = self.viewControllers else { return }
+//        self.delegate?.pageboyViewController(self,
+//                                             didReload: viewControllers,
+//                                             currentPage: defaultPage)
     }
     
     internal func viewController(at index: PageIndex) -> UIViewController? {
