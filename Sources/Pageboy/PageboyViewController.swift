@@ -280,7 +280,8 @@ open class PageboyViewController: UIViewController {
     /// - parameter animated:   Whether to animate the transition.
     /// - parameter completion: The completion closure.
     /// - Returns: Whether the scroll was executed.
-    @discardableResult public func scrollToPage(_ page: Page,
+    @discardableResult
+    public func scrollToPage(_ page: Page,
                              animated: Bool,
                              completion: PageScrollCompletion? = nil) -> Bool {
         
@@ -293,8 +294,8 @@ open class PageboyViewController: UIViewController {
         if rawIndex != self.currentIndex {
             
             // guard against invalid page indexing
-            guard rawIndex >= 0 && rawIndex < self.viewControllers?.count ?? 0 else { return false }
-            guard let viewController = self.viewControllers?[rawIndex] else { return false }
+            guard rawIndex >= 0 && rawIndex < viewControllerCount ?? 0 else { return false }
+            guard let viewController = viewController(at: rawIndex) else { return false }
             
             var direction = NavigationDirection.forPage(rawIndex, previousPage: self.currentIndex ?? rawIndex)
             
@@ -351,7 +352,7 @@ open class PageboyViewController: UIViewController {
             return true
             
         } else {
-            guard let viewController = self.viewControllers?[rawIndex] else { return false }
+            guard let viewController = viewController(at: rawIndex) else { return false }
             self.autoScroller.didFinishScrollIfEnabled()
             completion?(viewController, animated, false)
             
