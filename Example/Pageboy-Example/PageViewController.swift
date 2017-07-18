@@ -98,17 +98,12 @@ class PageViewController: PageboyViewController {
 // MARK: PageboyViewControllerDataSource
 extension PageViewController: PageboyViewControllerDataSource {
     
-    func viewControllers(forPageboyViewController pageboyViewController: PageboyViewController) -> [UIViewController]? {
-        return pageControllers
-    }
-    
     func numberOfViewControllers(in pageboyViewController: PageboyViewController) -> PageboyViewController.PageIndex {
         return pageControllers.count
     }
     
     func viewController(at index: PageboyViewController.PageIndex,
                         in pageboyViewController: PageboyViewController) -> UIViewController? {
-        print(index)
         return pageControllers[index]
     }
     

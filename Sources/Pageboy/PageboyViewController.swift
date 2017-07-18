@@ -10,16 +10,18 @@ import UIKit
 
 public protocol PageboyViewControllerDataSource: class {
     
-    
-    /// The view controllers to display in the Pageboy view controller.
+    /// The number of view controllers to display.
     ///
-    /// - Parameter pageboyViewController: The Pageboy view controller
-    /// - Returns: Array of view controllers
-    @available(*, deprecated: 2.0.0, message: "Will be removed")
-    func viewControllers(forPageboyViewController pageboyViewController: PageboyViewController) -> [UIViewController]?
+    /// - Parameter pageboyViewController: The Page view controller.
+    /// - Returns: The total number of view controllers to display.
+    func numberOfViewControllers(in pageboyViewController: PageboyViewController) -> Int
     
-    func numberOfViewControllers(in pageboyViewController: PageboyViewController) -> PageboyViewController.PageIndex
-    
+    /// The view controller to display at a page index.
+    ///
+    /// - Parameters:
+    ///   - index: The page index.
+    ///   - pageboyViewController: The Page view controller.
+    /// - Returns: The view controller to display
     func viewController(at index: PageboyViewController.PageIndex,
                         in pageboyViewController: PageboyViewController) -> UIViewController?
     
