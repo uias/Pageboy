@@ -239,24 +239,18 @@ open class PageboyViewController: UIViewController {
     /// The relative page position that the page view controller is currently at.
     public internal(set) var currentPosition: CGPoint?
     /// The view controller that the page view controller is currently at.
-    public var currentViewController: UIViewController? {
+    public weak var currentViewController: UIViewController? {
         get {
             guard let currentIndex = self.currentIndex,
-                self.viewControllers?.count ?? 0 > currentIndex else {
+                viewControllerCount ?? 0 > currentIndex else {
                 return nil
             }
-            return self.viewControllers?[currentIndex]
+            return self.viewController(at: currentIndex)
         }
     }
     
     /// Auto Scroller for automatic time-based page transitions.
     public let autoScroller = PageboyAutoScroller()
-    
-    // MARK: Init
-    
-    deinit{
-        self.viewControllers?.removeAll()
-    }
     
     // MARK: Lifecycle
 
