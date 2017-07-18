@@ -37,7 +37,7 @@ public protocol PageboyViewControllerDelegate: class {
     /// The page view controller will begin scrolling to a new page.
     ///
     /// - Parameters:
-    ///   - pageboyViewController: The Pageboy view controller.
+    ///   - pageboyViewController: The Page view controller.
     ///   - index: The new page index.
     ///   - direction: The direction of the scroll.
     ///   - animation: Whether the scroll will be animated.
@@ -49,7 +49,7 @@ public protocol PageboyViewControllerDelegate: class {
     /// The page view controller did scroll to an offset between pages.
     ///
     /// - Parameters:
-    ///   - pageboyViewController: The Pageboy view controller.
+    ///   - pageboyViewController: The Page view controller.
     ///   - position: The current relative page position.
     ///   - direction: The direction of the scroll.
     ///   - animated: Whether the scroll is being animated.
@@ -61,7 +61,7 @@ public protocol PageboyViewControllerDelegate: class {
     /// The page view controller did complete scroll to a new page.
     ///
     /// - Parameters:
-    ///   - pageboyViewController: The Pageboy view controller.
+    ///   - pageboyViewController: The Page view controller.
     ///   - index: The new page index.
     ///   - direction: The direction of the scroll.
     ///   - animation: Whether the scroll was animated.
