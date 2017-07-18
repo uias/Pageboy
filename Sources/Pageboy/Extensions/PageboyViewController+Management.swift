@@ -19,10 +19,9 @@ public extension PageboyViewController {
     }
     
     /// Reload the currently active page into the page view controller if possible.
-    /// Does not reload from dataSource.
     internal func reloadCurrentPageSoftly() {
         guard let currentIndex = self.currentIndex else { return }
-        guard let currentViewController = self.viewControllers?[currentIndex] else { return }
+        guard let currentViewController = viewController(at: currentIndex) else { return }
         
         self.pageViewController?.setViewControllers([currentViewController], direction: .forward,
                                                     animated: false, completion: nil)
