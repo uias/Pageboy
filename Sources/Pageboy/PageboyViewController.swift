@@ -86,8 +86,11 @@ open class PageboyViewController: UIViewController {
     
     // MARK: Types
     
+    /// A page index.
     public typealias PageIndex = Int
-    
+    /// Completion of a page scroll.
+    public typealias PageScrollCompletion = (_ newViewController: UIViewController, _ animated: Bool, _ finished: Bool) -> Void
+
     /// The direction that the page view controller travelled.
     ///
     /// - neutral: No movement.
@@ -114,9 +117,6 @@ open class PageboyViewController: UIViewController {
         case at(index: PageIndex)
     }
     
-    
-    /// Completion of a page scroll.
-    public typealias PageScrollCompletion = (_ newViewController: UIViewController, _ animated: Bool, _ finished: Bool) -> Void
     
     // MARK: Properties
     
@@ -147,6 +147,7 @@ open class PageboyViewController: UIViewController {
         return super.prefersStatusBarHidden
     }
     
+    
     /// The object that is the data source for the page view controller. (Defaults to self)
     public weak var dataSource: PageboyViewControllerDataSource? {
         didSet {
@@ -156,14 +157,7 @@ open class PageboyViewController: UIViewController {
     /// The object that is the delegate for the page view controller.
     public weak var delegate: PageboyViewControllerDelegate?
     
-    /// Whether the page view controller is currently being touched.
-    public var isTracking: Bool {
-        return self.pageViewController?.scrollView?.isTracking ?? false
-    }
-    /// Whether the page view controller is currently being dragged.
-    public var isDragging: Bool {
-            return self.pageViewController?.scrollView?.isDragging ?? false
-    }
+    
     // default is YES. if NO, we immediately call -touchesShouldBegin:withEvent:inContentView:. this has no effect on presses
     public var delaysContentTouches: Bool = true {
         didSet {
@@ -172,6 +166,16 @@ open class PageboyViewController: UIViewController {
     }
     /// default YES. if YES, bounces past edge of content and back again.
     public var bounces: Bool = true
+    
+    
+    /// Whether the page view controller is currently being touched.
+    public var isTracking: Bool {
+        return self.pageViewController?.scrollView?.isTracking ?? false
+    }
+    /// Whether the page view controller is currently being dragged.
+    public var isDragging: Bool {
+            return self.pageViewController?.scrollView?.isDragging ?? false
+    }
     /// Whether user interaction is enabled on the page view controller.
     ///
     /// Default is TRUE
@@ -196,13 +200,13 @@ open class PageboyViewController: UIViewController {
             self.reloadCurrentPageSoftly()
         }
     }
-    
     /// Whether the page view controller is currently animating a scroll between pages.
     private(set) var isScrollingAnimated = false {
         didSet {
             self.isUserInteractionEnabled = !self.isScrollingAnimated
         }
     }
+    
     
     /// The transition to use when animating scrolls between pages.
     public var transition = Transition.defaultTransition
@@ -211,11 +215,18 @@ open class PageboyViewController: UIViewController {
     /// The active transition operation.
     internal var activeTransition: TransitionOperation?
     
+    
+    /// The number of view controllers in the page view controller.
     internal var viewControllerCount: Int?
+    /// A map of view controllers and related page indexes.
     internal var viewControllerMap = IndexedMap<WeakWrapper<UIViewController>>()
+    
+    
+    /// The number of pages in the page view controller.
     public var pageCount: Int? {
         return viewControllerCount
     }
+    
     
     /// The page index that the page view controller is currently at.
     public internal(set) var currentIndex: PageIndex? {
@@ -251,8 +262,10 @@ open class PageboyViewController: UIViewController {
         }
     }
     
+    
     /// Auto Scroller for automatic time-based page transitions.
     public let autoScroller = PageboyAutoScroller()
+    
     
     // MARK: Lifecycle
 
@@ -273,6 +286,7 @@ open class PageboyViewController: UIViewController {
             self.pageViewController?.scrollView?.delegate = self
         }
     }
+    
     
     // MARK: Scrolling
     
