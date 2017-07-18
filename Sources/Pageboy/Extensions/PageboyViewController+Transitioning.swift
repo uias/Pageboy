@@ -144,7 +144,7 @@ extension PageboyViewController: TransitionOperationDelegate {
                             y: isVertical ? currentPosition : 0.0)
         
         self.currentPosition = point
-        self.delegate?.pageboyViewController(self, didScrollToPosition: point,
+        self.delegate?.pageboyViewController(self, didScrollTo: point,
                                              direction: operation.action.direction,
                                              animated: true)
         self.previousPagePosition = currentPosition

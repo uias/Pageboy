@@ -30,7 +30,7 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
         
         self.expectedTransitionIndex = index
         let direction = NavigationDirection.forPage(index, previousPage: self.currentIndex ?? index)
-        self.delegate?.pageboyViewController(self, willScrollToPageAtIndex: index,
+        self.delegate?.pageboyViewController(self, willScrollToPageAt: index,
                                              direction: direction,
                                              animated: animated)
     }
@@ -121,7 +121,7 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
         guard self.currentPosition != positionPoint else { return }
         self.currentPosition = positionPoint
         self.delegate?.pageboyViewController(self,
-                                             didScrollToPosition: positionPoint,
+                                             didScrollTo: positionPoint,
                                              direction: direction,
                                              animated: self.isScrollingAnimated)
         

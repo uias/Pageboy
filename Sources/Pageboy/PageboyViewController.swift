@@ -42,7 +42,7 @@ public protocol PageboyViewControllerDelegate: class {
     ///   - direction: The direction of the scroll.
     ///   - animation: Whether the scroll will be animated.
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
-                               willScrollToPageAtIndex index: Int,
+                               willScrollToPageAt index: Int,
                                direction: PageboyViewController.NavigationDirection,
                                animated: Bool)
     
@@ -54,7 +54,7 @@ public protocol PageboyViewControllerDelegate: class {
     ///   - direction: The direction of the scroll.
     ///   - animated: Whether the scroll is being animated.
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
-                               didScrollToPosition position: CGPoint,
+                               didScrollTo position: CGPoint,
                                direction: PageboyViewController.NavigationDirection,
                                animated: Bool)
     
@@ -66,19 +66,19 @@ public protocol PageboyViewControllerDelegate: class {
     ///   - direction: The direction of the scroll.
     ///   - animation: Whether the scroll was animated.
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
-                               didScrollToPageAtIndex index: Int,
+                               didScrollToPageAt index: Int,
                                direction: PageboyViewController.NavigationDirection,
                                animated: Bool)
     
-    /// The page view controller did reload its view controllers.
-    ///
-    /// - Parameters:
-    ///   - pageboyViewController: The Pageboy view controller.
-    ///   - viewControllers: The new view controllers.
-    ///   - currentPage: The current page.
-    func pageboyViewController(_ pageboyViewController: PageboyViewController,
-                               didReload viewControllers: [UIViewController],
-                               currentPage: PageboyViewController.Page)
+//    /// The page view controller did reload its view controllers.
+//    ///
+//    /// - Parameters:
+//    ///   - pageboyViewController: The Pageboy view controller.
+//    ///   - viewControllers: The new view controllers.
+//    ///   - currentPage: The current page.
+//    func pageboyViewController(_ pageboyViewController: PageboyViewController,
+//                               didReload viewControllers: [UIViewController],
+//                               currentPage: PageboyViewController.Page)
 }
 
 /// A simple, highly informative page view controller.
@@ -243,7 +243,7 @@ open class PageboyViewController: UIViewController {
             let direction = NavigationDirection.forPosition(CGFloat(currentIndex),
                                                             previous: CGFloat(oldValue ?? currentIndex))
             self.delegate?.pageboyViewController(self,
-                                                 didScrollToPageAtIndex: currentIndex,
+                                                 didScrollToPageAt: currentIndex,
                                                  direction: direction,
                                                  animated: self.isScrollingAnimated)
 
@@ -341,7 +341,7 @@ open class PageboyViewController: UIViewController {
                     // if not animated call position delegate update manually
                     if !animated {
                         self.delegate?.pageboyViewController(self,
-                                                             didScrollToPosition: self.currentPosition!,
+                                                             didScrollTo: self.currentPosition!,
                                                              direction: direction,
                                                              animated: animated)
                     }

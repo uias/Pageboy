@@ -116,14 +116,14 @@ extension PageViewController: PageboyViewControllerDataSource {
 extension PageViewController: PageboyViewControllerDelegate {
     
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
-                               willScrollToPageAtIndex index: Int,
+                               willScrollToPageAt index: Int,
                                direction: PageboyViewController.NavigationDirection,
                                animated: Bool) {
         print("willScrollToPageAtIndex: \(index)")
     }
     
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
-                               didScrollToPosition position: CGPoint,
+                               didScrollTo position: CGPoint,
                                direction: PageboyViewController.NavigationDirection,
                                animated: Bool) {
         print("didScrollToPosition: \(position)")
@@ -136,7 +136,7 @@ extension PageViewController: PageboyViewControllerDelegate {
     }
     
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
-                               didScrollToPageAtIndex index: Int,
+                               didScrollToPageAt index: Int,
                                direction: PageboyViewController.NavigationDirection,
                                animated: Bool) {
         print("didScrollToPageAtIndex: \(index)")
