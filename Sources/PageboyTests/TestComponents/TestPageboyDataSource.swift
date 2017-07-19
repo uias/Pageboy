@@ -29,8 +29,8 @@ class TestPageboyDataSource: PageboyViewControllerDataSource {
         return numberOfPages ?? 0
     }
     
-    func viewController(at index: PageboyViewController.PageIndex,
-                        in pageboyViewController: PageboyViewController) -> UIViewController? {
+    func viewController(for pageboyViewController: PageboyViewController,
+                        at index: PageboyViewController.PageIndex) -> UIViewController? {
         return self.viewControllers?[index]
     }
     
