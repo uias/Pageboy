@@ -81,11 +81,11 @@ internal extension PageboyViewController {
             viewControllerMap.clear()
         }
         
-        let defaultPage = self.dataSource?.defaultPage(for: self) ?? .first
-        let defaultIndex = self.indexValue(for: defaultPage)
-        
         let viewControllerCount = dataSource?.numberOfViewControllers(in: self) ?? 0
         self.viewControllerCount = viewControllerCount
+        
+        let defaultPage = self.dataSource?.defaultPage(for: self) ?? .first
+        let defaultIndex = self.indexValue(for: defaultPage)
         
         guard defaultIndex < viewControllerCount,
             let viewController = viewController(at: defaultIndex) else {
