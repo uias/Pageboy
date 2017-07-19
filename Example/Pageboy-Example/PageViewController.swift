@@ -10,21 +10,16 @@ import UIKit
 import Pageboy
 
 class PageViewController: PageboyViewController {
+    
 
-    // MARK: Types
+    // MARK: Outlets
     
-    struct GradientConfig {
-        let topColor: UIColor
-        let bottomColor: UIColor
-        
-        static var defaultGradient: GradientConfig {
-            return GradientConfig(topColor: .black, bottomColor: .black)
-        }
-    }
+    @IBOutlet weak var offsetLabel: UILabel!
+    @IBOutlet weak var pageLabel: UILabel!
+    @IBOutlet weak var gradientView: GradientView!
+
     
-    //
-    // MARK: Constants
-    //
+    // MARK: Properties
     
     let gradients: [GradientConfig] = [
         GradientConfig(topColor: UIColor(red:0.01, green:0.00, blue:0.18, alpha:1.0), bottomColor: UIColor(red:0.00, green:0.53, blue:0.80, alpha:1.0)),
@@ -33,18 +28,6 @@ class PageViewController: PageboyViewController {
         GradientConfig(topColor: UIColor(red:0.18, green:0.00, blue:0.20, alpha:1.0), bottomColor: UIColor(red:0.64, green:0.00, blue:0.66, alpha:1.0)),
         GradientConfig(topColor: UIColor(red:0.20, green:0.00, blue:0.00, alpha:1.0), bottomColor: UIColor(red:0.69, green:0.00, blue:0.00, alpha:1.0))
     ]
-    
-    //
-    // MARK: Outlets
-    //
-    
-    @IBOutlet weak var offsetLabel: UILabel!
-    @IBOutlet weak var pageLabel: UILabel!
-    @IBOutlet weak var gradientView: GradientView!
-
-    //
-    // MARK: Properties
-    //
     
     var previousBarButton: UIBarButtonItem?
     var nextBarButton: UIBarButtonItem?
@@ -61,9 +44,8 @@ class PageViewController: PageboyViewController {
         return viewControllers
     }()
     
-    //
+    
     // MARK: Lifecycle
-    //
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,7 +55,7 @@ class PageViewController: PageboyViewController {
         self.dataSource = self
         self.delegate = self
         
-        self.updateAppearance(pageOffset: self.currentPosition?.x ?? 0.0)
+        self.updateGradient(for: self.currentPosition?.x ?? 0.0)
         self.updateStatusLabels()
         self.updateBarButtonStates(index: self.currentIndex ?? 0)
     }
@@ -83,6 +65,7 @@ class PageViewController: PageboyViewController {
         self.offsetLabel.text = "Current Position: " + String(format: "%.3f", offsetValue ?? 0.0)
         self.pageLabel.text = "Current Page: " + String(describing: self.currentIndex ?? 0)
     }
+    
     
     // MARK: Actions
     
@@ -129,7 +112,7 @@ extension PageViewController: PageboyViewControllerDelegate {
         print("didScrollToPosition: \(position)")
         
         let isVertical = navigationOrientation == .vertical
-        self.updateAppearance(pageOffset: isVertical ? position.y : position.x)
+        self.updateGradient(for: isVertical ? position.y : position.x)
         self.updateStatusLabels()
         
         self.updateBarButtonStates(index: pageboyViewController.currentIndex ?? 0)
@@ -141,7 +124,7 @@ extension PageViewController: PageboyViewControllerDelegate {
                                animated: Bool) {
         print("didScrollToPageAtIndex: \(index)")
 
-        self.updateAppearance(pageOffset: CGFloat(index))
+        self.updateGradient(for: CGFloat(index))
         self.updateStatusLabels()
         
         self.updateBarButtonStates(index: index)

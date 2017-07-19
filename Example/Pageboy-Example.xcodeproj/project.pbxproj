@@ -15,10 +15,11 @@
 		D681E3331E546A90007C08F5 /* Pageboy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D681E3241E546A7D007C08F5 /* Pageboy.framework */; };
 		D681E3341E546A90007C08F5 /* Pageboy.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D681E3241E546A7D007C08F5 /* Pageboy.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D681E3511E54959B007C08F5 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D681E3501E54959B007C08F5 /* GradientView.swift */; };
-		D681E3541E549F7E007C08F5 /* PageViewControllerAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D681E3531E549F7E007C08F5 /* PageViewControllerAppearance.swift */; };
+		D681E3541E549F7E007C08F5 /* PageViewController+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D681E3531E549F7E007C08F5 /* PageViewController+Appearance.swift */; };
 		D681E3561E54ABE8007C08F5 /* TransparentNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D681E3551E54ABE8007C08F5 /* TransparentNavigationBar.swift */; };
+		D6B0438D1F1F5C2D00367C61 /* GradientConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B0438C1F1F5C2D00367C61 /* GradientConfig.swift */; };
 		D6ECCEC61E51B6FB00E9D5B3 /* ChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ECCEC51E51B6FB00E9D5B3 /* ChildViewController.swift */; };
-		E8F663AB1E9C387D00F601AC /* NavigationControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F663AA1E9C387D00F601AC /* NavigationControllerUtils.swift */; };
+		E8F663AB1E9C387D00F601AC /* UINavigationController+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F663AA1E9C387D00F601AC /* UINavigationController+Utilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,10 +70,11 @@
 		D623B1ED1E1D32D700527F3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D681E31E1E546A7D007C08F5 /* Pageboy.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pageboy.xcodeproj; path = ../Sources/Pageboy.xcodeproj; sourceTree = "<group>"; };
 		D681E3501E54959B007C08F5 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
-		D681E3531E549F7E007C08F5 /* PageViewControllerAppearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewControllerAppearance.swift; sourceTree = "<group>"; };
+		D681E3531E549F7E007C08F5 /* PageViewController+Appearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PageViewController+Appearance.swift"; sourceTree = "<group>"; };
 		D681E3551E54ABE8007C08F5 /* TransparentNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransparentNavigationBar.swift; sourceTree = "<group>"; };
+		D6B0438C1F1F5C2D00367C61 /* GradientConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientConfig.swift; sourceTree = "<group>"; };
 		D6ECCEC51E51B6FB00E9D5B3 /* ChildViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChildViewController.swift; sourceTree = "<group>"; };
-		E8F663AA1E9C387D00F601AC /* NavigationControllerUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerUtils.swift; sourceTree = "<group>"; };
+		E8F663AA1E9C387D00F601AC /* UINavigationController+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Utilities.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +113,7 @@
 				D623B1E31E1D32D700527F3D /* PageViewController.swift */,
 				D6ECCEC51E51B6FB00E9D5B3 /* ChildViewController.swift */,
 				D623B1E51E1D32D700527F3D /* Main.storyboard */,
-				D681E3521E54959F007C08F5 /* Example Components */,
+				D681E3521E54959F007C08F5 /* Example Extras */,
 				D681E34F1E549508007C08F5 /* Resources */,
 			);
 			path = "Pageboy-Example";
@@ -136,15 +138,16 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		D681E3521E54959F007C08F5 /* Example Components */ = {
+		D681E3521E54959F007C08F5 /* Example Extras */ = {
 			isa = PBXGroup;
 			children = (
-				D681E3531E549F7E007C08F5 /* PageViewControllerAppearance.swift */,
+				D681E3531E549F7E007C08F5 /* PageViewController+Appearance.swift */,
 				D681E3501E54959B007C08F5 /* GradientView.swift */,
+				D6B0438C1F1F5C2D00367C61 /* GradientConfig.swift */,
 				D681E3551E54ABE8007C08F5 /* TransparentNavigationBar.swift */,
-				E8F663AA1E9C387D00F601AC /* NavigationControllerUtils.swift */,
+				E8F663AA1E9C387D00F601AC /* UINavigationController+Utilities.swift */,
 			);
-			name = "Example Components";
+			name = "Example Extras";
 			sourceTree = "<group>";
 		};
 		D6CC55831ECCCCB700A7FBB4 /* Frameworks */ = {
@@ -255,10 +258,11 @@
 				D623B1E41E1D32D700527F3D /* PageViewController.swift in Sources */,
 				D623B1E21E1D32D700527F3D /* AppDelegate.swift in Sources */,
 				D681E3561E54ABE8007C08F5 /* TransparentNavigationBar.swift in Sources */,
-				D681E3541E549F7E007C08F5 /* PageViewControllerAppearance.swift in Sources */,
+				D6B0438D1F1F5C2D00367C61 /* GradientConfig.swift in Sources */,
+				D681E3541E549F7E007C08F5 /* PageViewController+Appearance.swift in Sources */,
 				D681E3511E54959B007C08F5 /* GradientView.swift in Sources */,
 				D6ECCEC61E51B6FB00E9D5B3 /* ChildViewController.swift in Sources */,
-				E8F663AB1E9C387D00F601AC /* NavigationControllerUtils.swift in Sources */,
+				E8F663AB1E9C387D00F601AC /* UINavigationController+Utilities.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
