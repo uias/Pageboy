@@ -32,6 +32,7 @@ public protocol PageboyViewControllerDataSource: class {
     func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page?
 }
 
+
 public protocol PageboyViewControllerDelegate: class {
  
     /// The page view controller will begin scrolling to a new page.
@@ -80,6 +81,7 @@ public protocol PageboyViewControllerDelegate: class {
                                didReloadWith currentViewController: UIViewController,
                                currentPageIndex: PageboyViewController.PageIndex)
 }
+
 
 /// A simple, highly informative page view controller.
 open class PageboyViewController: UIViewController {
