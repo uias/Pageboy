@@ -19,38 +19,40 @@ class TestPageboyDelegate: PageboyViewControllerDelegate {
     var lastDidScrollToPositionAnimated: Bool?
     var lastDidScrollToPageAtIndexAnimated: Bool?
 
-    var lastDidReloadViewControllers: [UIViewController]?
+    var lastDidReloadPageCount: Int?
+    var lastDidReloadCurrentViewController: UIViewController?
     var lastDidReloadCurrentIndex: PageboyViewController.PageIndex?
     
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
-                               willScrollToPageAtIndex pageIndex: Int,
+                               willScrollToPageAt index: PageboyViewController.PageIndex,
                                direction: PageboyViewController.NavigationDirection,
                                animated: Bool) {
         lastWillScrollToPageAnimated = animated
     }
     
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
-                               didScrollToPosition pagePosition: CGPoint,
+                               didScrollTo position: CGPoint,
                                direction: PageboyViewController.NavigationDirection,
                                animated: Bool) {
         lastDidScrollToPositionAnimated = animated
-        lastRecordedPagePosition = pagePosition
+        lastRecordedPagePosition = position
         lastRecordedDirection = direction
     }
     
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
-                               didScrollToPageAtIndex pageIndex: Int,
+                               didScrollToPageAt index: PageboyViewController.PageIndex,
                                direction: PageboyViewController.NavigationDirection,
                                animated: Bool) {
         lastDidScrollToPageAtIndexAnimated = animated
-        lastRecordedPageIndex = pageIndex
+        lastRecordedPageIndex = index
         lastRecordedDirection = direction
     }
     
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
-                               didReload viewControllers: [UIViewController],
-                               currentIndex: PageboyViewController.PageIndex) {
-        self.lastDidReloadViewControllers = viewControllers
-        self.lastDidReloadCurrentIndex = currentIndex
+                               didReloadWith currentViewController: UIViewController,
+                               currentPageIndex: PageboyViewController.PageIndex) {
+        self.lastDidReloadPageCount = pageboyViewController.pageCount
+        self.lastDidReloadCurrentViewController = currentViewController
+        self.lastDidReloadCurrentIndex = currentPageIndex
     }
 }

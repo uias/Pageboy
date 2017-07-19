@@ -126,7 +126,7 @@ class PageboyDataSourceTests: PageboyTests {
         self.dataSource.numberOfPages = 3
         self.pageboyViewController.reloadPages()
         
-        let reloadPageCount = self.delegate.lastDidReloadViewControllers?.count
+        let reloadPageCount = self.delegate.lastDidReloadPageCount
         
         XCTAssertTrue(reloadPageCount == 3,
                       "reloadPages does not call didReloadViewControllers delegate function.")
