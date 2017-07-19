@@ -22,6 +22,7 @@ class TestPageboyDelegate: PageboyViewControllerDelegate {
     var lastDidReloadPageCount: Int?
     var lastDidReloadCurrentViewController: UIViewController?
     var lastDidReloadCurrentIndex: PageboyViewController.PageIndex?
+    var reloadCount: Int = 0
     
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
                                willScrollToPageAt index: PageboyViewController.PageIndex,
@@ -51,8 +52,10 @@ class TestPageboyDelegate: PageboyViewControllerDelegate {
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
                                didReloadWith currentViewController: UIViewController,
                                currentPageIndex: PageboyViewController.PageIndex) {
-        self.lastDidReloadPageCount = pageboyViewController.pageCount
-        self.lastDidReloadCurrentViewController = currentViewController
-        self.lastDidReloadCurrentIndex = currentPageIndex
+        lastDidReloadPageCount = pageboyViewController.pageCount
+        lastDidReloadCurrentViewController = currentViewController
+        lastDidReloadCurrentIndex = currentPageIndex
+        
+        reloadCount += 1
     }
 }

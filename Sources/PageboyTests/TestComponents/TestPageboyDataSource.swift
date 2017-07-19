@@ -22,9 +22,7 @@ class TestPageboyDataSource: PageboyViewControllerDataSource {
     }
     var defaultIndex: PageboyViewController.Page?
     private(set) var viewControllers: [UIViewController]?
-    
-    private(set) var reloadCount = 0
-    
+        
     // MARK: PageboyViewControllerDataSource
     
     func numberOfViewControllers(in pageboyViewController: PageboyViewController) -> Int {

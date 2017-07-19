@@ -33,8 +33,8 @@ class PageboyDataSourceTests: PageboyTests {
     func testPageboyViewControllerNilSetUp() {
         self.pageboyViewController.dataSource = self.dataSource
         
-        XCTAssertNil(self.pageboyViewController.pageCount,
-                  "View Controller array is not nil when data source returns nil.")
+        XCTAssertNil(self.pageboyViewController.currentViewController,
+                  "Current view controller is not nil when data source returns nil.")
     }
     
     /// Test using the default .first PageIndex when nil returned
@@ -139,7 +139,7 @@ class PageboyDataSourceTests: PageboyTests {
         
         self.pageboyViewController.isInfiniteScrollEnabled = true
         
-        XCTAssertTrue(self.dataSource.reloadCount == 1,
+        XCTAssertTrue(self.delegate.reloadCount == 1,
                       "reloadCurrentPageSoftly causes the data source to reload")
     }
     
