@@ -148,9 +148,8 @@ extension PageViewController: PageboyViewControllerDelegate {
     }
     
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
-                               didReload viewControllers: [UIViewController],
-                               currentPage: PageboyViewController.Page) {
-        
+                               didReloadWith currentViewController: UIViewController,
+                               currentPageIndex: PageboyViewController.PageIndex) {
     }
 }
 

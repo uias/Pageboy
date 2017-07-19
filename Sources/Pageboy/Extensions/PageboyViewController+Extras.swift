@@ -25,6 +25,10 @@ public extension PageboyViewControllerDelegate {
                                didScrollToPageAt index: Int,
                                direction: PageboyViewController.NavigationDirection,
                                animated: Bool) {}
+    
+    func pageboyViewController(_ pageboyViewController: PageboyViewController,
+                               didReloadWith currentViewController: UIViewController,
+                               currentPageIndex: PageboyViewController.PageIndex){}
 }
 
 // MARK: - NavigationDirection Descriptions

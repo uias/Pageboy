@@ -70,15 +70,15 @@ public protocol PageboyViewControllerDelegate: class {
                                direction: PageboyViewController.NavigationDirection,
                                animated: Bool)
     
-//    /// The page view controller did reload its view controllers.
-//    ///
-//    /// - Parameters:
-//    ///   - pageboyViewController: The Pageboy view controller.
-//    ///   - viewControllers: The new view controllers.
-//    ///   - currentPage: The current page.
-//    func pageboyViewController(_ pageboyViewController: PageboyViewController,
-//                               didReload viewControllers: [UIViewController],
-//                               currentPage: PageboyViewController.Page)
+    /// The page view controller did reload.
+    ///
+    /// - Parameters:
+    ///   - pageboyViewController: The Pageboy view controller.
+    ///   - currentViewController: The current view controller.
+    ///   - currentPageIndex: The current page index.
+    func pageboyViewController(_ pageboyViewController: PageboyViewController,
+                               didReloadWith currentViewController: UIViewController,
+                               currentPageIndex: PageboyViewController.PageIndex)
 }
 
 /// A simple, highly informative page view controller.
