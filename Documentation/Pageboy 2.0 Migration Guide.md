@@ -123,3 +123,5 @@ func pageboyViewController(_ pageboyViewController: PageboyViewController,
 - `PageboyViewController.PageIndex` refers to an `Int` `typealias` for describing raw page index values.
 
 ### Property Updates
+- `pageCount` has been added to `PageboyViewController`.
+- `viewControllers` has been removed from `PageboyViewController`.
