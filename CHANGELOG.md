@@ -2,6 +2,9 @@
 All notable changes to this project will be documented in this file.
 `Pageboy` adheres to [Semantic Versioning](http://semver.org/).
 
+#### 2.x Releases
+- `2.0.X` Releases - [2.0.0 Beta 1](#200Beta1)
+
 #### 1.x Releases
 - `1.3.X` Releases - [1.3.0](#130) | [1.3.1](#131) | [1.3.2](#132) | [1.3.3](#133)
 - `1.2.X` Releases - [1.2.0](#120) | [1.2.1](#121)
@@ -12,6 +15,17 @@ All notable changes to this project will be documented in this file.
 - `0.4.X` Releases - [0.4.0](#040) | [0.4.1](#041) | [0.4.2](#042) | [0.4.3](#043) | [0.4.4](#044) | [0.4.5](#045) | [0.4.6](#046) | [0.4.7](#047) | [0.4.8](#048) | [0.4.9](#049) | [0.4.10](#0410) | [0.4.11](#0411) | [0.4.12](#0412)
 
 ---
+
+## [2.0.0.Beta.1](https://github.com/uias/Pageboy/releases/tag/2.0.0.beta.1)
+Released on 2017-07-24
+
+#### Updated
+- [#88](https://github.com/uias/Pageboy/issues/88) Completely redesign `PageboyViewControllerDataSource` to support improved view controller reuse.
+     - Added by [msaps](https://github.com/msaps).
+- [#78](https://github.com/uias/Pageboy/issues/78) Update `PageboyViewControllerDataSource` to support the latest recommended code syntax style.
+     - Added by [msaps](https://github.com/msaps).
+- Update `PageboyViewControllerDelegate` to support the latest changes to `PageboyViewControllerDataSource `.
+     - Added by [msaps](https://github.com/msaps).
 
 ## [1.3.3](https://github.com/uias/Pageboy/releases/tag/1.3.3)
 Released on 2017-06-29
