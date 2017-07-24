@@ -35,9 +35,8 @@ public protocol PageboyAutoScrollerDelegate {
 /// Object that provides auto scrolling framework to PageboyViewController
 public class PageboyAutoScroller: Any {
     
-    //
+    
     // MARK: Types
-    //
     
     /// Duration spent on each page.
     ///
@@ -50,9 +49,8 @@ public class PageboyAutoScroller: Any {
         case custom(duration: TimeInterval)
     }
 
-    //
+    
     // MARK: Properties
-    //
     
     /// The timer
     fileprivate var timer: Timer?
@@ -79,9 +77,8 @@ public class PageboyAutoScroller: Any {
     /// The object that acts as a delegate to the auto scroller.
     public var delegate: PageboyAutoScrollerDelegate?
     
-    //
+
     // MARK: State
-    //
     
     /// Enable auto scrolling behaviour.
     ///

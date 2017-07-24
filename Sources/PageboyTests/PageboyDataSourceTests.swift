@@ -16,7 +16,7 @@ class PageboyDataSourceTests: PageboyTests {
         self.dataSource.numberOfPages = 1
         self.pageboyViewController.dataSource = self.dataSource
         
-        XCTAssert(self.pageboyViewController.viewControllers?.count == 1,
+        XCTAssert(self.pageboyViewController.pageCount == 1,
                   "View Controllers were not successfully loaded from the data source.")
     }
     
@@ -25,7 +25,7 @@ class PageboyDataSourceTests: PageboyTests {
         self.dataSource.numberOfPages = 0
         self.pageboyViewController.dataSource = self.dataSource
         
-        XCTAssert(self.pageboyViewController.viewControllers?.count == 0,
+        XCTAssert(self.pageboyViewController.pageCount == 0,
                   "Empty view controller array not successfully loaded from the data source.")
     }
     
@@ -33,8 +33,8 @@ class PageboyDataSourceTests: PageboyTests {
     func testPageboyViewControllerNilSetUp() {
         self.pageboyViewController.dataSource = self.dataSource
         
-        XCTAssertNil(self.pageboyViewController.viewControllers,
-                  "View Controller array is not nil when data source returns nil.")
+        XCTAssertNil(self.pageboyViewController.currentViewController,
+                  "Current view controller is not nil when data source returns nil.")
     }
     
     /// Test using the default .first PageIndex when nil returned
@@ -107,11 +107,11 @@ class PageboyDataSourceTests: PageboyTests {
     func testPageboyViewControllerReloadBehavior() {
         self.dataSource.numberOfPages = 5
         self.pageboyViewController.dataSource = self.dataSource
-        let initialPageCount = self.pageboyViewController.viewControllers?.count
+        let initialPageCount = self.pageboyViewController.pageCount
         
         self.dataSource.numberOfPages = 3
         self.pageboyViewController.reloadPages()
-        let reloadPageCount = self.pageboyViewController.viewControllers?.count
+        let reloadPageCount = self.pageboyViewController.pageCount
         
         XCTAssert(initialPageCount == 5 && reloadPageCount == 3,
                   "reloadPages is not correctly reloading view controllers.")
@@ -126,7 +126,7 @@ class PageboyDataSourceTests: PageboyTests {
         self.dataSource.numberOfPages = 3
         self.pageboyViewController.reloadPages()
         
-        let reloadPageCount = self.delegate.lastDidReloadViewControllers?.count
+        let reloadPageCount = self.delegate.lastDidReloadPageCount
         
         XCTAssertTrue(reloadPageCount == 3,
                       "reloadPages does not call didReloadViewControllers delegate function.")
@@ -139,7 +139,7 @@ class PageboyDataSourceTests: PageboyTests {
         
         self.pageboyViewController.isInfiniteScrollEnabled = true
         
-        XCTAssertTrue(self.dataSource.reloadCount == 1,
+        XCTAssertTrue(self.delegate.reloadCount == 1,
                       "reloadCurrentPageSoftly causes the data source to reload")
     }
     
@@ -149,11 +149,11 @@ class PageboyDataSourceTests: PageboyTests {
         self.dataSource.numberOfPages = 3
         self.pageboyViewController.dataSource = self.dataSource
         
-        let viewController = self.dataSource.viewControllers[0]
+        let viewController = self.dataSource.viewControllers![0]
         let nextViewController = self.pageboyViewController.pageViewController(self.pageboyViewController.pageViewController!,
                                                                                viewControllerAfter: viewController)
         
-        XCTAssert(nextViewController === self.dataSource.viewControllers[1],
+        XCTAssert(nextViewController === self.dataSource.viewControllers?[1],
                   "pageViewController:viewControllerAfter is returning an incorrect view controller")
     }
     
@@ -164,7 +164,7 @@ class PageboyDataSourceTests: PageboyTests {
         self.dataSource.defaultIndex = .last
         self.pageboyViewController.dataSource = self.dataSource
         
-        let viewController = self.dataSource.viewControllers[2]
+        let viewController = self.dataSource.viewControllers![2]
         let nextViewController = self.pageboyViewController.pageViewController(self.pageboyViewController.pageViewController!,
                                                                                viewControllerAfter: viewController)
         
@@ -179,11 +179,11 @@ class PageboyDataSourceTests: PageboyTests {
         self.dataSource.defaultIndex = .at(index: 1)
         self.pageboyViewController.dataSource = self.dataSource
         
-        let viewController = self.dataSource.viewControllers[1]
+        let viewController = self.dataSource.viewControllers![1]
         let previousViewController = self.pageboyViewController.pageViewController(self.pageboyViewController.pageViewController!,
                                                                                viewControllerBefore: viewController)
         
-        XCTAssert(previousViewController === self.dataSource.viewControllers[0],
+        XCTAssert(previousViewController === self.dataSource.viewControllers?[0],
                   "pageViewController:viewControllerBefore is returning an incorrect view controller")
     }
     
@@ -193,7 +193,7 @@ class PageboyDataSourceTests: PageboyTests {
         self.dataSource.numberOfPages = 3
         self.pageboyViewController.dataSource = self.dataSource
         
-        let viewController = self.dataSource.viewControllers[0]
+        let viewController = self.dataSource.viewControllers![0]
         let previousViewController = self.pageboyViewController.pageViewController(self.pageboyViewController.pageViewController!,
                                                                                viewControllerBefore: viewController)
         

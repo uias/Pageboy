@@ -10,24 +10,25 @@ import UIKit
 
 // MARK: - PageboyViewControllerDelegate default implementations
 public extension PageboyViewControllerDelegate {
+    
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
-                               willScrollToPageAtIndex index: Int,
+                               willScrollToPageAt index: Int,
+                               direction: PageboyViewController.NavigationDirection,
+                               animated: Bool) {}
+
+    func pageboyViewController(_ pageboyViewController: PageboyViewController,
+                               didScrollTo position: CGPoint,
                                direction: PageboyViewController.NavigationDirection,
                                animated: Bool) {}
     
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
-                               didScrollToPosition position: CGPoint,
+                               didScrollToPageAt index: Int,
                                direction: PageboyViewController.NavigationDirection,
                                animated: Bool) {}
     
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
-                               didScrollToPageAtIndex index: Int,
-                               direction: PageboyViewController.NavigationDirection,
-                               animated: Bool) {}
-    
-    func pageboyViewController(_ pageboyViewController: PageboyViewController,
-                               didReload viewControllers: [UIViewController],
-                               currentIndex: PageboyViewController.PageIndex) {}
+                               didReloadWith currentViewController: UIViewController,
+                               currentPageIndex: PageboyViewController.PageIndex){}
 }
 
 // MARK: - NavigationDirection Descriptions

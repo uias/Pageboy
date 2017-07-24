@@ -10,23 +10,16 @@ import UIKit
 import Pageboy
 
 class PageViewController: PageboyViewController {
+    
 
-    // MARK: Types
+    // MARK: Outlets
     
-    struct GradientConfig {
-        let topColor: UIColor
-        let bottomColor: UIColor
-        
-        static var defaultGradient: GradientConfig {
-            return GradientConfig(topColor: .black, bottomColor: .black)
-        }
-    }
+    @IBOutlet weak var offsetLabel: UILabel!
+    @IBOutlet weak var pageLabel: UILabel!
+    @IBOutlet weak var gradientView: GradientView!
+
     
-    //
-    // MARK: Constants
-    //
-    
-    let numberOfPages = 5
+    // MARK: Properties
     
     let gradients: [GradientConfig] = [
         GradientConfig(topColor: UIColor(red:0.01, green:0.00, blue:0.18, alpha:1.0), bottomColor: UIColor(red:0.00, green:0.53, blue:0.80, alpha:1.0)),
@@ -36,24 +29,23 @@ class PageViewController: PageboyViewController {
         GradientConfig(topColor: UIColor(red:0.20, green:0.00, blue:0.00, alpha:1.0), bottomColor: UIColor(red:0.69, green:0.00, blue:0.00, alpha:1.0))
     ]
     
-    //
-    // MARK: Outlets
-    //
-    
-    @IBOutlet weak var offsetLabel: UILabel!
-    @IBOutlet weak var pageLabel: UILabel!
-    @IBOutlet weak var gradientView: GradientView!
-
-    //
-    // MARK: Properties
-    //
-    
     var previousBarButton: UIBarButtonItem?
     var nextBarButton: UIBarButtonItem?
     
-    //
+    let pageControllers: [UIViewController] = {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        
+        var viewControllers = [UIViewController]()
+        for i in 0 ..< 5 {
+            let viewController = storyboard.instantiateViewController(withIdentifier: "ChildViewController") as! ChildViewController
+            viewController.index = i + 1
+            viewControllers.append(viewController)
+        }
+        return viewControllers
+    }()
+    
+    
     // MARK: Lifecycle
-    //
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,7 +55,7 @@ class PageViewController: PageboyViewController {
         self.dataSource = self
         self.delegate = self
         
-        self.updateAppearance(pageOffset: self.currentPosition?.x ?? 0.0)
+        self.updateGradient(for: self.currentPosition?.x ?? 0.0)
         self.updateStatusLabels()
         self.updateBarButtonStates(index: self.currentIndex ?? 0)
     }
@@ -73,6 +65,7 @@ class PageViewController: PageboyViewController {
         self.offsetLabel.text = "Current Position: " + String(format: "%.3f", offsetValue ?? 0.0)
         self.pageLabel.text = "Current Page: " + String(describing: self.currentIndex ?? 0)
     }
+    
     
     // MARK: Actions
     
@@ -88,19 +81,16 @@ class PageViewController: PageboyViewController {
 // MARK: PageboyViewControllerDataSource
 extension PageViewController: PageboyViewControllerDataSource {
     
-    func viewControllers(forPageboyViewController pageboyViewController: PageboyViewController) -> [UIViewController]? {
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        
-        var viewControllers = [UIViewController]()
-        for i in 0..<numberOfPages {
-            let viewController = storyboard.instantiateViewController(withIdentifier: "ChildViewController") as! ChildViewController
-            viewController.index = i + 1
-            viewControllers.append(viewController)
-        }
-        return viewControllers
+    func numberOfViewControllers(in pageboyViewController: PageboyViewController) -> PageboyViewController.PageIndex {
+        return pageControllers.count
     }
     
-    func defaultPageIndex(forPageboyViewController pageboyViewController: PageboyViewController) -> PageboyViewController.PageIndex? {
+    func viewController(for pageboyViewController: PageboyViewController,
+                        at index: PageboyViewController.PageIndex) -> UIViewController? {
+        return pageControllers[index]
+    }
+    
+    func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {
         return nil
     }
 }
@@ -109,37 +99,40 @@ extension PageViewController: PageboyViewControllerDataSource {
 extension PageViewController: PageboyViewControllerDelegate {
     
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
-                               willScrollToPageAtIndex index: Int,
-                               direction: PageboyViewController.NavigationDirection,
-                               animated: Bool) {}
-    
-    func pageboyViewController(_ pageboyViewController: PageboyViewController,
-                               didScrollToPosition position: CGPoint,
+                               willScrollToPageAt index: Int,
                                direction: PageboyViewController.NavigationDirection,
                                animated: Bool) {
+//        print("willScrollToPageAtIndex: \(index)")
+    }
+    
+    func pageboyViewController(_ pageboyViewController: PageboyViewController,
+                               didScrollTo position: CGPoint,
+                               direction: PageboyViewController.NavigationDirection,
+                               animated: Bool) {
+//        print("didScrollToPosition: \(position)")
         
         let isVertical = navigationOrientation == .vertical
-        self.updateAppearance(pageOffset: isVertical ? position.y : position.x)
+        self.updateGradient(for: isVertical ? position.y : position.x)
         self.updateStatusLabels()
         
         self.updateBarButtonStates(index: pageboyViewController.currentIndex ?? 0)
     }
     
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
-                               didScrollToPageAtIndex index: Int,
+                               didScrollToPageAt index: Int,
                                direction: PageboyViewController.NavigationDirection,
                                animated: Bool) {
-        
-        self.updateAppearance(pageOffset: CGFloat(index))
+//        print("didScrollToPageAtIndex: \(index)")
+
+        self.updateGradient(for: CGFloat(index))
         self.updateStatusLabels()
         
         self.updateBarButtonStates(index: index)
     }
     
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
-                               didReload viewControllers: [UIViewController],
-                               currentIndex: PageboyViewController.PageIndex) {
-        
+                               didReloadWith currentViewController: UIViewController,
+                               currentPageIndex: PageboyViewController.PageIndex) {
     }
 }
 
