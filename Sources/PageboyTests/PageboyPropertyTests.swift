@@ -34,4 +34,14 @@ class PageboyPropertyTests: PageboyTests {
         XCTAssertTrue(self.pageboyViewController.pageViewController?.scrollView?.isScrollEnabled == false,
                       "isScrollEnabled does not update the internal scrollView correctly.")
     }
+    
+    func testPageViewControllerOptions() {
+        self.dataSource.numberOfPages = 5
+        self.pageboyViewController.dataSource = self.dataSource
+        
+        self.pageboyViewController.interPageSpacing = 12.0
+        
+        XCTAssert(self.pageboyViewController.pageViewControllerOptions?.count ?? 0 > 0,
+                  "Custom UIPageViewController options are not being passed.")
+    }
 }
