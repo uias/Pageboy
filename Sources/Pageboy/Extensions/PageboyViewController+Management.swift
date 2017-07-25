@@ -48,7 +48,7 @@ internal extension PageboyViewController {
         
         let pageViewController = UIPageViewController(transitionStyle: .scroll,
                                                       navigationOrientation: self.navigationOrientation,
-                                                      options: nil)
+                                                      options: self.pageViewControllerOptions)
         pageViewController.delegate = self
         pageViewController.dataSource = self
         self.pageViewController = pageViewController
@@ -99,6 +99,26 @@ internal extension PageboyViewController {
         self.delegate?.pageboyViewController(self,
                                              didReload: viewControllers,
                                              currentIndex: defaultIndex)
+    }
+    
+    /// Re-initialize the internal UIPageViewController instance without reloading data source if it currently exists.
+    internal func reconfigurePageViewController() {
+        guard self.pageViewController != nil else { return }
+        self.setUpPageViewController(reloadViewControllers: false)
+    }
+    
+    /// The options to be passed to a UIPageViewController instance.
+    internal var pageViewControllerOptions: [String : Any]? {
+        var options = [String : Any]()
+        
+        if self.interPageSpacing > 0.0 {
+            options[UIPageViewControllerOptionInterPageSpacingKey] = self.interPageSpacing
+        }
+        
+        guard options.count > 0 else {
+            return nil
+        }
+        return options
     }
     
     // MARK: Utilities

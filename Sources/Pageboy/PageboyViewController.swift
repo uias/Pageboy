@@ -10,7 +10,6 @@ import UIKit
 
 public protocol PageboyViewControllerDataSource: class {
     
-    
     /// The view controllers to display in the Pageboy view controller.
     ///
     /// - Parameter pageboyViewController: The Pageboy view controller
@@ -118,10 +117,15 @@ open class PageboyViewController: UIViewController {
     internal var expectedTransitionIndex: Int?
 
     /// The orientation that the page view controller transitions on.
-    public var navigationOrientation : UIPageViewControllerNavigationOrientation = .horizontal {
+    public var navigationOrientation: UIPageViewControllerNavigationOrientation = .horizontal {
         didSet {
-            guard self.pageViewController != nil else { return }
-            self.setUpPageViewController(reloadViewControllers: false)
+            reconfigurePageViewController()
+        }
+    }
+    /// The spacing between pages.
+    public var interPageSpacing: CGFloat = 0.0 {
+        didSet {
+            reconfigurePageViewController()
         }
     }
     
@@ -231,10 +235,8 @@ open class PageboyViewController: UIViewController {
 
         }
     }
-    
     /// The relative page position that the page view controller is currently at.
     public internal(set) var currentPosition: CGPoint?
-    
     /// The view controller that the page view controller is currently at.
     public var currentViewController: UIViewController? {
         get {

@@ -10,6 +10,7 @@ import UIKit
 
 // MARK: - PageboyViewControllerDelegate default implementations
 public extension PageboyViewControllerDelegate {
+    
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
                                willScrollToPageAtIndex index: Int,
                                direction: PageboyViewController.NavigationDirection,
