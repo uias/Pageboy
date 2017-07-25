@@ -117,10 +117,15 @@ open class PageboyViewController: UIViewController {
     internal var expectedTransitionIndex: Int?
 
     /// The orientation that the page view controller transitions on.
-    public var navigationOrientation : UIPageViewControllerNavigationOrientation = .horizontal {
+    public var navigationOrientation: UIPageViewControllerNavigationOrientation = .horizontal {
         didSet {
-            guard self.pageViewController != nil else { return }
-            self.setUpPageViewController(reloadViewControllers: false)
+            reconfigurePageViewController()
+        }
+    }
+    /// The spacing between pages.
+    public var interPageSpacing: CGFloat = 0.0 {
+        didSet {
+            reconfigurePageViewController()
         }
     }
     
