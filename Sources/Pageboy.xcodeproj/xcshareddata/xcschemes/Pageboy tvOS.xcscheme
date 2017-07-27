@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D63A214F1F2758D700FEA92D"
-               BuildableName = "Pageboy tvOS.framework"
+               BuildableName = "Pageboy.framework"
                BlueprintName = "Pageboy tvOS"
                ReferencedContainer = "container:Pageboy.xcodeproj">
             </BuildableReference>
@@ -46,7 +46,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D63A214F1F2758D700FEA92D"
-            BuildableName = "Pageboy tvOS.framework"
+            BuildableName = "Pageboy.framework"
             BlueprintName = "Pageboy tvOS"
             ReferencedContainer = "container:Pageboy.xcodeproj">
          </BuildableReference>
@@ -64,7 +64,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D63A214F1F2758D700FEA92D"
-            BuildableName = "Pageboy tvOS.framework"
+            BuildableName = "Pageboy.framework"
             BlueprintName = "Pageboy tvOS"
             ReferencedContainer = "container:Pageboy.xcodeproj">
          </BuildableReference>
