@@ -271,7 +271,7 @@ open class PageboyViewController: UIViewController {
                 viewControllerCount ?? 0 > currentIndex else {
                 return nil
             }
-            return self.viewController(at: currentIndex)
+            return self.pageViewController?.viewControllers?.last
         }
     }
     
