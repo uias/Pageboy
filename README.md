@@ -29,7 +29,7 @@ Swift 4 support is currently available in the `swift4` branch.
 ### CocoaPods
 Pageboy is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
 ```ruby
-pod 'Pageboy'
+pod 'Pageboy' ~> 1.4
 ```
 And run `pod install`.
 
@@ -44,7 +44,7 @@ $ brew install carthage
 Add Pageboy to your `Cartfile`:
 
 ```ogdl
-github "uias/Pageboy" 
+github "uias/Pageboy" ~> 1.4
 ```
 
 ## Usage
@@ -178,6 +178,7 @@ Support for custom intermission duration and other scroll behaviors is also avai
 
 ## About
 - Created by [Merrick Sapsford](https://github.com/msaps) ([@MerrickSapsford](https://twitter.com/MerrickSapsford))
+- Contributed to by a growing [list of others](https://github.com/uias/Pageboy/graphs/contributors).
 
 ## Contributing
 Bug reports and pull requests are welcome on GitHub at [https://github.com/uias/Pageboy](https://github.com/uias/Pageboy).
