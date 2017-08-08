@@ -3,7 +3,7 @@
 </p>
 
 [![Build Status](https://travis-ci.org/uias/Pageboy.svg?branch=master)](https://travis-ci.org/uias/Pageboy)
-[![Swift 3.1 | 3.2 | 3.4](https://img.shields.io/badge/Swift-3.1%20%7C%203.2%20%7C%203.4-orange.svg?style=flat)](https://developer.apple.com/swift/)
+[![Swift 3.1 | 3.2 | 4](https://img.shields.io/badge/Swift-3.1%20%7C%203.2%20%7C%204-orange.svg?style=flat)](https://developer.apple.com/swift/)
 [![CocoaPods](https://img.shields.io/cocoapods/v/Pageboy.svg)]()
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![codecov](https://codecov.io/gh/uias/Pageboy/branch/master/graph/badge.svg)](https://codecov.io/gh/uias/Pageboy)
