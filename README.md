@@ -3,7 +3,7 @@
 </p>
 
 [![Build Status](https://travis-ci.org/uias/Pageboy.svg?branch=master)](https://travis-ci.org/uias/Pageboy)
-[![Swift 3.1](https://img.shields.io/badge/Swift-3.1-orange.svg?style=flat)](https://developer.apple.com/swift/)
+[![Swift 3.1 | 3.2 | 4](https://img.shields.io/badge/Swift-3.1%20%7C%203.2%20%7C%204-orange.svg?style=flat)](https://developer.apple.com/swift/)
 [![CocoaPods](https://img.shields.io/cocoapods/v/Pageboy.svg)]()
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![codecov](https://codecov.io/gh/uias/Pageboy/branch/master/graph/badge.svg)](https://codecov.io/gh/uias/Pageboy)
@@ -20,11 +20,16 @@
 - [x] Automatic timer-based page transitioning.
 - [x] Support for custom page transitions.
 
+## Requirements
+Pageboy requires iOS 8.0 and Swift 3.1 or above.
+
+Swift 4 support is currently available in the `swift4` branch.
+
 ## Installation
 ### CocoaPods
 Pageboy is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
 ```ruby
-pod 'Pageboy'
+pod 'Pageboy' ~> 1.4
 ```
 And run `pod install`.
 
@@ -39,11 +44,8 @@ $ brew install carthage
 Add Pageboy to your `Cartfile`:
 
 ```ogdl
-github "uias/Pageboy" 
+github "uias/Pageboy" ~> 1.4
 ```
-
-## Requirements
-Pageboy requires iOS 8.0 or above.
 
 ## Usage
 ### Getting Started
@@ -176,6 +178,7 @@ Support for custom intermission duration and other scroll behaviors is also avai
 
 ## About
 - Created by [Merrick Sapsford](https://github.com/msaps) ([@MerrickSapsford](https://twitter.com/MerrickSapsford))
+- Contributed to by a growing [list of others](https://github.com/uias/Pageboy/graphs/contributors).
 
 ## Contributing
 Bug reports and pull requests are welcome on GitHub at [https://github.com/uias/Pageboy](https://github.com/uias/Pageboy).
