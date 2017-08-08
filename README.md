@@ -3,7 +3,7 @@
 </p>
 
 [![Build Status](https://travis-ci.org/uias/Pageboy.svg?branch=master)](https://travis-ci.org/uias/Pageboy)
-[![Swift 3.1](https://img.shields.io/badge/Swift-3.1-orange.svg?style=flat)](https://developer.apple.com/swift/)
+[![Swift 3.1 | 3.2 | 3.4](https://img.shields.io/badge/Swift-3.1%20%7C%203.2%20%7C%203.4-orange.svg?style=flat)](https://developer.apple.com/swift/)
 [![CocoaPods](https://img.shields.io/cocoapods/v/Pageboy.svg)]()
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![codecov](https://codecov.io/gh/uias/Pageboy/branch/master/graph/badge.svg)](https://codecov.io/gh/uias/Pageboy)
@@ -19,6 +19,11 @@
 - [x] Infinite scrolling support.
 - [x] Automatic timer-based page transitioning.
 - [x] Support for custom page transitions.
+
+## Requirements
+Pageboy requires iOS 8.0 and Swift 3.1 or above.
+
+Swift 4 support is currently available in the `swift4` branch.
 
 ## Installation
 ### CocoaPods
@@ -41,9 +46,6 @@ Add Pageboy to your `Cartfile`:
 ```ogdl
 github "uias/Pageboy" 
 ```
-
-## Requirements
-Pageboy requires iOS 8.0 or above.
 
 ## Usage
 ### Getting Started
