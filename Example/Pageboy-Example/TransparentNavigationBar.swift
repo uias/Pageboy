@@ -15,13 +15,11 @@ class TransparentNavigationBar: UINavigationBar {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        var titleTextAttributes: [String : Any] = [NSForegroundColorAttributeName : UIColor.white]
+
+        var titleTextAttributes: [NSAttributedStringKey : Any] = [.foregroundColor : UIColor.white]
         if #available(iOS 8.2, *) {
-            titleTextAttributes[NSFontAttributeName] = UIFont.systemFont(ofSize: 18.0, weight: UIFontWeightRegular)
-        }else{
-            titleTextAttributes[NSFontAttributeName] = UIFont.systemFont(ofSize: 18.0)
+            titleTextAttributes[.font] = UIFont.systemFont(ofSize: 18.0, weight: UIFont.Weight.regular)
         }
-        
         self.titleTextAttributes = titleTextAttributes
         self.tintColor = UIColor.white.withAlphaComponent(0.7)
         
