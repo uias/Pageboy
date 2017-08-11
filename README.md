@@ -3,7 +3,7 @@
 </p>
 
 [![Build Status](https://travis-ci.org/uias/Pageboy.svg?branch=master)](https://travis-ci.org/uias/Pageboy)
-[![Swift 3.1 | 3.2 | 4](https://img.shields.io/badge/Swift-3.1%20%7C%203.2%20%7C%204-orange.svg?style=flat)](https://developer.apple.com/swift/)
+[![Swift 4](https://img.shields.io/badge/Swift-4-orange.svg?style=flat)](https://developer.apple.com/swift/)
 [![CocoaPods](https://img.shields.io/cocoapods/v/Pageboy.svg)]()
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![codecov](https://codecov.io/gh/uias/Pageboy/branch/master/graph/badge.svg)](https://codecov.io/gh/uias/Pageboy)
@@ -29,7 +29,7 @@ Swift 4 support is currently available in the `swift4` branch.
 ### CocoaPods
 Pageboy is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
 ```ruby
-pod 'Pageboy' ~> 1.4
+pod 'Pageboy' ~> 2.0
 ```
 And run `pod install`.
 
@@ -44,7 +44,7 @@ $ brew install carthage
 Add Pageboy to your `Cartfile`:
 
 ```ogdl
-github "uias/Pageboy" ~> 1.4
+github "uias/Pageboy" ~> 2.0
 ```
 
 ## Usage
@@ -72,7 +72,7 @@ func numberOfViewControllers(in pageboyViewController: PageboyViewController) ->
     
 func viewController(for pageboyViewController: PageboyViewController,
                     at index: PageboyViewController.PageIndex) -> UIViewController? {
-	return viewControllers[index]
+    return viewControllers[index]
 }
     
 func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {
