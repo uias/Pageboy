@@ -6,7 +6,7 @@ All notable changes to this project will be documented in this file.
 - `2.0.x` Releases - [2.0.0 Beta 1](#200Beta1) | [2.0.0 Beta 2](#200Beta2) | [2.0.0 Beta 3](#200Beta3) | [2.0.0 Beta 4](#200Beta4)
 
 #### 1.x Releases
-- `1.4.x` Releases - [1.4.0](#140)
+- `1.4.x` Releases - [1.4.0](#140) | [1.4.1](#141)
 - `1.3.x` Releases - [1.3.0](#130) | [1.3.1](#131) | [1.3.2](#132) | [1.3.3](#133)
 - `1.2.x` Releases - [1.2.0](#120) | [1.2.1](#121)
 - `1.1.x` Releases - [1.1.0](#110) | [1.1.1](#111) | [1.1.2](#112)
@@ -53,6 +53,15 @@ Released on 2017-07-24
      - Added by [msaps](https://github.com/msaps).
 
 ---
+
+## [1.4.1](https://github.com/uias/Pageboy/releases/tag/1.4.1)
+Released on 2017-08-14
+
+#### Fixed
+- [#99](https://github.com/uias/Pageboy/issues/99) Issues with guarding publicly visible delegates.
+     - Added guard statements to `UIScrollViewDelegate` and `UIPageViewControllerDelegate` functions to prevent external injection.
+     - Fixed by [msaps](https://github.com/msaps).
+
 
 ## [1.4.0](https://github.com/uias/Pageboy/releases/tag/1.4.0)
 Released on 2017-07-25
