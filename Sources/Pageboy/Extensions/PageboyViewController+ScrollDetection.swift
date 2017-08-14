@@ -15,6 +15,8 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
     
     public func pageViewController(_ pageViewController: UIPageViewController,
                                    willTransitionTo pendingViewControllers: [UIViewController]) {
+        guard pageViewControllerIsActual(pageViewController) else { return }
+
         self.pageViewController(pageViewController,
                                 willTransitionTo: pendingViewControllers,
                                 animated: false)
@@ -23,6 +25,7 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
     internal func pageViewController(_ pageViewController: UIPageViewController,
                                      willTransitionTo pendingViewControllers: [UIViewController],
                                      animated: Bool) {
+        guard pageViewControllerIsActual(pageViewController) else { return }
         guard let viewController = pendingViewControllers.first,
             let index = self.viewControllers?.index(of: viewController) else {
                 return
@@ -39,6 +42,7 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
                                    didFinishAnimating finished: Bool,
                                    previousViewControllers: [UIViewController],
                                    transitionCompleted completed: Bool) {
+        guard pageViewControllerIsActual(pageViewController) else { return }
         guard completed == true else { return }
         
         if let viewController = pageViewController.viewControllers?.first,
@@ -52,6 +56,8 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
     // MARK: UIScrollViewDelegate
     
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard scrollViewIsActual(scrollView) else { return }
+        
         guard self.updateContentOffsetForBounceIfNeeded(scrollView: scrollView) == false else {
             return
         }
@@ -129,24 +135,36 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
     }
     
     public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        guard scrollViewIsActual(scrollView) else { return }
+        
         if self.autoScroller.cancelsOnScroll {
             self.autoScroller.cancel()
         }
     }
     
     public func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        guard scrollViewIsActual(scrollView) else { return }
+        
         self.scrollView(didEndScrolling: scrollView)
     }
     
     public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        guard scrollViewIsActual(scrollView) else { return }
+        
         self.scrollView(didEndScrolling: scrollView)
     }
     
-    public func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+    public func scrollViewWillEndDragging(_ scrollView: UIScrollView,
+                                          withVelocity velocity: CGPoint,
+                                          targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        guard scrollViewIsActual(scrollView) else { return }
+        
         self.updateContentOffsetForBounceIfNeeded(scrollView: scrollView)
     }
     
     private func scrollView(didEndScrolling scrollView: UIScrollView) {
+        guard scrollViewIsActual(scrollView) else { return }
+        
         if self.autoScroller.restartsOnScrollEnd {
             self.autoScroller.restart()
         }
@@ -301,6 +319,24 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
             scrollView.contentOffset = CGPoint(x: scrollView.bounds.size.width, y: 0.0)
         }
         return previousContentOffset != scrollView.contentOffset
+    }
+    
+    // MARK: Utilities
+    
+    /// Check that a scroll view is the actual page view controller managed instance.
+    ///
+    /// - Parameter scrollView: The scroll view to check.
+    /// - Returns: Whether it is the actual managed instance.
+    private func scrollViewIsActual(_ scrollView: UIScrollView) -> Bool {
+        return scrollView === pageViewController?.scrollView
+    }
+    
+    /// Check that a UIPageViewController is the actual managed instance.
+    ///
+    /// - Parameter pageViewController: The page view controller to check.
+    /// - Returns: Whether it is the actual managed instance.
+    private func pageViewControllerIsActual(_ pageViewController: UIPageViewController) -> Bool {
+        return pageViewController === self.pageViewController
     }
 }
 
