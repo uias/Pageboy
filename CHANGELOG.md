@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 `Pageboy` adheres to [Semantic Versioning](http://semver.org/).
 
 #### 2.x Releases
-- `2.0.x` Releases - [2.0.0 Beta 1](#200Beta1) | [2.0.0 Beta 2](#200Beta2) | [2.0.0 Beta 3](#200Beta3) | [2.0.0 Beta 4](#200Beta4)
+- `2.0.x` Releases - [2.0.0 Beta 1](#200Beta1) | [2.0.0 Beta 2](#200Beta2) | [2.0.0 Beta 3](#200Beta3) | [2.0.0 Beta 4](#200Beta4) | [2.0.0 Beta 5](#200Beta5)
 
 #### 1.x Releases
 - `1.4.x` Releases - [1.4.0](#140) | [1.4.1](#141)
@@ -16,6 +16,12 @@ All notable changes to this project will be documented in this file.
 - `0.4.x` Releases - [0.4.0](#040) | [0.4.1](#041) | [0.4.2](#042) | [0.4.3](#043) | [0.4.4](#044) | [0.4.5](#045) | [0.4.6](#046) | [0.4.7](#047) | [0.4.8](#048) | [0.4.9](#049) | [0.4.10](#0410) | [0.4.11](#0411) | [0.4.12](#0412)
 
 ---
+
+## [2.0.0.Beta.5](https://github.com/uias/Pageboy/releases/tag/2.0.0.beta.5)
+Released on 2017-09-06
+
+#### Added
+- [1.4.1](https://github.com/uias/Pageboy/releases/tag/1.4.1) - Latest Pageboy changes from v1.4.1.
 
 ## [2.0.0.Beta.4](https://github.com/uias/Pageboy/releases/tag/2.0.0.beta.4)
 Released on 2017-08-09
