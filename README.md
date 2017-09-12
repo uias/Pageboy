@@ -23,7 +23,7 @@
 ## Requirements
 Pageboy requires iOS 8.0 and Swift 4.0 or above.
 
-Swift 3 support is available in Pageboy `1.x`. However the API has changed significantly in Pageboy `2.0`, so please refer to: [Legacy API Docs](https://github.com/uias/Pageboy/blob/1.4.0/README.md).
+For Swift 3.x support, please use the latest [1.x release](https://github.com/uias/Pageboy/releases/tag/1.4.1) (For 1.x legacy API docs, see [here](https://github.com/uias/Pageboy/blob/1.4.0/README.md)).
 
 ## Installation
 ### CocoaPods
