@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Avenir.ttc">
+            <string>Avenir-Light</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
@@ -26,21 +32,11 @@
                                 <color key="textColor" red="0.082352941176470587" green="0.53333333333333333" blue="0.78823529411764703" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DY4-oT-oiv">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
-                                <color key="backgroundColor" red="0.0078431372549019607" green="0.023529411764705882" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="Ghl-0j-0Ip"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="0i6-er-RTZ" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Bkz-Ge-yJt"/>
                             <constraint firstItem="0i6-er-RTZ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="LnH-7n-I5p"/>
-                            <constraint firstItem="DY4-oT-oiv" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="YYR-kL-lXy"/>
-                            <constraint firstAttribute="trailing" secondItem="DY4-oT-oiv" secondAttribute="trailing" id="kjm-b9-J7F"/>
-                            <constraint firstItem="DY4-oT-oiv" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="n5l-a3-Ch4"/>
                         </constraints>
                     </view>
                 </viewController>

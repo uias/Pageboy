@@ -10,9 +10,11 @@ import UIKit
 
 extension PageViewController {
     
-    //
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     // MARK: Bar buttons
-    //
     
     func addBarButtons() {
         
@@ -31,9 +33,7 @@ extension PageViewController {
         self.nextBarButton?.isEnabled = index != (self.viewControllers?.count ?? 0) - 1
     }
     
-    //
     // MARK: Appearance
-    //
     
     func updateAppearance(pageOffset: CGFloat) {
         
