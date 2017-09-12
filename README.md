@@ -3,7 +3,7 @@
 </p>
 
 [![Build Status](https://travis-ci.org/uias/Pageboy.svg?branch=master)](https://travis-ci.org/uias/Pageboy)
-[![Swift 3.1 | 3.2 | 4](https://img.shields.io/badge/Swift-3.1%20%7C%203.2%20%7C%204-orange.svg?style=flat)](https://developer.apple.com/swift/)
+[![Swift 3.1 | 3.2 | 4](https://img.shields.io/badge/Swift-4.0-orange.svg?style=flat)](https://developer.apple.com/swift/)
 [![CocoaPods](https://img.shields.io/cocoapods/v/Pageboy.svg)]()
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![codecov](https://codecov.io/gh/uias/Pageboy/branch/master/graph/badge.svg)](https://codecov.io/gh/uias/Pageboy)
@@ -21,9 +21,9 @@
 - [x] Support for custom page transitions.
 
 ## Requirements
-Pageboy requires iOS 8.0 and Swift 3.1 or above.
+Pageboy requires iOS 8.0 and Swift 4.0 or above.
 
-Swift 4 support is currently available in the `swift4` branch.
+For Swift 3.x support, please use the latest [1.x release](https://github.com/uias/Pageboy/releases/tag/1.4.1).
 
 ## Installation
 ### CocoaPods
