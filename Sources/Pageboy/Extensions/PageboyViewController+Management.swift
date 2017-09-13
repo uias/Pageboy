@@ -19,10 +19,9 @@ public extension PageboyViewController {
     }
     
     /// Reload the currently active page into the page view controller if possible.
-    /// Does not reload from dataSource.
     internal func reloadCurrentPageSoftly() {
         guard let currentIndex = self.currentIndex else { return }
-        guard let currentViewController = self.viewControllers?[currentIndex] else { return }
+        guard let currentViewController = viewController(at: currentIndex) else { return }
         
         self.pageViewController?.setViewControllers([currentViewController], direction: .forward,
                                                     animated: false, completion: nil)
@@ -78,27 +77,39 @@ internal extension PageboyViewController {
     /// - Parameter reloadViewControllers: Reload the view controller data source.
     internal func reloadPages(reloadViewControllers: Bool) {
         
-        if reloadViewControllers || self.viewControllers == nil {
-            self.viewControllers = self.dataSource?.viewControllers(forPageboyViewController: self)
+        if reloadViewControllers {
+            viewControllerMap.clear()
         }
-        let defaultIndex = self.dataSource?.defaultPageIndex(forPageboyViewController: self) ?? .first
-        let defaultIndexValue = self.indexValue(for: defaultIndex)
         
-        guard defaultIndexValue < self.viewControllers?.count ?? 0,
-            let viewController = self.viewControllers?[defaultIndexValue] else {
+        let viewControllerCount = dataSource?.numberOfViewControllers(in: self) ?? 0
+        self.viewControllerCount = viewControllerCount
+        
+        let defaultPage = self.dataSource?.defaultPage(for: self) ?? .first
+        let defaultIndex = self.indexValue(for: defaultPage)
+        
+        guard defaultIndex < viewControllerCount,
+            let viewController = viewController(at: defaultIndex) else {
                 return
         }
         
-        self.currentIndex = defaultIndexValue
+        self.currentIndex = defaultIndex
         self.pageViewController?.setViewControllers([viewController],
                                                     direction: .forward,
                                                     animated: false,
                                                     completion: nil)
         
-        guard let viewControllers = self.viewControllers else { return }
         self.delegate?.pageboyViewController(self,
-                                             didReload: viewControllers,
-                                             currentIndex: defaultIndex)
+                                             didReloadWith: viewController,
+                                             currentPageIndex: defaultIndex)
+    }
+    
+    internal func viewController(at index: PageIndex) -> UIViewController? {
+        let viewController = dataSource?.viewController(for: self, at: index)
+        if let viewController = viewController {
+            let wrapper = WeakWrapper<UIViewController>(with: viewController)
+            viewControllerMap.set(object: wrapper, for: index)
+        }
+        return viewController
     }
     
     /// Re-initialize the internal UIPageViewController instance without reloading data source if it currently exists.
@@ -123,19 +134,19 @@ internal extension PageboyViewController {
     
     // MARK: Utilities
     
-    /// Convert a PageIndex to a raw index integer.
+    /// Convert a Page to a raw PageIndex.
     ///
     /// - Parameter pageIndex: The page index to translate.
     /// - Returns: The raw index integer.
-    internal func indexValue(for pageIndex: PageIndex) -> Int {
-        switch pageIndex {
+    internal func indexValue(for page: Page) -> PageIndex {
+        switch page {
             
         case .next:
             guard let currentIndex = self.currentIndex else {
                 return 0
             }
             var proposedIndex = currentIndex + 1
-            if self.isInfiniteScrollEnabled && proposedIndex == self.viewControllers?.count { // scroll back to first index
+            if self.isInfiniteScrollEnabled && proposedIndex == viewControllerCount { // scroll back to first index
                 proposedIndex = 0
             }
             return proposedIndex
@@ -146,7 +157,7 @@ internal extension PageboyViewController {
             }
             var proposedIndex = currentIndex - 1
             if self.isInfiniteScrollEnabled && proposedIndex < 0 { // scroll to last index
-                proposedIndex = (self.viewControllers?.count ?? 1) - 1
+                proposedIndex = (viewControllerCount ?? 1) - 1
             }
             return proposedIndex
             
@@ -154,10 +165,7 @@ internal extension PageboyViewController {
             return 0
             
         case .last:
-            return (self.viewControllers?.count ?? 1) - 1
-            
-        case .atIndex(let index):
-            return index
+            return (viewControllerCount ?? 1) - 1
             
         case .at(let index):
             return index
@@ -170,15 +178,13 @@ extension PageboyViewController: UIPageViewControllerDataSource {
     
     public func pageViewController(_ pageViewController: UIPageViewController,
                                    viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        guard let viewControllers = self.viewControllers else {
-            return nil
-        }
-        
-        if let index = viewControllers.index(of: viewController) {
+        guard let viewControllerCount = self.viewControllerCount else { return nil }
+
+        if let index = self.currentIndex {
             if index != 0 {
-                return viewControllers[index - 1]
+                return self.viewController(at: index - 1)
             } else if self.isInfiniteScrollEnabled {
-                return viewControllers[viewControllers.count - 1]
+                return self.viewController(at: viewControllerCount - 1)
             }
         }
         return nil
@@ -186,15 +192,13 @@ extension PageboyViewController: UIPageViewControllerDataSource {
     
     public func pageViewController(_ pageViewController: UIPageViewController,
                                    viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        guard let viewControllers = self.viewControllers else {
-            return nil
-        }
+        guard let viewControllerCount = self.viewControllerCount else { return nil }
         
-        if let index = viewControllers.index(of: viewController) {
-            if index != viewControllers.count - 1 {
-                return viewControllers[index + 1]
+        if let index = self.currentIndex {
+            if index != viewControllerCount - 1 {
+                return self.viewController(at: index + 1)
             } else if self.isInfiniteScrollEnabled {
-                return viewControllers[0]
+                return self.viewController(at: 0)
             }
         }
         return nil

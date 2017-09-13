@@ -30,12 +30,13 @@ extension PageViewController {
     
     func updateBarButtonStates(index: Int) {
         self.previousBarButton?.isEnabled = index != 0
-        self.nextBarButton?.isEnabled = index != (self.viewControllers?.count ?? 0) - 1
+        self.nextBarButton?.isEnabled = index != (self.pageCount ?? 0) - 1
     }
     
+
     // MARK: Appearance
-    
-    func updateAppearance(pageOffset: CGFloat) {
+
+    func updateGradient(for pageOffset: CGFloat) {
         
         var offset = pageOffset
         if offset < 0.0 {

@@ -1,10 +1,13 @@
 Pod::Spec.new do |s|
 
   s.name         = "Pageboy"
-  s.platform     = :ios, "8.0"
+
+  s.ios.deployment_target = '8.0'
+  s.tvos.deployment_target = '10.0'
+
   s.requires_arc = true
 
-  s.version      = "1.4.1"
+  s.version      = "2.0.0.beta.5"
   s.summary      = "A simple, highly informative page view controller."
   s.description  = <<-DESC
   					A page view controller that provides simplified data source management, enhanced delegation and other useful features.

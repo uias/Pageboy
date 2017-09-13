@@ -2,6 +2,9 @@
 All notable changes to this project will be documented in this file.
 `Pageboy` adheres to [Semantic Versioning](http://semver.org/).
 
+#### 2.x Releases
+- `2.0.x` Releases - [2.0.0 Beta 1](#200Beta1) | [2.0.0 Beta 2](#200Beta2) | [2.0.0 Beta 3](#200Beta3) | [2.0.0 Beta 4](#200Beta4) | [2.0.0 Beta 5](#200Beta5)
+
 #### 1.x Releases
 - `1.4.x` Releases - [1.4.0](#140) | [1.4.1](#141)
 - `1.3.x` Releases - [1.3.0](#130) | [1.3.1](#131) | [1.3.2](#132) | [1.3.3](#133)
@@ -10,7 +13,50 @@ All notable changes to this project will be documented in this file.
 - `1.0.x` Releases - [1.0.0](#100) | [1.0.1](#101) | [1.0.2](#102) | [1.0.3](#103) | [1.0.4](#104) | [1.0.5](#105) | [1.0.6](#106) | [1.0.7](#107) | [1.0.8](#108) | [1.0.9](#109)
 
 #### 0.x Releases
-- `0.4.X` Releases - [0.4.0](#040) | [0.4.1](#041) | [0.4.2](#042) | [0.4.3](#043) | [0.4.4](#044) | [0.4.5](#045) | [0.4.6](#046) | [0.4.7](#047) | [0.4.8](#048) | [0.4.9](#049) | [0.4.10](#0410) | [0.4.11](#0411) | [0.4.12](#0412)
+- `0.4.x` Releases - [0.4.0](#040) | [0.4.1](#041) | [0.4.2](#042) | [0.4.3](#043) | [0.4.4](#044) | [0.4.5](#045) | [0.4.6](#046) | [0.4.7](#047) | [0.4.8](#048) | [0.4.9](#049) | [0.4.10](#0410) | [0.4.11](#0411) | [0.4.12](#0412)
+
+---
+
+## [2.0.0.Beta.5](https://github.com/uias/Pageboy/releases/tag/2.0.0.beta.5)
+Released on 2017-09-06
+
+#### Added
+- [1.4.1](https://github.com/uias/Pageboy/releases/tag/1.4.1) - Latest Pageboy changes from v1.4.1.
+
+## [2.0.0.Beta.4](https://github.com/uias/Pageboy/releases/tag/2.0.0.beta.4)
+Released on 2017-08-09
+
+#### Added
+- [#80](https://github.com/uias/Pageboy/issues/80) Swift 4 support.
+
+#### Fixed
+- [#95](https://github.com/uias/Pageboy/issues/95) Build issue when using Carthage.
+
+## [2.0.0.Beta.3](https://github.com/uias/Pageboy/releases/tag/2.0.0.beta.3)
+Released on 2017-07-28
+
+#### Added
+- [#92](https://github.com/uias/Pageboy/issues/92) Added support for tvOS.
+
+#### Updated
+- [#93](https://github.com/uias/Pageboy/issues/93) Update `currentViewController` to return the actual displayed view controller.
+
+## [2.0.0.Beta.2](https://github.com/uias/Pageboy/releases/tag/2.0.0.beta.2)
+Released on 2017-07-25
+
+#### Updated
+- Added changes from Pageboy [1.4.0](https://github.com/uias/Pageboy/releases/tag/1.4.0) release.
+
+## [2.0.0.Beta.1](https://github.com/uias/Pageboy/releases/tag/2.0.0.beta.1)
+Released on 2017-07-24
+
+#### Updated
+- [#88](https://github.com/uias/Pageboy/issues/88) Completely redesign `PageboyViewControllerDataSource` to support improved view controller reuse.
+     - Added by [msaps](https://github.com/msaps).
+- [#78](https://github.com/uias/Pageboy/issues/78) Update `PageboyViewControllerDataSource` to support the latest recommended code syntax style.
+     - Added by [msaps](https://github.com/msaps).
+- Update `PageboyViewControllerDelegate` to support the latest changes to `PageboyViewControllerDataSource `.
+     - Added by [msaps](https://github.com/msaps).
 
 ---
 

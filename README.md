@@ -3,7 +3,7 @@
 </p>
 
 [![Build Status](https://travis-ci.org/uias/Pageboy.svg?branch=master)](https://travis-ci.org/uias/Pageboy)
-[![Swift 3.1 | 3.2 | 4](https://img.shields.io/badge/Swift-4.0-orange.svg?style=flat)](https://developer.apple.com/swift/)
+[![Swift 4](https://img.shields.io/badge/Swift-4-orange.svg?style=flat)](https://developer.apple.com/swift/)
 [![CocoaPods](https://img.shields.io/cocoapods/v/Pageboy.svg)]()
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![codecov](https://codecov.io/gh/uias/Pageboy/branch/master/graph/badge.svg)](https://codecov.io/gh/uias/Pageboy)
@@ -23,13 +23,13 @@
 ## Requirements
 Pageboy requires iOS 8.0 and Swift 4.0 or above.
 
-For Swift 3.x support, please use the latest [1.x release](https://github.com/uias/Pageboy/releases/tag/1.4.1).
+For Swift 3.x support, please use the latest [1.x release](https://github.com/uias/Pageboy/releases/tag/1.4.1) (For 1.x legacy API docs, see [here](https://github.com/uias/Pageboy/blob/1.4.0/README.md)).
 
 ## Installation
 ### CocoaPods
 Pageboy is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
 ```ruby
-pod 'Pageboy' ~> 1.4
+pod 'Pageboy' ~> 2.0
 ```
 And run `pod install`.
 
@@ -44,7 +44,7 @@ $ brew install carthage
 Add Pageboy to your `Cartfile`:
 
 ```ogdl
-github "uias/Pageboy" ~> 1.4
+github "uias/Pageboy" ~> 2.0
 ```
 
 ## Usage
@@ -66,16 +66,18 @@ class PageViewController: PageboyViewController, PageboyViewControllerDataSource
 2) Implement the `PageboyViewControllerDataSource` functions.
 
 ```swift
-func viewControllers(forPageboyViewController pageboyViewController: PageboyViewController) -> [UIViewController]? {
-	// return array of view controllers
-	return [viewController1, viewController2]
+func numberOfViewControllers(in pageboyViewController: PageboyViewController) -> Int {
+    return viewControllers.count
 }
-
-func defaultPageIndex(forPageboyViewController pageboyViewController: PageboyViewController) -> PageboyViewController.PageIndex? {
-	// use default index
-	return nil
+    
+func viewController(for pageboyViewController: PageboyViewController,
+                    at index: PageboyViewController.PageIndex) -> UIViewController? {
+    return viewControllers[index]
 }
-
+    
+func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {
+    return nil
+}
 ```
 
 3) Enjoy.
@@ -89,9 +91,9 @@ Called when the page view controller is about to embark on a transition to a new
 
 ```swift
 func pageboyViewController(_ pageboyViewController: PageboyViewController,
-                             willScrollToPageAtIndex index: Int,
-                             direction: PageboyViewController.NavigationDirection,
-                             animated: Bool)
+                           willScrollToPageAt index: Int,
+                           direction: PageboyViewController.NavigationDirection,
+                           animated: Bool)
 ```
 
 #### didScrollToPosition
@@ -99,8 +101,9 @@ Called when the page view controller was scrolled to a relative position along t
 
 ```swift
 func pageboyViewController(_ pageboyViewController: PageboyViewController,
-                             didScrollToPosition position: CGPoint,
-                             direction: PageboyViewController.NavigationDirection)
+                           didScrollTo position: CGPoint,
+                           direction: PageboyViewController.NavigationDirection,
+                           animated: Bool)
 ```
 
 #### didScrollToPage
@@ -108,9 +111,9 @@ Called when the page view controller did successfully complete a scroll transiti
 
 ```swift
 func pageboyViewController(_ pageboyViewController: PageboyViewController,
-                             didScrollToPageAtIndex index: Int,
-                             direction: PageboyViewController.NavigationDirection,
-                             animated: Bool)
+                           didScrollToPageAt index: Int,
+                           direction: PageboyViewController.NavigationDirection,
+                           animated: Bool)
 ```
 
 #### didReload
@@ -118,8 +121,8 @@ Called when the page view controller reloads its child view controllers.
 
 ```swift
 func pageboyViewController(_ pageboyViewController: PageboyViewController,
-                             didReload viewControllers: [UIViewController],
-                             currentIndex: PageboyViewController.PageIndex)
+                           didReloadWith currentViewController: UIViewController,
+                           currentPageIndex: PageboyViewController.PageIndex)
 ```
 
 ## Additional functionality
@@ -151,30 +154,13 @@ The following styles are available:
 - `.moveIn`
 - `.reveal`
 
-### AutoScrolling
+### Auto Scrolling
 `PageboyAutoScroller` is available to set up timer based automatic scrolling of the `PageboyViewController`:
 
 ```swift
 pageboyViewController.autoScroller.enable()
 ```
 Support for custom intermission duration and other scroll behaviors is also available.
-
-### Properties
-#### View Controller Management
-- `viewControllers`: `[UIViewController]?` - The view controllers that are displayed in the page view controller.
-- `currentViewController`: `UIViewController?` - The view controller that the page view controller is currently at.
-
-#### Positional Data
-- `currentIndex`: `Int?` - The page index that the page view controller is currently at.
-- `currentPosition`: `CGPoint?` - The relative page position that the page view controller is currently at.
-
-#### Interaction
-- `isScrollEnabled`: `Bool` - Whether scroll is enabled on the page view controller.
-- `isDragging`: `Bool` -  Whether the page view controller is currently being dragged.
-- `isScrollingAnimated`: `Bool` - Whether the page view controller is currently animating a scroll between pages.
-- `isUserInteractionEnabled`: `Bool` - Whether user interaction is enabled on the page view controller.
-- `navigationOrientation`: `UIPageViewControllerNavigationOrientation` - The orientation that the page view controller transitions on.
-- `isInfiniteScrollEnabled`: `Bool` - Whether the page view controller should infinitely scroll  between page limits (i.e. able to continuously scroll to first page from last).
 
 ## About
 - Created by [Merrick Sapsford](https://github.com/msaps) ([@MerrickSapsford](https://twitter.com/MerrickSapsford))
@@ -184,5 +170,4 @@ Support for custom intermission duration and other scroll behaviors is also avai
 Bug reports and pull requests are welcome on GitHub at [https://github.com/uias/Pageboy](https://github.com/uias/Pageboy).
 
 ## License
-
 The library is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).

@@ -20,7 +20,7 @@ class PageboyPropertyTests: PageboyTests {
         
         let currentViewController = self.pageboyViewController.currentViewController
         
-        XCTAssertTrue(currentViewController === self.dataSource.viewControllers[1],
+        XCTAssertTrue(currentViewController === self.dataSource.viewControllers?[1],
                       "currentViewController property is incorrect following transitions.")
     }
     
