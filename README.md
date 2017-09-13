@@ -22,7 +22,7 @@
 - [x] Support for custom page transitions.
 
 ## Requirements
-Pageboy requires iOS 8.0 and Swift 4.0 or above.
+Pageboy requires iOS 8.0 / tvOS 10.0 and Swift 4.0 or above.
 
 For Swift 3.x support, please use the latest [1.x release](https://github.com/uias/Pageboy/releases/tag/1.4.1) (For 1.x legacy API docs, see [here](https://github.com/uias/Pageboy/blob/1.4.0/README.md)).
 
