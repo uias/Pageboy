@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 `Pageboy` adheres to [Semantic Versioning](http://semver.org/).
 
 #### 2.x Releases
-- `2.0.x` Releases - [2.0.0 Beta 1](#200Beta1) | [2.0.0 Beta 2](#200Beta2) | [2.0.0 Beta 3](#200Beta3) | [2.0.0 Beta 4](#200Beta4) | [2.0.0 Beta 5](#200Beta5)
+- `2.0.x` Releases - [2.0.0](#200)
 
 #### 1.x Releases
 - `1.4.x` Releases - [1.4.0](#140) | [1.4.1](#141)
@@ -17,46 +17,24 @@ All notable changes to this project will be documented in this file.
 
 ---
 
-## [2.0.0.Beta.5](https://github.com/uias/Pageboy/releases/tag/2.0.0.beta.5)
-Released on 2017-09-06
-
-#### Added
-- [1.4.1](https://github.com/uias/Pageboy/releases/tag/1.4.1) - Latest Pageboy changes from v1.4.1.
-
-## [2.0.0.Beta.4](https://github.com/uias/Pageboy/releases/tag/2.0.0.beta.4)
-Released on 2017-08-09
+## [2.0.0](https://github.com/uias/Pageboy/releases/tag/2.0.0)
+Released on 2017-09-13
 
 #### Added
 - [#80](https://github.com/uias/Pageboy/issues/80) Swift 4 support.
-
-#### Fixed
-- [#95](https://github.com/uias/Pageboy/issues/95) Build issue when using Carthage.
-
-## [2.0.0.Beta.3](https://github.com/uias/Pageboy/releases/tag/2.0.0.beta.3)
-Released on 2017-07-28
-
-#### Added
-- [#92](https://github.com/uias/Pageboy/issues/92) Added support for tvOS.
-
-#### Updated
-- [#93](https://github.com/uias/Pageboy/issues/93) Update `currentViewController` to return the actual displayed view controller.
-
-## [2.0.0.Beta.2](https://github.com/uias/Pageboy/releases/tag/2.0.0.beta.2)
-Released on 2017-07-25
-
-#### Updated
-- Added changes from Pageboy [1.4.0](https://github.com/uias/Pageboy/releases/tag/1.4.0) release.
-
-## [2.0.0.Beta.1](https://github.com/uias/Pageboy/releases/tag/2.0.0.beta.1)
-Released on 2017-07-24
+     - by [msaps](https://github.com/msaps).
+- [#81](https://github.com/uias/Pageboy/issues/81) Support for Xcode 9 and iOS 11.
+     - by [msaps](https://github.com/msaps).
+- [#92](https://github.com/uias/Pageboy/issues/92) tvOS support.
+     - by [msaps](https://github.com/msaps).
 
 #### Updated
 - [#88](https://github.com/uias/Pageboy/issues/88) Completely redesign `PageboyViewControllerDataSource` to support improved view controller reuse.
-     - Added by [msaps](https://github.com/msaps).
+     - by [msaps](https://github.com/msaps).
 - [#78](https://github.com/uias/Pageboy/issues/78) Update `PageboyViewControllerDataSource` to support the latest recommended code syntax style.
-     - Added by [msaps](https://github.com/msaps).
+     - by [msaps](https://github.com/msaps).
 - Update `PageboyViewControllerDelegate` to support the latest changes to `PageboyViewControllerDataSource `.
-     - Added by [msaps](https://github.com/msaps).
+     - by [msaps](https://github.com/msaps).
 
 ---
 
