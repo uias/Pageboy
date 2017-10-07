@@ -30,7 +30,7 @@ For Swift 3.x support, please use the latest [1.x release](https://github.com/ui
 ### CocoaPods
 Pageboy is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
 ```ruby
-pod 'Pageboy' ~> 2.0
+pod 'Pageboy', '~> 2.0'
 ```
 And run `pod install`.
 
