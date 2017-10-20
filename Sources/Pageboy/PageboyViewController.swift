@@ -369,15 +369,16 @@ open class PageboyViewController: UIViewController {
                                    with: direction,
                                    animated: animated,
                                    completion: transitionCompletion)
-            self.pageViewController?.setViewControllers([viewController],
-                                                        direction: direction.pageViewControllerNavDirection,
-                                                        animated: false,
-                                                        completion:
-                { (finished) in
-                    guard animated == false else { return }
-                    transitionCompletion(finished)
-            })
-            
+            DispatchQueue.main.async {
+                self.pageViewController?.setViewControllers([viewController],
+                                                            direction: direction.pageViewControllerNavDirection,
+                                                            animated: false,
+                                                            completion:
+                    { (finished) in
+                        guard animated == false else { return }
+                        transitionCompletion(finished)
+                })
+            }
             return true
             
         } else {
@@ -388,5 +389,4 @@ open class PageboyViewController: UIViewController {
             return false
         }
     }
-    
 }
