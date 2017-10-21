@@ -7,13 +7,14 @@ platform :ios do
 
   desc "Run unit tests and check library"
   lane :test do
-    scan(workspace: "Pageboy.xcworkspace", scheme: "Pageboy", clean: true)
+    scan(workspace: "Pageboy.xcworkspace", scheme: "Pageboy iOS", clean: true)
     pod_lib_lint(verbose: true)
   end
 
   desc "Deploy a new version to CocoaPods and GitHub"
   lane :deploy do
-    
+    test
+
     podspec = "Pageboy.podspec"
     version = version_get_podspec(path: podspec)
 
