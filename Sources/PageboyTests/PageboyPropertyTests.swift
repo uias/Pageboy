@@ -16,12 +16,16 @@ class PageboyPropertyTests: PageboyTests {
         self.dataSource.numberOfPages = 5
         self.pageboyViewController.dataSource = self.dataSource
         
-        self.pageboyViewController.scrollToPage(.next, animated: false)
-        
-        let currentViewController = self.pageboyViewController.currentViewController
-        
-        XCTAssertTrue(currentViewController === self.dataSource.viewControllers?[1],
-                      "currentViewController property is incorrect following transitions.")
+        performAsyncTest { (completion) in
+            
+            self.pageboyViewController.scrollToPage(.next, animated: false) { (newViewController, animated, finished) in
+                let currentViewController = self.pageboyViewController.currentViewController
+                
+                XCTAssertTrue(currentViewController === self.dataSource.viewControllers?[1],
+                              "currentViewController property is incorrect following transitions.")
+                completion()
+            }
+        }
     }
     
     /// Test that setting isScrollEnabled updates internal scroll view correctly.
