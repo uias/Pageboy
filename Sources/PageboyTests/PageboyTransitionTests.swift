@@ -17,10 +17,15 @@ class PageboyTransitionTests: PageboyTests {
         self.pageboyViewController.dataSource = self.dataSource
         let transitionIndex = 2
         
-        self.pageboyViewController.scrollToPage(.at(index: transitionIndex), animated: false)
-        
-        XCTAssert(self.pageboyViewController.currentIndex == transitionIndex,
-                  "Not transitioning to valid custom index correctly (Non animated).")
+        performAsyncTest { (completion) in
+            self.pageboyViewController.scrollToPage(.at(index: transitionIndex),
+                                                    animated: false)
+            { (newViewController, animated, finished) in
+                XCTAssert(self.pageboyViewController.currentIndex == transitionIndex,
+                          "Not transitioning to valid custom index correctly (Non animated).")
+                completion()
+            }
+        }
     }
     
     /// Test attempting transition to an out of bounds custom PageIndex
@@ -51,10 +56,15 @@ class PageboyTransitionTests: PageboyTests {
         self.dataSource.numberOfPages = 5
         self.pageboyViewController.dataSource = self.dataSource
         
-        self.pageboyViewController.scrollToPage(.last, animated: false)
-        
-        XCTAssert(self.pageboyViewController.currentIndex == 4,
-                  "Not transitioning to last index correctly.")
+        performAsyncTest { (completion) in
+            self.pageboyViewController.scrollToPage(.last,
+                                                    animated: false)
+            { (newViewController, animated, finished) in
+                XCTAssert(self.pageboyViewController.currentIndex == 4,
+                          "Not transitioning to last index correctly.")
+                completion()
+            }
+        }
     }
     
     /// Test transition to a .next PageIndex
@@ -62,10 +72,15 @@ class PageboyTransitionTests: PageboyTests {
         self.dataSource.numberOfPages = 5
         self.pageboyViewController.dataSource = self.dataSource
         
-        self.pageboyViewController.scrollToPage(.next, animated: false)
-        
-        XCTAssert(self.pageboyViewController.currentIndex == 1,
-                  "Not transitioning to next index correctly.")
+        performAsyncTest { (completion) in
+            self.pageboyViewController.scrollToPage(.next,
+                                                    animated: false)
+            { (newViewController, animated, finished) in
+                XCTAssert(self.pageboyViewController.currentIndex == 1,
+                          "Not transitioning to next index correctly.")
+                completion()
+            }
+        }
     }
     
     /// Test transition to a .previous PageIndex
@@ -73,11 +88,20 @@ class PageboyTransitionTests: PageboyTests {
         self.dataSource.numberOfPages = 5
         self.pageboyViewController.dataSource = self.dataSource
         
-        self.pageboyViewController.scrollToPage(.last, animated: false)
-        self.pageboyViewController.scrollToPage(.previous, animated: false)
-        
-        XCTAssert(self.pageboyViewController.currentIndex == 3,
-                  "Not transitioning to previous index correctly.")
+        performAsyncTest { (completion) in
+            
+            self.pageboyViewController.scrollToPage(.last,
+                                                    animated: false)
+            { (newViewController, animated, finished) in
+                self.pageboyViewController.scrollToPage(.previous,
+                                                        animated: false)
+                { (newViewController, animated, finished) in
+                    XCTAssert(self.pageboyViewController.currentIndex == 3,
+                              "Not transitioning to previous index correctly.")
+                    completion()
+                }
+            }
+        }
     }
     
     /// Test partial user interacted transition reports offsets correctly.
