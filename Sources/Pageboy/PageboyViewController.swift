@@ -278,6 +278,10 @@ open class PageboyViewController: UIViewController {
             return self.pageViewController?.viewControllers?.last
         }
     }
+    internal var isCurrentlyOnPageIndex: Bool {
+        let currentPosition = navigationOrientation == .horizontal ? self.currentPosition?.x : self.currentPosition?.y
+        return currentPosition?.truncatingRemainder(dividingBy: 1) == 0
+    }
     
     
     /// Auto Scroller for automatic time-based page transitions.
@@ -321,6 +325,7 @@ open class PageboyViewController: UIViewController {
         // guard against any current transition operation
         guard self.isScrollingAnimated == false else { return false }
         guard !(self.isTracking && self.isDragging && self.isDecelerating) else { return false }
+        guard self.isCurrentlyOnPageIndex else { return false }
         guard let pageViewController = self.pageViewController else { return false }
         
         let rawIndex = self.indexValue(for: page)
