@@ -187,6 +187,10 @@ open class PageboyViewController: UIViewController {
     public var isDragging: Bool {
             return self.pageViewController?.scrollView?.isDragging ?? false
     }
+    // Wether the user isn't dragging (touch up) but page view controller is still moving.
+    public var isDecelerating: Bool {
+        return self.pageViewController?.scrollView?.isDecelerating ?? false
+    }
     /// Whether user interaction is enabled on the page view controller.
     ///
     /// Default is TRUE
@@ -316,7 +320,7 @@ open class PageboyViewController: UIViewController {
         
         // guard against any current transition operation
         guard self.isScrollingAnimated == false else { return false }
-        guard self.isTracking == false else { return false }
+        guard !(self.isTracking && self.isDragging && self.isDecelerating) else { return false }
         guard let pageViewController = self.pageViewController else { return false }
         
         let rawIndex = self.indexValue(for: page)
