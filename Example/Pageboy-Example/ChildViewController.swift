@@ -14,6 +14,13 @@ class ChildViewController: UIViewController {
     @IBOutlet weak var promptLabel: UILabel!
 
     var index: Int?
+
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        if index == 1 {
+            return .lightContent
+        }
+        return .default
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

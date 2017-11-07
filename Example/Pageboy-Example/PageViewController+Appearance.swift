@@ -10,10 +10,6 @@ import UIKit
 
 extension PageViewController {
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-    
     // MARK: Bar buttons
     
     func addBarButtons() {
