@@ -92,7 +92,6 @@ internal extension PageboyViewController {
                 return
         }
         
-        self.currentIndex = defaultIndex
         DispatchQueue.main.async {
             self.pageViewController?.setViewControllers([viewController],
                                                         direction: .forward,
@@ -103,6 +102,7 @@ internal extension PageboyViewController {
                                                          didReloadWith: viewController,
                                                          currentPageIndex: defaultIndex)
             })
+            self.currentIndex = defaultIndex
         }
     }
     
