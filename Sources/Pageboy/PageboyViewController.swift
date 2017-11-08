@@ -326,7 +326,6 @@ open class PageboyViewController: UIViewController {
         guard self.isScrollingAnimated == false else { return false }
         guard !(self.isTracking && self.isDragging && self.isDecelerating) else { return false }
         guard self.isPositionedOnPageIndex else { return false }
-        guard let pageViewController = self.pageViewController else { return false }
         
         let rawIndex = self.indexValue(for: page)
         if rawIndex != self.currentIndex {
@@ -334,7 +333,8 @@ open class PageboyViewController: UIViewController {
             // guard against invalid page indexing
             guard rawIndex >= 0 && rawIndex < viewControllerCount ?? 0 else { return false }
             guard let viewController = viewController(at: rawIndex) else { return false }
-            
+            guard let pageViewController = self.pageViewController else { return false }
+
             var direction = NavigationDirection.forPage(rawIndex, previousPage: self.currentIndex ?? rawIndex)
             
             if isInfiniteScrollEnabled {
@@ -378,16 +378,15 @@ open class PageboyViewController: UIViewController {
                                    with: direction,
                                    animated: animated,
                                    completion: transitionCompletion)
-            DispatchQueue.main.async {
-                self.pageViewController?.setViewControllers([viewController],
-                                                            direction: direction.pageViewControllerNavDirection,
-                                                            animated: false,
-                                                            completion:
-                    { (finished) in
-                        guard animated == false else { return }
-                        transitionCompletion(finished)
-                })
-            }
+            self.updateViewControllers(to: [viewController],
+                                       direction: direction.pageViewControllerNavDirection,
+                                       animated: animated,
+                                       completion:
+                { (isFinished) in
+                    guard animated == false else { return }
+                    transitionCompletion(isFinished)
+            })
+            
             return true
             
         } else {
@@ -396,6 +395,28 @@ open class PageboyViewController: UIViewController {
             completion?(viewController, animated, false)
             
             return false
+        }
+    }
+    
+    private var isUpdatingViewControllers: Bool = false
+    internal func updateViewControllers(to viewControllers: [UIViewController],
+                                       direction: UIPageViewControllerNavigationDirection,
+                                       animated: Bool,
+                                       completion: ((Bool) -> Void)?) {
+        guard !isUpdatingViewControllers else {
+            return
+        }
+        
+        isUpdatingViewControllers = true
+        DispatchQueue.main.async {
+            self.pageViewController?.setViewControllers(viewControllers,
+                                                        direction: direction,
+                                                        animated: animated,
+                                                        completion:
+                { [unowned self] (isFinished) in
+                    self.isUpdatingViewControllers = false
+                    completion?(isFinished)
+            })
         }
     }
 }
