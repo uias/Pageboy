@@ -93,14 +93,17 @@ internal extension PageboyViewController {
         }
         
         self.currentIndex = defaultIndex
-        self.pageViewController?.setViewControllers([viewController],
-                                                    direction: .forward,
-                                                    animated: false,
-                                                    completion: nil)
-        
-        self.delegate?.pageboyViewController(self,
-                                             didReloadWith: viewController,
-                                             currentPageIndex: defaultIndex)
+        DispatchQueue.main.async {
+            self.pageViewController?.setViewControllers([viewController],
+                                                        direction: .forward,
+                                                        animated: false,
+                                                        completion:
+                { _ in
+                    self.delegate?.pageboyViewController(self,
+                                                         didReloadWith: viewController,
+                                                         currentPageIndex: defaultIndex)
+            })
+        }
     }
     
     internal func viewController(at index: PageIndex) -> UIViewController? {
