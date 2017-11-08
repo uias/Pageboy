@@ -23,11 +23,10 @@ public extension PageboyViewController {
         guard let currentIndex = self.currentIndex else { return }
         guard let currentViewController = viewController(at: currentIndex) else { return }
         
-        let update = ViewControllerUpdate(viewControllers: [currentViewController],
-                                          direction: .forward,
-                                          animated: false,
-                                          completion: nil)
-        performViewControllerUpdate(update)
+        updateViewControllers(to: [currentViewController],
+                              direction: .forward,
+                              animated: false,
+                              completion: nil)
     }
 }
 
@@ -95,16 +94,14 @@ internal extension PageboyViewController {
                 return
         }
         
-        let update = ViewControllerUpdate(viewControllers: [viewController],
-                                          direction: .forward,
-                                          animated: false)
+        updateViewControllers(to: [viewController],
+                              direction: .forward,
+                              animated: false)
         { _ in
             self.delegate?.pageboyViewController(self,
                                                  didReloadWith: viewController,
                                                  currentPageIndex: defaultIndex)
         }
-        performViewControllerUpdate(update)
-        
         self.currentIndex = defaultIndex
     }
     
