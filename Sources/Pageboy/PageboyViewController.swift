@@ -248,7 +248,22 @@ open class PageboyViewController: UIViewController {
         didSet {
             guard let currentIndex = self.currentIndex else { return }
 
-            updateForNewCurrentIndex(currentIndex, from: oldValue)
+            #if os(iOS)
+            UIView.animate(withDuration: 0.3) { 
+                self.setNeedsStatusBarAppearanceUpdate()
+            }
+            #endif
+            
+            // ensure position keeps in sync
+            self.currentPosition = CGPoint(x: self.navigationOrientation == .horizontal ? CGFloat(currentIndex) : 0.0,
+                                           y: self.navigationOrientation == .vertical ? CGFloat(currentIndex) : 0.0)
+            let direction = NavigationDirection.forPosition(CGFloat(currentIndex),
+                                                            previous: CGFloat(oldValue ?? currentIndex))
+            self.delegate?.pageboyViewController(self,
+                                                 didScrollToPageAt: currentIndex,
+                                                 direction: direction,
+                                                 animated: self.isScrollingAnimated)
+
         }
     }
     /// The relative page position that the page view controller is currently at.
@@ -294,7 +309,7 @@ open class PageboyViewController: UIViewController {
     }
     
     
-    // MARK: Actions
+    // MARK: Scrolling
     
     /// Scroll the page view controller to a new page.
     ///
@@ -383,17 +398,7 @@ open class PageboyViewController: UIViewController {
         }
     }
     
-    
-    // MARK: Updating
-    
     private var isUpdatingViewControllers: Bool = false
-    /// Calls guarded setViewControllers on internal UIPageViewController
-    ///
-    /// - Parameters:
-    ///   - viewControllers: new view controllers.
-    ///   - direction: direction for transition.
-    ///   - animated: whether to animate.
-    ///   - completion: completion closure.
     internal func updateViewControllers(to viewControllers: [UIViewController],
                                        direction: UIPageViewControllerNavigationDirection,
                                        animated: Bool,
@@ -413,29 +418,5 @@ open class PageboyViewController: UIViewController {
                     completion?(isFinished)
             })
         }
-    }
-    
-    /// Update the controller for a new current index.
-    ///
-    /// - Parameters:
-    ///   - currentIndex: The new current index.
-    ///   - oldValue: The previous current index.
-    private func updateForNewCurrentIndex(_ currentIndex: PageIndex, from oldValue: PageIndex?) {
-        
-        #if os(iOS)
-            UIView.animate(withDuration: 0.3) {
-                self.setNeedsStatusBarAppearanceUpdate()
-            }
-        #endif
-        
-        // ensure position keeps in sync
-        self.currentPosition = CGPoint(x: self.navigationOrientation == .horizontal ? CGFloat(currentIndex) : 0.0,
-                                       y: self.navigationOrientation == .vertical ? CGFloat(currentIndex) : 0.0)
-        let direction = NavigationDirection.forPosition(CGFloat(currentIndex),
-                                                        previous: CGFloat(oldValue ?? currentIndex))
-        self.delegate?.pageboyViewController(self,
-                                             didScrollToPageAt: currentIndex,
-                                             direction: direction,
-                                             animated: self.isScrollingAnimated)
     }
 }
