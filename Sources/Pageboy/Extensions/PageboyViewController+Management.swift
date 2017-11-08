@@ -23,10 +23,8 @@ public extension PageboyViewController {
         guard let currentIndex = self.currentIndex else { return }
         guard let currentViewController = viewController(at: currentIndex) else { return }
         
-        updateViewControllers(to: [currentViewController],
-                              direction: .forward,
-                              animated: false,
-                              completion: nil)
+        self.pageViewController?.setViewControllers([currentViewController], direction: .forward,
+                                                    animated: false, completion: nil)
     }
 }
 
@@ -94,15 +92,18 @@ internal extension PageboyViewController {
                 return
         }
         
-        updateViewControllers(to: [viewController],
-                              direction: .forward,
-                              animated: false)
-        { _ in
-            self.delegate?.pageboyViewController(self,
-                                                 didReloadWith: viewController,
-                                                 currentPageIndex: defaultIndex)
+        DispatchQueue.main.async {
+            self.pageViewController?.setViewControllers([viewController],
+                                                        direction: .forward,
+                                                        animated: false,
+                                                        completion:
+                { _ in
+                    self.delegate?.pageboyViewController(self,
+                                                         didReloadWith: viewController,
+                                                         currentPageIndex: defaultIndex)
+            })
+            self.currentIndex = defaultIndex
         }
-        self.currentIndex = defaultIndex
     }
     
     internal func viewController(at index: PageIndex) -> UIViewController? {
