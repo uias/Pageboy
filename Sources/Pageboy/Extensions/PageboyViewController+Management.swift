@@ -92,11 +92,11 @@ internal extension PageboyViewController {
                 return
         }
         
-        self.currentIndex = defaultIndex
         self.pageViewController?.setViewControllers([viewController],
                                                     direction: .forward,
                                                     animated: false,
                                                     completion: nil)
+        self.currentIndex = defaultIndex
         
         self.delegate?.pageboyViewController(self,
                                              didReloadWith: viewController,
