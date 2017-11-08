@@ -16,10 +16,7 @@ class ChildViewController: UIViewController {
     var index: Int?
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        if index == 1 {
-            return .lightContent
-        }
-        return .default
+        return .lightContent
     }
     
     override func viewDidLoad() {
