@@ -247,7 +247,6 @@ open class PageboyViewController: UIViewController {
     public internal(set) var currentIndex: PageIndex? {
         didSet {
             guard let currentIndex = self.currentIndex else { return }
-
             updateForNewCurrentIndex(currentIndex, from: oldValue)
         }
     }
@@ -363,14 +362,16 @@ open class PageboyViewController: UIViewController {
                                    with: direction,
                                    animated: animated,
                                    completion: transitionCompletion)
-            self.updateViewControllers(to: [viewController],
-                                       direction: direction.pageViewControllerNavDirection,
-                                       animated: animated,
-                                       completion:
+            
+            let update = ViewControllerUpdate(viewControllers: [viewController],
+                                              direction: direction.pageViewControllerNavDirection,
+                                              animated: animated,
+                                              completion:
                 { (isFinished) in
                     guard animated == false else { return }
                     transitionCompletion(isFinished)
             })
+            performViewControllerUpdate(update)
             
             return true
             
@@ -386,34 +387,7 @@ open class PageboyViewController: UIViewController {
     
     // MARK: Updating
     
-    private var isUpdatingViewControllers: Bool = false
-    /// Calls guarded setViewControllers on internal UIPageViewController
-    ///
-    /// - Parameters:
-    ///   - viewControllers: new view controllers.
-    ///   - direction: direction for transition.
-    ///   - animated: whether to animate.
-    ///   - completion: completion closure.
-    internal func updateViewControllers(to viewControllers: [UIViewController],
-                                       direction: UIPageViewControllerNavigationDirection,
-                                       animated: Bool,
-                                       completion: ((Bool) -> Void)?) {
-        guard !isUpdatingViewControllers else {
-            return
-        }
-        
-        isUpdatingViewControllers = true
-        DispatchQueue.main.async {
-            self.pageViewController?.setViewControllers(viewControllers,
-                                                        direction: direction,
-                                                        animated: animated,
-                                                        completion:
-                { [unowned self] (isFinished) in
-                    self.isUpdatingViewControllers = false
-                    completion?(isFinished)
-            })
-        }
-    }
+    internal var isUpdatingViewControllers: Bool = false
     
     /// Update the controller for a new current index.
     ///
