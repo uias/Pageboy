@@ -309,7 +309,7 @@ open class PageboyViewController: UIViewController {
     }
     
     
-    // MARK: Scrolling
+    // MARK: Updating
     
     /// Scroll the page view controller to a new page.
     ///
