@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 `Pageboy` adheres to [Semantic Versioning](http://semver.org/).
 
 #### 2.x Releases
-- `2.0.x` Releases - [2.0.0](#200) | [2.0.1](#201) | [2.0.2](#202)
+- `2.0.x` Releases - [2.0.0](#200) | [2.0.1](#201) | [2.0.2](#202) | [2.0.3](#203)
 
 #### 1.x Releases
 - `1.4.x` Releases - [1.4.0](#140) | [1.4.1](#141)
@@ -16,6 +16,15 @@ All notable changes to this project will be documented in this file.
 - `0.4.x` Releases - [0.4.0](#040) | [0.4.1](#041) | [0.4.2](#042) | [0.4.3](#043) | [0.4.4](#044) | [0.4.5](#045) | [0.4.6](#046) | [0.4.7](#047) | [0.4.8](#048) | [0.4.9](#049) | [0.4.10](#0410) | [0.4.11](#0411) | [0.4.12](#0412)
 
 ---
+
+## [2.0.3](https://github.com/uias/Pageboy/releases/tag/2.0.3)
+Released on 2017-11-09
+
+#### Fixed
+- [#113](https://github.com/uias/Pageboy/issues/113) When swiping too fast PageboyViewController crashes app.
+     - by [msaps](https://github.com/msaps).
+- [#114](https://github.com/uias/Pageboy/issues/114) Custom preferredStatusBarStyle does not work.
+     - by [msaps](https://github.com/msaps).
 
 ## [2.0.2](https://github.com/uias/Pageboy/releases/tag/2.0.2)
 Released on 2017-10-23
