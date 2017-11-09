@@ -200,7 +200,6 @@
 				TargetAttributes = {
 					D623B1DD1E1D32D700527F3D = {
 						CreatedOnToolsVersion = 8.2;
-						DevelopmentTeam = F27J9LHKF5;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
@@ -426,7 +425,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = F27J9LHKF5;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Pageboy-Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.msapsford.Pageboy-Example";
@@ -444,7 +443,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = F27J9LHKF5;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Pageboy-Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.msapsford.Pageboy-Example";
