@@ -322,11 +322,14 @@ open class PageboyViewController: UIViewController {
                              animated: Bool,
                              completion: PageScrollCompletion? = nil) -> Bool {
         
+        // guard against any active interactive scrolling
+        guard pageViewController?.scrollView?.isProbablyActiveInScroll == false &&
+            self.isPositionedOnPageIndex == false else {
+            return false
+        }
+        
         // guard against any current transition operation
         guard self.isScrollingAnimated == false else { return false }
-        guard !(self.isTracking && self.isDragging && self.isDecelerating) else { return false }
-        guard self.isPositionedOnPageIndex else { return false }
-        guard let pageViewController = self.pageViewController else { return false }
         
         let rawIndex = self.indexValue(for: page)
         if rawIndex != self.currentIndex {

@@ -23,6 +23,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		466A76D31FB4EFC9000B5C1C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D681E31E1E546A7D007C08F5 /* Pageboy.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D63A21501F2758D700FEA92D;
+			remoteInfo = "Pageboy tvOS";
+		};
 		D681E3231E546A7D007C08F5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D681E31E1E546A7D007C08F5 /* Pageboy.xcodeproj */;
@@ -123,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				D681E3241E546A7D007C08F5 /* Pageboy.framework */,
+				466A76D41FB4EFC9000B5C1C /* Pageboy.framework */,
 				D681E3261E546A7D007C08F5 /* PageboyTests.xctest */,
 			);
 			name = Products;
@@ -192,6 +200,7 @@
 				TargetAttributes = {
 					D623B1DD1E1D32D700527F3D = {
 						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = F27J9LHKF5;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
@@ -222,6 +231,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		466A76D41FB4EFC9000B5C1C /* Pageboy.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Pageboy.framework;
+			remoteRef = 466A76D31FB4EFC9000B5C1C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		D681E3241E546A7D007C08F5 /* Pageboy.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -410,7 +426,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = F27J9LHKF5;
 				INFOPLIST_FILE = "Pageboy-Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.msapsford.Pageboy-Example";
@@ -428,7 +444,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = F27J9LHKF5;
 				INFOPLIST_FILE = "Pageboy-Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.msapsford.Pageboy-Example";
