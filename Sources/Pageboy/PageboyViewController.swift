@@ -415,18 +415,16 @@ open class PageboyViewController: UIViewController {
                                with: direction,
                                animated: animated,
                                completion: completion ?? { _ in })
-        DispatchQueue.main.async {
-            self.pageViewController?.setViewControllers(viewControllers,
-                                                        direction: direction.pageViewControllerNavDirection,
-                                                        animated: false,
-                                                        completion:
-                { (finished) in
-                    self.isUpdatingViewControllers = false
-                    
-                    if !animated {
-                        completion?(finished)
-                    }
-            })
-        }
+        self.pageViewController?.setViewControllers(viewControllers,
+                                                    direction: direction.pageViewControllerNavDirection,
+                                                    animated: false,
+                                                    completion:
+            { (finished) in
+                self.isUpdatingViewControllers = false
+                
+                if !animated {
+                    completion?(finished)
+                }
+        })
     }
 }
