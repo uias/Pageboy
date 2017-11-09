@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		466A76B61FB38B32000B5C1C /* PageboyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D623B1D11E1D2DF200527F3D /* PageboyViewController.swift */; };
+		466A76B71FB38B32000B5C1C /* PageboyViewController+Management.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CC557C1ECCC55F00A7FBB4 /* PageboyViewController+Management.swift */; };
+		466A76B81FB38B32000B5C1C /* PageboyViewController+ScrollDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CC557D1ECCC55F00A7FBB4 /* PageboyViewController+ScrollDetection.swift */; };
+		466A76B91FB38B32000B5C1C /* PageboyViewController+Transitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F561351EDCAD6D0033C654 /* PageboyViewController+Transitioning.swift */; };
+		466A76BA1FB38B32000B5C1C /* PageboyViewController+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CC55801ECCC5BE00A7FBB4 /* PageboyViewController+Extras.swift */; };
+		466A76BB1FB38B32000B5C1C /* UIViewController+PageboyExtras.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F6F8FB1EF6DC49006397D0 /* UIViewController+PageboyExtras.swift */; };
+		466A76BC1FB38B32000B5C1C /* PageboyAutoScroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CC557A1ECCC55300A7FBB4 /* PageboyAutoScroller.swift */; };
+		466A76BD1FB38B32000B5C1C /* TransitionOperation+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67E6FD71F1E58EE0019AB74 /* TransitionOperation+Action.swift */; };
+		466A76BE1FB38B32000B5C1C /* TransitionOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67E6FD81F1E58EE0019AB74 /* TransitionOperation.swift */; };
+		466A76BF1FB38B32000B5C1C /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67E6FDA1F1E58EE0019AB74 /* UIView+AutoLayout.swift */; };
+		466A76C01FB38B32000B5C1C /* UIView+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67E6FDB1F1E58EE0019AB74 /* UIView+Localization.swift */; };
+		466A76C11FB38B32000B5C1C /* UIPageViewController+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67E6FE01F1E58FE0019AB74 /* UIPageViewController+ScrollView.swift */; };
+		466A76C21FB38B32000B5C1C /* IndexedMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67E6FE31F1E59160019AB74 /* IndexedMap.swift */; };
+		466A76C31FB38B32000B5C1C /* WeakWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67E6FE41F1E59160019AB74 /* WeakWrapper.swift */; };
 		D623B1C11E1D0C6B00527F3D /* Pageboy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D623B1B71E1D0C6A00527F3D /* Pageboy.framework */; };
 		D623B1C61E1D0C6B00527F3D /* PageboyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D623B1C51E1D0C6B00527F3D /* PageboyTests.swift */; };
 		D623B1C81E1D0C6B00527F3D /* Pageboy.h in Headers */ = {isa = PBXBuildFile; fileRef = D623B1BA1E1D0C6A00527F3D /* Pageboy.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -447,6 +461,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				466A76BD1FB38B32000B5C1C /* TransitionOperation+Action.swift in Sources */,
+				466A76B81FB38B32000B5C1C /* PageboyViewController+ScrollDetection.swift in Sources */,
+				466A76BB1FB38B32000B5C1C /* UIViewController+PageboyExtras.swift in Sources */,
+				466A76C01FB38B32000B5C1C /* UIView+Localization.swift in Sources */,
+				466A76BC1FB38B32000B5C1C /* PageboyAutoScroller.swift in Sources */,
+				466A76B61FB38B32000B5C1C /* PageboyViewController.swift in Sources */,
+				466A76BF1FB38B32000B5C1C /* UIView+AutoLayout.swift in Sources */,
+				466A76C31FB38B32000B5C1C /* WeakWrapper.swift in Sources */,
+				466A76BA1FB38B32000B5C1C /* PageboyViewController+Extras.swift in Sources */,
+				466A76B91FB38B32000B5C1C /* PageboyViewController+Transitioning.swift in Sources */,
+				466A76C21FB38B32000B5C1C /* IndexedMap.swift in Sources */,
+				466A76BE1FB38B32000B5C1C /* TransitionOperation.swift in Sources */,
+				466A76B71FB38B32000B5C1C /* PageboyViewController+Management.swift in Sources */,
+				466A76C11FB38B32000B5C1C /* UIPageViewController+ScrollView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
