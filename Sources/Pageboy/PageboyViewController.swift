@@ -405,20 +405,20 @@ open class PageboyViewController: UIViewController {
                                        direction: NavigationDirection = .forward,
                                        animated: Bool,
                                        completion: TransitionOperation.Completion?) {
-        guard !isUpdatingViewControllers else {
+        guard let pageViewController = self.pageViewController, !isUpdatingViewControllers else {
             return
         }
         
         isUpdatingViewControllers = true
-        self.performTransition(from: fromIndex,
-                               to: toIndex,
-                               with: direction,
-                               animated: animated,
-                               completion: completion ?? { _ in })
-        self.pageViewController?.setViewControllers(viewControllers,
-                                                    direction: direction.pageViewControllerNavDirection,
-                                                    animated: false,
-                                                    completion:
+        performTransition(from: fromIndex,
+                          to: toIndex,
+                          with: direction,
+                          animated: animated,
+                          completion: completion ?? { _ in })
+        pageViewController.setViewControllers(viewControllers,
+                                              direction: direction.pageViewControllerNavDirection,
+                                              animated: false,
+                                              completion:
             { (finished) in
                 self.isUpdatingViewControllers = false
                 
