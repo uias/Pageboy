@@ -4,8 +4,8 @@
 
 [![Build Status](https://travis-ci.org/uias/Pageboy.svg?branch=master)](https://travis-ci.org/uias/Pageboy)
 [![Swift 4](https://img.shields.io/badge/Swift-4-orange.svg?style=flat)](https://developer.apple.com/swift/)
-[![CocoaPods](https://img.shields.io/cocoapods/v/Pageboy.svg)]()
-[![Platforms](https://img.shields.io/cocoapods/p/Pageboy.svg)]()
+[![CocoaPods](https://img.shields.io/cocoapods/v/Pageboy.svg)](https://cocoapods.org/pods/Pageboy)
+[![Platforms](https://img.shields.io/cocoapods/p/Pageboy.svg)](https://cocoapods.org/pods/Pageboy)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![codecov](https://codecov.io/gh/uias/Pageboy/branch/master/graph/badge.svg)](https://codecov.io/gh/uias/Pageboy)
 [![GitHub release](https://img.shields.io/github/release/uias/Pageboy.svg)](https://github.com/uias/Pageboy/releases)
