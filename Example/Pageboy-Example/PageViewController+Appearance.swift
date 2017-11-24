@@ -16,17 +16,17 @@ extension PageViewController {
         
         let previousBarButton = UIBarButtonItem(title: "Previous", style: .plain, target: self, action: #selector(previousPage(_:)))
         let nextBarButton = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(nextPage(_:)))
-        self.navigationItem.setLeftBarButton(previousBarButton, animated: false)
-        self.navigationItem.setRightBarButton(nextBarButton, animated: false)
+        navigationItem.setLeftBarButton(previousBarButton, animated: false)
+        navigationItem.setRightBarButton(nextBarButton, animated: false)
         self.previousBarButton = previousBarButton
         self.nextBarButton = nextBarButton
         
-        self.updateBarButtonStates(index: self.currentIndex ?? 0)
+        updateBarButtonStates(index: currentIndex ?? 0)
     }
     
     func updateBarButtonStates(index: Int) {
         self.previousBarButton?.isEnabled = index != 0
-        self.nextBarButton?.isEnabled = index != (self.pageCount ?? 0) - 1
+        self.nextBarButton?.isEnabled = index != (pageCount ?? 0) - 1
     }
     
 
@@ -44,8 +44,8 @@ extension PageViewController {
         let lowerIndex = Int(floor(pageOffset))
         let upperIndex = Int(ceil(pageOffset))
         
-        let lowerGradient = self.gradient(forIndex: lowerIndex)
-        let upperGradient = self.gradient(forIndex: upperIndex)
+        let lowerGradient = gradient(forIndex: lowerIndex)
+        let upperGradient = gradient(forIndex: upperIndex)
         
         if let topColor = interpolate(betweenColor: lowerGradient.topColor,
                                       and: upperGradient.topColor,
@@ -59,11 +59,11 @@ extension PageViewController {
     }
     
     func gradient(forIndex index: Int) -> GradientConfig {
-        guard index >= 0 && index < self.gradients.count else {
+        guard index >= 0 && index < gradients.count else {
             return .defaultGradient
         }
         
-        return self.gradients[index]
+        return gradients[index]
     }
     
     func interpolate(betweenColor colorA: UIColor,

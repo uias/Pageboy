@@ -68,7 +68,7 @@ import UIKit
             animation.isRemovedOnCompletion = true
             animation.fillMode = kCAFillModeForwards
             animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
-            self.gradientLayer?.add(animation, forKey: "colors")
+            gradientLayer?.add(animation, forKey: "colors")
         }
     }
     
@@ -76,7 +76,7 @@ import UIKit
     
     func updateGradient() {
         guard let colors = self.colors else {
-            self.gradientLayer?.colors = []
+            gradientLayer?.colors = []
             return
         }
         
@@ -84,32 +84,32 @@ import UIKit
         for color in colors {
             colorRefs.append(color.cgColor)
         }
-        self.gradientLayer?.colors = colorRefs
+        gradientLayer?.colors = colorRefs
         
         if let locations = self.locations {
             var locationNumbers = [NSNumber]()
             for location in locations {
                 locationNumbers.append(NSNumber(value: location))
             }
-            self.gradientLayer?.locations = locationNumbers
+            gradientLayer?.locations = locationNumbers
         }
         
-        switch self.direction {
+        switch direction {
         case .topToBottom:
-            self.gradientLayer?.startPoint = CGPoint(x: 0.5, y: 0.0)
-            self.gradientLayer?.endPoint = CGPoint(x: 0.5, y: 1.0)
+            gradientLayer?.startPoint = CGPoint(x: 0.5, y: 0.0)
+            gradientLayer?.endPoint = CGPoint(x: 0.5, y: 1.0)
             
         case .leftToRight:
-            self.gradientLayer?.startPoint = CGPoint(x: 0.0, y: 0.5)
-            self.gradientLayer?.endPoint = CGPoint(x: 1.0, y: 0.5)
+            gradientLayer?.startPoint = CGPoint(x: 0.0, y: 0.5)
+            gradientLayer?.endPoint = CGPoint(x: 1.0, y: 0.5)
             
         case .rightToLeft:
-            self.gradientLayer?.startPoint = CGPoint(x: 1.0, y: 0.5)
-            self.gradientLayer?.endPoint = CGPoint(x: 0.0, y: 0.5)
+            gradientLayer?.startPoint = CGPoint(x: 1.0, y: 0.5)
+            gradientLayer?.endPoint = CGPoint(x: 0.0, y: 0.5)
             
         case .bottomToTop:
-            self.gradientLayer?.startPoint = CGPoint(x: 0.5, y: 1.0)
-            self.gradientLayer?.endPoint = CGPoint(x: 0.5, y: 0.0)
+            gradientLayer?.startPoint = CGPoint(x: 0.5, y: 1.0)
+            gradientLayer?.endPoint = CGPoint(x: 0.5, y: 0.0)
         }
     }
 }
