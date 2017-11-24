@@ -40,9 +40,9 @@ class TransparentNavigationBar: UINavigationBar {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        self.separatorView.frame = CGRect(x: 0.0,
-                                          y: self.bounds.size.height - 1.0,
-                                          width: self.bounds.size.width, height: 0.5)
+        separatorView.frame = CGRect(x: 0.0,
+                                     y: self.bounds.size.height - 1.0,
+                                     width: self.bounds.size.width, height: 0.5)
     }
     
 }

@@ -49,15 +49,15 @@ class PageViewController: PageboyViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.addBarButtons()
-        self.view.sendSubview(toBack: self.gradientView)
+        addBarButtons()
+        view.sendSubview(toBack: gradientView)
         
-        self.dataSource = self
-        self.delegate = self
+        dataSource = self
+        delegate = self
         
-        self.updateGradient(for: self.currentPosition?.x ?? 0.0)
-        self.updateStatusLabels()
-        self.updateBarButtonStates(index: self.currentIndex ?? 0)
+        updateGradient(for: currentPosition?.x ?? 0.0)
+        updateStatusLabels()
+        updateBarButtonStates(index: currentIndex ?? 0)
     }
 
     func updateStatusLabels() {
@@ -70,11 +70,11 @@ class PageViewController: PageboyViewController {
     // MARK: Actions
     
     @objc func nextPage(_ sender: UIBarButtonItem) {
-        self.scrollToPage(.next, animated: true)
+        scrollToPage(.next, animated: true)
     }
     
     @objc func previousPage(_ sender: UIBarButtonItem) {
-        self.scrollToPage(.previous, animated: true)
+        scrollToPage(.previous, animated: true)
     }
 }
 
@@ -124,10 +124,9 @@ extension PageViewController: PageboyViewControllerDelegate {
                                animated: Bool) {
 //        print("didScrollToPageAtIndex: \(index)")
 
-        self.updateGradient(for: CGFloat(index))
-        self.updateStatusLabels()
-        
-        self.updateBarButtonStates(index: index)
+        updateGradient(for: CGFloat(index))
+        updateStatusLabels()
+        updateBarButtonStates(index: index)
     }
     
     func pageboyViewController(_ pageboyViewController: PageboyViewController,

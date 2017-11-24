@@ -23,8 +23,8 @@ class ChildViewController: UIViewController {
         super.viewDidLoad()
 
         if let index = self.index {
-            self.label.text = "Page " + String(index)
-            self.promptLabel.isHidden = index != 1
+            label.text = "Page " + String(index)
+            promptLabel.isHidden = index != 1
         }
     }
 }
