@@ -177,7 +177,13 @@ open class PageboyViewController: UIViewController {
     }
     /// default YES. if YES, bounces past edge of content and back again.
     public var bounces: Bool = true
-    
+    // Whether client content appears on both sides of each page. If 'NO', content on page front will partially show through back.
+    // If 'UIPageViewControllerSpineLocationMid' is set, 'doubleSided' is set to 'YES'. Setting 'NO' when spine location is mid results in an exception.
+    public var isDoubleSided: Bool = false {
+        didSet {
+            self.pageViewController?.isDoubleSided = isDoubleSided
+        }
+    }
     
     /// Whether the page view controller is currently being touched.
     public var isTracking: Bool {
@@ -295,6 +301,8 @@ open class PageboyViewController: UIViewController {
         
         self.autoScroller.handler = self
         self.setUpPageViewController()
+        
+        
     }
 
     open override func viewWillTransition(to size: CGSize,
