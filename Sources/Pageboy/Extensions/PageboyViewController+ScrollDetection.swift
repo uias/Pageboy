@@ -54,10 +54,16 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
     }
     
     public func presentationCount(for pageViewController: UIPageViewController) -> Int {
+        guard showPageIndicator else {
+            return -1
+        }
         return pageCount ?? 0
     }
     
     public func presentationIndex(for pageViewController: UIPageViewController) -> Int {
+        guard showPageIndicator else {
+            return -1
+        }
         return targetIndex ?? 0
     }
     

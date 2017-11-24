@@ -82,7 +82,6 @@ open class PageboyViewController: UIViewController {
     
     #endif
     
-    
     /// The object that is the data source for the page view controller. (Defaults to self)
     public weak var dataSource: PageboyViewControllerDataSource? {
         didSet {
@@ -152,7 +151,6 @@ open class PageboyViewController: UIViewController {
         }
     }
     
-    
     /// The transition to use when animating scrolls between pages.
     public var transition = Transition.defaultTransition
     /// The display link for transitioning.
@@ -160,18 +158,15 @@ open class PageboyViewController: UIViewController {
     /// The active transition operation.
     internal var activeTransition: TransitionOperation?
     
-    
     /// The number of view controllers in the page view controller.
     internal var viewControllerCount: Int?
     /// A map of view controllers and related page indexes.
     internal var viewControllerMap = IndexedMap<WeakWrapper<UIViewController>>()
     
-    
     /// The number of pages in the page view controller.
     public var pageCount: Int? {
         return viewControllerCount
     }
-    
     
     /// The page index that is currently the target of a transition. This will align with currentIndex if no transition is active.
     internal var targetIndex: PageIndex?
@@ -220,6 +215,8 @@ open class PageboyViewController: UIViewController {
     /// Auto Scroller for automatic time-based page transitions.
     public let autoScroller = PageboyAutoScroller()
     
+    /// Whether to show the built-in UIPageViewController page indicator
+    public var showPageIndicator: Bool = false
     
     // MARK: Lifecycle
 
@@ -240,7 +237,6 @@ open class PageboyViewController: UIViewController {
             self.pageViewController?.scrollView?.delegate = self
         }
     }
-    
     
     // MARK: Updating
     
