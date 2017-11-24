@@ -8,81 +8,6 @@
 
 import UIKit
 
-public protocol PageboyViewControllerDataSource: class {
-    
-    /// The number of view controllers to display.
-    ///
-    /// - Parameter pageboyViewController: The Page view controller.
-    /// - Returns: The total number of view controllers to display.
-    func numberOfViewControllers(in pageboyViewController: PageboyViewController) -> Int
-    
-    /// The view controller to display at a page index.
-    ///
-    /// - Parameters:
-    ///   - pageboyViewController: The Page view controller.
-    ///   - index: The page index.
-    /// - Returns: The view controller to display
-    func viewController(for pageboyViewController: PageboyViewController,
-                        at index: PageboyViewController.PageIndex) -> UIViewController?
-    
-    /// The default page index to display in the Pageboy view controller.
-    ///
-    /// - Parameter pageboyViewController: The Pageboy view controller
-    /// - Returns: Default page
-    func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page?
-}
-
-
-public protocol PageboyViewControllerDelegate: class {
- 
-    /// The page view controller will begin scrolling to a new page.
-    ///
-    /// - Parameters:
-    ///   - pageboyViewController: The Page view controller.
-    ///   - index: The new page index.
-    ///   - direction: The direction of the scroll.
-    ///   - animation: Whether the scroll will be animated.
-    func pageboyViewController(_ pageboyViewController: PageboyViewController,
-                               willScrollToPageAt index: PageboyViewController.PageIndex,
-                               direction: PageboyViewController.NavigationDirection,
-                               animated: Bool)
-    
-    /// The page view controller did scroll to an offset between pages.
-    ///
-    /// - Parameters:
-    ///   - pageboyViewController: The Page view controller.
-    ///   - position: The current relative page position.
-    ///   - direction: The direction of the scroll.
-    ///   - animated: Whether the scroll is being animated.
-    func pageboyViewController(_ pageboyViewController: PageboyViewController,
-                               didScrollTo position: CGPoint,
-                               direction: PageboyViewController.NavigationDirection,
-                               animated: Bool)
-    
-    /// The page view controller did complete scroll to a new page.
-    ///
-    /// - Parameters:
-    ///   - pageboyViewController: The Page view controller.
-    ///   - index: The new page index.
-    ///   - direction: The direction of the scroll.
-    ///   - animation: Whether the scroll was animated.
-    func pageboyViewController(_ pageboyViewController: PageboyViewController,
-                               didScrollToPageAt index: PageboyViewController.PageIndex,
-                               direction: PageboyViewController.NavigationDirection,
-                               animated: Bool)
-    
-    /// The page view controller did reload.
-    ///
-    /// - Parameters:
-    ///   - pageboyViewController: The Pageboy view controller.
-    ///   - currentViewController: The current view controller.
-    ///   - currentPageIndex: The current page index.
-    func pageboyViewController(_ pageboyViewController: PageboyViewController,
-                               didReloadWith currentViewController: UIViewController,
-                               currentPageIndex: PageboyViewController.PageIndex)
-}
-
-
 /// A simple, highly informative page view controller.
 open class PageboyViewController: UIViewController {
     
@@ -118,7 +43,6 @@ open class PageboyViewController: UIViewController {
         case last
         case at(index: PageIndex)
     }
-    
     
     // MARK: Properties
     
