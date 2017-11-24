@@ -215,8 +215,8 @@ open class PageboyViewController: UIViewController {
     /// Auto Scroller for automatic time-based page transitions.
     public let autoScroller = PageboyAutoScroller()
     
-    /// Whether to show the built-in UIPageViewController page indicator
-    public var showPageIndicator: Bool = false
+    /// Whether to show the built-in UIPageViewController page control.
+    public var showsPageControl: Bool = false
     
     // MARK: Lifecycle
 
