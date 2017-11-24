@@ -173,9 +173,12 @@ open class PageboyViewController: UIViewController {
     }
     
     
+    /// The page index that is currently the target of a transition. This will align with currentIndex if no transition is active.
+    internal var targetIndex: PageIndex?
     /// The page index that the page view controller is currently at.
     public internal(set) var currentIndex: PageIndex? {
         didSet {
+            self.targetIndex = currentIndex
             guard let currentIndex = self.currentIndex else { return }
 
             #if os(iOS)
@@ -225,8 +228,6 @@ open class PageboyViewController: UIViewController {
         
         self.autoScroller.handler = self
         self.setUpPageViewController()
-        
-        
     }
 
     open override func viewWillTransition(to size: CGSize,
@@ -341,6 +342,7 @@ open class PageboyViewController: UIViewController {
             return
         }
         
+        targetIndex = toIndex
         isUpdatingViewControllers = true
         performTransition(from: fromIndex,
                           to: toIndex,

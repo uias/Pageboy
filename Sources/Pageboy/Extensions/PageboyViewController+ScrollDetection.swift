@@ -53,6 +53,14 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
         }
     }
     
+    public func presentationCount(for pageViewController: UIPageViewController) -> Int {
+        return pageCount ?? 0
+    }
+    
+    public func presentationIndex(for pageViewController: UIPageViewController) -> Int {
+        return targetIndex ?? 0
+    }
+    
     // MARK: UIScrollViewDelegate
     
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
