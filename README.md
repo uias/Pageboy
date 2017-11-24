@@ -4,8 +4,8 @@
 
 [![Build Status](https://travis-ci.org/uias/Pageboy.svg?branch=master)](https://travis-ci.org/uias/Pageboy)
 [![Swift 4](https://img.shields.io/badge/Swift-4-orange.svg?style=flat)](https://developer.apple.com/swift/)
-[![CocoaPods](https://img.shields.io/cocoapods/v/Pageboy.svg)]()
-[![Platforms](https://img.shields.io/cocoapods/p/Pageboy.svg)]()
+[![CocoaPods](https://img.shields.io/cocoapods/v/Pageboy.svg)](https://cocoapods.org/pods/Pageboy)
+[![Platforms](https://img.shields.io/cocoapods/p/Pageboy.svg)](https://cocoapods.org/pods/Pageboy)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![codecov](https://codecov.io/gh/uias/Pageboy/branch/master/graph/badge.svg)](https://codecov.io/gh/uias/Pageboy)
 [![GitHub release](https://img.shields.io/github/release/uias/Pageboy.svg)](https://github.com/uias/Pageboy/releases)
@@ -23,8 +23,6 @@
 
 ## Requirements
 Pageboy requires iOS 8.0 / tvOS 10.0 and Swift 4.0 or above.
-
-For Swift 3.x support, please use the latest [1.x release](https://github.com/uias/Pageboy/releases/tag/1.4.1) (For 1.x legacy API docs, see [here](https://github.com/uias/Pageboy/blob/1.4.0/README.md)).
 
 ## Installation
 ### CocoaPods
