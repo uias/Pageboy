@@ -83,10 +83,10 @@ func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyVie
 
 ### Delegation
 
-`UIPageViewController` doesn't provide the most useful delegate methods for detecting where you are when paging; this is where Pageboy comes in. `PageboyViewControllerDelegate` provides a number of functions for being able to detect where the page view controller is, and where it's headed.
+Unfortunately, `UIPageViewController` doesn't provide the most useful delegate methods for detecting positional data. `PageboyViewControllerDelegate` provides a number of functions for being able to detect where the page view controller is, and where it's headed.
 
 #### willScrollToPageAtIndex
-Called when the page view controller is about to embark on a transition to a new page.
+The page view controller is about to embark on a transition to a new page.
 
 ```swift
 func pageboyViewController(_ pageboyViewController: PageboyViewController,
@@ -96,7 +96,7 @@ func pageboyViewController(_ pageboyViewController: PageboyViewController,
 ```
 
 #### didScrollToPosition
-Called when the page view controller was scrolled to a relative position along the way transitioning to a new page. Also provided is the direction of the transition.
+The page view controller was scrolled to a relative position along the way transitioning to a new page. Also provided is the direction of the transition.
 
 ```swift
 func pageboyViewController(_ pageboyViewController: PageboyViewController,
@@ -106,7 +106,7 @@ func pageboyViewController(_ pageboyViewController: PageboyViewController,
 ```
 
 #### didScrollToPage
-Called when the page view controller did successfully complete a scroll transition to a page.
+The page view controller has successfully completed a scroll transition to a page.
 
 ```swift
 func pageboyViewController(_ pageboyViewController: PageboyViewController,
@@ -116,7 +116,7 @@ func pageboyViewController(_ pageboyViewController: PageboyViewController,
 ```
 
 #### didReload
-Called when the page view controller reloads its child view controllers.
+The page view controller has reloaded its child view controllers.
 
 ```swift
 func pageboyViewController(_ pageboyViewController: PageboyViewController,
@@ -143,6 +143,7 @@ func pageboyViewController(_ pageboyViewController: PageboyViewController,
 - `currentViewController` - The currently visible view controller if it exists.
 - `currentPosition` - The exact current relative position of the page view controller.
 - `currentIndex` - The index of the currently visible page.
+- `showsPageControl` - Whether to show the built-in page control.
 
 ### Transitioning
 Pageboy also provides custom animated transition support. This can be customised via the `.transition` property on `PageboyViewController`. 
