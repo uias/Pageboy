@@ -58,9 +58,8 @@ internal extension PageboyViewController {
             view.addSubview(pageViewController.view)
             view.sendSubview(toBack: pageViewController.view)
         }
-        pageViewController.didMove(toParentViewController: self)
-      
         pageViewController.view.pinToSuperviewEdges()
+        pageViewController.didMove(toParentViewController: self)
       
         pageViewController.scrollView?.delegate = self
         pageViewController.view.backgroundColor = .clear
