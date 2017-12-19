@@ -51,14 +51,14 @@ internal extension PageboyViewController {
         pageViewController.dataSource = self
         self.pageViewController = pageViewController
         
-        self.addChildViewController(pageViewController)
-      
+        addChildViewController(pageViewController)
         if let existingZIndex = existingZIndex {
-            self.view.insertSubview(pageViewController.view, at: existingZIndex)
+            view.insertSubview(pageViewController.view, at: existingZIndex)
         } else {
-            self.view.addSubview(pageViewController.view)
-            self.view.sendSubview(toBack: pageViewController.view)
+            view.addSubview(pageViewController.view)
+            view.sendSubview(toBack: pageViewController.view)
         }
+        pageViewController.didMove(toParentViewController: self)
       
         pageViewController.view.pinToSuperviewEdges()
       
