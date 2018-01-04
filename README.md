@@ -54,11 +54,11 @@ github "uias/Pageboy" ~> 2.0
 ```swift
 class PageViewController: PageboyViewController, PageboyViewControllerDataSource {
 
-	override func viewDidLoad() {
-		super.viewDidLoad()
-
-		self.dataSource = self
-	}
+    override func viewDidLoad() {
+        super.viewDidLoad()
+	
+	self.dataSource = self
+    }
 }
 ```
 
