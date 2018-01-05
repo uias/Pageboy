@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 `Pageboy` adheres to [Semantic Versioning](http://semver.org/).
 
 #### 2.x Releases
-- `2.2.x` Releases - [2.3.0](#230)
+- `2.3.x` Releases - [2.3.0](#230)
 - `2.2.x` Releases - [2.2.0](#220)
 - `2.1.x` Releases - [2.1.0](#210)
 - `2.0.x` Releases - [2.0.0](#200) | [2.0.1](#201) | [2.0.2](#202) | [2.0.3](#203) | [2.0.4](#204)
