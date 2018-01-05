@@ -25,6 +25,8 @@
 		466A76C11FB38B32000B5C1C /* UIPageViewController+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67E6FE01F1E58FE0019AB74 /* UIPageViewController+ScrollView.swift */; };
 		466A76C21FB38B32000B5C1C /* IndexedMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67E6FE31F1E59160019AB74 /* IndexedMap.swift */; };
 		466A76C31FB38B32000B5C1C /* WeakWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67E6FE41F1E59160019AB74 /* WeakWrapper.swift */; };
+		4684CF711FFFCA4B001FECAA /* UIApplication+SafeShared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4684CF701FFFCA4B001FECAA /* UIApplication+SafeShared.swift */; };
+		4684CF721FFFCA4B001FECAA /* UIApplication+SafeShared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4684CF701FFFCA4B001FECAA /* UIApplication+SafeShared.swift */; };
 		D623B1C11E1D0C6B00527F3D /* Pageboy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D623B1B71E1D0C6A00527F3D /* Pageboy.framework */; };
 		D623B1C61E1D0C6B00527F3D /* PageboyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D623B1C51E1D0C6B00527F3D /* PageboyTests.swift */; };
 		D623B1C81E1D0C6B00527F3D /* Pageboy.h in Headers */ = {isa = PBXBuildFile; fileRef = D623B1BA1E1D0C6A00527F3D /* Pageboy.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -67,6 +69,7 @@
 /* Begin PBXFileReference section */
 		4653DD541FC8333E00C4B758 /* PageboyViewControllerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageboyViewControllerDataSource.swift; sourceTree = "<group>"; };
 		4653DD571FC8335F00C4B758 /* PageboyViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageboyViewControllerDelegate.swift; sourceTree = "<group>"; };
+		4684CF701FFFCA4B001FECAA /* UIApplication+SafeShared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+SafeShared.swift"; sourceTree = "<group>"; };
 		D623B1B71E1D0C6A00527F3D /* Pageboy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pageboy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D623B1BA1E1D0C6A00527F3D /* Pageboy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pageboy.h; sourceTree = "<group>"; };
 		D623B1BB1E1D0C6A00527F3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -256,6 +259,7 @@
 		D6ECCEC01E51AFDB00E9D5B3 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				4684CF701FFFCA4B001FECAA /* UIApplication+SafeShared.swift */,
 				D67E6FD61F1E58EE0019AB74 /* Transitioning */,
 				D67E6FD91F1E58EE0019AB74 /* ViewUtilities */,
 				D67E6FE21F1E59160019AB74 /* DataStructures */,
@@ -438,6 +442,7 @@
 				D67E6FDD1F1E58EE0019AB74 /* TransitionOperation.swift in Sources */,
 				D623B1D21E1D2DF200527F3D /* PageboyViewController.swift in Sources */,
 				D67E6FDE1F1E58EE0019AB74 /* UIView+AutoLayout.swift in Sources */,
+				4684CF711FFFCA4B001FECAA /* UIApplication+SafeShared.swift in Sources */,
 				4653DD581FC8335F00C4B758 /* PageboyViewControllerDelegate.swift in Sources */,
 				D67E6FDC1F1E58EE0019AB74 /* TransitionOperation+Action.swift in Sources */,
 				D67E6FE61F1E59160019AB74 /* WeakWrapper.swift in Sources */,
@@ -478,6 +483,7 @@
 				466A76C01FB38B32000B5C1C /* UIView+Localization.swift in Sources */,
 				466A76BC1FB38B32000B5C1C /* PageboyAutoScroller.swift in Sources */,
 				466A76B61FB38B32000B5C1C /* PageboyViewController.swift in Sources */,
+				4684CF721FFFCA4B001FECAA /* UIApplication+SafeShared.swift in Sources */,
 				4653DD591FC8335F00C4B758 /* PageboyViewControllerDelegate.swift in Sources */,
 				466A76BF1FB38B32000B5C1C /* UIView+AutoLayout.swift in Sources */,
 				466A76C31FB38B32000B5C1C /* WeakWrapper.swift in Sources */,
@@ -505,6 +511,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -565,6 +572,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
