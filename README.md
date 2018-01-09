@@ -14,17 +14,17 @@
 
 **Pageboy** is a simple, highly informative page view controller.
 
-## Features
+## ⭐️ Features
 - [x] Simplified data source management.
 - [x] Enhanced delegation; featuring exact relative positional data and reliable updates.
 - [x] Infinite scrolling support.
 - [x] Automatic timer-based page transitioning.
 - [x] Support for custom page transitions.
 
-## Requirements
+## 📋 Requirements
 Pageboy requires iOS 9.0 / tvOS 10.0 and Swift 4.0 or above.
 
-## Installation
+## 📲 Installation
 ### CocoaPods
 Pageboy is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
 ```ruby
@@ -46,7 +46,7 @@ Add Pageboy to your `Cartfile`:
 github "uias/Pageboy" ~> 2.0
 ```
 
-## Usage
+## 🚀 Usage
 ### Getting Started
 
 1) Create an instance of a `PageboyViewController` and provide it with a `PageboyViewControllerDataSource`.
@@ -124,7 +124,7 @@ func pageboyViewController(_ pageboyViewController: PageboyViewController,
                            currentPageIndex: PageboyViewController.PageIndex)
 ```
 
-## Other useful stuff
+## 🔮 Other useful stuff
 
 - `reloadPages` - Reload the view controllers in the page view controller. (Refreshes the data source).
 
@@ -167,12 +167,12 @@ pageboyViewController.autoScroller.enable()
 ```
 Support for custom intermission duration and other scroll behaviors is also available.
 
-## About
+## 👨🏻‍💻 About
 - Created by [Merrick Sapsford](https://github.com/msaps) ([@MerrickSapsford](https://twitter.com/MerrickSapsford))
 - Contributed to by a growing [list of others](https://github.com/uias/Pageboy/graphs/contributors).
 
-## Contributing
+## ❤️ Contributing
 Bug reports and pull requests are welcome on GitHub at [https://github.com/uias/Pageboy](https://github.com/uias/Pageboy).
 
-## License
+## 👮🏻‍♂️ License
 The library is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
