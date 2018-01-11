@@ -2,13 +2,27 @@
     <img src="Artwork/logo.png" width="890" alt="Pageboy"/>
 </p>
 
-[![Build Status](https://travis-ci.org/uias/Pageboy.svg?branch=master)](https://travis-ci.org/uias/Pageboy)
-[![Swift 4](https://img.shields.io/badge/Swift-4-orange.svg?style=flat)](https://developer.apple.com/swift/)
-[![CocoaPods](https://img.shields.io/cocoapods/v/Pageboy.svg)](https://cocoapods.org/pods/Pageboy)
-[![Platforms](https://img.shields.io/cocoapods/p/Pageboy.svg)](https://cocoapods.org/pods/Pageboy)
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-[![codecov](https://codecov.io/gh/uias/Pageboy/branch/master/graph/badge.svg)](https://codecov.io/gh/uias/Pageboy)
-[![GitHub release](https://img.shields.io/github/release/uias/Pageboy.svg)](https://github.com/uias/Pageboy/releases)
+<p align="center">
+    <a href="https://travis-ci.org/uias/Pageboy">
+        <img src="https://travis-ci.org/uias/Pageboy.svg?branch=master" />
+    </a>
+    <img src="https://img.shields.io/badge/Swift-4-orange.svg?style=flat" />
+    <a href="https://cocoapods.org/pods/Pageboy">
+        <img src="https://img.shields.io/cocoapods/v/Pageboy.svg" alt="CocoaPods" />
+    </a>
+	<a href="https://cocoapods.org/pods/Pageboy">
+        <img src="https://img.shields.io/cocoapods/p/Pageboy.svg" alt="Platforms" />
+    </a>
+	<a href="https://github.com/Carthage/Carthage">
+        <img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" />
+    </a>
+	<a href="https://codecov.io/gh/uias/Pageboy">
+        <img src="https://codecov.io/gh/uias/Pageboy/branch/master/graph/badge.svg" />
+    </a>
+	<a href="https://github.com/uias/Pageboy/releases">
+        <img src="https://img.shields.io/github/release/uias/Pageboy.svg" />
+    </a>
+</p>
 
 **TL;DR** *UIPageViewController done properly.*
 
