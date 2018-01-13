@@ -36,7 +36,7 @@
 - [x] Support for custom page transitions.
 
 ## 📋 Requirements
-Pageboy requires iOS 9.0 / tvOS 10.0 and Swift 4.0 or above.
+Pageboy requires iOS 9 / tvOS 10 or above; and is written in Swift 4.
 
 ## 📲 Installation
 ### CocoaPods
