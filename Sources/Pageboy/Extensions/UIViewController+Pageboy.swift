@@ -1,5 +1,5 @@
 //
-//  UIViewController+PageboyExtras.swift
+//  UIViewController+Pageboy.swift
 //  Pageboy
 //
 //  Created by Merrick Sapsford on 18/06/2017.

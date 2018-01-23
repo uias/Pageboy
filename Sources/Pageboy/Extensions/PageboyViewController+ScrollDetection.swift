@@ -384,32 +384,3 @@ private extension PageboyViewController {
         return pageViewController === self.pageViewController
     }
 }
-
-
-// MARK: - NavigationDirection detection
-internal extension PageboyViewController.NavigationDirection {
-    
-    var pageViewControllerNavDirection: UIPageViewControllerNavigationDirection {
-        switch self {
-            
-        case .reverse:
-            return .reverse
-            
-        default:
-            return .forward
-        }
-    }
-    
-    static func forPage(_ page: Int,
-                        previousPage: Int) -> PageboyViewController.NavigationDirection {
-        return self.forPosition(CGFloat(page), previous: CGFloat(previousPage))
-    }
-    
-    static func forPosition(_ position: CGFloat,
-                            previous previousPosition: CGFloat) -> PageboyViewController.NavigationDirection {
-        if position == previousPosition {
-            return .neutral
-        }
-        return  position > previousPosition ? .forward : .reverse
-    }
-}
