@@ -16,7 +16,7 @@ internal extension UIView {
         }
         self.translatesAutoresizingMaskIntoConstraints = false
         
-        let views = ["view" : self]
+        let views = ["view": self]
         var constraints = [NSLayoutConstraint]()
         let xConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[view]-0-|",
                                                           options: NSLayoutFormatOptions(),

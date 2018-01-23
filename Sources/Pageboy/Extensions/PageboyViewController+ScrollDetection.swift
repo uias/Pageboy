@@ -15,7 +15,9 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
     
     public func pageViewController(_ pageViewController: UIPageViewController,
                                    willTransitionTo pendingViewControllers: [UIViewController]) {
-        guard pageViewControllerIsActual(pageViewController) else { return }
+        guard pageViewControllerIsActual(pageViewController) else {
+            return
+        }
 
         self.pageViewController(pageViewController,
                                 willTransitionTo: pendingViewControllers,
@@ -25,7 +27,9 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
     internal func pageViewController(_ pageViewController: UIPageViewController,
                                      willTransitionTo pendingViewControllers: [UIViewController],
                                      animated: Bool) {
-        guard pageViewControllerIsActual(pageViewController) else { return }
+        guard pageViewControllerIsActual(pageViewController) else {
+            return
+        }
         guard let viewController = pendingViewControllers.first,
             let index = viewControllerMap.index(forObjectAfter: { return $0.object === viewController }) else {
                 return
@@ -42,12 +46,14 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
                                    didFinishAnimating finished: Bool,
                                    previousViewControllers: [UIViewController],
                                    transitionCompleted completed: Bool) {
-        guard pageViewControllerIsActual(pageViewController) else { return }
-        guard completed == true else { return }
+        guard pageViewControllerIsActual(pageViewController), completed else {
+            return }
         
         if let viewController = pageViewController.viewControllers?.first,
             let index = viewControllerMap.index(forObjectAfter: { return $0.object === viewController }) {
-            guard index == self.expectedTransitionIndex else { return }
+            guard index == self.expectedTransitionIndex else {
+                return
+            }
             
             self.updateCurrentPageIndexIfNeeded(index)
         }
@@ -74,7 +80,9 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
     // MARK: UIScrollViewDelegate
     
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard scrollViewIsActual(scrollView) else { return }
+        guard scrollViewIsActual(scrollView) else {
+            return
+        }
         
         guard self.updateContentOffsetForBounceIfNeeded(scrollView: scrollView) == false else {
             return
@@ -142,7 +150,9 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
         }
                 
         // ignore duplicate updates
-        guard self.currentPosition != positionPoint else { return }
+        guard self.currentPosition != positionPoint else {
+            return
+        }
         self.currentPosition = positionPoint
         self.delegate?.pageboyViewController(self,
                                              didScrollTo: positionPoint,
@@ -153,7 +163,9 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
     }
     
     public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        guard scrollViewIsActual(scrollView) else { return }
+        guard scrollViewIsActual(scrollView) else {
+            return
+        }
         
         if self.autoScroller.cancelsOnScroll {
             self.autoScroller.cancel()
@@ -161,13 +173,17 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
     }
     
     public func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-        guard scrollViewIsActual(scrollView) else { return }
+        guard scrollViewIsActual(scrollView) else {
+            return
+        }
         
         self.scrollView(didEndScrolling: scrollView)
     }
     
     public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        guard scrollViewIsActual(scrollView) else { return }
+        guard scrollViewIsActual(scrollView) else {
+            return
+        }
         
         self.scrollView(didEndScrolling: scrollView)
     }
@@ -175,13 +191,17 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
     public func scrollViewWillEndDragging(_ scrollView: UIScrollView,
                                           withVelocity velocity: CGPoint,
                                           targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        guard scrollViewIsActual(scrollView) else { return }
+        guard scrollViewIsActual(scrollView) else {
+            return
+        }
         
         self.updateContentOffsetForBounceIfNeeded(scrollView: scrollView)
     }
     
     private func scrollView(didEndScrolling scrollView: UIScrollView) {
-        guard scrollViewIsActual(scrollView) else { return }
+        guard scrollViewIsActual(scrollView) else {
+            return
+        }
         
         if self.autoScroller.restartsOnScrollEnd {
             self.autoScroller.restart()
@@ -240,8 +260,12 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
     ///   - scrollView: The scroll view that is being scrolled.
     /// - Returns: Whether a page transition has been detected.
     private func detectCurrentPageIndexIfNeeded(pagePosition: CGFloat, scrollView: UIScrollView) -> Bool {
-        guard let currentIndex = self.currentIndex else { return false }
-        guard scrollView.isDecelerating == false else { return false }
+        guard let currentIndex = self.currentIndex else {
+            return false
+        }
+        guard scrollView.isDecelerating == false else {
+            return false
+        }
         
         let isPagingForward = pagePosition > self.previousPagePosition ?? 0.0
         if scrollView.isTracking {
@@ -256,7 +280,9 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
         
         let isOnPage = pagePosition.truncatingRemainder(dividingBy: 1) == 0
         if isOnPage {
-            guard currentIndex != self.currentIndex else { return false}
+            guard currentIndex != self.currentIndex else {
+                return false
+            }
             self.currentIndex = currentIndex
         }
         
@@ -310,8 +336,8 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
     ///   - indexDiff: The expected difference between current / target page indexes.
     /// - Returns: The relative page position.
     private func pagePosition(forContentOffset contentOffset: CGFloat,
-                                       pageSize: CGFloat,
-                                       indexDiff: CGFloat) -> CGFloat? {
+                              pageSize: CGFloat,
+                              indexDiff: CGFloat) -> CGFloat? {
         guard let currentIndex = self.currentIndex else {
             return nil
         }
@@ -327,7 +353,9 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
     /// - Parameter scrollView: The scroll view.
     /// - Returns: Whether the contentOffset was manipulated to achieve bouncing preference.
     @discardableResult private func updateContentOffsetForBounceIfNeeded(scrollView: UIScrollView) -> Bool {
-        guard self.bounces == false else { return false }
+        guard self.bounces == false else {
+            return false
+        }
         
         let previousContentOffset = scrollView.contentOffset
         if self.currentIndex == 0 && scrollView.contentOffset.x < scrollView.bounds.size.width {
@@ -363,20 +391,18 @@ extension PageboyViewController: UIPageViewControllerDelegate, UIScrollViewDeleg
 internal extension PageboyViewController.NavigationDirection {
     
     var pageViewControllerNavDirection: UIPageViewControllerNavigationDirection {
-        get {
-            switch self {
-                
-            case .reverse:
-                return .reverse
-                
-            default:
-                return .forward
-            }
+        switch self {
+            
+        case .reverse:
+            return .reverse
+            
+        default:
+            return .forward
         }
     }
     
     static func forPage(_ page: Int,
-                          previousPage: Int) -> PageboyViewController.NavigationDirection {
+                        previousPage: Int) -> PageboyViewController.NavigationDirection {
         return self.forPosition(CGFloat(page), previous: CGFloat(previousPage))
     }
     

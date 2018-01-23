@@ -174,7 +174,9 @@ open class PageboyViewController: UIViewController {
     public internal(set) var currentIndex: PageIndex? {
         didSet {
             self.targetIndex = currentIndex
-            guard let currentIndex = self.currentIndex else { return }
+            guard let currentIndex = self.currentIndex else {
+                return
+            }
 
             #if os(iOS)
             UIView.animate(withDuration: 0.3) { 
@@ -198,13 +200,11 @@ open class PageboyViewController: UIViewController {
     public internal(set) var currentPosition: CGPoint?
     /// The view controller that the page view controller is currently at.
     public weak var currentViewController: UIViewController? {
-        get {
-            guard let currentIndex = self.currentIndex,
-                viewControllerCount ?? 0 > currentIndex else {
+        guard let currentIndex = self.currentIndex,
+            viewControllerCount ?? 0 > currentIndex else {
                 return nil
-            }
-            return self.pageViewController?.viewControllers?.last
         }
+        return self.pageViewController?.viewControllers?.last
     }
     /// Whether the page view controller position is currently resting on a page index.
     internal var isPositionedOnPageIndex: Bool {

@@ -8,7 +8,7 @@
 
 import Foundation
 
-internal class WeakWrapper<T : AnyObject> {
+internal class WeakWrapper<T: AnyObject> {
     
     private(set) weak var object: T?
     

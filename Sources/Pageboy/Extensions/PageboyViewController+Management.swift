@@ -20,8 +20,12 @@ public extension PageboyViewController {
     
     /// Reload the currently active page into the page view controller if possible.
     internal func reloadCurrentPageSoftly() {
-        guard let currentIndex = self.currentIndex else { return }
-        guard let currentViewController = viewController(at: currentIndex) else { return }
+        guard let currentIndex = self.currentIndex else {
+            return
+        }
+        guard let currentViewController = viewController(at: currentIndex) else {
+            return
+        }
         
         updateViewControllers(to: [currentViewController], animated: false, completion: nil)
     }
@@ -37,8 +41,8 @@ internal extension PageboyViewController {
     /// - Parameter reloadViewControllers: Reload the view controllers data source for the PageboyViewController.
     internal func setUpPageViewController(reloadViewControllers: Bool = true) {
         var existingZIndex: Int?
-        if self.pageViewController != nil { // destroy existing page VC
-            existingZIndex = self.view.subviews.index(of: self.pageViewController!.view)
+        if let pageViewController = self.pageViewController { // destroy existing page VC
+            existingZIndex = self.view.subviews.index(of: pageViewController.view)
             self.pageViewController?.view.removeFromSuperview()
             self.pageViewController?.removeFromParentViewController()
             self.pageViewController = nil
@@ -175,7 +179,9 @@ extension PageboyViewController: UIPageViewControllerDataSource {
     
     public func pageViewController(_ pageViewController: UIPageViewController,
                                    viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        guard let viewControllerCount = self.viewControllerCount else { return nil }
+        guard let viewControllerCount = self.viewControllerCount else {
+            return nil
+        }
 
         if let index = self.currentIndex {
             if index != 0 {
@@ -189,7 +195,9 @@ extension PageboyViewController: UIPageViewControllerDataSource {
     
     public func pageViewController(_ pageViewController: UIPageViewController,
                                    viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        guard let viewControllerCount = self.viewControllerCount else { return nil }
+        guard let viewControllerCount = self.viewControllerCount else {
+            return nil
+        }
         
         if let index = self.currentIndex {
             if index != viewControllerCount - 1 {
