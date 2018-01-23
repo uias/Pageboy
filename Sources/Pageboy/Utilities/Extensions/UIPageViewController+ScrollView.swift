@@ -3,7 +3,7 @@
 //  Pageboy
 //
 //  Created by Merrick Sapsford on 13/02/2017.
-//  Copyright © 2017 Merrick Sapsford. All rights reserved.
+//  Copyright © 2018 UI At Six. All rights reserved.
 //
 
 import UIKit
@@ -11,13 +11,11 @@ import UIKit
 internal extension UIPageViewController {
     
     var scrollView: UIScrollView? {
-        get {
-            for subview in self.view.subviews {
-                if let scrollView = subview as? UIScrollView {
-                    return scrollView
-                }
+        for subview in self.view.subviews {
+            if let scrollView = subview as? UIScrollView {
+                return scrollView
             }
-            return nil
         }
+        return nil
     }
 }

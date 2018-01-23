@@ -3,7 +3,7 @@
 //  Pageboy-Example
 //
 //  Created by Merrick Sapsford on 15/02/2017.
-//  Copyright © 2017 Merrick Sapsford. All rights reserved.
+//  Copyright © 2018 UI At Six. All rights reserved.
 //
 
 import UIKit
@@ -18,7 +18,7 @@ class TransparentNavigationBar: UINavigationBar {
 
         var titleTextAttributes: [NSAttributedStringKey : Any] = [.foregroundColor : UIColor.white]
         if #available(iOS 8.2, *) {
-            titleTextAttributes[.font] = UIFont.systemFont(ofSize: 18.0, weight: UIFont.Weight.regular)
+            titleTextAttributes[.font] = UIFont.systemFont(ofSize: 18.0, weight: UIFont.Weight.semibold)
         }
         self.titleTextAttributes = titleTextAttributes
         self.tintColor = UIColor.white.withAlphaComponent(0.7)
