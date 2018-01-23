@@ -134,4 +134,3 @@ internal class TransitionOperation: NSObject, CAAnimationDelegate {
         self.animation = nil
     }
 }
-
