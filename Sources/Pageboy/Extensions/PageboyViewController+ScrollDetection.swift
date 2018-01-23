@@ -94,25 +94,7 @@ extension PageboyViewController: UIScrollViewDelegate {
         }
         
         let previousPagePosition = self.previousPagePosition ?? 0.0
-        
-        // calculate offset / page size for relative orientation
-        var pageSize: CGFloat!
-        var contentOffset: CGFloat!
-        switch navigationOrientation {
-            
-        case .horizontal:
-            pageSize = scrollView.frame.size.width
-            if scrollView.layoutIsRightToLeft {
-                contentOffset = pageSize + (pageSize - scrollView.contentOffset.x)
-            } else {
-                contentOffset = scrollView.contentOffset.x
-            }
-            
-        case .vertical:
-            pageSize = scrollView.frame.size.height
-            contentOffset = scrollView.contentOffset.y
-            
-        }
+        let (pageSize, contentOffset) = calculateRelativePageSizeAndContentOffset(for: scrollView)
         
         guard let scrollIndexDiff = self.pageScrollIndexDiff(forCurrentIndex: currentIndex,
                                                              expectedIndex: self.expectedTransitionIndex,
@@ -120,7 +102,6 @@ extension PageboyViewController: UIScrollViewDelegate {
                                                              pageSize: pageSize) else {
                                                                 return
         }
-        
         guard var pagePosition = self.pagePosition(forContentOffset: contentOffset,
                                                    pageSize: pageSize,
                                                    indexDiff: scrollIndexDiff) else {
@@ -208,6 +189,31 @@ extension PageboyViewController: UIScrollViewDelegate {
 
 // MARK: - Calculations
 private extension PageboyViewController {
+    
+    /// Calculate the relative page size and content offset for a scroll view at its current position.
+    ///
+    /// - Parameter scrollView: Scroll View
+    /// - Returns: Relative page size and content offset.
+    private func calculateRelativePageSizeAndContentOffset(for scrollView: UIScrollView) -> (CGFloat, CGFloat) {
+        var pageSize: CGFloat
+        var contentOffset: CGFloat
+        switch navigationOrientation {
+            
+        case .horizontal:
+            pageSize = scrollView.frame.size.width
+            if scrollView.layoutIsRightToLeft {
+                contentOffset = pageSize + (pageSize - scrollView.contentOffset.x)
+            } else {
+                contentOffset = scrollView.contentOffset.x
+            }
+            
+        case .vertical:
+            pageSize = scrollView.frame.size.height
+            contentOffset = scrollView.contentOffset.y
+        }
+        
+        return (pageSize, contentOffset)
+    }
     
     /// Detect whether the scroll view is overscrolling while infinite scroll is enabled
     /// Adjusts pagePosition if required.
