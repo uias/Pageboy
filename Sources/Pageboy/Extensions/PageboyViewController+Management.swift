@@ -109,13 +109,15 @@ internal extension PageboyViewController {
     
     /// Re-initialize the internal UIPageViewController instance without reloading data source if it currently exists.
     internal func reconfigurePageViewController() {
-        guard self.pageViewController != nil else { return }
+        guard self.pageViewController != nil else {
+            return
+        }
         self.setUpPageViewController(reloadViewControllers: false)
     }
     
     /// The options to be passed to a UIPageViewController instance.
-    internal var pageViewControllerOptions: [String : Any]? {
-        var options = [String : Any]()
+    internal var pageViewControllerOptions: [String: Any]? {
+        var options = [String: Any]()
         
         if self.interPageSpacing > 0.0 {
             options[UIPageViewControllerOptionInterPageSpacingKey] = self.interPageSpacing

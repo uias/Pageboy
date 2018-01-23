@@ -234,7 +234,7 @@ open class PageboyViewController: UIViewController {
         
         // ignore scroll updates during orientation change
         self.pageViewController?.scrollView?.delegate = nil
-        coordinator.animate(alongsideTransition: nil) { (context) in
+        coordinator.animate(alongsideTransition: nil) { (_) in
             self.pageViewController?.scrollView?.delegate = self
         }
     }
@@ -262,14 +262,20 @@ open class PageboyViewController: UIViewController {
         }
         
         // guard against any current transition operation
-        guard self.isScrollingAnimated == false else { return false }
+        guard self.isScrollingAnimated == false else {
+            return false
+        }
         
         let rawIndex = self.indexValue(for: page)
         if rawIndex != self.currentIndex {
             
             // guard against invalid page indexing
-            guard rawIndex >= 0 && rawIndex < viewControllerCount ?? 0 else { return false }
-            guard let viewController = viewController(at: rawIndex) else { return false }
+            guard rawIndex >= 0 && rawIndex < viewControllerCount ?? 0 else {
+                return false
+            }
+            guard let viewController = viewController(at: rawIndex) else {
+                return false
+            }
             
             var direction = NavigationDirection.forPage(rawIndex, previousPage: self.currentIndex ?? rawIndex)
             
@@ -279,7 +285,8 @@ open class PageboyViewController: UIViewController {
                     direction = .forward
                 case .previous:
                     direction = .reverse
-                default: break
+                default:
+                    break
                 }
             }
             
@@ -292,14 +299,15 @@ open class PageboyViewController: UIViewController {
             let transitionCompletion: TransitionOperation.Completion = { (finished) in
                 if finished {
                     let isVertical = self.navigationOrientation == .vertical
-                    self.currentPosition = CGPoint(x: isVertical ? 0.0 : CGFloat(rawIndex),
-                                                   y: isVertical ? CGFloat(rawIndex) : 0.0)
+                    let currentPosition = CGPoint(x: isVertical ? 0.0 : CGFloat(rawIndex),
+                                                  y: isVertical ? CGFloat(rawIndex) : 0.0)
+                    self.currentPosition = currentPosition
                     self.currentIndex = rawIndex
                     
                     // if not animated call position delegate update manually
                     if !animated {
                         self.delegate?.pageboyViewController(self,
-                                                             didScrollTo: self.currentPosition!,
+                                                             didScrollTo: currentPosition,
                                                              direction: direction,
                                                              animated: animated)
                     }
@@ -320,7 +328,9 @@ open class PageboyViewController: UIViewController {
             return true
             
         } else {
-            guard let viewController = viewController(at: rawIndex) else { return false }
+            guard let viewController = viewController(at: rawIndex) else {
+                return false
+            }
             self.autoScroller.didFinishScrollIfEnabled()
             completion?(viewController, animated, false)
             
@@ -330,11 +340,11 @@ open class PageboyViewController: UIViewController {
     
     private var isUpdatingViewControllers: Bool = false
     internal func updateViewControllers(to viewControllers: [UIViewController],
-                                       from fromIndex: PageIndex = 0,
-                                       to toIndex: PageIndex = 0,
-                                       direction: NavigationDirection = .forward,
-                                       animated: Bool,
-                                       completion: TransitionOperation.Completion?) {
+                                        from fromIndex: PageIndex = 0,
+                                        to toIndex: PageIndex = 0,
+                                        direction: NavigationDirection = .forward,
+                                        animated: Bool,
+                                        completion: TransitionOperation.Completion?) {
         guard let pageViewController = self.pageViewController, !isUpdatingViewControllers else {
             return
         }

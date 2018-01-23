@@ -21,10 +21,10 @@ public extension PageboyViewController {
         /// - moveIn: Move the new page in over the top of the current page.
         /// - reveal: Reveal the new page under the current page.
         public enum Style: String {
-            case push = "push"
-            case fade = "fade"
-            case moveIn = "moveIn"
-            case reveal = "reveal"
+            case push
+            case fade
+            case moveIn
+            case reveal
         }
         
         /// The style for the transition.
@@ -57,7 +57,9 @@ internal extension PageboyViewController {
     // MARK: Set Up
     
     fileprivate func prepareForTransition() {
-        guard self.transitionDisplayLink == nil else { return }
+        guard self.transitionDisplayLink == nil else {
+            return
+        }
         
         let transitionDisplayLink = CADisplayLink(target: self, selector: #selector(displayLinkDidTick))
         transitionDisplayLink.isPaused = true
@@ -84,14 +86,17 @@ internal extension PageboyViewController {
     ///   - direction: The direction of travel.
     ///   - animated: Whether to animate the transition.
     ///   - completion: Action on the completion of the transition.
-    internal func performTransition(from: Int,
-                                    to: Int,
+    internal func performTransition(from startIndex: Int,
+                                    to endIndex: Int,
                                     with direction: NavigationDirection,
                                     animated: Bool,
                                     completion: @escaping TransitionOperation.Completion) {
-        guard animated == true else { return }
-        guard self.activeTransition == nil else { return }
-        guard let scrollView = self.pageViewController?.scrollView else { return }
+        guard animated == true, self.activeTransition == nil else {
+            return
+        }
+        guard let scrollView = self.pageViewController?.scrollView else {
+            return
+        }
         
         prepareForTransition()
         
@@ -102,8 +107,8 @@ internal extension PageboyViewController {
         }
         
         // create a transition and unpause display link
-        let action = TransitionOperation.Action(startIndex: from,
-                                                endIndex: to,
+        let action = TransitionOperation.Action(startIndex: startIndex,
+                                                endIndex: endIndex,
                                                 direction: direction,
                                                 semanticDirection: semanticDirection,
                                                 orientation: self.navigationOrientation)
