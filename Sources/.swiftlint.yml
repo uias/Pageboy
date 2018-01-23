@@ -20,4 +20,4 @@ opt_in_rules:
 
 excluded:
 - Pods
-- Tests
+- PageboyTests
