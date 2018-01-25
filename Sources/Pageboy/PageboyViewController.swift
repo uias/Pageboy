@@ -155,7 +155,7 @@ open class PageboyViewController: UIViewController {
     private var isUpdatingViewControllers: Bool = false
 
     /// The transition to use when animating scrolls between pages.
-    public var transition = Transition.defaultTransition
+    public var transition = Transition.default
     /// The display link for transitioning.
     internal var transitionDisplayLink: CADisplayLink?
     /// The active transition operation.
