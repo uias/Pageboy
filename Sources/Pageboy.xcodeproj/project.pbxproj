@@ -34,8 +34,6 @@
 		466A76BE1FB38B32000B5C1C /* TransitionOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67E6FD81F1E58EE0019AB74 /* TransitionOperation.swift */; };
 		466A76C21FB38B32000B5C1C /* IndexedMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67E6FE31F1E59160019AB74 /* IndexedMap.swift */; };
 		466A76C31FB38B32000B5C1C /* WeakWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67E6FE41F1E59160019AB74 /* WeakWrapper.swift */; };
-		751D844970BB39E687580D1D /* Pods_PageboyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF9827F332B81DA5CC0FB65E /* Pods_PageboyTests.framework */; };
-		B1AF2C6F57052E4297BB3356 /* Pods_Pageboy_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6602748ED9D4A8437B46F151 /* Pods_Pageboy_iOS.framework */; };
 		D623B1C11E1D0C6B00527F3D /* Pageboy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D623B1B71E1D0C6A00527F3D /* Pageboy.framework */; };
 		D623B1C61E1D0C6B00527F3D /* PageboyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D623B1C51E1D0C6B00527F3D /* PageboyTests.swift */; };
 		D623B1C81E1D0C6B00527F3D /* Pageboy.h in Headers */ = {isa = PBXBuildFile; fileRef = D623B1BA1E1D0C6A00527F3D /* Pageboy.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -73,7 +71,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3AB1A41D6059FD7CC0EC9B3D /* Pods-Pageboy iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pageboy iOS.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-Pageboy iOS/Pods-Pageboy iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		461D6DF0201795A100E0CDEE /* UIScrollView+ScrollActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+ScrollActivity.swift"; sourceTree = "<group>"; };
 		461D6DF32017981E00E0CDEE /* PageboyViewController+NavigationDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PageboyViewController+NavigationDirection.swift"; sourceTree = "<group>"; };
 		462A65D92000FCAA0051C79C /* UIView+Localization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Localization.swift"; sourceTree = "<group>"; };
@@ -82,11 +79,6 @@
 		462A65DC2000FCAA0051C79C /* UIPageViewController+ScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIPageViewController+ScrollView.swift"; sourceTree = "<group>"; };
 		4653DD541FC8333E00C4B758 /* PageboyViewControllerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageboyViewControllerDataSource.swift; sourceTree = "<group>"; };
 		4653DD571FC8335F00C4B758 /* PageboyViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageboyViewControllerDelegate.swift; sourceTree = "<group>"; };
-		4691B50CC1B9CD252A877137 /* Pods-Pageboy iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pageboy iOS.release.xcconfig"; path = "../Pods/Target Support Files/Pods-Pageboy iOS/Pods-Pageboy iOS.release.xcconfig"; sourceTree = "<group>"; };
-		6602748ED9D4A8437B46F151 /* Pods_Pageboy_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pageboy_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9975637561D9D3F49F5683B1 /* Pods_Pageboy_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pageboy_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B377242ED064AE5666356D93 /* Pods-PageboyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PageboyTests.release.xcconfig"; path = "../Pods/Target Support Files/Pods-PageboyTests/Pods-PageboyTests.release.xcconfig"; sourceTree = "<group>"; };
-		BD046F8EDD6885BFC5AD757F /* Pods-PageboyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PageboyTests.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-PageboyTests/Pods-PageboyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D623B1B71E1D0C6A00527F3D /* Pageboy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pageboy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D623B1BA1E1D0C6A00527F3D /* Pageboy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pageboy.h; sourceTree = "<group>"; };
 		D623B1BB1E1D0C6A00527F3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -116,7 +108,6 @@
 		D6CC55801ECCC5BE00A7FBB4 /* PageboyViewController+AutoScrolling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PageboyViewController+AutoScrolling.swift"; sourceTree = "<group>"; };
 		D6F561351EDCAD6D0033C654 /* PageboyViewController+Transitioning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PageboyViewController+Transitioning.swift"; sourceTree = "<group>"; };
 		D6F6F8FB1EF6DC49006397D0 /* UIViewController+Pageboy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Pageboy.swift"; sourceTree = "<group>"; };
-		EF9827F332B81DA5CC0FB65E /* Pods_PageboyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PageboyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,7 +115,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1AF2C6F57052E4297BB3356 /* Pods_Pageboy_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,7 +123,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D623B1C11E1D0C6B00527F3D /* Pageboy.framework in Frameworks */,
-				751D844970BB39E687580D1D /* Pods_PageboyTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,27 +148,6 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		6B4272BFFD83050AE970E404 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				3AB1A41D6059FD7CC0EC9B3D /* Pods-Pageboy iOS.debug.xcconfig */,
-				4691B50CC1B9CD252A877137 /* Pods-Pageboy iOS.release.xcconfig */,
-				BD046F8EDD6885BFC5AD757F /* Pods-PageboyTests.debug.xcconfig */,
-				B377242ED064AE5666356D93 /* Pods-PageboyTests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		9580F326745F6B7904AEA16B /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				6602748ED9D4A8437B46F151 /* Pods_Pageboy_iOS.framework */,
-				EF9827F332B81DA5CC0FB65E /* Pods_PageboyTests.framework */,
-				9975637561D9D3F49F5683B1 /* Pods_Pageboy_tvOS.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		D623B1AD1E1D0C6A00527F3D = {
 			isa = PBXGroup;
 			children = (
@@ -187,8 +155,6 @@
 				D623B1C41E1D0C6B00527F3D /* PageboyTests */,
 				D63A21511F2758D700FEA92D /* Pageboy */,
 				D623B1B81E1D0C6A00527F3D /* Products */,
-				6B4272BFFD83050AE970E404 /* Pods */,
-				9580F326745F6B7904AEA16B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -335,14 +301,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D623B1CB1E1D0C6B00527F3D /* Build configuration list for PBXNativeTarget "Pageboy iOS" */;
 			buildPhases = (
-				BC6A589551D6239212EB8925 /* [CP] Check Pods Manifest.lock */,
 				466C4B572017848E00C3E69C /* Swift Lint */,
 				D623B1B21E1D0C6A00527F3D /* Sources */,
 				D623B1B31E1D0C6A00527F3D /* Frameworks */,
 				D623B1B41E1D0C6A00527F3D /* Headers */,
 				D623B1B51E1D0C6A00527F3D /* Resources */,
 				D681E3391E54729C007C08F5 /* Increment Build Number */,
-				25AF3AFF60E34627B0B1C1C2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -357,12 +321,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D623B1CE1E1D0C6B00527F3D /* Build configuration list for PBXNativeTarget "PageboyTests" */;
 			buildPhases = (
-				83E056B4D8FB85F126566713 /* [CP] Check Pods Manifest.lock */,
 				D623B1BC1E1D0C6B00527F3D /* Sources */,
 				D623B1BD1E1D0C6B00527F3D /* Frameworks */,
 				D623B1BE1E1D0C6B00527F3D /* Resources */,
-				AF7297AF4BE604EDECF0A3FF /* [CP] Embed Pods Frameworks */,
-				17E6E59C7812400F1F879EF9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -378,6 +339,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D63A21551F2758D700FEA92D /* Build configuration list for PBXNativeTarget "Pageboy tvOS" */;
 			buildPhases = (
+				461BE5C02020B8CA0049A8C8 /* Swift Lint */,
 				D63A214B1F2758D700FEA92D /* Sources */,
 				D63A214C1F2758D700FEA92D /* Frameworks */,
 				D63A214D1F2758D700FEA92D /* Headers */,
@@ -462,35 +424,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		17E6E59C7812400F1F879EF9 /* [CP] Copy Pods Resources */ = {
+		461BE5C02020B8CA0049A8C8 /* Swift Lint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "[CP] Copy Pods Resources";
+			name = "Swift Lint";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-PageboyTests/Pods-PageboyTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		25AF3AFF60E34627B0B1C1C2 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-Pageboy iOS/Pods-Pageboy iOS-resources.sh\"\n";
-			showEnvVarsInLog = 0;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nfi";
 		};
 		466C4B572017848E00C3E69C /* Swift Lint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -504,58 +450,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint";
-		};
-		83E056B4D8FB85F126566713 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-PageboyTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		AF7297AF4BE604EDECF0A3FF /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-PageboyTests/Pods-PageboyTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BC6A589551D6239212EB8925 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Pageboy iOS-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nfi";
 		};
 		D681E3391E54729C007C08F5 /* Increment Build Number */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -771,7 +666,6 @@
 		};
 		D623B1CC1E1D0C6B00527F3D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3AB1A41D6059FD7CC0EC9B3D /* Pods-Pageboy iOS.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -790,7 +684,6 @@
 		};
 		D623B1CD1E1D0C6B00527F3D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4691B50CC1B9CD252A877137 /* Pods-Pageboy iOS.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -808,7 +701,6 @@
 		};
 		D623B1CF1E1D0C6B00527F3D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BD046F8EDD6885BFC5AD757F /* Pods-PageboyTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = PageboyTests/Info.plist;
@@ -820,7 +712,6 @@
 		};
 		D623B1D01E1D0C6B00527F3D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B377242ED064AE5666356D93 /* Pods-PageboyTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = PageboyTests/Info.plist;
