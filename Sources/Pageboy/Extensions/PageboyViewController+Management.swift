@@ -38,12 +38,12 @@ public extension PageboyViewController {
 internal extension PageboyViewController {
     
     func updateViewControllers(to viewControllers: [UIViewController],
-                                        from fromIndex: PageIndex = 0,
-                                        to toIndex: PageIndex = 0,
-                                        direction: NavigationDirection = .forward,
-                                        animated: Bool,
-                                        async: Bool,
-                                        completion: TransitionOperation.Completion?) {
+                               from fromIndex: PageIndex = 0,
+                               to toIndex: PageIndex = 0,
+                               direction: NavigationDirection = .forward,
+                               animated: Bool,
+                               async: Bool,
+                               completion: TransitionOperation.Completion?) {
         guard let pageViewController = self.pageViewController, !isUpdatingViewControllers else {
             return
         }
