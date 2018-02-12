@@ -27,7 +27,58 @@ public extension PageboyViewController {
             return
         }
         
-        updateViewControllers(to: [currentViewController], animated: false, completion: nil)
+        updateViewControllers(to: [currentViewController],
+                              animated: false,
+                              async: false,
+                              completion: nil)
+    }
+}
+
+// MARK: - VC Updating
+internal extension PageboyViewController {
+    
+    func updateViewControllers(to viewControllers: [UIViewController],
+                               from fromIndex: PageIndex = 0,
+                               to toIndex: PageIndex = 0,
+                               direction: NavigationDirection = .forward,
+                               animated: Bool,
+                               async: Bool,
+                               completion: TransitionOperation.Completion?) {
+        guard let pageViewController = self.pageViewController, !isUpdatingViewControllers else {
+            return
+        }
+        
+        targetIndex = toIndex
+        isUpdatingViewControllers = true
+        performTransition(from: fromIndex,
+                          to: toIndex,
+                          with: direction,
+                          animated: animated,
+                          completion: completion ?? { _ in })
+        
+        let updateBlock = {
+            pageViewController.setViewControllers(viewControllers,
+                                                  direction: direction.pageViewControllerNavDirection,
+                                                  animated: false,
+                                                  completion:
+                { (finished) in
+                    self.isUpdatingViewControllers = false
+                    
+                    if !animated {
+                        completion?(finished)
+                    }
+            })
+        }
+        
+        // Attempt to fix issue where fast scrolling causes crash.
+        // See https://github.com/uias/Pageboy/issues/140
+        if async {
+            DispatchQueue.main.async {
+                updateBlock()
+            }
+        } else {
+            updateBlock()
+        }
     }
 }
 
@@ -94,7 +145,7 @@ internal extension PageboyViewController {
                 return
         }
         
-        updateViewControllers(to: [viewController], animated: false) { _ in
+        updateViewControllers(to: [viewController], animated: false, async: false) { _ in
             self.currentIndex = defaultIndex
             self.delegate?.pageboyViewController(self,
                                                  didReloadWith: viewController,
