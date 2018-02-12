@@ -19,8 +19,6 @@
 		462A65E22000FCAA0051C79C /* UIApplication+SafeShared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462A65DB2000FCAA0051C79C /* UIApplication+SafeShared.swift */; };
 		462A65E32000FCAA0051C79C /* UIPageViewController+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462A65DC2000FCAA0051C79C /* UIPageViewController+ScrollView.swift */; };
 		462A65E42000FCAA0051C79C /* UIPageViewController+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462A65DC2000FCAA0051C79C /* UIPageViewController+ScrollView.swift */; };
-		4640FB852031E32C00A61434 /* PageboyViewController+Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4640FB842031E32C00A61434 /* PageboyViewController+Page.swift */; };
-		4640FB862031E33000A61434 /* PageboyViewController+Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4640FB842031E32C00A61434 /* PageboyViewController+Page.swift */; };
 		4653DD551FC8333E00C4B758 /* PageboyViewControllerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4653DD541FC8333E00C4B758 /* PageboyViewControllerDataSource.swift */; };
 		4653DD561FC8333E00C4B758 /* PageboyViewControllerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4653DD541FC8333E00C4B758 /* PageboyViewControllerDataSource.swift */; };
 		4653DD581FC8335F00C4B758 /* PageboyViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4653DD571FC8335F00C4B758 /* PageboyViewControllerDelegate.swift */; };
@@ -79,7 +77,6 @@
 		462A65DA2000FCAA0051C79C /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayout.swift"; sourceTree = "<group>"; };
 		462A65DB2000FCAA0051C79C /* UIApplication+SafeShared.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+SafeShared.swift"; sourceTree = "<group>"; };
 		462A65DC2000FCAA0051C79C /* UIPageViewController+ScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIPageViewController+ScrollView.swift"; sourceTree = "<group>"; };
-		4640FB842031E32C00A61434 /* PageboyViewController+Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PageboyViewController+Page.swift"; sourceTree = "<group>"; };
 		4653DD541FC8333E00C4B758 /* PageboyViewControllerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageboyViewControllerDataSource.swift; sourceTree = "<group>"; };
 		4653DD571FC8335F00C4B758 /* PageboyViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageboyViewControllerDelegate.swift; sourceTree = "<group>"; };
 		D623B1B71E1D0C6A00527F3D /* Pageboy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pageboy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -263,7 +260,6 @@
 				D6F561351EDCAD6D0033C654 /* PageboyViewController+Transitioning.swift */,
 				461D6DF32017981E00E0CDEE /* PageboyViewController+NavigationDirection.swift */,
 				D6CC55801ECCC5BE00A7FBB4 /* PageboyViewController+AutoScrolling.swift */,
-				4640FB842031E32C00A61434 /* PageboyViewController+Page.swift */,
 				D6F6F8FB1EF6DC49006397D0 /* UIViewController+Pageboy.swift */,
 			);
 			path = Extensions;
@@ -479,7 +475,6 @@
 			files = (
 				4653DD551FC8333E00C4B758 /* PageboyViewControllerDataSource.swift in Sources */,
 				D6F6F8FC1EF6DC49006397D0 /* UIViewController+Pageboy.swift in Sources */,
-				4640FB852031E32C00A61434 /* PageboyViewController+Page.swift in Sources */,
 				461D6DF42017981E00E0CDEE /* PageboyViewController+NavigationDirection.swift in Sources */,
 				D6CC557B1ECCC55300A7FBB4 /* PageboyAutoScroller.swift in Sources */,
 				D6CC557E1ECCC55F00A7FBB4 /* PageboyViewController+Management.swift in Sources */,
@@ -523,7 +518,6 @@
 			files = (
 				4653DD561FC8333E00C4B758 /* PageboyViewControllerDataSource.swift in Sources */,
 				466A76BD1FB38B32000B5C1C /* TransitionOperation+Action.swift in Sources */,
-				4640FB862031E33000A61434 /* PageboyViewController+Page.swift in Sources */,
 				461D6DF52017981E00E0CDEE /* PageboyViewController+NavigationDirection.swift in Sources */,
 				466A76B81FB38B32000B5C1C /* PageboyViewController+ScrollDetection.swift in Sources */,
 				466A76BB1FB38B32000B5C1C /* UIViewController+Pageboy.swift in Sources */,
