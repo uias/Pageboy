@@ -373,16 +373,21 @@ public extension PageboyViewController {
                           with: direction,
                           animated: animated,
                           completion: completion ?? { _ in })
-        pageViewController.setViewControllers(viewControllers,
-                                              direction: direction.pageViewControllerNavDirection,
-                                              animated: false,
-                                              completion:
-            { (finished) in
-                self.isUpdatingViewControllers = false
-                
-                if !animated {
-                    completion?(finished)
-                }
-        })
+        
+        // Attempt to fix issue where fast scrolling causes crash.
+        // See https://github.com/uias/Pageboy/issues/140
+        DispatchQueue.main.async {
+            pageViewController.setViewControllers(viewControllers,
+                                                  direction: direction.pageViewControllerNavDirection,
+                                                  animated: false,
+                                                  completion:
+                { (finished) in
+                    self.isUpdatingViewControllers = false
+                    
+                    if !animated {
+                        completion?(finished)
+                    }
+            })
+        }
     }
 }
