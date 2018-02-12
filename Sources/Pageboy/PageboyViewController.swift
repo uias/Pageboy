@@ -29,22 +29,6 @@ open class PageboyViewController: UIViewController {
         case reverse
     }
     
-    /// The index of a page in the page view controller.
-    ///
-    /// - next: The next page if available.
-    /// - previous: The previous page if available.
-    /// - first: The first page.
-    /// - last: The last page.
-    /// - at: A custom specified page index.
-    // swiftlint:disable identifier_name
-    public enum Page {
-        case next
-        case previous
-        case first
-        case last
-        case at(index: PageIndex)
-    }
-    
     // MARK: Properties
     
     internal var pageViewController: UIPageViewController?
@@ -268,7 +252,6 @@ public extension PageboyViewController {
                 guard let viewController = viewController(at: rawIndex) else {
                     return false
                 }
-                
                 
                 self.pageViewController(pageViewController,
                                         willTransitionTo: [viewController],
