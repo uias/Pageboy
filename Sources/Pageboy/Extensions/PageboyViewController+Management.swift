@@ -27,7 +27,10 @@ public extension PageboyViewController {
             return
         }
         
-        updateViewControllers(to: [currentViewController], animated: false, completion: nil)
+        updateViewControllers(to: [currentViewController],
+                              animated: false,
+                              async: false,
+                              completion: nil)
     }
 }
 
@@ -94,7 +97,7 @@ internal extension PageboyViewController {
                 return
         }
         
-        updateViewControllers(to: [viewController], animated: false) { _ in
+        updateViewControllers(to: [viewController], animated: false, async: false) { _ in
             self.currentIndex = defaultIndex
             self.delegate?.pageboyViewController(self,
                                                  didReloadWith: viewController,

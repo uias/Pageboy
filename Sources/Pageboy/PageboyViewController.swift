@@ -304,6 +304,7 @@ public extension PageboyViewController {
                                       to: rawIndex,
                                       direction: direction,
                                       animated: animated,
+                                      async: true,
                                       completion: transitionCompletion)
                 
                 return true
@@ -361,6 +362,7 @@ public extension PageboyViewController {
                                         to toIndex: PageIndex = 0,
                                         direction: NavigationDirection = .forward,
                                         animated: Bool,
+                                        async: Bool,
                                         completion: TransitionOperation.Completion?) {
         guard let pageViewController = self.pageViewController, !isUpdatingViewControllers else {
             return
@@ -374,9 +376,7 @@ public extension PageboyViewController {
                           animated: animated,
                           completion: completion ?? { _ in })
         
-        // Attempt to fix issue where fast scrolling causes crash.
-        // See https://github.com/uias/Pageboy/issues/140
-        DispatchQueue.main.async {
+        let updateBlock = {
             pageViewController.setViewControllers(viewControllers,
                                                   direction: direction.pageViewControllerNavDirection,
                                                   animated: false,
@@ -388,6 +388,16 @@ public extension PageboyViewController {
                         completion?(finished)
                     }
             })
+        }
+        
+        // Attempt to fix issue where fast scrolling causes crash.
+        // See https://github.com/uias/Pageboy/issues/140
+        if async {
+            DispatchQueue.main.async {
+                updateBlock()
+            }
+        } else {
+            updateBlock()
         }
     }
 }
