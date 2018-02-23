@@ -3,6 +3,7 @@ All notable changes to this project will be documented in this file.
 `Pageboy` adheres to [Semantic Versioning](http://semver.org/).
 
 #### 2.x Releases
+- `2.4.x` Releases - [2.4.0](#240)
 - `2.3.x` Releases - [2.3.0](#230) | [2.3.1](#231) | [2.3.2](#232) | [2.3.3](#233) | [2.3.4](#234)
 - `2.2.x` Releases - [2.2.0](#220)
 - `2.1.x` Releases - [2.1.0](#210)
@@ -17,6 +18,19 @@ All notable changes to this project will be documented in this file.
 
 #### 0.x Releases
 - `0.4.x` Releases - [0.4.0](#040) | [0.4.1](#041) | [0.4.2](#042) | [0.4.3](#043) | [0.4.4](#044) | [0.4.5](#045) | [0.4.6](#046) | [0.4.7](#047) | [0.4.8](#048) | [0.4.9](#049) | [0.4.10](#0410) | [0.4.11](#0411) | [0.4.12](#0412)
+
+---
+
+## [2.4.0](https://github.com/uias/Pageboy/releases/tag/2.4.0)
+Released on 2018-02-23
+
+#### Updated
+- [#136](https://github.com/uias/Pageboy/issues/136) Add support for default `UIPageViewController` animated transition.
+     - by [msaps](https://github.com/msaps).
+- [#136](https://github.com/uias/Pageboy/issues/136) Obseleted `default` `Transition`.
+     - by [msaps](https://github.com/msaps).
+- Mark `showsPageControl` as unavailable rather than deprecated.
+     - by [msaps](https://github.com/msaps).
 
 --- 
 
@@ -63,7 +77,7 @@ Released on 2017-12-20
 #### Updated
 - [#121](https://github.com/uias/Pageboy/issues/121) Update minimum deployment target to iOS 9.
      - by [msaps](https://github.com/msaps).
-- [#129](https://github.com/uias/Pageboy/issues/129) Disable showsPageControl temporarily (Due to iOS 11.2 issue).
+- [#129](https://github.com/uias/Pageboy/issues/129) Disable `showsPageControl` temporarily (Due to iOS 11.2 issue).
      - by [msaps](https://github.com/msaps).
 
 ---
