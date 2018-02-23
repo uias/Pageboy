@@ -159,7 +159,7 @@ open class PageboyViewController: UIViewController {
     /// The display link for transitioning.
     internal var transitionDisplayLink: CADisplayLink?
     /// The active transition operation.
-    internal var activeTransition: TransitionOperation?
+    internal var activeTransitionOperation: TransitionOperation?
     
     /// The number of view controllers in the page view controller.
     internal var viewControllerCount: Int?

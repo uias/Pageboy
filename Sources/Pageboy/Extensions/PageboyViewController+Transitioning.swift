@@ -75,7 +75,7 @@ internal extension PageboyViewController {
     // MARK: Animation
     
     @objc func displayLinkDidTick() {
-        self.activeTransition?.tick()
+        self.activeTransitionOperation?.tick()
     }
     
     /// Perform a transition to a new page index.
@@ -91,7 +91,7 @@ internal extension PageboyViewController {
                                     with direction: NavigationDirection,
                                     animated: Bool,
                                     completion: @escaping TransitionOperation.Completion) {
-        guard animated == true, self.activeTransition == nil else {
+        guard animated == true, self.activeTransitionOperation == nil else {
             return
         }
         guard let scrollView = self.pageViewController?.scrollView else {
@@ -112,13 +112,13 @@ internal extension PageboyViewController {
                                                 direction: direction,
                                                 semanticDirection: semanticDirection,
                                                 orientation: self.navigationOrientation)
-        self.activeTransition = TransitionOperation(for: self.transition,
+        self.activeTransitionOperation = TransitionOperation(for: self.transition,
                                                     action: action,
                                                     delegate: self)
         self.transitionDisplayLink?.isPaused = false
         
         // start transition
-        self.activeTransition?.start(on: scrollView.layer,
+        self.activeTransitionOperation?.start(on: scrollView.layer,
                                      completion: completion)
     }
 }
@@ -128,7 +128,7 @@ extension PageboyViewController: TransitionOperationDelegate {
     func transitionOperation(_ operation: TransitionOperation,
                              didFinish finished: Bool) {
         self.transitionDisplayLink?.isPaused = true
-        self.activeTransition = nil
+        self.activeTransitionOperation = nil
         
         clearUpAfterTransition()
     }
