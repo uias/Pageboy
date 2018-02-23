@@ -180,23 +180,7 @@ open class PageboyViewController: UIViewController {
             guard let currentIndex = self.currentIndex else {
                 return
             }
-
-            #if os(iOS)
-            UIView.animate(withDuration: 0.3) { 
-                self.setNeedsStatusBarAppearanceUpdate()
-            }
-            #endif
-            
-            // ensure position keeps in sync
-            self.currentPosition = CGPoint(x: self.navigationOrientation == .horizontal ? CGFloat(currentIndex) : 0.0,
-                                           y: self.navigationOrientation == .vertical ? CGFloat(currentIndex) : 0.0)
-            let direction = NavigationDirection.forPosition(CGFloat(currentIndex),
-                                                            previous: CGFloat(oldValue ?? currentIndex))
-            self.delegate?.pageboyViewController(self,
-                                                 didScrollToPageAt: currentIndex,
-                                                 direction: direction,
-                                                 animated: self.isScrollingAnimated)
-
+            update(forNew: currentIndex, from: oldValue)
         }
     }
     /// The relative page position that the page view controller is currently at.
@@ -355,5 +339,24 @@ public extension PageboyViewController {
         }
         
         return direction
+    }
+
+    private func update(forNew currentIndex: PageIndex, from oldIndex: PageIndex?) {
+        
+        #if os(iOS)
+            UIView.animate(withDuration: 0.3) {
+                self.setNeedsStatusBarAppearanceUpdate()
+            }
+        #endif
+        
+        // ensure position keeps in sync
+        self.currentPosition = CGPoint(x: self.navigationOrientation == .horizontal ? CGFloat(currentIndex) : 0.0,
+                                       y: self.navigationOrientation == .vertical ? CGFloat(currentIndex) : 0.0)
+        let direction = NavigationDirection.forPosition(CGFloat(currentIndex),
+                                                        previous: CGFloat(oldIndex ?? currentIndex))
+        self.delegate?.pageboyViewController(self,
+                                             didScrollToPageAt: currentIndex,
+                                             direction: direction,
+                                             animated: self.isScrollingAnimated)
     }
 }
