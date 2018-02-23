@@ -247,13 +247,9 @@ public extension PageboyViewController {
             if rawIndex != self.currentIndex {
                 
                 // guard against invalid page indexing
-                guard rawIndex >= 0 && rawIndex < viewControllerCount ?? 0 else {
+                guard rawIndex >= 0 && rawIndex < viewControllerCount ?? 0, let viewController = viewController(at: rawIndex) else {
                     return false
-                }
-                guard let viewController = viewController(at: rawIndex) else {
-                    return false
-                }
-                
+                }                
                 
                 self.pageViewController(pageViewController,
                                         willTransitionTo: [viewController],
