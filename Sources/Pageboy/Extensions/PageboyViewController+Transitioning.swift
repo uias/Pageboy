@@ -33,6 +33,7 @@ public extension PageboyViewController {
         public let duration: TimeInterval
         
         /// Default transition (Push, 0.3 second duration).
+        @available(*, obsoleted: 2.4.0, message:"To use the default transition, set PageboyViewController.transition to `nil`")
         public static var `default`: Transition {
             return Transition(style: .push, duration: 0.3)
         }
