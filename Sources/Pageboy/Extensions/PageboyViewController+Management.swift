@@ -50,21 +50,27 @@ internal extension PageboyViewController {
         
         targetIndex = toIndex
         isUpdatingViewControllers = true
-        performTransition(from: fromIndex,
-                          to: toIndex,
-                          with: direction,
-                          animated: animated,
-                          completion: completion ?? { _ in })
         
+        let isUsingCustomTransition = transition != nil
+        if isUsingCustomTransition {
+            performTransition(from: fromIndex,
+                              to: toIndex,
+                              with: direction,
+                              animated: animated,
+                              completion: completion ?? { _ in })
+        }
+        
+        // if not using a custom transition then animate using UIPageViewController mechanism
+        let animateUpdate = animated ? !isUsingCustomTransition : false
         let updateBlock = {
             pageViewController.setViewControllers(viewControllers,
                                                   direction: direction.pageViewControllerNavDirection,
-                                                  animated: false,
+                                                  animated: animateUpdate,
                                                   completion:
                 { (finished) in
                     self.isUpdatingViewControllers = false
                     
-                    if !animated {
+                    if !animated || !isUsingCustomTransition {
                         completion?(finished)
                     }
             })

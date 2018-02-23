@@ -173,6 +173,8 @@ The following styles are available:
 - `.moveIn`
 - `.reveal`
 
+*Note: By default this is set to `nil`, which uses the standard animation provided by `UIPageViewController`.*
+
 ### Auto Scrolling
 `PageboyAutoScroller` is available to set up timer based automatic scrolling of the `PageboyViewController`:
 
