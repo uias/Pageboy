@@ -32,8 +32,12 @@
 		466A76BC1FB38B32000B5C1C /* PageboyAutoScroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CC557A1ECCC55300A7FBB4 /* PageboyAutoScroller.swift */; };
 		466A76BD1FB38B32000B5C1C /* TransitionOperation+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67E6FD71F1E58EE0019AB74 /* TransitionOperation+Action.swift */; };
 		466A76BE1FB38B32000B5C1C /* TransitionOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67E6FD81F1E58EE0019AB74 /* TransitionOperation.swift */; };
-		466A76C21FB38B32000B5C1C /* IndexedMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67E6FE31F1E59160019AB74 /* IndexedMap.swift */; };
-		466A76C31FB38B32000B5C1C /* WeakWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67E6FE41F1E59160019AB74 /* WeakWrapper.swift */; };
+		46A86908204C40EE00B69919 /* IndexedMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A86906204C40EE00B69919 /* IndexedMap.swift */; };
+		46A86909204C40EE00B69919 /* IndexedMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A86906204C40EE00B69919 /* IndexedMap.swift */; };
+		46A8690A204C40EE00B69919 /* WeakWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A86907204C40EE00B69919 /* WeakWrapper.swift */; };
+		46A8690B204C40EE00B69919 /* WeakWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A86907204C40EE00B69919 /* WeakWrapper.swift */; };
+		46A8690D204C411400B69919 /* ScrollObservationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A8690C204C411400B69919 /* ScrollObservationService.swift */; };
+		46A8690E204C411400B69919 /* ScrollObservationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A8690C204C411400B69919 /* ScrollObservationService.swift */; };
 		D623B1C11E1D0C6B00527F3D /* Pageboy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D623B1B71E1D0C6A00527F3D /* Pageboy.framework */; };
 		D623B1C61E1D0C6B00527F3D /* PageboyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D623B1C51E1D0C6B00527F3D /* PageboyTests.swift */; };
 		D623B1C81E1D0C6B00527F3D /* Pageboy.h in Headers */ = {isa = PBXBuildFile; fileRef = D623B1BA1E1D0C6A00527F3D /* Pageboy.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -42,8 +46,6 @@
 		D63A21541F2758D700FEA92D /* Pageboy.h in Headers */ = {isa = PBXBuildFile; fileRef = D63A21521F2758D700FEA92D /* Pageboy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D67E6FDC1F1E58EE0019AB74 /* TransitionOperation+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67E6FD71F1E58EE0019AB74 /* TransitionOperation+Action.swift */; };
 		D67E6FDD1F1E58EE0019AB74 /* TransitionOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67E6FD81F1E58EE0019AB74 /* TransitionOperation.swift */; };
-		D67E6FE51F1E59160019AB74 /* IndexedMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67E6FE31F1E59160019AB74 /* IndexedMap.swift */; };
-		D67E6FE61F1E59160019AB74 /* WeakWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67E6FE41F1E59160019AB74 /* WeakWrapper.swift */; };
 		D681E33F1E5477D3007C08F5 /* TestPageboyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D681E33E1E5477D3007C08F5 /* TestPageboyViewController.swift */; };
 		D681E3411E5478E6007C08F5 /* TestPageChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D681E3401E5478E6007C08F5 /* TestPageChildViewController.swift */; };
 		D681E3431E547901007C08F5 /* TestPageboyDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D681E3421E547901007C08F5 /* TestPageboyDataSource.swift */; };
@@ -79,6 +81,9 @@
 		462A65DC2000FCAA0051C79C /* UIPageViewController+ScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIPageViewController+ScrollView.swift"; sourceTree = "<group>"; };
 		4653DD541FC8333E00C4B758 /* PageboyViewControllerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageboyViewControllerDataSource.swift; sourceTree = "<group>"; };
 		4653DD571FC8335F00C4B758 /* PageboyViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageboyViewControllerDelegate.swift; sourceTree = "<group>"; };
+		46A86906204C40EE00B69919 /* IndexedMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexedMap.swift; sourceTree = "<group>"; };
+		46A86907204C40EE00B69919 /* WeakWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakWrapper.swift; sourceTree = "<group>"; };
+		46A8690C204C411400B69919 /* ScrollObservationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollObservationService.swift; sourceTree = "<group>"; };
 		D623B1B71E1D0C6A00527F3D /* Pageboy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pageboy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D623B1BA1E1D0C6A00527F3D /* Pageboy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pageboy.h; sourceTree = "<group>"; };
 		D623B1BB1E1D0C6A00527F3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -92,8 +97,6 @@
 		D63A21531F2758D700FEA92D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D67E6FD71F1E58EE0019AB74 /* TransitionOperation+Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TransitionOperation+Action.swift"; sourceTree = "<group>"; };
 		D67E6FD81F1E58EE0019AB74 /* TransitionOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionOperation.swift; sourceTree = "<group>"; };
-		D67E6FE31F1E59160019AB74 /* IndexedMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexedMap.swift; sourceTree = "<group>"; };
-		D67E6FE41F1E59160019AB74 /* WeakWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakWrapper.swift; sourceTree = "<group>"; };
 		D681E33E1E5477D3007C08F5 /* TestPageboyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestPageboyViewController.swift; sourceTree = "<group>"; };
 		D681E3401E5478E6007C08F5 /* TestPageChildViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestPageChildViewController.swift; sourceTree = "<group>"; };
 		D681E3421E547901007C08F5 /* TestPageboyDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestPageboyDataSource.swift; sourceTree = "<group>"; };
@@ -216,15 +219,6 @@
 			path = Transitioning;
 			sourceTree = "<group>";
 		};
-		D67E6FE21F1E59160019AB74 /* DataStructures */ = {
-			isa = PBXGroup;
-			children = (
-				D67E6FE31F1E59160019AB74 /* IndexedMap.swift */,
-				D67E6FE41F1E59160019AB74 /* WeakWrapper.swift */,
-			);
-			path = DataStructures;
-			sourceTree = "<group>";
-		};
 		D681E33D1E5477C2007C08F5 /* TestComponents */ = {
 			isa = PBXGroup;
 			children = (
@@ -270,7 +264,9 @@
 			children = (
 				462A65D82000FCAA0051C79C /* Extensions */,
 				D67E6FD61F1E58EE0019AB74 /* Transitioning */,
-				D67E6FE21F1E59160019AB74 /* DataStructures */,
+				46A86906204C40EE00B69919 /* IndexedMap.swift */,
+				46A86907204C40EE00B69919 /* WeakWrapper.swift */,
+				46A8690C204C411400B69919 /* ScrollObservationService.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -480,16 +476,17 @@
 				D6CC557E1ECCC55F00A7FBB4 /* PageboyViewController+Management.swift in Sources */,
 				D67E6FDD1F1E58EE0019AB74 /* TransitionOperation.swift in Sources */,
 				D623B1D21E1D2DF200527F3D /* PageboyViewController.swift in Sources */,
+				46A8690A204C40EE00B69919 /* WeakWrapper.swift in Sources */,
 				4653DD581FC8335F00C4B758 /* PageboyViewControllerDelegate.swift in Sources */,
 				D67E6FDC1F1E58EE0019AB74 /* TransitionOperation+Action.swift in Sources */,
 				462A65E32000FCAA0051C79C /* UIPageViewController+ScrollView.swift in Sources */,
-				D67E6FE61F1E59160019AB74 /* WeakWrapper.swift in Sources */,
+				46A86908204C40EE00B69919 /* IndexedMap.swift in Sources */,
 				D6CC557F1ECCC55F00A7FBB4 /* PageboyViewController+ScrollDetection.swift in Sources */,
 				461D6DF1201795A100E0CDEE /* UIScrollView+ScrollActivity.swift in Sources */,
 				462A65DF2000FCAA0051C79C /* UIView+AutoLayout.swift in Sources */,
-				D67E6FE51F1E59160019AB74 /* IndexedMap.swift in Sources */,
 				462A65E12000FCAA0051C79C /* UIApplication+SafeShared.swift in Sources */,
 				D6F561361EDCAD6D0033C654 /* PageboyViewController+Transitioning.swift in Sources */,
+				46A8690D204C411400B69919 /* ScrollObservationService.swift in Sources */,
 				D6CC55811ECCC5BE00A7FBB4 /* PageboyViewController+AutoScrolling.swift in Sources */,
 				462A65DD2000FCAA0051C79C /* UIView+Localization.swift in Sources */,
 			);
@@ -523,16 +520,17 @@
 				466A76BB1FB38B32000B5C1C /* UIViewController+Pageboy.swift in Sources */,
 				466A76BC1FB38B32000B5C1C /* PageboyAutoScroller.swift in Sources */,
 				466A76B61FB38B32000B5C1C /* PageboyViewController.swift in Sources */,
+				46A8690B204C40EE00B69919 /* WeakWrapper.swift in Sources */,
 				4653DD591FC8335F00C4B758 /* PageboyViewControllerDelegate.swift in Sources */,
-				466A76C31FB38B32000B5C1C /* WeakWrapper.swift in Sources */,
 				462A65E42000FCAA0051C79C /* UIPageViewController+ScrollView.swift in Sources */,
+				46A86909204C40EE00B69919 /* IndexedMap.swift in Sources */,
 				466A76BA1FB38B32000B5C1C /* PageboyViewController+AutoScrolling.swift in Sources */,
 				466A76B91FB38B32000B5C1C /* PageboyViewController+Transitioning.swift in Sources */,
 				461D6DF2201795A100E0CDEE /* UIScrollView+ScrollActivity.swift in Sources */,
 				462A65E02000FCAA0051C79C /* UIView+AutoLayout.swift in Sources */,
-				466A76C21FB38B32000B5C1C /* IndexedMap.swift in Sources */,
 				462A65E22000FCAA0051C79C /* UIApplication+SafeShared.swift in Sources */,
 				466A76BE1FB38B32000B5C1C /* TransitionOperation.swift in Sources */,
+				46A8690E204C411400B69919 /* ScrollObservationService.swift in Sources */,
 				466A76B71FB38B32000B5C1C /* PageboyViewController+Management.swift in Sources */,
 				462A65DE2000FCAA0051C79C /* UIView+Localization.swift in Sources */,
 			);
