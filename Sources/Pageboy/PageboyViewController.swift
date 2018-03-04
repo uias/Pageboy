@@ -48,6 +48,8 @@ open class PageboyViewController: UIViewController {
     // MARK: Properties
     
     internal var pageViewController: UIPageViewController?
+    /// An invisible scroll view used for silently influencing navigation bar titles.
+    internal var invisibleScrollView: UIScrollView?
     internal var previousPagePosition: CGFloat?
     internal var expectedTransitionIndex: PageIndex?
 

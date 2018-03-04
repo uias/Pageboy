@@ -122,6 +122,12 @@ internal extension PageboyViewController {
         pageViewController.view.pinToSuperviewEdges()
         pageViewController.didMove(toParentViewController: self)
       
+        // Add hidden scroll view that will be used to interact with navigation bar large titles.
+        let invisibleScrollView = ParentMatchedScrollView.matching(parent: self.view)
+        view.addSubview(invisibleScrollView)
+        view.sendSubview(toBack: invisibleScrollView)
+        self.invisibleScrollView = invisibleScrollView
+        
         pageViewController.scrollView?.delegate = self
         pageViewController.view.backgroundColor = .clear
         pageViewController.scrollView?.delaysContentTouches = delaysContentTouches
