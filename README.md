@@ -138,7 +138,7 @@ func pageboyViewController(_ pageboyViewController: PageboyViewController,
                            currentPageIndex: PageboyViewController.PageIndex)
 ```
 
-## 🔮 Other useful stuff
+## 🔮 Extras
 
 - `reloadPages` - Reload the view controllers in the page view controller. (Refreshes the data source).
 
@@ -152,6 +152,7 @@ func pageboyViewController(_ pageboyViewController: PageboyViewController,
                                animated: Bool,
                                completion: PageTransitionCompletion? = nil)
 	```
+- `navigationOrientation` - Whether to orientate the pages horizontally or vertically.
 - `isScrollEnabled` - Whether or not scrolling is allowed on the page view controller.
 - `isInfiniteScrollEnabled` - Whether the page view controlelr should infinitely scroll at the end of page ranges.
 - `currentViewController` - The currently visible view controller if it exists.
