@@ -18,29 +18,26 @@ internal protocol ScrollObservationServiceDelegate: class {
 
 internal class ScrollObservationService {
     
-    private(set) lazy var registrations = [UIViewController]()
+    private(set) lazy var registrations = [Int: UIViewController]()
     private var tokens = [Int: NSKeyValueObservation?]()
     
     weak var delegate: ScrollObservationServiceDelegate?
     
     // MARK: Registration
     
-    func register(viewControllers: [UIViewController]) {
-        viewControllers.forEach { (viewController) in
-            guard self.registrations.contains(viewController) == false else {
-                return
-            }
-            self.registrations.append(viewController)
-            self.hook(registration: viewController)
+    func register(viewController: UIViewController, for index: Int) {
+        if let existingRegistration = self.registrations[index], existingRegistration === viewController {
+            return
         }
+        
+        self.registrations[index] = viewController
+        self.hook(registration: viewController)
     }
     
-    func unregister(viewControllers: [UIViewController]) {
-        viewControllers.forEach { (viewController) in
-            if let index = self.registrations.index(of: viewController) {
-                self.unhook(registration: viewController)
-                self.registrations.remove(at: index)
-            }
+    func unregister(index: Int) {
+        if let viewController = self.registrations[index] {
+            self.unhook(registration: viewController)
+            self.registrations.removeValue(forKey: index)
         }
     }
     
