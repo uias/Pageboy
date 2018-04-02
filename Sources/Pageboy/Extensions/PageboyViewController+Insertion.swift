@@ -10,7 +10,14 @@ import UIKit
 
 public extension PageboyViewController {
     
-    public func insertPage(at index: PageIndex) {
+    public enum PageboyPageUpdateBehavior {
+        case doNothing
+        case scrollToUpdate
+        case scrollTo(index: PageIndex)
+    }
+    
+    public func insertPage(at index: PageIndex,
+                           then updateBehavior: PageboyPageUpdateBehavior = .scrollToUpdate) {
         guard let pageViewController = self.pageViewController else {
             return
         }
@@ -36,6 +43,17 @@ public extension PageboyViewController {
                                                            async: true,
                                                            completion: nil)
             }, completion: nil)
+        } else {
+            switch updateBehavior {
+                
+            case .scrollToUpdate:
+                scrollToPage(.at(index: index), animated: true)
+                
+            case .scrollTo(let index):
+                scrollToPage(.at(index: index), animated: true)
+                
+            default:()
+            }
         }
     }
 }
