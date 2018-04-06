@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
 
   s.requires_arc = true
 
-  s.version      = "2.4.0"
+  s.version      = "2.5.0"
   s.summary      = "A simple, highly informative page view controller."
   s.description  = <<-DESC
   					A page view controller that provides simplified data source management, enhanced delegation and other useful features.
