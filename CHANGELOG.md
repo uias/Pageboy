@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 `Pageboy` adheres to [Semantic Versioning](http://semver.org/).
 
 #### 2.x Releases
-- `2.5.x` Releases - [2.5.0](#250)
+- `2.5.x` Releases - [2.5.0](#250) | [2.5.1](#251)
 - `2.4.x` Releases - [2.4.0](#240)
 - `2.3.x` Releases - [2.3.0](#230) | [2.3.1](#231) | [2.3.2](#232) | [2.3.3](#233) | [2.3.4](#234)
 - `2.2.x` Releases - [2.2.0](#220)
@@ -22,6 +22,13 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [2.5.1](https://github.com/uias/Pageboy/releases/tag/2.5.1)
+Released on 2018-04-23
+
+#### Fixed
+- [#159](https://github.com/uias/Pageboy/issues/159) Current Index is negative when infinite scroll is enabled and scrolling between ranges.
+     - by [msaps](https://github.com/msaps).
+     
 ## [2.5.0](https://github.com/uias/Pageboy/releases/tag/2.5.0)
 Released on 2018-04-05
 
