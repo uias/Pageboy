@@ -1,5 +1,5 @@
 //
-//  PageboyViewController+Insertion.swift
+//  PageboyViewController+Updating.swift
 //  Pageboy
 //
 //  Created by Merrick Sapsford on 31/03/2018.
