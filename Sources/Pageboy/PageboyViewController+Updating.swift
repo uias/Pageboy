@@ -25,7 +25,6 @@ public extension PageboyViewController {
             guard let currentIndex = self.currentIndex else {
                 return
             }
-            
             guard let newViewController = dataSource?.viewController(for: self, at: index) else {
                 assertionFailure("Expected to find inserted UIViewController at page \(index)")
                 return
@@ -51,7 +50,7 @@ public extension PageboyViewController {
                 }
                 
                 // Reload current view controller in UIPageViewController if insertion index is next/previous page.
-                if (currentIndex - index) == 1 || (index - currentIndex) == 1 {
+                if pageIndex(index, isNextTo: currentIndex) {
                     guard let currentViewController = self.currentViewController else {
                         return
                     }
@@ -73,6 +72,9 @@ public extension PageboyViewController {
                    "Attempt to delete page at \(index) but there are \(newPageCount) pages after the update")
             
             let sanitizedIndex = min(index, newPageCount)
+            guard let currentIndex = self.currentIndex else {
+                return
+            }
             guard let newViewController = dataSource?.viewController(for: self, at: sanitizedIndex) else {
                 return
             }
@@ -88,15 +90,21 @@ public extension PageboyViewController {
                                                completion: nil)
                 })
             } else {
-                switch updateBehavior {
+                if currentIndex > sanitizedIndex {
+                    self.currentIndex = currentIndex - 1
+                }
+                
+                // Reload current view controller in UIPageViewController if insertion index is next/previous page.
+                if pageIndex(index, isNextTo: currentIndex) {
+                    guard let currentViewController = self.currentViewController else {
+                        return
+                    }
                     
-                case .scrollToUpdate:
-                    scrollToPage(.at(index: sanitizedIndex), animated: true)
-                    
-                case .scrollTo(let index):
-                    scrollToPage(.at(index: index), animated: true)
-                    
-                default:()
+                    updateViewControllers(to: [currentViewController], animated: false, async: true, completion: { _ in
+                        self.performScrollUpdate(to: index, behavior: updateBehavior)
+                    })
+                } else { // Otherwise just perform scroll update
+                    performScrollUpdate(to: index, behavior: updateBehavior)
                 }
             }
         })
@@ -128,5 +136,9 @@ private extension PageboyViewController {
             
         default:()
         }
+    }
+    
+    func pageIndex(_ index: PageIndex, isNextTo other: PageIndex) -> Bool {
+        return index - other == 1 || other - index == 1
     }
 }
