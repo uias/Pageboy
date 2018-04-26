@@ -17,6 +17,8 @@
 		462A65E22000FCAA0051C79C /* UIApplication+SafeShared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462A65DB2000FCAA0051C79C /* UIApplication+SafeShared.swift */; };
 		462A65E32000FCAA0051C79C /* UIPageViewController+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462A65DC2000FCAA0051C79C /* UIPageViewController+ScrollView.swift */; };
 		462A65E42000FCAA0051C79C /* UIPageViewController+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462A65DC2000FCAA0051C79C /* UIPageViewController+ScrollView.swift */; };
+		462D03DF2091D3AB0033C710 /* UIView+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462D03DE2091D3AB0033C710 /* UIView+Animation.swift */; };
+		462D03E02091D3AB0033C710 /* UIView+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462D03DE2091D3AB0033C710 /* UIView+Animation.swift */; };
 		4653DD551FC8333E00C4B758 /* PageboyViewControllerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4653DD541FC8333E00C4B758 /* PageboyViewControllerDataSource.swift */; };
 		4653DD561FC8333E00C4B758 /* PageboyViewControllerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4653DD541FC8333E00C4B758 /* PageboyViewControllerDataSource.swift */; };
 		4653DD581FC8335F00C4B758 /* PageboyViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4653DD571FC8335F00C4B758 /* PageboyViewControllerDelegate.swift */; };
@@ -76,6 +78,7 @@
 		462A65DA2000FCAA0051C79C /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayout.swift"; sourceTree = "<group>"; };
 		462A65DB2000FCAA0051C79C /* UIApplication+SafeShared.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+SafeShared.swift"; sourceTree = "<group>"; };
 		462A65DC2000FCAA0051C79C /* UIPageViewController+ScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIPageViewController+ScrollView.swift"; sourceTree = "<group>"; };
+		462D03DE2091D3AB0033C710 /* UIView+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Animation.swift"; sourceTree = "<group>"; };
 		4653DD541FC8333E00C4B758 /* PageboyViewControllerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageboyViewControllerDataSource.swift; sourceTree = "<group>"; };
 		4653DD571FC8335F00C4B758 /* PageboyViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageboyViewControllerDelegate.swift; sourceTree = "<group>"; };
 		46ADAAB4208F7E1500974529 /* PageboyAutoScroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageboyAutoScroller.swift; sourceTree = "<group>"; };
@@ -144,6 +147,7 @@
 				462A65DB2000FCAA0051C79C /* UIApplication+SafeShared.swift */,
 				462A65DC2000FCAA0051C79C /* UIPageViewController+ScrollView.swift */,
 				461D6DF0201795A100E0CDEE /* UIScrollView+ScrollActivity.swift */,
+				462D03DE2091D3AB0033C710 /* UIView+Animation.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -474,6 +478,7 @@
 				461D6DF1201795A100E0CDEE /* UIScrollView+ScrollActivity.swift in Sources */,
 				462A65DF2000FCAA0051C79C /* UIView+AutoLayout.swift in Sources */,
 				46ADAAC8208F7EB200974529 /* PageboyViewController+Updating.swift in Sources */,
+				462D03DF2091D3AB0033C710 /* UIView+Animation.swift in Sources */,
 				462A65E12000FCAA0051C79C /* UIApplication+SafeShared.swift in Sources */,
 				462A65DD2000FCAA0051C79C /* UIView+Localization.swift in Sources */,
 			);
@@ -517,6 +522,7 @@
 				46ADAAC3208F7E8500974529 /* TransitionOperation.swift in Sources */,
 				462A65E02000FCAA0051C79C /* UIView+AutoLayout.swift in Sources */,
 				46ADAAC9208F7EB200974529 /* PageboyViewController+Updating.swift in Sources */,
+				462D03E02091D3AB0033C710 /* UIView+Animation.swift in Sources */,
 				462A65E22000FCAA0051C79C /* UIApplication+SafeShared.swift in Sources */,
 				462A65DE2000FCAA0051C79C /* UIView+Localization.swift in Sources */,
 			);

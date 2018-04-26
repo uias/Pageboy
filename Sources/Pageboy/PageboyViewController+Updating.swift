@@ -37,32 +37,17 @@ public extension PageboyViewController {
             print("Inserting view controller at \(index)")
             
             if index == currentIndex { // replace current view controller
-                UIView.transition(with: pageViewController.view,
-                                  duration: 0.25,
-                                  options: .transitionCrossDissolve, animations: {
-                                    self.updateViewControllers(to: [newViewController],
-                                                               animated: false,
-                                                               async: true,
-                                                               completion: nil)
-                }, completion: nil)
+                pageViewController.view.crossDissolve(during: {
+                    self.updateViewControllers(to: [newViewController],
+                                               animated: false,
+                                               async: true,
+                                               completion: nil)
+                })
             } else {
                 
                 // Increment current index if we're ahead of the insertion
                 if currentIndex > index {
                     self.currentIndex = currentIndex + 1
-                }
-
-                let scrollUpdate = {
-                    switch updateBehavior {
-                        
-                    case .scrollToUpdate:
-                        self.scrollToPage(.at(index: index), animated: true)
-                        
-                    case .scrollTo(let index):
-                        self.scrollToPage(.at(index: index), animated: true)
-                        
-                    default:()
-                    }
                 }
                 
                 // Reload current view controller in UIPageViewController if insertion index is next/previous page.
@@ -72,10 +57,10 @@ public extension PageboyViewController {
                     }
                     
                     updateViewControllers(to: [currentViewController], animated: false, async: true, completion: { _ in
-                        scrollUpdate()
+                        self.performScrollUpdate(to: index, behavior: updateBehavior)
                     })
                 } else { // Otherwise just perform scroll update
-                    scrollUpdate()
+                    performScrollUpdate(to: index, behavior: updateBehavior)
                 }
             }
         })
@@ -96,15 +81,12 @@ public extension PageboyViewController {
             viewControllerMap.clear()
             
             if sanitizedIndex == currentIndex {
-                UIView.transition(with: pageViewController.view,
-                                  duration: 0.25,
-                                  options: .transitionCrossDissolve,
-                                  animations: {
-                                    self.updateViewControllers(to: [newViewController],
-                                                               animated: false,
-                                                               async: true,
-                                                               completion: nil)
-                }, completion: nil)
+                pageViewController.view.crossDissolve(during: {
+                    self.updateViewControllers(to: [newViewController],
+                                               animated: false,
+                                               async: true,
+                                               completion: nil)
+                })
             } else {
                 switch updateBehavior {
                     
@@ -119,10 +101,12 @@ public extension PageboyViewController {
             }
         })
     }
+}
+
+// MARK: - Utilities
+private extension PageboyViewController {
     
-    // MARK: Utility
-    
-    private func verifyNewPageCount(then update: (UIPageViewController, Int, Int) -> Void) {
+    func verifyNewPageCount(then update: (UIPageViewController, Int, Int) -> Void) {
         guard let pageViewController = self.pageViewController else {
             return
         }
@@ -131,5 +115,18 @@ public extension PageboyViewController {
                 return
         }
         update(pageViewController, oldPageCount, newPageCount)
+    }
+    
+    func performScrollUpdate(to update: PageIndex, behavior: PageUpdateBehavior) {
+        switch behavior {
+            
+        case .scrollToUpdate:
+            scrollToPage(.at(index: update), animated: true)
+            
+        case .scrollTo(let index):
+            scrollToPage(.at(index: index), animated: true)
+            
+        default:()
+        }
     }
 }
