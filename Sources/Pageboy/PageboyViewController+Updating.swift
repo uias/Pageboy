@@ -18,13 +18,10 @@ public extension PageboyViewController {
     
     public func insertPage(at index: PageIndex,
                            then updateBehavior: PageUpdateBehavior = .scrollToUpdate) {
-        verifyNewPageCount(then: { (pageViewController, oldPageCount, newPageCount) in
+        verifyNewPageCount(then: { (oldPageCount, newPageCount) in
             assert(newPageCount > oldPageCount,
                    "Attempt to insert page at \(index) but there are only \(newPageCount) pages after the update")
             
-            guard let currentIndex = self.currentIndex else {
-                return
-            }
             guard let newViewController = dataSource?.viewController(for: self, at: index) else {
                 assertionFailure("Expected to find inserted UIViewController at page \(index)")
                 return
@@ -33,48 +30,25 @@ public extension PageboyViewController {
             self.viewControllerCount = newPageCount
             viewControllerMap.clear()
 
-            print("Inserting view controller at \(index)")
-            
-            if index == currentIndex { // replace current view controller
-                pageViewController.view.crossDissolve(during: {
-                    self.updateViewControllers(to: [newViewController],
-                                               animated: false,
-                                               async: true,
-                                               completion: nil)
-                })
-            } else {
-                
-                // Increment current index if we're ahead of the insertion
-                if currentIndex > index {
-                    self.currentIndex = currentIndex + 1
-                }
-                
-                // Reload current view controller in UIPageViewController if insertion index is next/previous page.
-                if pageIndex(index, isNextTo: currentIndex) {
-                    guard let currentViewController = self.currentViewController else {
-                        return
-                    }
-                    
-                    updateViewControllers(to: [currentViewController], animated: false, async: true, completion: { _ in
-                        self.performScrollUpdate(to: index, behavior: updateBehavior)
-                    })
-                } else { // Otherwise just perform scroll update
-                    performScrollUpdate(to: index, behavior: updateBehavior)
-                }
-            }
+            performUpdates(for: index,
+                           viewController: newViewController,
+                           updateBehavior: updateBehavior,
+                           indexOperation: { (currentIndex, newIndex) in
+                            
+                            if currentIndex > newIndex {
+                                self.currentIndex = currentIndex + 1
+                            }
+            })
         })
     }
     
     public func deletePage(at index: PageIndex,
                            then updateBehavior: PageUpdateBehavior = .doNothing) {
-        verifyNewPageCount(then: { (pageViewController, oldPageCount, newPageCount) in
+        verifyNewPageCount(then: { (oldPageCount, newPageCount) in
             assert(newPageCount < oldPageCount,
                    "Attempt to delete page at \(index) but there are \(newPageCount) pages after the update")
             
             let sanitizedIndex = min(index, newPageCount)
-            guard let currentIndex = self.currentIndex else {
-                return
-            }
             guard let newViewController = dataSource?.viewController(for: self, at: sanitizedIndex) else {
                 return
             }
@@ -82,47 +56,61 @@ public extension PageboyViewController {
             self.viewControllerCount = newPageCount
             viewControllerMap.clear()
             
-            if sanitizedIndex == currentIndex {
-                pageViewController.view.crossDissolve(during: {
-                    self.updateViewControllers(to: [newViewController],
-                                               animated: false,
-                                               async: true,
-                                               completion: nil)
-                })
-            } else {
-                if currentIndex > sanitizedIndex {
-                    self.currentIndex = currentIndex - 1
+            performUpdates(for: sanitizedIndex,
+                           viewController: newViewController,
+                           updateBehavior: updateBehavior,
+                           indexOperation: { (currentIndex, newIndex) in
+                            
+                            if currentIndex > newIndex {
+                                self.currentIndex = currentIndex - 1
+                            }
+            })
+        })
+    }
+    
+    private func performUpdates(for newIndex: PageIndex,
+                                viewController: UIViewController,
+                                updateBehavior: PageUpdateBehavior,
+                                indexOperation: (_ currentIndex: PageIndex, _ newIndex: PageIndex) -> Void) {
+        guard let currentIndex = self.currentIndex else {
+            return
+        }
+        
+        if newIndex == currentIndex {
+            pageViewController?.view.crossDissolve(during: {
+                self.updateViewControllers(to: [viewController],
+                                           animated: false,
+                                           async: true,
+                                           completion: nil)
+            })
+        } else {
+            indexOperation(currentIndex, newIndex)
+            
+            // Reload current view controller in UIPageViewController if insertion index is next/previous page.
+            if pageIndex(newIndex, isNextTo: currentIndex) {
+                guard let currentViewController = self.currentViewController else {
+                    return
                 }
                 
-                // Reload current view controller in UIPageViewController if insertion index is next/previous page.
-                if pageIndex(index, isNextTo: currentIndex) {
-                    guard let currentViewController = self.currentViewController else {
-                        return
-                    }
-                    
-                    updateViewControllers(to: [currentViewController], animated: false, async: true, completion: { _ in
-                        self.performScrollUpdate(to: index, behavior: updateBehavior)
-                    })
-                } else { // Otherwise just perform scroll update
-                    performScrollUpdate(to: index, behavior: updateBehavior)
-                }
+                updateViewControllers(to: [currentViewController], animated: false, async: true, completion: { _ in
+                    self.performScrollUpdate(to: newIndex, behavior: updateBehavior)
+                })
+            } else { // Otherwise just perform scroll update
+                performScrollUpdate(to: newIndex, behavior: updateBehavior)
             }
-        })
+        }
     }
 }
 
 // MARK: - Utilities
 private extension PageboyViewController {
     
-    func verifyNewPageCount(then update: (UIPageViewController, Int, Int) -> Void) {
-        guard let pageViewController = self.pageViewController else {
-            return
-        }
+    func verifyNewPageCount(then update: (Int, Int) -> Void) {
         guard let oldPageCount = self.pageCount,
             let newPageCount = dataSource?.numberOfViewControllers(in: self) else {
                 return
         }
-        update(pageViewController, oldPageCount, newPageCount)
+        update(oldPageCount, newPageCount)
     }
     
     func performScrollUpdate(to update: PageIndex, behavior: PageUpdateBehavior) {
