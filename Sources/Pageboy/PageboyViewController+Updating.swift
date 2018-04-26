@@ -22,10 +22,13 @@ public extension PageboyViewController {
             assert(newPageCount > oldPageCount,
                    "Attempt to insert page at \(index) but there are only \(newPageCount) pages after the update")
             
-            self.viewControllerCount = newPageCount
             guard let newViewController = dataSource?.viewController(for: self, at: index) else {
+                assertionFailure("Expected to find inserted UIViewController at page \(index)")
                 return
             }
+            self.viewControllerCount = newPageCount
+
+            print("Inserting view controller at \(index)")
             
             if index == currentIndex { // replace current view controller
                 UIView.transition(with: pageViewController.view,
@@ -57,12 +60,12 @@ public extension PageboyViewController {
             assert(newPageCount < oldPageCount,
                    "Attempt to delete page at \(index) but there are \(newPageCount) pages after the update")
             
-            self.viewControllerCount = newPageCount
-            
             let sanitizedIndex = min(index, newPageCount)
             guard let newViewController = dataSource?.viewController(for: self, at: sanitizedIndex) else {
                 return
             }
+            
+            self.viewControllerCount = newPageCount
             
             if sanitizedIndex == currentIndex {
                 UIView.transition(with: pageViewController.view,
