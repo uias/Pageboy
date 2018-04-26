@@ -22,11 +22,17 @@ public extension PageboyViewController {
             assert(newPageCount > oldPageCount,
                    "Attempt to insert page at \(index) but there are only \(newPageCount) pages after the update")
             
+            guard let currentIndex = self.currentIndex else {
+                return
+            }
+            
             guard let newViewController = dataSource?.viewController(for: self, at: index) else {
                 assertionFailure("Expected to find inserted UIViewController at page \(index)")
                 return
             }
+            
             self.viewControllerCount = newPageCount
+            viewControllerMap.clear()
 
             print("Inserting view controller at \(index)")
             
@@ -40,15 +46,36 @@ public extension PageboyViewController {
                                                                completion: nil)
                 }, completion: nil)
             } else {
-                switch updateBehavior {
+                
+                // Increment current index if we're ahead of the insertion
+                if currentIndex > index {
+                    self.currentIndex = currentIndex + 1
+                }
+
+                let scrollUpdate = {
+                    switch updateBehavior {
+                        
+                    case .scrollToUpdate:
+                        self.scrollToPage(.at(index: index), animated: true)
+                        
+                    case .scrollTo(let index):
+                        self.scrollToPage(.at(index: index), animated: true)
+                        
+                    default:()
+                    }
+                }
+                
+                // Reload current view controller in UIPageViewController if insertion index is next/previous page.
+                if (currentIndex - index) == 1 || (index - currentIndex) == 1 {
+                    guard let currentViewController = self.currentViewController else {
+                        return
+                    }
                     
-                case .scrollToUpdate:
-                    scrollToPage(.at(index: index), animated: true)
-                    
-                case .scrollTo(let index):
-                    scrollToPage(.at(index: index), animated: true)
-                    
-                default:()
+                    updateViewControllers(to: [currentViewController], animated: false, async: true, completion: { _ in
+                        scrollUpdate()
+                    })
+                } else { // Otherwise just perform scroll update
+                    scrollUpdate()
                 }
             }
         })
@@ -66,6 +93,7 @@ public extension PageboyViewController {
             }
             
             self.viewControllerCount = newPageCount
+            viewControllerMap.clear()
             
             if sanitizedIndex == currentIndex {
                 UIView.transition(with: pageViewController.view,
