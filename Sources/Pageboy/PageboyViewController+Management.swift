@@ -18,6 +18,34 @@ public extension PageboyViewController {
         self.reloadPages(reloadViewControllers: true)
     }
     
+    /// Reload the pages in the PageboyViewController
+    ///
+    /// - Parameter reloadViewControllers: Reload the view controller data source.
+    internal func reloadPages(reloadViewControllers: Bool) {
+        
+        if reloadViewControllers {
+            viewControllerMap.clear()
+        }
+        
+        let viewControllerCount = dataSource?.numberOfViewControllers(in: self) ?? 0
+        self.viewControllerCount = viewControllerCount
+        
+        let defaultPage = self.dataSource?.defaultPage(for: self) ?? .first
+        let defaultIndex = defaultPage.indexValue(in: self)
+        
+        guard defaultIndex < viewControllerCount,
+            let viewController = viewController(at: defaultIndex) else {
+                return
+        }
+        
+        updateViewControllers(to: [viewController], animated: false, async: false) { _ in
+            self.currentIndex = defaultIndex
+            self.delegate?.pageboyViewController(self,
+                                                 didReloadWith: viewController,
+                                                 currentPageIndex: defaultIndex)
+        }
+    }
+    
     /// Reload the currently active page into the page view controller if possible.
     internal func reloadCurrentPageSoftly() {
         guard let currentIndex = self.currentIndex else {
@@ -88,7 +116,24 @@ internal extension PageboyViewController {
     }
 }
 
-// MARK: - Paging Set Up and Configuration
+// MARK: - Data Source interaction
+internal extension PageboyViewController {
+    
+    /// Load view controller from the data source.
+    ///
+    /// - Parameter index: Index of the view controller to load.
+    /// - Returns: View controller if it exists.
+    func viewController(at index: PageIndex) -> UIViewController? {
+        let viewController = dataSource?.viewController(for: self, at: index)
+        if let viewController = viewController {
+            let wrapper = WeakWrapper<UIViewController>(with: viewController)
+            viewControllerMap.set(object: wrapper, for: index)
+        }
+        return viewController
+    }
+}
+
+// MARK: - UIPageViewController Set Up
 internal extension PageboyViewController {
     
     // MARK: Set Up
@@ -129,43 +174,6 @@ internal extension PageboyViewController {
         pageViewController.scrollView?.isUserInteractionEnabled = isUserInteractionEnabled
         
         self.reloadPages(reloadViewControllers: reloadViewControllers)
-    }
-    
-    /// Reload the pages in the PageboyViewController
-    ///
-    /// - Parameter reloadViewControllers: Reload the view controller data source.
-    internal func reloadPages(reloadViewControllers: Bool) {
-        
-        if reloadViewControllers {
-            viewControllerMap.clear()
-        }
-        
-        let viewControllerCount = dataSource?.numberOfViewControllers(in: self) ?? 0
-        self.viewControllerCount = viewControllerCount
-        
-        let defaultPage = self.dataSource?.defaultPage(for: self) ?? .first
-        let defaultIndex = defaultPage.indexValue(in: self)
-        
-        guard defaultIndex < viewControllerCount,
-            let viewController = viewController(at: defaultIndex) else {
-                return
-        }
-        
-        updateViewControllers(to: [viewController], animated: false, async: false) { _ in
-            self.currentIndex = defaultIndex
-            self.delegate?.pageboyViewController(self,
-                                                 didReloadWith: viewController,
-                                                 currentPageIndex: defaultIndex)
-        }
-    }
-    
-    internal func viewController(at index: PageIndex) -> UIViewController? {
-        let viewController = dataSource?.viewController(for: self, at: index)
-        if let viewController = viewController {
-            let wrapper = WeakWrapper<UIViewController>(with: viewController)
-            viewControllerMap.set(object: wrapper, for: index)
-        }
-        return viewController
     }
     
     /// Re-initialize the internal UIPageViewController instance without reloading data source if it currently exists.
