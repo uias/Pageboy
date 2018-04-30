@@ -19,7 +19,8 @@
 		462A65E42000FCAA0051C79C /* UIPageViewController+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462A65DC2000FCAA0051C79C /* UIPageViewController+ScrollView.swift */; };
 		462D03DF2091D3AB0033C710 /* UIView+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462D03DE2091D3AB0033C710 /* UIView+Animation.swift */; };
 		462D03E02091D3AB0033C710 /* UIView+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462D03DE2091D3AB0033C710 /* UIView+Animation.swift */; };
-		464ADF4F2097162400929AFB /* PageboyNavigationDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464ADF4E2097162400929AFB /* PageboyNavigationDirection.swift */; };
+		464ADF52209717EF00929AFB /* PageNavigationDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464ADF51209717EF00929AFB /* PageNavigationDirection.swift */; };
+		464ADF53209717EF00929AFB /* PageNavigationDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464ADF51209717EF00929AFB /* PageNavigationDirection.swift */; };
 		4653DD551FC8333E00C4B758 /* PageboyViewControllerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4653DD541FC8333E00C4B758 /* PageboyViewControllerDataSource.swift */; };
 		4653DD561FC8333E00C4B758 /* PageboyViewControllerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4653DD541FC8333E00C4B758 /* PageboyViewControllerDataSource.swift */; };
 		4653DD581FC8335F00C4B758 /* PageboyViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4653DD571FC8335F00C4B758 /* PageboyViewControllerDelegate.swift */; };
@@ -78,7 +79,7 @@
 		462A65DB2000FCAA0051C79C /* UIApplication+SafeShared.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+SafeShared.swift"; sourceTree = "<group>"; };
 		462A65DC2000FCAA0051C79C /* UIPageViewController+ScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIPageViewController+ScrollView.swift"; sourceTree = "<group>"; };
 		462D03DE2091D3AB0033C710 /* UIView+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Animation.swift"; sourceTree = "<group>"; };
-		464ADF4E2097162400929AFB /* PageboyNavigationDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageboyNavigationDirection.swift; sourceTree = "<group>"; };
+		464ADF51209717EF00929AFB /* PageNavigationDirection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageNavigationDirection.swift; sourceTree = "<group>"; };
 		4653DD541FC8333E00C4B758 /* PageboyViewControllerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageboyViewControllerDataSource.swift; sourceTree = "<group>"; };
 		4653DD571FC8335F00C4B758 /* PageboyViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageboyViewControllerDelegate.swift; sourceTree = "<group>"; };
 		46ADAAB4208F7E1500974529 /* PageboyAutoScroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageboyAutoScroller.swift; sourceTree = "<group>"; };
@@ -151,6 +152,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		464ADF50209717E100929AFB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				464ADF51209717EF00929AFB /* PageNavigationDirection.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		46ADAAB3208F7E1500974529 /* AutoScrolling */ = {
 			isa = PBXGroup;
 			children = (
@@ -200,7 +209,7 @@
 				46ADAAC4208F7EB100974529 /* PageboyViewController+Updating.swift */,
 				46ADAAC7208F7EB200974529 /* PageboyViewController+Management.swift */,
 				46ADAAC6208F7EB100974529 /* PageboyViewController+ScrollDetection.swift */,
-				464ADF4E2097162400929AFB /* PageboyNavigationDirection.swift */,
+				464ADF50209717E100929AFB /* Model */,
 				46ADAAB3208F7E1500974529 /* AutoScrolling */,
 				46ADAABA208F7E8500974529 /* Transitioning */,
 				D6ECCEC01E51AFDB00E9D5B3 /* Utilities */,
@@ -466,6 +475,7 @@
 				46ADAACC208F7EB200974529 /* PageboyViewController+ScrollDetection.swift in Sources */,
 				46ADAAD2208F7ED600974529 /* IndexedMap.swift in Sources */,
 				46ADAABE208F7E8500974529 /* PageboyViewController+Transitioning.swift in Sources */,
+				464ADF52209717EF00929AFB /* PageNavigationDirection.swift in Sources */,
 				46ADAAD4208F7ED600974529 /* WeakWrapper.swift in Sources */,
 				4653DD581FC8335F00C4B758 /* PageboyViewControllerDelegate.swift in Sources */,
 				46ADAACE208F7EB200974529 /* PageboyViewController+Management.swift in Sources */,
@@ -476,7 +486,6 @@
 				461D6DF1201795A100E0CDEE /* UIScrollView+ScrollActivity.swift in Sources */,
 				462A65DF2000FCAA0051C79C /* UIView+AutoLayout.swift in Sources */,
 				46ADAAC8208F7EB200974529 /* PageboyViewController+Updating.swift in Sources */,
-				464ADF4F2097162400929AFB /* PageboyNavigationDirection.swift in Sources */,
 				462D03DF2091D3AB0033C710 /* UIView+Animation.swift in Sources */,
 				462A65E12000FCAA0051C79C /* UIApplication+SafeShared.swift in Sources */,
 				462A65DD2000FCAA0051C79C /* UIView+Localization.swift in Sources */,
@@ -510,6 +519,7 @@
 				46ADAACD208F7EB200974529 /* PageboyViewController+ScrollDetection.swift in Sources */,
 				46ADAAD3208F7ED600974529 /* IndexedMap.swift in Sources */,
 				46ADAABF208F7E8500974529 /* PageboyViewController+Transitioning.swift in Sources */,
+				464ADF53209717EF00929AFB /* PageNavigationDirection.swift in Sources */,
 				46ADAAD5208F7ED600974529 /* WeakWrapper.swift in Sources */,
 				4653DD591FC8335F00C4B758 /* PageboyViewControllerDelegate.swift in Sources */,
 				46ADAACF208F7EB200974529 /* PageboyViewController+Management.swift in Sources */,
