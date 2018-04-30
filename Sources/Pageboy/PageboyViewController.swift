@@ -214,7 +214,7 @@ public extension PageboyViewController {
                              completion: PageScrollCompletion? = nil) -> Bool {
         return verifySafeToScrollToANewPage(then: { (pageViewController) -> Bool in
           
-            let rawIndex = self.indexValue(for: page)
+            let rawIndex = page.indexValue(in: self)
             if rawIndex != self.currentIndex {
                 
                 // guard against invalid page indexing
@@ -227,7 +227,7 @@ public extension PageboyViewController {
                                         animated: animated)
                 
                 self.isScrollingAnimated = animated
-                let direction = directionForPageScroll(to: page, index: rawIndex)
+                let direction = NavigationDirection.forPageScroll(to: page, at: rawIndex, in: self)
                 
                 let transitionCompletion: TransitionOperation.Completion = { (finished) in
                     if finished {
@@ -290,23 +290,6 @@ public extension PageboyViewController {
         }
         
         return action(pageViewController)
-    }
-    
-    private func directionForPageScroll(to newPage: Page, index: Int) -> NavigationDirection {
-        var direction = NavigationDirection.forPage(index, previousPage: self.currentIndex ?? index)
-        
-        if isInfiniteScrollEnabled {
-            switch newPage {
-            case .next:
-                direction = .forward
-            case .previous:
-                direction = .reverse
-            default:
-                break
-            }
-        }
-        
-        return direction
     }
 
     private func update(forNew currentIndex: PageIndex, from oldIndex: PageIndex?) {

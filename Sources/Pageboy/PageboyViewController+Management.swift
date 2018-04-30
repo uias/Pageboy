@@ -144,7 +144,7 @@ internal extension PageboyViewController {
         self.viewControllerCount = viewControllerCount
         
         let defaultPage = self.dataSource?.defaultPage(for: self) ?? .first
-        let defaultIndex = self.indexValue(for: defaultPage)
+        let defaultIndex = defaultPage.indexValue(in: self)
         
         guard defaultIndex < viewControllerCount,
             let viewController = viewController(at: defaultIndex) else {
@@ -188,46 +188,6 @@ internal extension PageboyViewController {
             return nil
         }
         return options
-    }
-    
-    // MARK: Utilities
-    
-    /// Convert a Page to a raw PageIndex.
-    ///
-    /// - Parameter pageIndex: The page index to translate.
-    /// - Returns: The raw index integer.
-    internal func indexValue(for page: Page) -> PageIndex {
-        switch page {
-            
-        case .next:
-            guard let currentIndex = self.currentIndex else {
-                return 0
-            }
-            var proposedIndex = currentIndex + 1
-            if self.isInfiniteScrollEnabled && proposedIndex == viewControllerCount { // scroll back to first index
-                proposedIndex = 0
-            }
-            return proposedIndex
-            
-        case .previous:
-            guard let currentIndex = self.currentIndex else {
-                return 0
-            }
-            var proposedIndex = currentIndex - 1
-            if self.isInfiniteScrollEnabled && proposedIndex < 0 { // scroll to last index
-                proposedIndex = (viewControllerCount ?? 1) - 1
-            }
-            return proposedIndex
-            
-        case .first:
-            return 0
-            
-        case .last:
-            return (viewControllerCount ?? 1) - 1
-            
-        case .at(let index):
-            return index
-        }
     }
 }
 

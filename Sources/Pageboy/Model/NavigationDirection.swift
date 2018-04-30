@@ -26,6 +26,9 @@ internal extension NavigationDirection {
             return .forward
         }
     }
+}
+
+internal extension NavigationDirection {
     
     static func forPage(_ page: Int,
                         previousPage: Int) -> NavigationDirection {
@@ -38,5 +41,24 @@ internal extension NavigationDirection {
             return .neutral
         }
         return  position > previousPosition ? .forward : .reverse
+    }
+    
+    static func forPageScroll(to newPage: Page,
+                              at index: Int,
+                              in pageViewController: PageboyViewController) -> NavigationDirection {
+        var direction = NavigationDirection.forPage(index, previousPage: pageViewController.currentIndex ?? index)
+        
+        if pageViewController.isInfiniteScrollEnabled {
+            switch newPage {
+            case .next:
+                direction = .forward
+            case .previous:
+                direction = .reverse
+            default:
+                break
+            }
+        }
+        
+        return direction
     }
 }

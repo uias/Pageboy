@@ -8,6 +8,9 @@
 
 import Foundation
 
+/// A page index.
+public typealias PageIndex = Int
+
 /// The index of a page in the page view controller.
 ///
 /// - next: The next page if available.
@@ -24,5 +27,54 @@ public enum Page {
     case at(index: PageIndex)
 }
 
-/// A page index.
-public typealias PageIndex = Int
+internal extension Page {
+    
+    /// PageIndex value for page.
+    ///
+    /// - Parameter pageViewController: PageboyViewController which contains page.
+    /// - Returns: PageIndex value.
+    func indexValue(in pageViewController: PageboyViewController) -> PageIndex {
+        return Page.indexValue(for: self, in: pageViewController)
+    }
+    
+    /// Convert a Page to a PageIndex.
+    ///
+    /// - Parameters:
+    ///   - page: Page to convert.
+    ///   - pageViewController: PageboyViewController which contains page.
+    /// - Returns: Converted PageIndex.
+    static func indexValue(for page: Page,
+                           in pageViewController: PageboyViewController) -> PageIndex {
+        switch page {
+            
+        case .next:
+            guard let currentIndex = pageViewController.currentIndex else {
+                return 0
+            }
+            var proposedIndex = currentIndex + 1
+            if pageViewController.isInfiniteScrollEnabled && proposedIndex == pageViewController.pageCount { // scroll back to first index
+                proposedIndex = 0
+            }
+            return proposedIndex
+            
+        case .previous:
+            guard let currentIndex = pageViewController.currentIndex else {
+                return 0
+            }
+            var proposedIndex = currentIndex - 1
+            if pageViewController.isInfiniteScrollEnabled && proposedIndex < 0 { // scroll to last index
+                proposedIndex = (pageViewController.pageCount ?? 1) - 1
+            }
+            return proposedIndex
+            
+        case .first:
+            return 0
+            
+        case .last:
+            return (pageViewController.pageCount ?? 1) - 1
+            
+        case .at(let index):
+            return index
+        }
+    }
+}
