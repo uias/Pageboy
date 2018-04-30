@@ -1,17 +1,22 @@
 //
-//  PageboyViewController+NavigationDirection.swift
-//  Pageboy
+//  PageboyNavigationDirection.swift
+//  Pageboy iOS
 //
-//  Created by Merrick Sapsford on 23/01/2018.
+//  Created by Merrick Sapsford on 30/04/2018.
 //  Copyright © 2018 UI At Six. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-// MARK: - Navigation direction detection
-internal extension PageboyViewController.NavigationDirection {
+public enum PageboyNavigationDirection {
+    case neutral
+    case forward
+    case reverse
+}
+
+internal extension PageboyNavigationDirection {
     
-    var pageViewControllerNavDirection: UIPageViewControllerNavigationDirection {
+    var rawValue: UIPageViewControllerNavigationDirection {
         switch self {
             
         case .reverse:
@@ -33,19 +38,5 @@ internal extension PageboyViewController.NavigationDirection {
             return .neutral
         }
         return  position > previousPosition ? .forward : .reverse
-    }
-}
-
-// MARK: - NavigationDirection Descriptions
-extension PageboyViewController.NavigationDirection: CustomStringConvertible {
-    public var description: String {
-        switch self {
-        case .forward:
-            return "Forward"
-        case .reverse:
-            return "Reverse"
-        default:
-            return "Neutral"
-        }
     }
 }

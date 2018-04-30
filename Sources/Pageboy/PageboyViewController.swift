@@ -18,16 +18,7 @@ open class PageboyViewController: UIViewController {
     /// Completion of a page scroll.
     public typealias PageScrollCompletion = (_ newViewController: UIViewController, _ animated: Bool, _ finished: Bool) -> Void
 
-    /// The direction that the page view controller travelled.
-    ///
-    /// - neutral: No movement.
-    /// - forward: Moved in a positive direction.
-    /// - reverse: Moved in a negative direction.
-    public enum NavigationDirection {
-        case neutral
-        case forward
-        case reverse
-    }
+    internal typealias NavigationDirection = PageboyNavigationDirection
     
     /// The index of a page in the page view controller.
     ///

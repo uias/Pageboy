@@ -64,7 +64,7 @@ internal extension PageboyViewController {
         let animateUpdate = animated ? !isUsingCustomTransition : false
         let updateBlock = {
             pageViewController.setViewControllers(viewControllers,
-                                                  direction: direction.pageViewControllerNavDirection,
+                                                  direction: direction.rawValue,
                                                   animated: animateUpdate,
                                                   completion:
                 { (finished) in
