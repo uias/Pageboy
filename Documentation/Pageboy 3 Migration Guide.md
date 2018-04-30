@@ -16,3 +16,9 @@ TODO
 
 ## API Changes
 
+### PageboyViewControllerDelegate
+- Default implementations of `PageboyViewControllerDelegate` have been removed - effectively requiring all functions to be implemented.
+
+### Types
+- `PageboyViewController.NavigationDirection` has been renamed to `NavigationDirection`.
+- `PageboyViewController.Page` has been renamed to `Page`.

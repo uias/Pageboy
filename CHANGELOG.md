@@ -2,6 +2,9 @@
 All notable changes to this project will be documented in this file.
 `Pageboy` adheres to [Semantic Versioning](http://semver.org/).
 
+#### 3.x Releases
+- `3.0.x` Releases - [3.0.0](#300)
+
 #### 2.x Releases
 - `2.5.x` Releases - [2.5.0](#250) | [2.5.1](#251)
 - `2.4.x` Releases - [2.4.0](#240)
@@ -19,6 +22,19 @@ All notable changes to this project will be documented in this file.
 
 #### 0.x Releases
 - `0.4.x` Releases - [0.4.0](#040) | [0.4.1](#041) | [0.4.2](#042) | [0.4.3](#043) | [0.4.4](#044) | [0.4.5](#045) | [0.4.6](#046) | [0.4.7](#047) | [0.4.8](#048) | [0.4.9](#049) | [0.4.10](#0410) | [0.4.11](#0411) | [0.4.12](#0412)
+
+---
+## [3.0.0](https://github.com/uias/Pageboy/releases/tag/3.0.0)
+Released on TBD
+
+#### Added
+- Support for dynamically inserting a new page via `insertPage(at: PageIndex)`.
+- Support for dynamically deleting an existing page via `deletePage(at: PageIndex)`.
+
+#### Updated
+- Status bar style update animation when changing pages now lasts 0.25 seconds.
+- `PageboyViewController.Page` has been renamed to `Page`.
+- `PageboyViewController.PageIndex` has been renamed to `PageIndex`.
 
 ---
 
