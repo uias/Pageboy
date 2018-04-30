@@ -18,7 +18,7 @@ open class PageboyViewController: UIViewController {
     /// Completion of a page scroll.
     public typealias PageScrollCompletion = (_ newViewController: UIViewController, _ animated: Bool, _ finished: Bool) -> Void
 
-    internal typealias NavigationDirection = PageNavigationDirection
+    internal typealias NavigationDirection = NavigationDirection
     
     /// The index of a page in the page view controller.
     ///

@@ -8,13 +8,13 @@
 
 import Foundation
 
-public enum PageNavigationDirection {
+public enum NavigationDirection {
     case neutral
     case forward
     case reverse
 }
 
-internal extension PageNavigationDirection {
+internal extension NavigationDirection {
     
     var rawValue: UIPageViewControllerNavigationDirection {
         switch self {
