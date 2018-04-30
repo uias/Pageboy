@@ -14,6 +14,7 @@ class PageViewController: PageboyViewController {
 
     // MARK: Outlets
     
+    @IBOutlet weak var pageCountLabel: UILabel!
     @IBOutlet weak var offsetLabel: UILabel!
     @IBOutlet weak var pageLabel: UILabel!
     @IBOutlet weak var gradientView: GradientView!
@@ -32,7 +33,7 @@ class PageViewController: PageboyViewController {
     var previousBarButton: UIBarButtonItem?
     var nextBarButton: UIBarButtonItem?
     
-    let pageControllers: [UIViewController] = {
+    var pageControllers: [UIViewController] = {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         
         var viewControllers = [UIViewController]()
@@ -61,6 +62,7 @@ class PageViewController: PageboyViewController {
     }
 
     func updateStatusLabels() {
+        self.pageCountLabel.text = "Page Count: \(self.pageCount ?? 0)"
         let offsetValue =  navigationOrientation == .horizontal ? self.currentPosition?.x : self.currentPosition?.y
         self.offsetLabel.text = "Current Position: " + String(format: "%.3f", offsetValue ?? 0.0)
         self.pageLabel.text = "Current Page: " + String(describing: self.currentIndex ?? 0)
