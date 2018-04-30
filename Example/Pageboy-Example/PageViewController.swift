@@ -88,11 +88,11 @@ extension PageViewController: PageboyViewControllerDataSource {
     }
     
     func viewController(for pageboyViewController: PageboyViewController,
-                        at index: PageboyViewController.PageIndex) -> UIViewController? {
+                        at index: PageIndex) -> UIViewController? {
         return pageControllers[index]
     }
     
-    func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {
+    func defaultPage(for pageboyViewController: PageboyViewController) -> Page? {
         return nil
     }
 }
@@ -133,7 +133,7 @@ extension PageViewController: PageboyViewControllerDelegate {
     
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
                                didReloadWith currentViewController: UIViewController,
-                               currentPageIndex: PageboyViewController.PageIndex) {
+                               currentPageIndex: PageIndex) {
     }
 }
 

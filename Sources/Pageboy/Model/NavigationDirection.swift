@@ -28,12 +28,12 @@ internal extension NavigationDirection {
     }
     
     static func forPage(_ page: Int,
-                        previousPage: Int) -> PageboyViewController.NavigationDirection {
+                        previousPage: Int) -> NavigationDirection {
         return self.forPosition(CGFloat(page), previous: CGFloat(previousPage))
     }
     
     static func forPosition(_ position: CGFloat,
-                            previous previousPosition: CGFloat) -> PageboyViewController.NavigationDirection {
+                            previous previousPosition: CGFloat) -> NavigationDirection {
         if position == previousPosition {
             return .neutral
         }

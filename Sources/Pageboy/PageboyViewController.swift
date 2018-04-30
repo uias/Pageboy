@@ -13,29 +13,9 @@ open class PageboyViewController: UIViewController {
     
     // MARK: Types
     
-    /// A page index.
-    public typealias PageIndex = Int
     /// Completion of a page scroll.
     public typealias PageScrollCompletion = (_ newViewController: UIViewController, _ animated: Bool, _ finished: Bool) -> Void
 
-    internal typealias NavigationDirection = NavigationDirection
-    
-    /// The index of a page in the page view controller.
-    ///
-    /// - next: The next page if available.
-    /// - previous: The previous page if available.
-    /// - first: The first page.
-    /// - last: The last page.
-    /// - at: A custom specified page index.
-    // swiftlint:disable identifier_name
-    public enum Page {
-        case next
-        case previous
-        case first
-        case last
-        case at(index: PageIndex)
-    }
-    
     // MARK: Properties
     
     internal var pageViewController: UIPageViewController?
