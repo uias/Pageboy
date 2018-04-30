@@ -295,7 +295,7 @@ public extension PageboyViewController {
     private func update(forNew currentIndex: PageIndex, from oldIndex: PageIndex?) {
         
         #if os(iOS)
-            UIView.animate(withDuration: 0.3) {
+            UIView.animate(withDuration: 0.25) {
                 self.setNeedsStatusBarAppearanceUpdate()
             }
         #endif
