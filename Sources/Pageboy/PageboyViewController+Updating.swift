@@ -10,12 +10,25 @@ import UIKit
 
 public extension PageboyViewController {
     
+    /// Behavior to evaluate after a page update.
+    ///
+    /// - doNothing: Do nothing.
+    /// - scrollToUpdate: Scroll to the update.
+    /// - scrollTo: Scroll to a specified index.
     public enum PageUpdateBehavior {
         case doNothing
         case scrollToUpdate
         case scrollTo(index: PageIndex)
     }
+}
+
+public extension PageboyViewController {
     
+    /// Insert a new page into the page view controller.
+    ///
+    /// - Parameters:
+    ///   - index: The index to insert the page at.
+    ///   - updateBehavior: Behavior to execute after the page was inserted.
     public func insertPage(at index: PageIndex,
                            then updateBehavior: PageUpdateBehavior = .scrollToUpdate) {
         verifyNewPageCount(then: { (oldPageCount, newPageCount) in
@@ -42,6 +55,11 @@ public extension PageboyViewController {
         })
     }
     
+    /// Delete an existing page from the page view controller.
+    ///
+    /// - Parameters:
+    ///   - index: The index to delete the page from.
+    ///   - updateBehavior: Behavior to execute after the page was deleted.
     public func deletePage(at index: PageIndex,
                            then updateBehavior: PageUpdateBehavior = .doNothing) {
         verifyNewPageCount(then: { (oldPageCount, newPageCount) in
@@ -69,11 +87,15 @@ public extension PageboyViewController {
             })
         })
     }
+}
+
+// MARK: - Updating
+private extension PageboyViewController {
     
-    private func performUpdates(for newIndex: PageIndex,
-                                viewController: UIViewController,
-                                updateBehavior: PageUpdateBehavior,
-                                indexOperation: (_ currentIndex: PageIndex, _ newIndex: PageIndex) -> Void) {
+    func performUpdates(for newIndex: PageIndex,
+                        viewController: UIViewController,
+                        updateBehavior: PageUpdateBehavior,
+                        indexOperation: (_ currentIndex: PageIndex, _ newIndex: PageIndex) -> Void) {
         guard let currentIndex = self.currentIndex else {
             return
         }
