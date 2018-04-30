@@ -56,26 +56,3 @@ public protocol PageboyViewControllerDelegate: class {
                                didReloadWith currentViewController: UIViewController,
                                currentPageIndex: PageIndex)
 }
-
-// MARK: - PageboyViewControllerDelegate default implementations
-public extension PageboyViewControllerDelegate {
-    
-    func pageboyViewController(_ pageboyViewController: PageboyViewController,
-                               willScrollToPageAt index: Int,
-                               direction: NavigationDirection,
-                               animated: Bool) {}
-    
-    func pageboyViewController(_ pageboyViewController: PageboyViewController,
-                               didScrollTo position: CGPoint,
-                               direction: NavigationDirection,
-                               animated: Bool) {}
-    
-    func pageboyViewController(_ pageboyViewController: PageboyViewController,
-                               didScrollToPageAt index: Int,
-                               direction: NavigationDirection,
-                               animated: Bool) {}
-    
-    func pageboyViewController(_ pageboyViewController: PageboyViewController,
-                               didReloadWith currentViewController: UIViewController,
-                               currentPageIndex: PageIndex){}
-}
