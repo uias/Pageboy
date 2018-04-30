@@ -72,23 +72,11 @@ class PageViewController: PageboyViewController {
     // MARK: Actions
     
     @objc func nextPage(_ sender: UIBarButtonItem) {
-//        scrollToPage(.next, animated: true)
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let viewController = storyboard.instantiateViewController(withIdentifier: "ChildViewController") as! ChildViewController
-        viewController.index = 100
-        
-        let insertionIndex = 2
-        pageControllers.insert(viewController, at: insertionIndex)
-        insertPage(at: insertionIndex, then: .doNothing)
+        scrollToPage(.next, animated: true)
     }
     
     @objc func previousPage(_ sender: UIBarButtonItem) {
-//        scrollToPage(.previous, animated: true)
-        
-        let removalIndex = 2
-        pageControllers.remove(at: removalIndex)
-        deletePage(at: removalIndex)
+        scrollToPage(.previous, animated: true)
     }
 }
 
