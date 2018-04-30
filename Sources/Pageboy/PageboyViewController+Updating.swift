@@ -45,10 +45,12 @@ public extension PageboyViewController {
     public func deletePage(at index: PageIndex,
                            then updateBehavior: PageUpdateBehavior = .doNothing) {
         verifyNewPageCount(then: { (oldPageCount, newPageCount) in
+            assert(index < oldPageCount,
+                   "Attempting to delete page at \(index) but there were only \(oldPageCount) pages before the update")
             assert(newPageCount < oldPageCount,
                    "Attempt to delete page at \(index) but there are \(newPageCount) pages after the update")
             
-            let sanitizedIndex = min(index, newPageCount)
+            let sanitizedIndex = min(index, newPageCount - 1)
             guard let newViewController = dataSource?.viewController(for: self, at: sanitizedIndex) else {
                 return
             }
