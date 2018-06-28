@@ -62,3 +62,13 @@ internal extension NavigationDirection {
         return direction
     }
 }
+
+internal extension NavigationDirection {
+    
+    func layoutNormalized(isRtL: Bool) -> NavigationDirection {
+        guard isRtL else {
+            return self
+        }
+        return self == .forward ? .reverse : .forward
+    }
+}

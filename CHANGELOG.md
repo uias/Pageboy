@@ -6,7 +6,7 @@ All notable changes to this project will be documented in this file.
 - `3.0.x` Releases - [3.0.0](#300)
 
 #### 2.x Releases
-- `2.5.x` Releases - [2.5.0](#250) | [2.5.1](#251)
+- `2.5.x` Releases - [2.5.0](#250) | [2.5.1](#251) | [2.5.2](#252)
 - `2.4.x` Releases - [2.4.0](#240)
 - `2.3.x` Releases - [2.3.0](#230) | [2.3.1](#231) | [2.3.2](#232) | [2.3.3](#233) | [2.3.4](#234)
 - `2.2.x` Releases - [2.2.0](#220)
@@ -37,6 +37,13 @@ Released on TBD
 - `PageboyViewController.PageIndex` has been renamed to `PageIndex`.
 
 ---
+
+## [2.5.2](https://github.com/uias/Pageboy/releases/tag/2.5.2)
+Released on 2018-06-28
+
+#### Fixed
+- [#165](https://github.com/uias/Pageboy/pull/165) Animated transition issues when using a Right-to-left language.
+     - by [msaps](https://github.com/msaps).
 
 ## [2.5.1](https://github.com/uias/Pageboy/releases/tag/2.5.1)
 Released on 2018-04-23
