@@ -22,7 +22,7 @@ All notable changes to this project will be documented in this file.
 
 ---
 
-## [2.5.1](https://github.com/uias/Pageboy/releases/tag/2.5.2)
+## [2.5.2](https://github.com/uias/Pageboy/releases/tag/2.5.2)
 Released on 2018-06-28
 
 #### Fixed
