@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 `Pageboy` adheres to [Semantic Versioning](http://semver.org/).
 
 #### 2.x Releases
-- `2.5.x` Releases - [2.5.0](#250) | [2.5.1](#251)
+- `2.5.x` Releases - [2.5.0](#250) | [2.5.1](#251) | [2.5.2](#252)
 - `2.4.x` Releases - [2.4.0](#240)
 - `2.3.x` Releases - [2.3.0](#230) | [2.3.1](#231) | [2.3.2](#232) | [2.3.3](#233) | [2.3.4](#234)
 - `2.2.x` Releases - [2.2.0](#220)
@@ -21,6 +21,13 @@ All notable changes to this project will be documented in this file.
 - `0.4.x` Releases - [0.4.0](#040) | [0.4.1](#041) | [0.4.2](#042) | [0.4.3](#043) | [0.4.4](#044) | [0.4.5](#045) | [0.4.6](#046) | [0.4.7](#047) | [0.4.8](#048) | [0.4.9](#049) | [0.4.10](#0410) | [0.4.11](#0411) | [0.4.12](#0412)
 
 ---
+
+## [2.5.1](https://github.com/uias/Pageboy/releases/tag/2.5.2)
+Released on 2018-06-28
+
+#### Fixed
+- [#165](https://github.com/uias/Pageboy/pull/165) Animated transition issues when using a Right-to-left language.
+     - by [msaps](https://github.com/msaps).
 
 ## [2.5.1](https://github.com/uias/Pageboy/releases/tag/2.5.1)
 Released on 2018-04-23
