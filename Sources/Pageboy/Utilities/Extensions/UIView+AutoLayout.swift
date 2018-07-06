@@ -10,25 +10,79 @@ import UIKit
 
 internal extension UIView {
     
-    @discardableResult func pinToSuperviewEdges() -> [NSLayoutConstraint]? {
-        guard self.superview != nil else {
-            fatalError("superview can not be nil")
+    @discardableResult
+    func pinToSuperviewEdges(priority: UILayoutPriority = .required) -> [NSLayoutConstraint] {
+        let superview = guardForSuperview()
+        
+        return addConstraints(priority: priority, { () -> [NSLayoutConstraint] in
+            return [
+                self.topAnchor.constraint(equalTo: superview.topAnchor),
+                self.leadingAnchor.constraint(equalTo: superview.leadingAnchor),
+                self.bottomAnchor.constraint(equalTo: superview.bottomAnchor),
+                self.trailingAnchor.constraint(equalTo: superview.trailingAnchor)
+            ]
+        })
+    }
+    
+    @discardableResult
+    func matchWidth(to view: UIView,
+                    priority: UILayoutPriority = .required) -> NSLayoutConstraint? {
+        let constraints = addConstraints(priority: priority, { () -> [NSLayoutConstraint] in
+            return [NSLayoutConstraint(item: self,
+                                       attribute: .width,
+                                       relatedBy: .equal,
+                                       toItem: view,
+                                       attribute: .width,
+                                       multiplier: 1.0,
+                                       constant: 0.0)]
+        })
+        
+        guard let constraint = constraints.first else {
+            fatalError("Could not add matchWidth constraint")
         }
+        return constraint
+    }
+    
+    @discardableResult
+    func matchHeight(to view: UIView,
+                     priority: UILayoutPriority = .required) -> NSLayoutConstraint {
+        let constraints = addConstraints(priority: priority, { () -> [NSLayoutConstraint] in
+            return [NSLayoutConstraint(item: self,
+                                       attribute: .height,
+                                       relatedBy: .equal,
+                                       toItem: view,
+                                       attribute: .height,
+                                       multiplier: 1.0,
+                                       constant: 0.0)]
+        })
+        
+        guard let constraint = constraints.first else {
+            fatalError("Could not add matchHeight constraint")
+        }
+        return constraint
+    }
+    
+    // MARK: Utilities
+    
+    private func prepareForAutoLayout(_ completion: () -> Void) {
         self.translatesAutoresizingMaskIntoConstraints = false
-        
-        let views = ["view": self]
-        var constraints = [NSLayoutConstraint]()
-        let xConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[view]-0-|",
-                                                          options: NSLayoutFormatOptions(),
-                                                          metrics: nil, views: views)
-        let yConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[view]-0-|",
-                                                          options: NSLayoutFormatOptions(),
-                                                          metrics: nil, views: views)
-        constraints.append(contentsOf: xConstraints)
-        constraints.append(contentsOf: yConstraints)
-        
-        self.superview?.addConstraints(constraints)
-        
+        completion()
+    }
+    
+    @discardableResult
+    private func addConstraints(priority: UILayoutPriority, _ completion: () -> [NSLayoutConstraint]) -> [NSLayoutConstraint] {
+        let constraints = completion()
+        constraints.forEach({ $0.priority = priority })
+        prepareForAutoLayout {
+            NSLayoutConstraint.activate(constraints)
+        }
         return constraints
+    }
+    
+    private func guardForSuperview() -> UIView {
+        guard let superview = self.superview else {
+            fatalError("No superview for view \(self)")
+        }
+        return superview
     }
 }

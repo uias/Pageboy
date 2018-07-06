@@ -19,8 +19,11 @@ open class PageboyViewController: UIViewController {
     // MARK: Properties
     
     internal var pageViewController: UIPageViewController?
+    /// An invisible scroll view used for silently influencing navigation bar titles.
+    internal var invisibleScrollView: UIScrollView?
     internal var previousPagePosition: CGFloat?
     internal var expectedTransitionIndex: PageIndex?
+    internal let childScrollObserver = ScrollObservationService()
 
     /// The orientation that the page view controller transitions on.
     public var navigationOrientation: UIPageViewControllerNavigationOrientation = .horizontal {
@@ -183,8 +186,10 @@ open class PageboyViewController: UIViewController {
     open override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.autoScroller.handler = self
-        self.setUpPageViewController()
+        autoScroller.handler = self
+        childScrollObserver.delegate = self
+        
+        setUpPageViewController()
     }
 
     open override func viewWillTransition(to size: CGSize,
