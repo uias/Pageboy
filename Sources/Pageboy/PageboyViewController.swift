@@ -316,3 +316,13 @@ public extension PageboyViewController {
                                              animated: self.isScrollingAnimated)
     }
 }
+
+extension PageboyViewController: ScrollObservationServiceDelegate {
+    
+    func scrollObservationService(_ service: ScrollObservationService,
+                                  didObserveOffsetChangeFor viewController: UIViewController,
+                                  on scrollView: UIScrollView,
+                                  contentOffset: CGPoint) {
+        
+    }
+}
