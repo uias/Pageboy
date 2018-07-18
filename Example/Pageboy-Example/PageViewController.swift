@@ -11,24 +11,17 @@ import Pageboy
 
 class PageViewController: PageboyViewController {
     
-
-    // MARK: Outlets
-    
-    @IBOutlet weak var pageCountLabel: UILabel!
-    @IBOutlet weak var offsetLabel: UILabel!
-    @IBOutlet weak var pageLabel: UILabel!
-
-    
     // MARK: Properties
     
-    var gradient: GradientViewController? {
+    @IBOutlet private weak var statusView: PageStatusView!
+    private var gradient: GradientViewController? {
         return parent as? GradientViewController
     }
     
     var previousBarButton: UIBarButtonItem?
     var nextBarButton: UIBarButtonItem?
     
-    var pageControllers: [UIViewController] = {
+    var viewControllers: [UIViewController] = {
         let storyboard = UIStoryboard(name: "Pageboy", bundle: Bundle.main)
         
         var viewControllers = [UIViewController]()
@@ -51,7 +44,6 @@ class PageViewController: PageboyViewController {
         dataSource = self
         delegate = self
         
-        updateStatusLabels()
         updateBarButtonStates(index: currentIndex ?? 0)
     }
     
@@ -60,14 +52,6 @@ class PageViewController: PageboyViewController {
         
         gradient?.gradients = Gradients.all
     }
-
-    func updateStatusLabels() {
-        self.pageCountLabel.text = "Page Count: \(self.pageCount ?? 0)"
-        let offsetValue =  navigationOrientation == .horizontal ? self.currentPosition?.x : self.currentPosition?.y
-        self.offsetLabel.text = "Current Position: " + String(format: "%.3f", offsetValue ?? 0.0)
-        self.pageLabel.text = "Current Page: " + String(describing: self.currentIndex ?? 0)
-    }
-    
     
     // MARK: Actions
     
@@ -84,12 +68,14 @@ class PageViewController: PageboyViewController {
 extension PageViewController: PageboyViewControllerDataSource {
     
     func numberOfViewControllers(in pageboyViewController: PageboyViewController) -> Int {
-        return pageControllers.count
+        let count = viewControllers.count
+        statusView.numberOfPages = count
+        return count
     }
     
     func viewController(for pageboyViewController: PageboyViewController,
                         at index: PageIndex) -> UIViewController? {
-        return pageControllers[index]
+        return viewControllers[index]
     }
     
     func defaultPage(for pageboyViewController: PageboyViewController) -> Page? {
@@ -113,9 +99,9 @@ extension PageViewController: PageboyViewControllerDelegate {
                                animated: Bool) {
 //        print("didScrollToPosition: \(position)")
         
-        let isVertical = navigationOrientation == .vertical
-        gradient?.gradientOffset = isVertical ? position.y : position.x
-        self.updateStatusLabels()
+        let relativePosition = navigationOrientation == .vertical ? position.y : position.x
+        gradient?.gradientOffset = relativePosition
+        statusView.currentPosition = relativePosition
         
         self.updateBarButtonStates(index: pageboyViewController.currentIndex ?? 0)
     }
@@ -127,7 +113,8 @@ extension PageViewController: PageboyViewControllerDelegate {
 //        print("didScrollToPageAtIndex: \(index)")
 
         gradient?.gradientOffset = CGFloat(index)
-        updateStatusLabels()
+        statusView.currentIndex = index
+        
         updateBarButtonStates(index: index)
     }
     
