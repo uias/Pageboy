@@ -221,7 +221,9 @@ open class PageboyViewController: UIViewController {
         
         // If we are not at expected index when we appear - force a move to the expected index.
         if let expectedTransitionIndex = self.expectedTransitionIndex, expectedTransitionIndex != currentIndex {
-            self.scrollToPage(.at(index: expectedTransitionIndex), animated: false, force: true)
+            scrollToPage(.at(index: expectedTransitionIndex),
+                         animated: false,
+                         force: true)
         }
     }
 

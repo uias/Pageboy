@@ -73,11 +73,7 @@ class PageViewController: PageboyViewController {
     // MARK: Actions
     
     @objc func nextPage(_ sender: UIBarButtonItem) {
-//        scrollToPage(.next, animated: true)
-        
-        let viewController = UIViewController()
-        viewController.view.backgroundColor = .white
-        navigationController?.pushViewController(viewController, animated: true)
+        scrollToPage(.next, animated: true)
     }
     
     @objc func previousPage(_ sender: UIBarButtonItem) {
