@@ -58,6 +58,9 @@ class PageViewController: PageboyViewController {
         updateGradient(for: currentPosition?.x ?? 0.0)
         updateStatusLabels()
         updateBarButtonStates(index: currentIndex ?? 0)
+        
+        transition = Transition(style: .push, duration: 2.0)
+        autoScroller.enable()
     }
 
     func updateStatusLabels() {
@@ -70,7 +73,11 @@ class PageViewController: PageboyViewController {
     // MARK: Actions
     
     @objc func nextPage(_ sender: UIBarButtonItem) {
-        scrollToPage(.next, animated: true)
+//        scrollToPage(.next, animated: true)
+        
+        let viewController = UIViewController()
+        viewController.view.backgroundColor = .white
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
     @objc func previousPage(_ sender: UIBarButtonItem) {

@@ -215,6 +215,15 @@ open class PageboyViewController: UIViewController {
         self.autoScroller.handler = self
         self.setUpPageViewController()
     }
+    
+    open override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        
+        if let expectedTransitionIndex = self.expectedTransitionIndex, expectedTransitionIndex != currentIndex {
+            self.scrollToPage(.at(index: expectedTransitionIndex), animated: false, force: true)
+        }
+    }
 
     open override func viewWillTransition(to size: CGSize,
                                           with coordinator: UIViewControllerTransitionCoordinator) {
@@ -233,15 +242,33 @@ public extension PageboyViewController {
     
     /// Scroll the page view controller to a new page.
     ///
-    /// - parameter page:      The index of the new page.
-    /// - parameter animated:   Whether to animate the transition.
+    /// - parameter page: The index of the new page.
+    /// - parameter animated: Whether to animate the transition.
     /// - parameter completion: The completion closure.
     /// - Returns: Whether the scroll was executed.
     @discardableResult
     public func scrollToPage(_ page: Page,
                              animated: Bool,
                              completion: PageScrollCompletion? = nil) -> Bool {
-        return verifySafeToScrollToANewPage(then: { (pageViewController) -> Bool in
+        return scrollToPage(page,
+                            animated: animated,
+                            force: false,
+                            completion: completion)
+    }
+    
+    /// Scroll the page view controller to a new page.
+    ///
+    /// - parameter page: The index of the new page.
+    /// - parameter animated: Whether to animate the transition.
+    /// - parameter force: Whether to force the scroll, ignoring current animation & positional status.
+    /// - parameter completion: The completion closure.
+    /// - Returns: Whether the scroll was executed.
+    @discardableResult
+    internal func scrollToPage(_ page: Page,
+                               animated: Bool,
+                               force: Bool,
+                               completion: PageScrollCompletion? = nil) -> Bool {
+        return verifySafeToScrollToANewPage(ignoringPosition: force, then: { (pageViewController) -> Bool in
           
             let rawIndex = self.indexValue(for: page)
             if rawIndex != self.currentIndex {
@@ -302,9 +329,13 @@ public extension PageboyViewController {
         })
     }
     
-    private func verifySafeToScrollToANewPage(then action: (UIPageViewController) -> Bool) -> Bool {
+    private func verifySafeToScrollToANewPage(ignoringPosition: Bool,
+                                              then action: (UIPageViewController) -> Bool) -> Bool {
         guard let pageViewController = self.pageViewController else {
             return false
+        }
+        if ignoringPosition { // if ignoring position then escape and mark as safe.
+            return action(pageViewController)
         }
         
         // guard against any active interactive scrolling
@@ -312,7 +343,6 @@ public extension PageboyViewController {
             self.isPositionedOnPageIndex else {
                 return false
         }
-        
         // guard against any current transition operation
         guard self.isScrollingAnimated == false else {
             return false
