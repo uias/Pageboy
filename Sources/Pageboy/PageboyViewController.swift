@@ -219,7 +219,7 @@ open class PageboyViewController: UIViewController {
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        
+        // If we are not at expected index when we appear - force a move to the expected index.
         if let expectedTransitionIndex = self.expectedTransitionIndex, expectedTransitionIndex != currentIndex {
             self.scrollToPage(.at(index: expectedTransitionIndex), animated: false, force: true)
         }
