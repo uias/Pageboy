@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Dje-1e-CGS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,22 +10,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="5OT-Uh-cUU">
-            <objects>
-                <navigationController id="Dje-1e-CGS" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2MW-ng-Id8" customClass="TransparentNavigationBar" customModule="Pageboy_Example" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Sku-GD-lQe"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CBD-nQ-cuU" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-844" y="37"/>
-        </scene>
         <!--Page View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -34,10 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Biv-GQ-An2" customClass="GradientView" customModule="Pageboy_Example" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="04I-si-tu1" userLabel="Separator">
                                 <rect key="frame" x="16" y="588" width="1" height="59"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
@@ -64,30 +44,25 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="6wE-cv-fvA" firstAttribute="trailing" secondItem="Hpl-wz-IQV" secondAttribute="trailing" id="5Lc-k0-nzb"/>
                             <constraint firstItem="M0K-1l-BeV" firstAttribute="trailing" secondItem="0Fp-LH-zNg" secondAttribute="trailing" constant="24" id="909-nq-Ovy"/>
                             <constraint firstItem="6wE-cv-fvA" firstAttribute="top" secondItem="Hpl-wz-IQV" secondAttribute="bottom" constant="4" id="9V0-eu-nqw"/>
-                            <constraint firstAttribute="trailing" secondItem="Biv-GQ-An2" secondAttribute="trailing" id="BSX-Na-7sF"/>
                             <constraint firstItem="6wE-cv-fvA" firstAttribute="leading" secondItem="Hpl-wz-IQV" secondAttribute="leading" id="Lzx-pR-hLw"/>
                             <constraint firstItem="M0K-1l-BeV" firstAttribute="bottom" secondItem="0Fp-LH-zNg" secondAttribute="bottom" constant="20" id="OND-ZU-QSs"/>
                             <constraint firstItem="04I-si-tu1" firstAttribute="leading" secondItem="M0K-1l-BeV" secondAttribute="leading" constant="16" id="RIo-vQ-2a5"/>
-                            <constraint firstAttribute="bottom" secondItem="Biv-GQ-An2" secondAttribute="bottom" id="SYw-pe-B3S"/>
                             <constraint firstItem="0Fp-LH-zNg" firstAttribute="leading" secondItem="M0K-1l-BeV" secondAttribute="leading" constant="24" id="YLC-eG-PKR"/>
                             <constraint firstItem="04I-si-tu1" firstAttribute="top" secondItem="Hpl-wz-IQV" secondAttribute="top" id="dGn-XF-lGi"/>
-                            <constraint firstItem="Biv-GQ-An2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="doM-cR-1QK"/>
                             <constraint firstItem="0Fp-LH-zNg" firstAttribute="bottom" secondItem="04I-si-tu1" secondAttribute="bottom" id="ffN-Om-LoM"/>
                             <constraint firstItem="0Fp-LH-zNg" firstAttribute="top" secondItem="6wE-cv-fvA" secondAttribute="bottom" constant="4" id="hLp-Gu-JLe"/>
                             <constraint firstItem="Hpl-wz-IQV" firstAttribute="leading" secondItem="M0K-1l-BeV" secondAttribute="leading" constant="24" id="svU-Co-NvK"/>
                             <constraint firstItem="M0K-1l-BeV" firstAttribute="trailing" secondItem="Hpl-wz-IQV" secondAttribute="trailing" constant="24" id="u1S-Pi-5px"/>
-                            <constraint firstItem="Biv-GQ-An2" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="zjl-lw-UtG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="M0K-1l-BeV"/>
                     </view>
                     <navigationItem key="navigationItem" id="wg0-LJ-0PX"/>
                     <connections>
-                        <outlet property="gradientView" destination="Biv-GQ-An2" id="GRw-kR-DMk"/>
                         <outlet property="offsetLabel" destination="6wE-cv-fvA" id="gDK-CG-HpX"/>
                         <outlet property="pageCountLabel" destination="Hpl-wz-IQV" id="Kwp-lh-0fc"/>
                         <outlet property="pageLabel" destination="0Fp-LH-zNg" id="hrZ-Qa-9LO"/>
@@ -134,7 +109,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Lq-0D-F4L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="817" y="139"/>
+            <point key="canvasLocation" x="33" y="761"/>
         </scene>
     </scenes>
 </document>

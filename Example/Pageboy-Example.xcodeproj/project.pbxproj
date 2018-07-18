@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4604839420FFC8770053AD8E /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4604839320FFC8770053AD8E /* Launch.storyboard */; };
 		46A32DBA20FF7ADC003AEAFC /* Gradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A32DB920FF7ADC003AEAFC /* Gradients.swift */; };
 		46A32DC120FF7BBC003AEAFC /* UIColor+Interpolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A32DC020FF7BBC003AEAFC /* UIColor+Interpolation.swift */; };
+		46A32DC320FF7DA8003AEAFC /* GradientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A32DC220FF7DA8003AEAFC /* GradientViewController.swift */; };
 		D623B1E21E1D32D700527F3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D623B1E11E1D32D700527F3D /* AppDelegate.swift */; };
 		D623B1E41E1D32D700527F3D /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D623B1E31E1D32D700527F3D /* PageViewController.swift */; };
-		D623B1E71E1D32D700527F3D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D623B1E51E1D32D700527F3D /* Main.storyboard */; };
+		D623B1E71E1D32D700527F3D /* Pageboy.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D623B1E51E1D32D700527F3D /* Pageboy.storyboard */; };
 		D623B1E91E1D32D700527F3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D623B1E81E1D32D700527F3D /* Assets.xcassets */; };
 		D623B1EC1E1D32D700527F3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D623B1EA1E1D32D700527F3D /* LaunchScreen.storyboard */; };
 		D681E3331E546A90007C08F5 /* Pageboy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D681E3241E546A7D007C08F5 /* Pageboy.framework */; };
@@ -69,12 +71,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4604839320FFC8770053AD8E /* Launch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
 		46A32DB920FF7ADC003AEAFC /* Gradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradients.swift; sourceTree = "<group>"; };
 		46A32DC020FF7BBC003AEAFC /* UIColor+Interpolation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Interpolation.swift"; sourceTree = "<group>"; };
+		46A32DC220FF7DA8003AEAFC /* GradientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientViewController.swift; sourceTree = "<group>"; };
 		D623B1DE1E1D32D700527F3D /* Pageboy-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pageboy-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D623B1E11E1D32D700527F3D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D623B1E31E1D32D700527F3D /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
-		D623B1E61E1D32D700527F3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D623B1E61E1D32D700527F3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Pageboy.storyboard; sourceTree = "<group>"; };
 		D623B1E81E1D32D700527F3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D623B1EB1E1D32D700527F3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D623B1ED1E1D32D700527F3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -112,6 +116,7 @@
 			children = (
 				D681E3501E54959B007C08F5 /* GradientView.swift */,
 				D681E3551E54ABE8007C08F5 /* TransparentNavigationBar.swift */,
+				46A32DC220FF7DA8003AEAFC /* GradientViewController.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -147,7 +152,7 @@
 				D623B1E11E1D32D700527F3D /* AppDelegate.swift */,
 				D623B1E31E1D32D700527F3D /* PageViewController.swift */,
 				D6ECCEC51E51B6FB00E9D5B3 /* ChildViewController.swift */,
-				D623B1E51E1D32D700527F3D /* Main.storyboard */,
+				D623B1E51E1D32D700527F3D /* Pageboy.storyboard */,
 				D681E3521E54959F007C08F5 /* Example Extras */,
 				D681E34F1E549508007C08F5 /* Resources */,
 			);
@@ -177,6 +182,7 @@
 		D681E3521E54959F007C08F5 /* Example Extras */ = {
 			isa = PBXGroup;
 			children = (
+				4604839320FFC8770053AD8E /* Launch.storyboard */,
 				D681E3531E549F7E007C08F5 /* PageViewController+Appearance.swift */,
 				46A32DBF20FF7BA5003AEAFC /* Styling */,
 				46A32DBE20FF7B9D003AEAFC /* Components */,
@@ -287,7 +293,8 @@
 			files = (
 				D623B1EC1E1D32D700527F3D /* LaunchScreen.storyboard in Resources */,
 				D623B1E91E1D32D700527F3D /* Assets.xcassets in Resources */,
-				D623B1E71E1D32D700527F3D /* Main.storyboard in Resources */,
+				D623B1E71E1D32D700527F3D /* Pageboy.storyboard in Resources */,
+				4604839420FFC8770053AD8E /* Launch.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +307,7 @@
 			files = (
 				D623B1E41E1D32D700527F3D /* PageViewController.swift in Sources */,
 				D623B1E21E1D32D700527F3D /* AppDelegate.swift in Sources */,
+				46A32DC320FF7DA8003AEAFC /* GradientViewController.swift in Sources */,
 				46A32DBA20FF7ADC003AEAFC /* Gradients.swift in Sources */,
 				46A32DC120FF7BBC003AEAFC /* UIColor+Interpolation.swift in Sources */,
 				D681E3561E54ABE8007C08F5 /* TransparentNavigationBar.swift in Sources */,
@@ -321,12 +329,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D623B1E51E1D32D700527F3D /* Main.storyboard */ = {
+		D623B1E51E1D32D700527F3D /* Pageboy.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				D623B1E61E1D32D700527F3D /* Base */,
 			);
-			name = Main.storyboard;
+			name = Pageboy.storyboard;
 			sourceTree = "<group>";
 		};
 		D623B1EA1E1D32D700527F3D /* LaunchScreen.storyboard */ = {

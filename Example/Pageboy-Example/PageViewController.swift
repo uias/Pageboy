@@ -17,24 +17,19 @@ class PageViewController: PageboyViewController {
     @IBOutlet weak var pageCountLabel: UILabel!
     @IBOutlet weak var offsetLabel: UILabel!
     @IBOutlet weak var pageLabel: UILabel!
-    @IBOutlet weak var gradientView: GradientView!
 
     
     // MARK: Properties
     
-    let gradients: [Gradient] = [
-        Gradient(top: UIColor(red:0.01, green:0.00, blue:0.18, alpha:1.0), bottom: UIColor(red:0.00, green:0.53, blue:0.80, alpha:1.0)),
-        Gradient(top: UIColor(red:0.20, green:0.08, blue:0.00, alpha:1.0), bottom: UIColor(red:0.69, green:0.36, blue:0.00, alpha:1.0)),
-        Gradient(top: UIColor(red:0.00, green:0.13, blue:0.05, alpha:1.0), bottom: UIColor(red:0.00, green:0.65, blue:0.33, alpha:1.0)),
-        Gradient(top: UIColor(red:0.18, green:0.00, blue:0.20, alpha:1.0), bottom: UIColor(red:0.64, green:0.00, blue:0.66, alpha:1.0)),
-        Gradient(top: UIColor(red:0.20, green:0.00, blue:0.00, alpha:1.0), bottom: UIColor(red:0.69, green:0.00, blue:0.00, alpha:1.0))
-    ]
+    var gradient: GradientViewController? {
+        return parent as? GradientViewController
+    }
     
     var previousBarButton: UIBarButtonItem?
     var nextBarButton: UIBarButtonItem?
     
     var pageControllers: [UIViewController] = {
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let storyboard = UIStoryboard(name: "Pageboy", bundle: Bundle.main)
         
         var viewControllers = [UIViewController]()
         for i in 0 ..< 5 {
@@ -50,15 +45,20 @@ class PageViewController: PageboyViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         addBarButtons()
-        view.sendSubview(toBack: gradientView)
         
         dataSource = self
         delegate = self
         
-        updateGradient(for: currentPosition?.x ?? 0.0)
         updateStatusLabels()
         updateBarButtonStates(index: currentIndex ?? 0)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        gradient?.gradients = Gradients.all
     }
 
     func updateStatusLabels() {
@@ -114,7 +114,7 @@ extension PageViewController: PageboyViewControllerDelegate {
 //        print("didScrollToPosition: \(position)")
         
         let isVertical = navigationOrientation == .vertical
-        self.updateGradient(for: isVertical ? position.y : position.x)
+        gradient?.gradientOffset = isVertical ? position.y : position.x
         self.updateStatusLabels()
         
         self.updateBarButtonStates(index: pageboyViewController.currentIndex ?? 0)
@@ -126,7 +126,7 @@ extension PageViewController: PageboyViewControllerDelegate {
                                animated: Bool) {
 //        print("didScrollToPageAtIndex: \(index)")
 
-        updateGradient(for: CGFloat(index))
+        gradient?.gradientOffset = CGFloat(index)
         updateStatusLabels()
         updateBarButtonStates(index: index)
     }
