@@ -58,9 +58,6 @@ class PageViewController: PageboyViewController {
         updateGradient(for: currentPosition?.x ?? 0.0)
         updateStatusLabels()
         updateBarButtonStates(index: currentIndex ?? 0)
-        
-        transition = Transition(style: .push, duration: 2.0)
-        autoScroller.enable()
     }
 
     func updateStatusLabels() {
