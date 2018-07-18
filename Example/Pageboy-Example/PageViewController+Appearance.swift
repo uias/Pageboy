@@ -44,21 +44,21 @@ extension PageViewController {
         let lowerIndex = Int(floor(pageOffset))
         let upperIndex = Int(ceil(pageOffset))
         
-        let lowerGradient = gradient(forIndex: lowerIndex)
-        let upperGradient = gradient(forIndex: upperIndex)
+        let lowerGradient = gradient(for: lowerIndex)
+        let upperGradient = gradient(for: upperIndex)
         
-        if let topColor = interpolate(betweenColor: lowerGradient.topColor,
-                                      and: upperGradient.topColor,
+        if let topColor = interpolate(betweenColor: lowerGradient.top,
+                                      and: upperGradient.top,
                                       percent: percentage),
-            let bottomColor = interpolate(betweenColor: lowerGradient.bottomColor,
-                                          and: upperGradient.bottomColor,
+            let bottomColor = interpolate(betweenColor: lowerGradient.bottom,
+                                          and: upperGradient.bottom,
                                           percent: percentage) {
             self.gradientView.colors = [topColor, bottomColor]
         }
         
     }
     
-    func gradient(forIndex index: Int) -> GradientConfig {
+    func gradient(for index: Int) -> Gradient {
         guard index >= 0 && index < gradients.count else {
             return .defaultGradient
         }
