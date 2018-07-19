@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import BLTNBoard
 
 extension PageViewController {
     
