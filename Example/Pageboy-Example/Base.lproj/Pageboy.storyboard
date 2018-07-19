@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Ah-A0-oEL" customClass="PageStatusView" customModule="Pageboy_Example" customModuleProvider="target">
-                                <rect key="frame" x="24" y="596" width="327" height="51"/>
+                                <rect key="frame" x="24" y="596" width="243" height="51"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="04I-si-tu1" userLabel="Separator">
                                         <rect key="frame" x="0.0" y="0.0" width="1" height="51"/>
@@ -29,22 +29,22 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="zAN-qu-d8I">
-                                        <rect key="frame" x="9" y="0.0" width="318" height="51"/>
+                                        <rect key="frame" x="9" y="0.0" width="234" height="51"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Page Count: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hpl-wz-IQV">
-                                                <rect key="frame" x="0.0" y="0.0" width="318" height="17"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="234" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                 <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Position: 0.000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6wE-cv-fvA">
-                                                <rect key="frame" x="0.0" y="17" width="318" height="17"/>
+                                                <rect key="frame" x="0.0" y="17" width="234" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                 <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Page: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Fp-LH-zNg">
-                                                <rect key="frame" x="0.0" y="34" width="318" height="17"/>
+                                                <rect key="frame" x="0.0" y="34" width="234" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                 <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                                 <nil key="highlightedColor"/>
@@ -68,12 +68,26 @@
                                     <outlet property="positionLabel" destination="6wE-cv-fvA" id="gnU-D9-Jmk"/>
                                 </connections>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JYw-O7-Pmx" customClass="ActionButton" customModule="Pageboy_Example" customModuleProvider="target">
+                                <rect key="frame" x="291" y="587" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="z0O-1T-N5U"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <state key="normal" title="Settings"/>
+                                <connections>
+                                    <action selector="settingsButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qm0-pD-h0p"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="M0K-1l-BeV" firstAttribute="bottom" secondItem="1Ah-A0-oEL" secondAttribute="bottom" constant="20" id="0Yh-Mu-0VS"/>
+                            <constraint firstItem="JYw-O7-Pmx" firstAttribute="height" secondItem="1Ah-A0-oEL" secondAttribute="height" id="D3E-LT-JSp"/>
+                            <constraint firstItem="M0K-1l-BeV" firstAttribute="trailing" secondItem="JYw-O7-Pmx" secondAttribute="trailing" constant="24" id="PDn-cm-CDs"/>
                             <constraint firstItem="1Ah-A0-oEL" firstAttribute="leading" secondItem="M0K-1l-BeV" secondAttribute="leading" constant="24" id="Q75-6S-Zk4"/>
-                            <constraint firstItem="M0K-1l-BeV" firstAttribute="trailing" secondItem="1Ah-A0-oEL" secondAttribute="trailing" constant="24" id="yHL-2W-zNT"/>
+                            <constraint firstItem="JYw-O7-Pmx" firstAttribute="leading" secondItem="1Ah-A0-oEL" secondAttribute="trailing" constant="24" id="YTK-dE-p22"/>
+                            <constraint firstItem="M0K-1l-BeV" firstAttribute="bottom" secondItem="JYw-O7-Pmx" secondAttribute="bottom" constant="20" id="aI0-5k-Vyf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="M0K-1l-BeV"/>
                     </view>

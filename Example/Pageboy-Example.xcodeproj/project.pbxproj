@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		4604839420FFC8770053AD8E /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4604839320FFC8770053AD8E /* Launch.storyboard */; };
 		4604839820FFCEF00053AD8E /* PageStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4604839720FFCEF00053AD8E /* PageStatusView.swift */; };
+		466E8D552100FCE700471998 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466E8D542100FCE700471998 /* ActionButton.swift */; };
+		466E8D592101001F00471998 /* PageViewController+Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466E8D582101001F00471998 /* PageViewController+Settings.swift */; };
 		46A32DBA20FF7ADC003AEAFC /* Gradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A32DB920FF7ADC003AEAFC /* Gradients.swift */; };
 		46A32DC120FF7BBC003AEAFC /* UIColor+Interpolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A32DC020FF7BBC003AEAFC /* UIColor+Interpolation.swift */; };
 		46A32DC320FF7DA8003AEAFC /* GradientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A32DC220FF7DA8003AEAFC /* GradientViewController.swift */; };
@@ -74,6 +76,8 @@
 /* Begin PBXFileReference section */
 		4604839320FFC8770053AD8E /* Launch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
 		4604839720FFCEF00053AD8E /* PageStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageStatusView.swift; sourceTree = "<group>"; };
+		466E8D542100FCE700471998 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
+		466E8D582101001F00471998 /* PageViewController+Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PageViewController+Settings.swift"; sourceTree = "<group>"; };
 		46A32DB920FF7ADC003AEAFC /* Gradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradients.swift; sourceTree = "<group>"; };
 		46A32DC020FF7BBC003AEAFC /* UIColor+Interpolation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Interpolation.swift"; sourceTree = "<group>"; };
 		46A32DC220FF7DA8003AEAFC /* GradientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +124,7 @@
 				D681E3551E54ABE8007C08F5 /* TransparentNavigationBar.swift */,
 				46A32DC220FF7DA8003AEAFC /* GradientViewController.swift */,
 				4604839720FFCEF00053AD8E /* PageStatusView.swift */,
+				466E8D542100FCE700471998 /* ActionButton.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -187,6 +192,7 @@
 			children = (
 				4604839320FFC8770053AD8E /* Launch.storyboard */,
 				D681E3531E549F7E007C08F5 /* PageViewController+BarButtons.swift */,
+				466E8D582101001F00471998 /* PageViewController+Settings.swift */,
 				46A32DBF20FF7BA5003AEAFC /* Styling */,
 				46A32DBE20FF7B9D003AEAFC /* Components */,
 				46A32DBD20FF7B95003AEAFC /* Utilities */,
@@ -312,6 +318,7 @@
 				D623B1E21E1D32D700527F3D /* AppDelegate.swift in Sources */,
 				46A32DC320FF7DA8003AEAFC /* GradientViewController.swift in Sources */,
 				46A32DBA20FF7ADC003AEAFC /* Gradients.swift in Sources */,
+				466E8D592101001F00471998 /* PageViewController+Settings.swift in Sources */,
 				46A32DC120FF7BBC003AEAFC /* UIColor+Interpolation.swift in Sources */,
 				4604839820FFCEF00053AD8E /* PageStatusView.swift in Sources */,
 				D681E3561E54ABE8007C08F5 /* TransparentNavigationBar.swift in Sources */,
@@ -319,6 +326,7 @@
 				D681E3511E54959B007C08F5 /* GradientView.swift in Sources */,
 				D6ECCEC61E51B6FB00E9D5B3 /* ChildViewController.swift in Sources */,
 				E8F663AB1E9C387D00F601AC /* UINavigationController+Utilities.swift in Sources */,
+				466E8D552100FCE700471998 /* ActionButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
