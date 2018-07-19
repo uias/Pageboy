@@ -156,7 +156,7 @@
 				D623B1E31E1D32D700527F3D /* PageViewController.swift */,
 				D6ECCEC51E51B6FB00E9D5B3 /* ChildViewController.swift */,
 				D623B1E51E1D32D700527F3D /* Pageboy.storyboard */,
-				D681E3521E54959F007C08F5 /* Example Extras */,
+				D681E3521E54959F007C08F5 /* Extras */,
 				D681E34F1E549508007C08F5 /* Resources */,
 			);
 			path = "Pageboy-Example";
@@ -182,7 +182,7 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		D681E3521E54959F007C08F5 /* Example Extras */ = {
+		D681E3521E54959F007C08F5 /* Extras */ = {
 			isa = PBXGroup;
 			children = (
 				4604839320FFC8770053AD8E /* Launch.storyboard */,
@@ -191,7 +191,7 @@
 				46A32DBE20FF7B9D003AEAFC /* Components */,
 				46A32DBD20FF7B95003AEAFC /* Utilities */,
 			);
-			name = "Example Extras";
+			name = Extras;
 			sourceTree = "<group>";
 		};
 		D6CC55831ECCCCB700A7FBB4 /* Frameworks */ = {
