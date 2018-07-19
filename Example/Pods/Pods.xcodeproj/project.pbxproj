@@ -1,0 +1,865 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0C6FE01DB5922B2581AA10368D47C699 /* ja.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 7830BF59BF5EB87376604C604AFFE8D5 /* ja.lproj */; };
+		0DDAADAC4311D4E6E7F5D54C02855C34 /* BLTNItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D1F7E25E117A9D085F93263E675BC43 /* BLTNItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0F4B5F2A6F3CD5CAC380B66803E34B2E /* es.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 9BEB85ADD6891CA6DF9D7AD472546E6C /* es.lproj */; };
+		13A3E3992D650AE6EE827A21D8DA44ED /* BLTNItemAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45964B288A2E85AF29F6C6C74B0A0393 /* BLTNItemAppearance.swift */; };
+		1EDE2EF6D7213DF37A9754C6275B319C /* BLTNViewPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC49DEFFCAEEE6F4E232398430577C0 /* BLTNViewPosition.swift */; };
+		1FDF670F6A022556F0792773D1532BF8 /* BLTNActionItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE966106D5DA1129220F0669A772359 /* BLTNActionItem.m */; };
+		2190ABC27D0822AFEA3F0E92362E9BD6 /* Pods-Pageboy-Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 88D39AA6653F76AFC68416BF0EC99E5A /* Pods-Pageboy-Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		23CE0E50CA7AC0CAC505CC15F509B53C /* sv.lproj in Resources */ = {isa = PBXBuildFile; fileRef = F6B7C2273B81FA648F68E56CE7F6809C /* sv.lproj */; };
+		2C5FB79BC886AC4BD9D8F9B1507D7764 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22657ABE791718D841DC7BBFEC83E66A /* ActivityIndicator.swift */; };
+		2FBE3712730236E0630BF300F285754D /* uk.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 4A565231596E91224D7A30F910EC10C9 /* uk.lproj */; };
+		2FC797D4AEAE61450CE49B446D147BCC /* hu.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 41253DB5EF626D430EDBADDAD3C028AE /* hu.lproj */; };
+		33684DF4CCD8ADBE8F37004E01A8089A /* BulletinDismissAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD1CE9128AB679821A31C5B3903813F /* BulletinDismissAnimationController.swift */; };
+		359998CF584EB1EAEB8B88FB2889F8C6 /* BLTNActionItem.h in Headers */ = {isa = PBXBuildFile; fileRef = BD1C5997FEE1383E9E9C36368E93D9CE /* BLTNActionItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		399AB9734D81093363ADCC1E60EBE563 /* pt-PT.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 0BFE7B53CFEC3569CF57E9CE1CDC0851 /* pt-PT.lproj */; };
+		3BB55680A9CC06E64FB134A7FBF96366 /* el.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 6EA9F1A8FD7600FF4A765D813EC8597E /* el.lproj */; };
+		3D77D7FCA36C8770B9036386D05DC05C /* Deprecations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36542D80EB7024F60AF79CB94E0001D9 /* Deprecations.swift */; };
+		41F382B627C5ECDA994EF9D7C9C8BC2F /* CloseGlyph@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C715FDDC697E73089E02C0F37107C1AD /* CloseGlyph@3x.png */; };
+		42FD389F0602119C2885B5D33FE3F907 /* sk.lproj in Resources */ = {isa = PBXBuildFile; fileRef = C302C97B216B3A02E6EB38C59EA5BB0F /* sk.lproj */; };
+		4DC5ACAEBD776D847852F0D18D18CBA0 /* Pods-Pageboy-Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D2DE767B4F239BBD197713B988094F89 /* Pods-Pageboy-Example-dummy.m */; };
+		4DD7D63224EC69CE3FAF3F11D11F2357 /* BLTNPageItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C2DC21EA0EB7139165F52105BEFB983A /* BLTNPageItem.m */; };
+		5145AC3B703DECA71536B9136D06DF04 /* ms.lproj in Resources */ = {isa = PBXBuildFile; fileRef = D367455D12124EF6CF351C8FD83B92EF /* ms.lproj */; };
+		53075C8F27E4A203C4B9C2F9CFDE35B8 /* zh-Hans.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 32B414D7FAB3BD7BA54805014B048224 /* zh-Hans.lproj */; };
+		5DF94BF0EFC8168DC4355262AF774F8D /* UIButton+BackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BA03D4795CDCC6190A9B363645646A /* UIButton+BackgroundColor.swift */; };
+		6CFF67E4A417F9CA1ACCE7287F3887A4 /* BLTNBackgroundViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD72675BBEADDC2414AC9741E1A99B8 /* BLTNBackgroundViewStyle.swift */; };
+		77326086C1DDC89F8F125E55C1E2CB22 /* ar.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 9118706D8191BE3B8E008F320E741CBD /* ar.lproj */; };
+		77AEB48A2235A5EB6DD4E01626AA40A0 /* BulletinPresentationAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D41CEB23C1CD1B1634B2E7C49906DCF /* BulletinPresentationAnimationController.swift */; };
+		7CC7F11617B9B82B2891269B225610A9 /* id.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 01FF73486A775197757C0A51802D0E67 /* id.lproj */; };
+		818DBEF44B312E7EBACF402CDEF84A9F /* BulletinCloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8121275E0ACD8E92FE30FB8427C9E07E /* BulletinCloseButton.swift */; };
+		8482F0196F319B4F81C7531CB57EDD78 /* AnimationChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136693B29F922B38BFC9F824CDBC191F /* AnimationChain.swift */; };
+		85C7341CC40AB744ED0FE7667A7ECDB8 /* Highlighter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FBD4111B1FCA602B0223BFCBBFABAE /* Highlighter.swift */; };
+		8888BD7BC318FD205048A1A9C3170FC9 /* hr.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 1926E1CFDDAB21A2A96E129D9A49011D /* hr.lproj */; };
+		896AD6793DF7491B2E27D6D6E2C86B79 /* ko.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 10A589E0823191246B76B393973D1F5C /* ko.lproj */; };
+		8BFA06671C5FA5BA9874B2E10F7531E6 /* BulletinBoard-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 21BD78DE9933631E7F01A37CF70F78C3 /* BulletinBoard-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		90D056E98F36BB97A226C48280222D1E /* ro.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 05235F7838C9D2837D22F432A29B94FB /* ro.lproj */; };
+		9941EFAEF31B7A608F0B62AA1931FA35 /* BulletinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1924FC9B3AC697FC8CEC26243DA5B670 /* BulletinViewController.swift */; };
+		995908FBCF9B41E95076A31A0977BF85 /* fi.lproj in Resources */ = {isa = PBXBuildFile; fileRef = B225A82513F26BFFDE6204CC7AC71282 /* fi.lproj */; };
+		9B278E02D5670590A30CA9E98E9E4C32 /* BLTNPageItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 494B3FFD3B39FEDB1B6C7A9055675FCA /* BLTNPageItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9F8FE4B199ECCE83CC88D4282A021294 /* pl.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 0703F7A9917179D43F3B23155CA9659F /* pl.lproj */; };
+		9FBAC25050ABF16363A1862228976545 /* BLTNSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8686DDD55ECF3E9441955F6D276ECB2A /* BLTNSpacing.swift */; };
+		9FFF4036CF2302DF87F0A72D8F55D809 /* HighlightButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843118B0C308D98F16E1658CD35486E4 /* HighlightButton.swift */; };
+		A073A02B17FCE0C1996967576653C2AC /* vi.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 838E8453B68BB4E6E9667D333AD7C4A1 /* vi.lproj */; };
+		A0DE5B5EA280CFE3E7C60D6AD19AA15F /* BLTNItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144FDDD9F32BC7429490BF0B778D7F7D /* BLTNItemManager.swift */; };
+		A0F42F194903634B5CF3301C790B7A04 /* pt-BR.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 9BAA76B2D11A1C4CBCB102272FF8E9F5 /* pt-BR.lproj */; };
+		A24E0059F8832B7AC0A3D6E970E01DEE /* BLTNTitleLabelContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D4E4AEA53DDC19F2077DF3A93C1699 /* BLTNTitleLabelContainer.swift */; };
+		A338908BA488A5600FFC345D4E00563D /* ru.lproj in Resources */ = {isa = PBXBuildFile; fileRef = EE6FD4F056DFEE3D4B551CC8F0DDB5CD /* ru.lproj */; };
+		A5825BD7525D8ED1911227933903FED4 /* UIColor+Luminance.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF54AA26CA761C93FE5E6C2A4CD6E963 /* UIColor+Luminance.swift */; };
+		AA8B015595D692D6CB97FC8B15996E85 /* CloseGlyph.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D71F022594DBB691CF94E7AE3EBEA2D /* CloseGlyph.png */; };
+		AB1D9C23E9EF1C0DA86DB2BF4EC60F09 /* BulletinBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97F3BD485C235133A8AAF5C0DBF0DFB /* BulletinBackgroundView.swift */; };
+		AD38D391BB6E506DD6B0ED1191E8C8E0 /* nb.lproj in Resources */ = {isa = PBXBuildFile; fileRef = EA6A56E16C7B96DBB8DCCE94F6010DB2 /* nb.lproj */; };
+		AE002DD5C1C390C918D43A179FF180DA /* cs.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 13D0F8F8648B7D3578C6531B9DA54D69 /* cs.lproj */; };
+		B0487DAF2C8EEDCC5A8D61899EBB6817 /* BLTNContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A95043D1133C75160511E46CC02E35 /* BLTNContainerView.swift */; };
+		B0B8627333C7F6B7DFF8584065BB2B41 /* hi.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 4AFDF4DDD831B85C8483101154B1E365 /* hi.lproj */; };
+		B48299A7FD6DA757CB28E7E080F032CF /* th.lproj in Resources */ = {isa = PBXBuildFile; fileRef = A1E4F150F737FCAACC63892BA2112487 /* th.lproj */; };
+		B5B684971FEF1693F3C7FD35C445868A /* UIView+RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF32D7F169649449296E4A52EE04DA8 /* UIView+RoundedView.swift */; };
+		B5BEB9257320143EC5C6F3B965CAABAB /* zh-Hant.lproj in Resources */ = {isa = PBXBuildFile; fileRef = FE43FF3810FC74CEC5B60CD0B1DA0D3E /* zh-Hant.lproj */; };
+		B87BC732304B4C29331A3E6AC73EB9B8 /* BLTNBoard.h in Headers */ = {isa = PBXBuildFile; fileRef = E46F7D35C8A043A0E3025F0C92C12A62 /* BLTNBoard.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B8F647CA0D74E3457B706AD65AB76B8C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC2C02191C153C1554B35DEE8B2D09D4 /* UIKit.framework */; };
+		BBE76E24B20237F6D37FF8C1AC352D55 /* da.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 4E50F6A880F29B02A1E127E8488706BF /* da.lproj */; };
+		BE75F8A4CB0F5ACE2534A7A45DF792D4 /* he.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 3267DAA171D6A0D51FC43B0731397B5A /* he.lproj */; };
+		C50F168A7F365AB0F7FADEBD00849AF2 /* CloseGlyph@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F2017C857B25E0479299DC09A97934CB /* CloseGlyph@2x.png */; };
+		CA0539DCD335A5F7E0DBBC981B142E57 /* UIView+SafeAnchors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3C7879E6CB32FE8BD9CDE6FE156B58 /* UIView+SafeAnchors.swift */; };
+		CC23B751F7B3943DAD4671C6FBAE3C78 /* RoundedViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0D506BB58905FA806B7A2A9105B735 /* RoundedViewProtocol.swift */; };
+		CCC14A27A6FCDD8C4762939E6BC5CB8D /* fr.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 7435423EC18246381C0C068FF8B6F92F /* fr.lproj */; };
+		D1F18EC6140B5FAA6166E04B8F5D9AEE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 908E902E026C5C22904CF9014A5604AD /* Foundation.framework */; };
+		D6F819E2C4E5EACDE627C45C9B56D944 /* tr.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 74542725BCE8ACDAF715D2847B662244 /* tr.lproj */; };
+		DFF35FD9862215E0087CF9AAC1049BF0 /* ContinuousMaskLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF3B3AF4C7F929959C133B6F3A5673D /* ContinuousMaskLayer.swift */; };
+		E8F78A58CCB20A9542761891D0F9B97B /* en.lproj in Resources */ = {isa = PBXBuildFile; fileRef = E6495F763F1F1B5A211ED4D9DA18C2F8 /* en.lproj */; };
+		E98E8EE503DA5ACD8453EABA1260B38E /* BLTNInterfaceBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55895F8354311728EB8088EF44E9DA76 /* BLTNInterfaceBuilder.swift */; };
+		EA419A8DF91E7F9CB3CA60FD8A047CDC /* it.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 99D1A6AFEBE7E0613FE56780A7774E1F /* it.lproj */; };
+		EA503617DE9C17CF1796A2D6716DE27A /* nl.lproj in Resources */ = {isa = PBXBuildFile; fileRef = EB7DBE80AE053BFDA5BC6C436505F269 /* nl.lproj */; };
+		EC5EC385F9E66B6823592330A669EAD4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 908E902E026C5C22904CF9014A5604AD /* Foundation.framework */; };
+		EE246AE943E70483B327EE95317A40E0 /* de.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 1821D782F01746D9C0DE25C6B9CFDE67 /* de.lproj */; };
+		F45F982688E135E2CAB047B90D5AE053 /* BulletinBoard-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F0AD9BB2179C45747DA285A47BBED449 /* BulletinBoard-dummy.m */; };
+		F5C1DACBF125804C47E5AFE60D560E9C /* ca.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 78E50BD7CD29D45BFF2506E9C6E5515F /* ca.lproj */; };
+		F8A64B46BCCB93F44C092F70C8796509 /* BulletinSwipeInteractionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC1AC7B3A92179F1EB9C6C65681BFC3 /* BulletinSwipeInteractionController.swift */; };
+		F99BF0904C9FDC46F31D2E86EDECD91F /* BLTNHighlightButtonWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B04973F11C02D4B2BF0D3777981A60 /* BLTNHighlightButtonWrapper.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		08489E345CE73BB1683C5B237EF1F67B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F76C6CAEC5CCF08C6477CBA6FC453250;
+			remoteInfo = BulletinBoard;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		00058A0941326130A4A78CD5B0C3E162 /* Pods-Pageboy-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Pageboy-Example.debug.xcconfig"; sourceTree = "<group>"; };
+		01FF73486A775197757C0A51802D0E67 /* id.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = id.lproj; path = Resources/Strings/id.lproj; sourceTree = "<group>"; };
+		05235F7838C9D2837D22F432A29B94FB /* ro.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = ro.lproj; path = Resources/Strings/ro.lproj; sourceTree = "<group>"; };
+		0703F7A9917179D43F3B23155CA9659F /* pl.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = pl.lproj; path = Resources/Strings/pl.lproj; sourceTree = "<group>"; };
+		08FBD4111B1FCA602B0223BFCBBFABAE /* Highlighter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Highlighter.swift; path = Sources/Support/Views/Internal/Highlighter.swift; sourceTree = "<group>"; };
+		0BFE7B53CFEC3569CF57E9CE1CDC0851 /* pt-PT.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = "pt-PT.lproj"; path = "Resources/Strings/pt-PT.lproj"; sourceTree = "<group>"; };
+		0D1F7E25E117A9D085F93263E675BC43 /* BLTNItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BLTNItem.h; path = Sources/Models/BLTNItem.h; sourceTree = "<group>"; };
+		0DF32D7F169649449296E4A52EE04DA8 /* UIView+RoundedView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+RoundedView.swift"; path = "Sources/Support/Views/Internal/ContinuousCorners/UIView+RoundedView.swift"; sourceTree = "<group>"; };
+		10A589E0823191246B76B393973D1F5C /* ko.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = ko.lproj; path = Resources/Strings/ko.lproj; sourceTree = "<group>"; };
+		136693B29F922B38BFC9F824CDBC191F /* AnimationChain.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnimationChain.swift; path = Sources/Support/Animations/AnimationChain.swift; sourceTree = "<group>"; };
+		13D0F8F8648B7D3578C6531B9DA54D69 /* cs.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = cs.lproj; path = Resources/Strings/cs.lproj; sourceTree = "<group>"; };
+		144FDDD9F32BC7429490BF0B778D7F7D /* BLTNItemManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BLTNItemManager.swift; path = Sources/BLTNItemManager.swift; sourceTree = "<group>"; };
+		14B04973F11C02D4B2BF0D3777981A60 /* BLTNHighlightButtonWrapper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BLTNHighlightButtonWrapper.swift; path = Sources/Support/Views/Public/BLTNHighlightButtonWrapper.swift; sourceTree = "<group>"; };
+		1821D782F01746D9C0DE25C6B9CFDE67 /* de.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = de.lproj; path = Resources/Strings/de.lproj; sourceTree = "<group>"; };
+		1924FC9B3AC697FC8CEC26243DA5B670 /* BulletinViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BulletinViewController.swift; path = Sources/Support/BulletinViewController.swift; sourceTree = "<group>"; };
+		1926E1CFDDAB21A2A96E129D9A49011D /* hr.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = hr.lproj; path = Resources/Strings/hr.lproj; sourceTree = "<group>"; };
+		1D41CEB23C1CD1B1634B2E7C49906DCF /* BulletinPresentationAnimationController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BulletinPresentationAnimationController.swift; path = Sources/Support/Animations/BulletinPresentationAnimationController.swift; sourceTree = "<group>"; };
+		21BD78DE9933631E7F01A37CF70F78C3 /* BulletinBoard-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BulletinBoard-umbrella.h"; sourceTree = "<group>"; };
+		22657ABE791718D841DC7BBFEC83E66A /* ActivityIndicator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ActivityIndicator.swift; path = Sources/Support/Views/Internal/ActivityIndicator.swift; sourceTree = "<group>"; };
+		23B34461157969380FEBAA2581D42DFA /* BulletinBoard-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BulletinBoard-prefix.pch"; sourceTree = "<group>"; };
+		3267DAA171D6A0D51FC43B0731397B5A /* he.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = he.lproj; path = Resources/Strings/he.lproj; sourceTree = "<group>"; };
+		32B414D7FAB3BD7BA54805014B048224 /* zh-Hans.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = "zh-Hans.lproj"; path = "Resources/Strings/zh-Hans.lproj"; sourceTree = "<group>"; };
+		36542D80EB7024F60AF79CB94E0001D9 /* Deprecations.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Deprecations.swift; path = Sources/Deprecations.swift; sourceTree = "<group>"; };
+		36A95043D1133C75160511E46CC02E35 /* BLTNContainerView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BLTNContainerView.swift; path = Sources/Support/Views/Public/BLTNContainerView.swift; sourceTree = "<group>"; };
+		41253DB5EF626D430EDBADDAD3C028AE /* hu.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = hu.lproj; path = Resources/Strings/hu.lproj; sourceTree = "<group>"; };
+		45964B288A2E85AF29F6C6C74B0A0393 /* BLTNItemAppearance.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BLTNItemAppearance.swift; path = Sources/Appearance/BLTNItemAppearance.swift; sourceTree = "<group>"; };
+		494B3FFD3B39FEDB1B6C7A9055675FCA /* BLTNPageItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BLTNPageItem.h; path = Sources/Models/BLTNPageItem.h; sourceTree = "<group>"; };
+		4A565231596E91224D7A30F910EC10C9 /* uk.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = uk.lproj; path = Resources/Strings/uk.lproj; sourceTree = "<group>"; };
+		4AFDF4DDD831B85C8483101154B1E365 /* hi.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = hi.lproj; path = Resources/Strings/hi.lproj; sourceTree = "<group>"; };
+		4D71F022594DBB691CF94E7AE3EBEA2D /* CloseGlyph.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = CloseGlyph.png; path = Resources/CloseGlyph.png; sourceTree = "<group>"; };
+		4E50F6A880F29B02A1E127E8488706BF /* da.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = da.lproj; path = Resources/Strings/da.lproj; sourceTree = "<group>"; };
+		544CCA20C2BB7BCE2EC38B14393F9E35 /* BulletinBoard.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = BulletinBoard.modulemap; sourceTree = "<group>"; };
+		55895F8354311728EB8088EF44E9DA76 /* BLTNInterfaceBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BLTNInterfaceBuilder.swift; path = Sources/Appearance/BLTNInterfaceBuilder.swift; sourceTree = "<group>"; };
+		5A3C7879E6CB32FE8BD9CDE6FE156B58 /* UIView+SafeAnchors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+SafeAnchors.swift"; path = "Sources/Support/Helpers/UIView+SafeAnchors.swift"; sourceTree = "<group>"; };
+		5AE966106D5DA1129220F0669A772359 /* BLTNActionItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BLTNActionItem.m; path = Sources/Models/BLTNActionItem.m; sourceTree = "<group>"; };
+		5D8348C97011960D03B99CDDFB9B069A /* BLTNBoard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = BLTNBoard.framework; path = BulletinBoard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5DD1CE9128AB679821A31C5B3903813F /* BulletinDismissAnimationController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BulletinDismissAnimationController.swift; path = Sources/Support/Animations/BulletinDismissAnimationController.swift; sourceTree = "<group>"; };
+		6D2840342E0A041F3D528DF5254FB5ED /* BulletinBoard.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = BulletinBoard.xcconfig; sourceTree = "<group>"; };
+		6DC1AC7B3A92179F1EB9C6C65681BFC3 /* BulletinSwipeInteractionController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BulletinSwipeInteractionController.swift; path = Sources/Support/Animations/BulletinSwipeInteractionController.swift; sourceTree = "<group>"; };
+		6EA9F1A8FD7600FF4A765D813EC8597E /* el.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = el.lproj; path = Resources/Strings/el.lproj; sourceTree = "<group>"; };
+		7435423EC18246381C0C068FF8B6F92F /* fr.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = fr.lproj; path = Resources/Strings/fr.lproj; sourceTree = "<group>"; };
+		74542725BCE8ACDAF715D2847B662244 /* tr.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = tr.lproj; path = Resources/Strings/tr.lproj; sourceTree = "<group>"; };
+		7830BF59BF5EB87376604C604AFFE8D5 /* ja.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = ja.lproj; path = Resources/Strings/ja.lproj; sourceTree = "<group>"; };
+		78E50BD7CD29D45BFF2506E9C6E5515F /* ca.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = ca.lproj; path = Resources/Strings/ca.lproj; sourceTree = "<group>"; };
+		8121275E0ACD8E92FE30FB8427C9E07E /* BulletinCloseButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BulletinCloseButton.swift; path = Sources/Support/Views/Internal/BulletinCloseButton.swift; sourceTree = "<group>"; };
+		838E8453B68BB4E6E9667D333AD7C4A1 /* vi.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = vi.lproj; path = Resources/Strings/vi.lproj; sourceTree = "<group>"; };
+		843118B0C308D98F16E1658CD35486E4 /* HighlightButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HighlightButton.swift; path = Sources/Support/Views/Internal/HighlightButton.swift; sourceTree = "<group>"; };
+		8686DDD55ECF3E9441955F6D276ECB2A /* BLTNSpacing.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BLTNSpacing.swift; path = Sources/Appearance/BLTNSpacing.swift; sourceTree = "<group>"; };
+		87DC80D84AB11CC5CA52017401EBDFFE /* Pods-Pageboy-Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Pageboy-Example-frameworks.sh"; sourceTree = "<group>"; };
+		88D39AA6653F76AFC68416BF0EC99E5A /* Pods-Pageboy-Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Pageboy-Example-umbrella.h"; sourceTree = "<group>"; };
+		8C66F3C9E5A6DC78EF0F0C18DB550C13 /* Pods-Pageboy-Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Pageboy-Example-resources.sh"; sourceTree = "<group>"; };
+		908E902E026C5C22904CF9014A5604AD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		9118706D8191BE3B8E008F320E741CBD /* ar.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = ar.lproj; path = Resources/Strings/ar.lproj; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93D4E4AEA53DDC19F2077DF3A93C1699 /* BLTNTitleLabelContainer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BLTNTitleLabelContainer.swift; path = Sources/Support/Views/Public/BLTNTitleLabelContainer.swift; sourceTree = "<group>"; };
+		99D1A6AFEBE7E0613FE56780A7774E1F /* it.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = it.lproj; path = Resources/Strings/it.lproj; sourceTree = "<group>"; };
+		9BAA76B2D11A1C4CBCB102272FF8E9F5 /* pt-BR.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = "pt-BR.lproj"; path = "Resources/Strings/pt-BR.lproj"; sourceTree = "<group>"; };
+		9BEB85ADD6891CA6DF9D7AD472546E6C /* es.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = es.lproj; path = Resources/Strings/es.lproj; sourceTree = "<group>"; };
+		9F8872D75F68503F3C680104E48AFC08 /* Pods-Pageboy-Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Pageboy-Example.modulemap"; sourceTree = "<group>"; };
+		A1E4F150F737FCAACC63892BA2112487 /* th.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = th.lproj; path = Resources/Strings/th.lproj; sourceTree = "<group>"; };
+		ACC49DEFFCAEEE6F4E232398430577C0 /* BLTNViewPosition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BLTNViewPosition.swift; path = Sources/Appearance/BLTNViewPosition.swift; sourceTree = "<group>"; };
+		AF1ACA300D4F602C27404B2CCB91E6CA /* Pods-Pageboy-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Pageboy-Example.release.xcconfig"; sourceTree = "<group>"; };
+		B225A82513F26BFFDE6204CC7AC71282 /* fi.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = fi.lproj; path = Resources/Strings/fi.lproj; sourceTree = "<group>"; };
+		B3F784BDCE09829C2CDAD26AAFC34DFB /* Pods_Pageboy_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Pageboy_Example.framework; path = "Pods-Pageboy-Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B64C1077459E6386B9D07FB01F670CC7 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BC2C02191C153C1554B35DEE8B2D09D4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		BCF3B3AF4C7F929959C133B6F3A5673D /* ContinuousMaskLayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ContinuousMaskLayer.swift; path = Sources/Support/Views/Internal/ContinuousCorners/ContinuousMaskLayer.swift; sourceTree = "<group>"; };
+		BD1C5997FEE1383E9E9C36368E93D9CE /* BLTNActionItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BLTNActionItem.h; path = Sources/Models/BLTNActionItem.h; sourceTree = "<group>"; };
+		BF54AA26CA761C93FE5E6C2A4CD6E963 /* UIColor+Luminance.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIColor+Luminance.swift"; path = "Sources/Support/Helpers/UIColor+Luminance.swift"; sourceTree = "<group>"; };
+		C00AB1C4665926E0C5F773ADC40B2059 /* Pods-Pageboy-Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Pageboy-Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		C2DC21EA0EB7139165F52105BEFB983A /* BLTNPageItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BLTNPageItem.m; path = Sources/Models/BLTNPageItem.m; sourceTree = "<group>"; };
+		C302C97B216B3A02E6EB38C59EA5BB0F /* sk.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = sk.lproj; path = Resources/Strings/sk.lproj; sourceTree = "<group>"; };
+		C715FDDC697E73089E02C0F37107C1AD /* CloseGlyph@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "CloseGlyph@3x.png"; path = "Resources/CloseGlyph@3x.png"; sourceTree = "<group>"; };
+		C7BA03D4795CDCC6190A9B363645646A /* UIButton+BackgroundColor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIButton+BackgroundColor.swift"; path = "Sources/Support/Helpers/UIButton+BackgroundColor.swift"; sourceTree = "<group>"; };
+		CB2CC64DAD2878537A121DD5C9BC8AAB /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2DE767B4F239BBD197713B988094F89 /* Pods-Pageboy-Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Pageboy-Example-dummy.m"; sourceTree = "<group>"; };
+		D367455D12124EF6CF351C8FD83B92EF /* ms.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = ms.lproj; path = Resources/Strings/ms.lproj; sourceTree = "<group>"; };
+		E46F7D35C8A043A0E3025F0C92C12A62 /* BLTNBoard.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BLTNBoard.h; path = Sources/BLTNBoard.h; sourceTree = "<group>"; };
+		E6495F763F1F1B5A211ED4D9DA18C2F8 /* en.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = en.lproj; path = Resources/Strings/en.lproj; sourceTree = "<group>"; };
+		E97F3BD485C235133A8AAF5C0DBF0DFB /* BulletinBackgroundView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BulletinBackgroundView.swift; path = Sources/Support/Views/Internal/BulletinBackgroundView.swift; sourceTree = "<group>"; };
+		EA6A56E16C7B96DBB8DCCE94F6010DB2 /* nb.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = nb.lproj; path = Resources/Strings/nb.lproj; sourceTree = "<group>"; };
+		EB7DBE80AE053BFDA5BC6C436505F269 /* nl.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = nl.lproj; path = Resources/Strings/nl.lproj; sourceTree = "<group>"; };
+		EE6FD4F056DFEE3D4B551CC8F0DDB5CD /* ru.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = ru.lproj; path = Resources/Strings/ru.lproj; sourceTree = "<group>"; };
+		F0AD9BB2179C45747DA285A47BBED449 /* BulletinBoard-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "BulletinBoard-dummy.m"; sourceTree = "<group>"; };
+		F2017C857B25E0479299DC09A97934CB /* CloseGlyph@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "CloseGlyph@2x.png"; path = "Resources/CloseGlyph@2x.png"; sourceTree = "<group>"; };
+		F6B7C2273B81FA648F68E56CE7F6809C /* sv.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = sv.lproj; path = Resources/Strings/sv.lproj; sourceTree = "<group>"; };
+		FAD72675BBEADDC2414AC9741E1A99B8 /* BLTNBackgroundViewStyle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BLTNBackgroundViewStyle.swift; path = Sources/Appearance/BLTNBackgroundViewStyle.swift; sourceTree = "<group>"; };
+		FE43FF3810FC74CEC5B60CD0B1DA0D3E /* zh-Hant.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = "zh-Hant.lproj"; path = "Resources/Strings/zh-Hant.lproj"; sourceTree = "<group>"; };
+		FE99EF066DC2294F35B74BE23103AF2D /* Pods-Pageboy-Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Pageboy-Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		FF0D506BB58905FA806B7A2A9105B735 /* RoundedViewProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RoundedViewProtocol.swift; path = Sources/Support/Views/Internal/ContinuousCorners/RoundedViewProtocol.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		77993663AC3C65B4DACC12BD80AB37C7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC5EC385F9E66B6823592330A669EAD4 /* Foundation.framework in Frameworks */,
+				B8F647CA0D74E3457B706AD65AB76B8C /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFA2E7DC4083558EAA0219031841DF0B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1F18EC6140B5FAA6166E04B8F5D9AEE /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		10DEDCB394BAA0C7FEDEBE330207B074 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				908E902E026C5C22904CF9014A5604AD /* Foundation.framework */,
+				BC2C02191C153C1554B35DEE8B2D09D4 /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				10DEDCB394BAA0C7FEDEBE330207B074 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
+				F54F3EFE056B087CE13391D050C4AD3D /* Pods */,
+				FC6B6B8B6F5FCD4A295E6D26738329A3 /* Products */,
+				F422E12910FE7B241F22474BB3376278 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		93E6F2C77A0B5255E0EC09D9C9F907E9 /* Pods-Pageboy-Example */ = {
+			isa = PBXGroup;
+			children = (
+				CB2CC64DAD2878537A121DD5C9BC8AAB /* Info.plist */,
+				9F8872D75F68503F3C680104E48AFC08 /* Pods-Pageboy-Example.modulemap */,
+				FE99EF066DC2294F35B74BE23103AF2D /* Pods-Pageboy-Example-acknowledgements.markdown */,
+				C00AB1C4665926E0C5F773ADC40B2059 /* Pods-Pageboy-Example-acknowledgements.plist */,
+				D2DE767B4F239BBD197713B988094F89 /* Pods-Pageboy-Example-dummy.m */,
+				87DC80D84AB11CC5CA52017401EBDFFE /* Pods-Pageboy-Example-frameworks.sh */,
+				8C66F3C9E5A6DC78EF0F0C18DB550C13 /* Pods-Pageboy-Example-resources.sh */,
+				88D39AA6653F76AFC68416BF0EC99E5A /* Pods-Pageboy-Example-umbrella.h */,
+				00058A0941326130A4A78CD5B0C3E162 /* Pods-Pageboy-Example.debug.xcconfig */,
+				AF1ACA300D4F602C27404B2CCB91E6CA /* Pods-Pageboy-Example.release.xcconfig */,
+			);
+			name = "Pods-Pageboy-Example";
+			path = "Target Support Files/Pods-Pageboy-Example";
+			sourceTree = "<group>";
+		};
+		93F8A506BE7F7A007959341ABB2BAD81 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9118706D8191BE3B8E008F320E741CBD /* ar.lproj */,
+				78E50BD7CD29D45BFF2506E9C6E5515F /* ca.lproj */,
+				4D71F022594DBB691CF94E7AE3EBEA2D /* CloseGlyph.png */,
+				F2017C857B25E0479299DC09A97934CB /* CloseGlyph@2x.png */,
+				C715FDDC697E73089E02C0F37107C1AD /* CloseGlyph@3x.png */,
+				13D0F8F8648B7D3578C6531B9DA54D69 /* cs.lproj */,
+				4E50F6A880F29B02A1E127E8488706BF /* da.lproj */,
+				1821D782F01746D9C0DE25C6B9CFDE67 /* de.lproj */,
+				6EA9F1A8FD7600FF4A765D813EC8597E /* el.lproj */,
+				E6495F763F1F1B5A211ED4D9DA18C2F8 /* en.lproj */,
+				9BEB85ADD6891CA6DF9D7AD472546E6C /* es.lproj */,
+				B225A82513F26BFFDE6204CC7AC71282 /* fi.lproj */,
+				7435423EC18246381C0C068FF8B6F92F /* fr.lproj */,
+				3267DAA171D6A0D51FC43B0731397B5A /* he.lproj */,
+				4AFDF4DDD831B85C8483101154B1E365 /* hi.lproj */,
+				1926E1CFDDAB21A2A96E129D9A49011D /* hr.lproj */,
+				41253DB5EF626D430EDBADDAD3C028AE /* hu.lproj */,
+				01FF73486A775197757C0A51802D0E67 /* id.lproj */,
+				99D1A6AFEBE7E0613FE56780A7774E1F /* it.lproj */,
+				7830BF59BF5EB87376604C604AFFE8D5 /* ja.lproj */,
+				10A589E0823191246B76B393973D1F5C /* ko.lproj */,
+				D367455D12124EF6CF351C8FD83B92EF /* ms.lproj */,
+				EA6A56E16C7B96DBB8DCCE94F6010DB2 /* nb.lproj */,
+				EB7DBE80AE053BFDA5BC6C436505F269 /* nl.lproj */,
+				0703F7A9917179D43F3B23155CA9659F /* pl.lproj */,
+				9BAA76B2D11A1C4CBCB102272FF8E9F5 /* pt-BR.lproj */,
+				0BFE7B53CFEC3569CF57E9CE1CDC0851 /* pt-PT.lproj */,
+				05235F7838C9D2837D22F432A29B94FB /* ro.lproj */,
+				EE6FD4F056DFEE3D4B551CC8F0DDB5CD /* ru.lproj */,
+				C302C97B216B3A02E6EB38C59EA5BB0F /* sk.lproj */,
+				F6B7C2273B81FA648F68E56CE7F6809C /* sv.lproj */,
+				A1E4F150F737FCAACC63892BA2112487 /* th.lproj */,
+				74542725BCE8ACDAF715D2847B662244 /* tr.lproj */,
+				4A565231596E91224D7A30F910EC10C9 /* uk.lproj */,
+				838E8453B68BB4E6E9667D333AD7C4A1 /* vi.lproj */,
+				32B414D7FAB3BD7BA54805014B048224 /* zh-Hans.lproj */,
+				FE43FF3810FC74CEC5B60CD0B1DA0D3E /* zh-Hant.lproj */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		C43E95C1DDDA462EA09B712C5112893C /* BulletinBoard */ = {
+			isa = PBXGroup;
+			children = (
+				22657ABE791718D841DC7BBFEC83E66A /* ActivityIndicator.swift */,
+				136693B29F922B38BFC9F824CDBC191F /* AnimationChain.swift */,
+				BD1C5997FEE1383E9E9C36368E93D9CE /* BLTNActionItem.h */,
+				5AE966106D5DA1129220F0669A772359 /* BLTNActionItem.m */,
+				FAD72675BBEADDC2414AC9741E1A99B8 /* BLTNBackgroundViewStyle.swift */,
+				E46F7D35C8A043A0E3025F0C92C12A62 /* BLTNBoard.h */,
+				36A95043D1133C75160511E46CC02E35 /* BLTNContainerView.swift */,
+				14B04973F11C02D4B2BF0D3777981A60 /* BLTNHighlightButtonWrapper.swift */,
+				55895F8354311728EB8088EF44E9DA76 /* BLTNInterfaceBuilder.swift */,
+				0D1F7E25E117A9D085F93263E675BC43 /* BLTNItem.h */,
+				45964B288A2E85AF29F6C6C74B0A0393 /* BLTNItemAppearance.swift */,
+				144FDDD9F32BC7429490BF0B778D7F7D /* BLTNItemManager.swift */,
+				494B3FFD3B39FEDB1B6C7A9055675FCA /* BLTNPageItem.h */,
+				C2DC21EA0EB7139165F52105BEFB983A /* BLTNPageItem.m */,
+				8686DDD55ECF3E9441955F6D276ECB2A /* BLTNSpacing.swift */,
+				93D4E4AEA53DDC19F2077DF3A93C1699 /* BLTNTitleLabelContainer.swift */,
+				ACC49DEFFCAEEE6F4E232398430577C0 /* BLTNViewPosition.swift */,
+				E97F3BD485C235133A8AAF5C0DBF0DFB /* BulletinBackgroundView.swift */,
+				8121275E0ACD8E92FE30FB8427C9E07E /* BulletinCloseButton.swift */,
+				5DD1CE9128AB679821A31C5B3903813F /* BulletinDismissAnimationController.swift */,
+				1D41CEB23C1CD1B1634B2E7C49906DCF /* BulletinPresentationAnimationController.swift */,
+				6DC1AC7B3A92179F1EB9C6C65681BFC3 /* BulletinSwipeInteractionController.swift */,
+				1924FC9B3AC697FC8CEC26243DA5B670 /* BulletinViewController.swift */,
+				BCF3B3AF4C7F929959C133B6F3A5673D /* ContinuousMaskLayer.swift */,
+				36542D80EB7024F60AF79CB94E0001D9 /* Deprecations.swift */,
+				843118B0C308D98F16E1658CD35486E4 /* HighlightButton.swift */,
+				08FBD4111B1FCA602B0223BFCBBFABAE /* Highlighter.swift */,
+				FF0D506BB58905FA806B7A2A9105B735 /* RoundedViewProtocol.swift */,
+				C7BA03D4795CDCC6190A9B363645646A /* UIButton+BackgroundColor.swift */,
+				BF54AA26CA761C93FE5E6C2A4CD6E963 /* UIColor+Luminance.swift */,
+				0DF32D7F169649449296E4A52EE04DA8 /* UIView+RoundedView.swift */,
+				5A3C7879E6CB32FE8BD9CDE6FE156B58 /* UIView+SafeAnchors.swift */,
+				93F8A506BE7F7A007959341ABB2BAD81 /* Resources */,
+				CF028100E1F4E16BDCECFF8772CFB6F7 /* Support Files */,
+			);
+			name = BulletinBoard;
+			path = BulletinBoard;
+			sourceTree = "<group>";
+		};
+		CF028100E1F4E16BDCECFF8772CFB6F7 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				544CCA20C2BB7BCE2EC38B14393F9E35 /* BulletinBoard.modulemap */,
+				6D2840342E0A041F3D528DF5254FB5ED /* BulletinBoard.xcconfig */,
+				F0AD9BB2179C45747DA285A47BBED449 /* BulletinBoard-dummy.m */,
+				23B34461157969380FEBAA2581D42DFA /* BulletinBoard-prefix.pch */,
+				21BD78DE9933631E7F01A37CF70F78C3 /* BulletinBoard-umbrella.h */,
+				B64C1077459E6386B9D07FB01F670CC7 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/BulletinBoard";
+			sourceTree = "<group>";
+		};
+		F422E12910FE7B241F22474BB3376278 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				93E6F2C77A0B5255E0EC09D9C9F907E9 /* Pods-Pageboy-Example */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		F54F3EFE056B087CE13391D050C4AD3D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C43E95C1DDDA462EA09B712C5112893C /* BulletinBoard */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FC6B6B8B6F5FCD4A295E6D26738329A3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5D8348C97011960D03B99CDDFB9B069A /* BLTNBoard.framework */,
+				B3F784BDCE09829C2CDAD26AAFC34DFB /* Pods_Pageboy_Example.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		1A9C3984E3B81D12A0EFAC3B5D550A77 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2190ABC27D0822AFEA3F0E92362E9BD6 /* Pods-Pageboy-Example-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9B9EE5A5B0FCC8F4440984791F54D1EA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				359998CF584EB1EAEB8B88FB2889F8C6 /* BLTNActionItem.h in Headers */,
+				B87BC732304B4C29331A3E6AC73EB9B8 /* BLTNBoard.h in Headers */,
+				0DDAADAC4311D4E6E7F5D54C02855C34 /* BLTNItem.h in Headers */,
+				9B278E02D5670590A30CA9E98E9E4C32 /* BLTNPageItem.h in Headers */,
+				8BFA06671C5FA5BA9874B2E10F7531E6 /* BulletinBoard-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		138A1573D796038C2EF3C9CF65C00E3F /* Pods-Pageboy-Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2BF6DA96E41D35D746DA1113BC4111FC /* Build configuration list for PBXNativeTarget "Pods-Pageboy-Example" */;
+			buildPhases = (
+				C301908B15353192CAB47CC24F916538 /* Sources */,
+				EFA2E7DC4083558EAA0219031841DF0B /* Frameworks */,
+				1A9C3984E3B81D12A0EFAC3B5D550A77 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F1A57C8A8EBAB2C58C500F28E92DE176 /* PBXTargetDependency */,
+			);
+			name = "Pods-Pageboy-Example";
+			productName = "Pods-Pageboy-Example";
+			productReference = B3F784BDCE09829C2CDAD26AAFC34DFB /* Pods_Pageboy_Example.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		F76C6CAEC5CCF08C6477CBA6FC453250 /* BulletinBoard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0B12A0BFAE8D85EAE3404AB7D4D6A98C /* Build configuration list for PBXNativeTarget "BulletinBoard" */;
+			buildPhases = (
+				0FF608E437EE6E48AD191A2E580FA3E9 /* Sources */,
+				77993663AC3C65B4DACC12BD80AB37C7 /* Frameworks */,
+				9B9EE5A5B0FCC8F4440984791F54D1EA /* Headers */,
+				B11BE769EEF6E5F8AA9A7B4CF01B2E85 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BulletinBoard;
+			productName = BulletinBoard;
+			productReference = 5D8348C97011960D03B99CDDFB9B069A /* BLTNBoard.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = FC6B6B8B6F5FCD4A295E6D26738329A3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F76C6CAEC5CCF08C6477CBA6FC453250 /* BulletinBoard */,
+				138A1573D796038C2EF3C9CF65C00E3F /* Pods-Pageboy-Example */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B11BE769EEF6E5F8AA9A7B4CF01B2E85 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				77326086C1DDC89F8F125E55C1E2CB22 /* ar.lproj in Resources */,
+				F5C1DACBF125804C47E5AFE60D560E9C /* ca.lproj in Resources */,
+				AA8B015595D692D6CB97FC8B15996E85 /* CloseGlyph.png in Resources */,
+				C50F168A7F365AB0F7FADEBD00849AF2 /* CloseGlyph@2x.png in Resources */,
+				41F382B627C5ECDA994EF9D7C9C8BC2F /* CloseGlyph@3x.png in Resources */,
+				AE002DD5C1C390C918D43A179FF180DA /* cs.lproj in Resources */,
+				BBE76E24B20237F6D37FF8C1AC352D55 /* da.lproj in Resources */,
+				EE246AE943E70483B327EE95317A40E0 /* de.lproj in Resources */,
+				3BB55680A9CC06E64FB134A7FBF96366 /* el.lproj in Resources */,
+				E8F78A58CCB20A9542761891D0F9B97B /* en.lproj in Resources */,
+				0F4B5F2A6F3CD5CAC380B66803E34B2E /* es.lproj in Resources */,
+				995908FBCF9B41E95076A31A0977BF85 /* fi.lproj in Resources */,
+				CCC14A27A6FCDD8C4762939E6BC5CB8D /* fr.lproj in Resources */,
+				BE75F8A4CB0F5ACE2534A7A45DF792D4 /* he.lproj in Resources */,
+				B0B8627333C7F6B7DFF8584065BB2B41 /* hi.lproj in Resources */,
+				8888BD7BC318FD205048A1A9C3170FC9 /* hr.lproj in Resources */,
+				2FC797D4AEAE61450CE49B446D147BCC /* hu.lproj in Resources */,
+				7CC7F11617B9B82B2891269B225610A9 /* id.lproj in Resources */,
+				EA419A8DF91E7F9CB3CA60FD8A047CDC /* it.lproj in Resources */,
+				0C6FE01DB5922B2581AA10368D47C699 /* ja.lproj in Resources */,
+				896AD6793DF7491B2E27D6D6E2C86B79 /* ko.lproj in Resources */,
+				5145AC3B703DECA71536B9136D06DF04 /* ms.lproj in Resources */,
+				AD38D391BB6E506DD6B0ED1191E8C8E0 /* nb.lproj in Resources */,
+				EA503617DE9C17CF1796A2D6716DE27A /* nl.lproj in Resources */,
+				9F8FE4B199ECCE83CC88D4282A021294 /* pl.lproj in Resources */,
+				A0F42F194903634B5CF3301C790B7A04 /* pt-BR.lproj in Resources */,
+				399AB9734D81093363ADCC1E60EBE563 /* pt-PT.lproj in Resources */,
+				90D056E98F36BB97A226C48280222D1E /* ro.lproj in Resources */,
+				A338908BA488A5600FFC345D4E00563D /* ru.lproj in Resources */,
+				42FD389F0602119C2885B5D33FE3F907 /* sk.lproj in Resources */,
+				23CE0E50CA7AC0CAC505CC15F509B53C /* sv.lproj in Resources */,
+				B48299A7FD6DA757CB28E7E080F032CF /* th.lproj in Resources */,
+				D6F819E2C4E5EACDE627C45C9B56D944 /* tr.lproj in Resources */,
+				2FBE3712730236E0630BF300F285754D /* uk.lproj in Resources */,
+				A073A02B17FCE0C1996967576653C2AC /* vi.lproj in Resources */,
+				53075C8F27E4A203C4B9C2F9CFDE35B8 /* zh-Hans.lproj in Resources */,
+				B5BEB9257320143EC5C6F3B965CAABAB /* zh-Hant.lproj in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0FF608E437EE6E48AD191A2E580FA3E9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C5FB79BC886AC4BD9D8F9B1507D7764 /* ActivityIndicator.swift in Sources */,
+				8482F0196F319B4F81C7531CB57EDD78 /* AnimationChain.swift in Sources */,
+				1FDF670F6A022556F0792773D1532BF8 /* BLTNActionItem.m in Sources */,
+				6CFF67E4A417F9CA1ACCE7287F3887A4 /* BLTNBackgroundViewStyle.swift in Sources */,
+				B0487DAF2C8EEDCC5A8D61899EBB6817 /* BLTNContainerView.swift in Sources */,
+				F99BF0904C9FDC46F31D2E86EDECD91F /* BLTNHighlightButtonWrapper.swift in Sources */,
+				E98E8EE503DA5ACD8453EABA1260B38E /* BLTNInterfaceBuilder.swift in Sources */,
+				13A3E3992D650AE6EE827A21D8DA44ED /* BLTNItemAppearance.swift in Sources */,
+				A0DE5B5EA280CFE3E7C60D6AD19AA15F /* BLTNItemManager.swift in Sources */,
+				4DD7D63224EC69CE3FAF3F11D11F2357 /* BLTNPageItem.m in Sources */,
+				9FBAC25050ABF16363A1862228976545 /* BLTNSpacing.swift in Sources */,
+				A24E0059F8832B7AC0A3D6E970E01DEE /* BLTNTitleLabelContainer.swift in Sources */,
+				1EDE2EF6D7213DF37A9754C6275B319C /* BLTNViewPosition.swift in Sources */,
+				AB1D9C23E9EF1C0DA86DB2BF4EC60F09 /* BulletinBackgroundView.swift in Sources */,
+				F45F982688E135E2CAB047B90D5AE053 /* BulletinBoard-dummy.m in Sources */,
+				818DBEF44B312E7EBACF402CDEF84A9F /* BulletinCloseButton.swift in Sources */,
+				33684DF4CCD8ADBE8F37004E01A8089A /* BulletinDismissAnimationController.swift in Sources */,
+				77AEB48A2235A5EB6DD4E01626AA40A0 /* BulletinPresentationAnimationController.swift in Sources */,
+				F8A64B46BCCB93F44C092F70C8796509 /* BulletinSwipeInteractionController.swift in Sources */,
+				9941EFAEF31B7A608F0B62AA1931FA35 /* BulletinViewController.swift in Sources */,
+				DFF35FD9862215E0087CF9AAC1049BF0 /* ContinuousMaskLayer.swift in Sources */,
+				3D77D7FCA36C8770B9036386D05DC05C /* Deprecations.swift in Sources */,
+				9FFF4036CF2302DF87F0A72D8F55D809 /* HighlightButton.swift in Sources */,
+				85C7341CC40AB744ED0FE7667A7ECDB8 /* Highlighter.swift in Sources */,
+				CC23B751F7B3943DAD4671C6FBAE3C78 /* RoundedViewProtocol.swift in Sources */,
+				5DF94BF0EFC8168DC4355262AF774F8D /* UIButton+BackgroundColor.swift in Sources */,
+				A5825BD7525D8ED1911227933903FED4 /* UIColor+Luminance.swift in Sources */,
+				B5B684971FEF1693F3C7FD35C445868A /* UIView+RoundedView.swift in Sources */,
+				CA0539DCD335A5F7E0DBBC981B142E57 /* UIView+SafeAnchors.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C301908B15353192CAB47CC24F916538 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DC5ACAEBD776D847852F0D18D18CBA0 /* Pods-Pageboy-Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F1A57C8A8EBAB2C58C500F28E92DE176 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = BulletinBoard;
+			target = F76C6CAEC5CCF08C6477CBA6FC453250 /* BulletinBoard */;
+			targetProxy = 08489E345CE73BB1683C5B237EF1F67B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0F6D2AB877B5C7F8973D394CA375C906 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6D2840342E0A041F3D528DF5254FB5ED /* BulletinBoard.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/BulletinBoard/BulletinBoard-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/BulletinBoard/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/BulletinBoard/BulletinBoard.modulemap";
+				PRODUCT_MODULE_NAME = BLTNBoard;
+				PRODUCT_NAME = BLTNBoard;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		13D8F23CE31696367D40C826FDE998DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00058A0941326130A4A78CD5B0C3E162 /* Pods-Pageboy-Example.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Pageboy-Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Pageboy-Example/Pods-Pageboy-Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		199D972A13F2B4C56847F7A89CCA83BC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		9EF0CDB2049C83CEC2C54103EC517AE9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AF1ACA300D4F602C27404B2CCB91E6CA /* Pods-Pageboy-Example.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Pageboy-Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Pageboy-Example/Pods-Pageboy-Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		AA42598B107E5D851A09D5BA22264B86 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6D2840342E0A041F3D528DF5254FB5ED /* BulletinBoard.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/BulletinBoard/BulletinBoard-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/BulletinBoard/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/BulletinBoard/BulletinBoard.modulemap";
+				PRODUCT_MODULE_NAME = BLTNBoard;
+				PRODUCT_NAME = BLTNBoard;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		FDB2FC4A1E5891381CD9D922145497F1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0B12A0BFAE8D85EAE3404AB7D4D6A98C /* Build configuration list for PBXNativeTarget "BulletinBoard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA42598B107E5D851A09D5BA22264B86 /* Debug */,
+				0F6D2AB877B5C7F8973D394CA375C906 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2BF6DA96E41D35D746DA1113BC4111FC /* Build configuration list for PBXNativeTarget "Pods-Pageboy-Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				13D8F23CE31696367D40C826FDE998DB /* Debug */,
+				9EF0CDB2049C83CEC2C54103EC517AE9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				199D972A13F2B4C56847F7A89CCA83BC /* Debug */,
+				FDB2FC4A1E5891381CD9D922145497F1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
