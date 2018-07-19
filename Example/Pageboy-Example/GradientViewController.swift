@@ -26,6 +26,22 @@ class GradientViewController: UIViewController {
         }
     }
     
+    override var childViewControllerForStatusBarStyle: UIViewController? {
+        return childViewControllers.first
+    }
+    override var childViewControllerForStatusBarHidden: UIViewController? {
+        return childViewControllers.first
+    }
+    
+    // MARK: Lifecycle
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        print(childViewControllers)
+        setNeedsStatusBarAppearanceUpdate()
+    }
+    
     // MARK: Updating
     
     private func update(for offset: CGFloat) {

@@ -33,7 +33,6 @@ class PageViewController: PageboyViewController {
         return viewControllers
     }()
     
-    
     // MARK: Lifecycle
     
     override func viewDidLoad() {
