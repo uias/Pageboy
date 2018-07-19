@@ -105,6 +105,7 @@ private extension PageboyViewController {
                 self.updateViewControllers(to: [viewController],
                                            animated: false,
                                            async: true,
+                                           force: false,
                                            completion: nil)
             })
         } else {
@@ -116,7 +117,7 @@ private extension PageboyViewController {
                     return
                 }
                 
-                updateViewControllers(to: [currentViewController], animated: false, async: true, completion: { _ in
+                updateViewControllers(to: [currentViewController], animated: false, async: true, force: false, completion: { _ in
                     self.performScrollUpdate(to: newIndex, behavior: updateBehavior)
                 })
             } else { // Otherwise just perform scroll update
