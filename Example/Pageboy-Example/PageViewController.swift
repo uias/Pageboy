@@ -17,7 +17,6 @@ class PageViewController: PageboyViewController {
     private var gradient: GradientViewController? {
         return parent as? GradientViewController
     }
-    
     var previousBarButton: UIBarButtonItem?
     var nextBarButton: UIBarButtonItem?
     
@@ -38,18 +37,15 @@ class PageViewController: PageboyViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addBarButtons()
-        
         dataSource = self
         delegate = self
-        
-        updateBarButtonStates(index: currentIndex ?? 0)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         gradient?.gradients = Gradients.all
+        addBarButtonsIfNeeded()
     }
     
     // MARK: Actions
@@ -102,7 +98,7 @@ extension PageViewController: PageboyViewControllerDelegate {
         gradient?.gradientOffset = relativePosition
         statusView.currentPosition = relativePosition
         
-        self.updateBarButtonStates(index: pageboyViewController.currentIndex ?? 0)
+        updateBarButtonsForCurrentIndex()
     }
     
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
@@ -113,8 +109,7 @@ extension PageViewController: PageboyViewControllerDelegate {
 
         gradient?.gradientOffset = CGFloat(index)
         statusView.currentIndex = index
-        
-        updateBarButtonStates(index: index)
+        updateBarButtonsForCurrentIndex()
     }
     
     func pageboyViewController(_ pageboyViewController: PageboyViewController,

@@ -20,7 +20,7 @@
 		D681E3331E546A90007C08F5 /* Pageboy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D681E3241E546A7D007C08F5 /* Pageboy.framework */; };
 		D681E3341E546A90007C08F5 /* Pageboy.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D681E3241E546A7D007C08F5 /* Pageboy.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D681E3511E54959B007C08F5 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D681E3501E54959B007C08F5 /* GradientView.swift */; };
-		D681E3541E549F7E007C08F5 /* PageViewController+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D681E3531E549F7E007C08F5 /* PageViewController+Appearance.swift */; };
+		D681E3541E549F7E007C08F5 /* PageViewController+BarButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = D681E3531E549F7E007C08F5 /* PageViewController+BarButtons.swift */; };
 		D681E3561E54ABE8007C08F5 /* TransparentNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D681E3551E54ABE8007C08F5 /* TransparentNavigationBar.swift */; };
 		D6ECCEC61E51B6FB00E9D5B3 /* ChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ECCEC51E51B6FB00E9D5B3 /* ChildViewController.swift */; };
 		E8F663AB1E9C387D00F601AC /* UINavigationController+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F663AA1E9C387D00F601AC /* UINavigationController+Utilities.swift */; };
@@ -86,7 +86,7 @@
 		D623B1ED1E1D32D700527F3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D681E31E1E546A7D007C08F5 /* Pageboy.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pageboy.xcodeproj; path = ../Sources/Pageboy.xcodeproj; sourceTree = "<group>"; };
 		D681E3501E54959B007C08F5 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
-		D681E3531E549F7E007C08F5 /* PageViewController+Appearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PageViewController+Appearance.swift"; sourceTree = "<group>"; };
+		D681E3531E549F7E007C08F5 /* PageViewController+BarButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PageViewController+BarButtons.swift"; sourceTree = "<group>"; };
 		D681E3551E54ABE8007C08F5 /* TransparentNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransparentNavigationBar.swift; sourceTree = "<group>"; };
 		D6ECCEC51E51B6FB00E9D5B3 /* ChildViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChildViewController.swift; sourceTree = "<group>"; };
 		E8F663AA1E9C387D00F601AC /* UINavigationController+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Utilities.swift"; sourceTree = "<group>"; };
@@ -186,7 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				4604839320FFC8770053AD8E /* Launch.storyboard */,
-				D681E3531E549F7E007C08F5 /* PageViewController+Appearance.swift */,
+				D681E3531E549F7E007C08F5 /* PageViewController+BarButtons.swift */,
 				46A32DBF20FF7BA5003AEAFC /* Styling */,
 				46A32DBE20FF7B9D003AEAFC /* Components */,
 				46A32DBD20FF7B95003AEAFC /* Utilities */,
@@ -315,7 +315,7 @@
 				46A32DC120FF7BBC003AEAFC /* UIColor+Interpolation.swift in Sources */,
 				4604839820FFCEF00053AD8E /* PageStatusView.swift in Sources */,
 				D681E3561E54ABE8007C08F5 /* TransparentNavigationBar.swift in Sources */,
-				D681E3541E549F7E007C08F5 /* PageViewController+Appearance.swift in Sources */,
+				D681E3541E549F7E007C08F5 /* PageViewController+BarButtons.swift in Sources */,
 				D681E3511E54959B007C08F5 /* GradientView.swift in Sources */,
 				D6ECCEC61E51B6FB00E9D5B3 /* ChildViewController.swift in Sources */,
 				E8F663AB1E9C387D00F601AC /* UINavigationController+Utilities.swift in Sources */,

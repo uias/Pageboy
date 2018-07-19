@@ -12,7 +12,10 @@ extension PageViewController {
     
     // MARK: Bar buttons
     
-    func addBarButtons() {
+    func addBarButtonsIfNeeded() {
+        guard let navigationItem = parent?.navigationItem, self.previousBarButton == nil else {
+            return
+        }
         
         let previousBarButton = UIBarButtonItem(title: "Previous", style: .plain, target: self, action: #selector(previousPage(_:)))
         let nextBarButton = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(nextPage(_:)))
@@ -21,10 +24,13 @@ extension PageViewController {
         self.previousBarButton = previousBarButton
         self.nextBarButton = nextBarButton
         
-        updateBarButtonStates(index: currentIndex ?? 0)
+        updateBarButtonsForCurrentIndex()
     }
     
-    func updateBarButtonStates(index: Int) {
+    func updateBarButtonsForCurrentIndex() {
+        guard let index = self.currentIndex else {
+            return
+        }
         self.previousBarButton?.isEnabled = index != 0
         self.nextBarButton?.isEnabled = index != (pageCount ?? 0) - 1
     }
