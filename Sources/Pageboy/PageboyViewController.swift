@@ -315,6 +315,7 @@ public extension PageboyViewController {
                                       direction: direction,
                                       animated: animated,
                                       async: true,
+                                      force: force,
                                       completion: transitionCompletion)
                 
                 return true
