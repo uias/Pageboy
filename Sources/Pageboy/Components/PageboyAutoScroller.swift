@@ -55,8 +55,8 @@ public class PageboyAutoScroller: Any {
     
     /// Whether the auto scroller is enabled.
     public private(set) var isEnabled: Bool = false
-    /// Whether the auto scroller was enabled previous to a cancel event
-    internal var wasEnabled: Bool?
+    /// Whether the auto scroller was previously cancelled
+    internal var wasCancelled: Bool?
     /// Whether a scroll animation is currently active.
     internal fileprivate(set) var isScrolling: Bool?
     
@@ -108,18 +108,34 @@ public class PageboyAutoScroller: Any {
         guard self.isEnabled else {
             return
         }
-        self.wasEnabled = true
+        self.wasCancelled = true
         self.disable()
     }
     
     /// Restart auto scrolling behaviour if it was previously cancelled.
     internal func restart() {
-        guard self.wasEnabled == true && !self.isEnabled else {
+        guard self.wasCancelled == true && !self.isEnabled else {
             return
         }
         
-        self.wasEnabled = nil
+        self.wasCancelled = nil
         self.enable()
+    }
+
+    /// Pause auto scrolling temporarily
+    internal func pause() {
+        guard isEnabled else {
+            return
+        }
+        destroyTimer()
+    }
+    
+    /// Resume auto scrolling if it was previously paused
+    internal func resume() {
+        guard isEnabled && timer == nil else {
+            return
+        }
+        createTimer(withDuration: intermissionDuration.rawValue)
     }
 }
 

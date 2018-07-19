@@ -226,6 +226,22 @@ open class PageboyViewController: UIViewController {
                          force: true)
         }
     }
+    
+    open override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if autoScroller.isEnabled {
+            autoScroller.resume()
+        }
+    }
+    
+    open override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        if autoScroller.isEnabled {
+            autoScroller.pause()
+        }
+    }
 
     open override func viewWillTransition(to size: CGSize,
                                           with coordinator: UIViewControllerTransitionCoordinator) {
