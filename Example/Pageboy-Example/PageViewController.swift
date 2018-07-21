@@ -15,16 +15,13 @@ class PageViewController: PageboyViewController {
     // MARK: Properties
     
     @IBOutlet private weak var statusView: PageStatusView!
-    private var gradient: GradientViewController? {
+    var gradient: GradientViewController? {
         return parent as? GradientViewController
     }
     var previousBarButton: UIBarButtonItem?
     var nextBarButton: UIBarButtonItem?
     
-    lazy var bulletinManager: BLTNItemManager = {
-        let initialPage = SettingsBulletinDataSource.makeInitialPage()
-        return BLTNItemManager(rootItem: initialPage)
-    }()
+    private var activeBulletinManager: BLTNItemManager?
     
     var viewControllers: [UIViewController] = {
         let storyboard = UIStoryboard(name: "Pageboy", bundle: Bundle.main)
@@ -54,6 +51,12 @@ class PageViewController: PageboyViewController {
         addBarButtonsIfNeeded()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        showBulletin(makeIntroBulletinManager())
+    }
+    
     // MARK: Actions
     
     @objc func nextPage(_ sender: UIBarButtonItem) {
@@ -62,6 +65,15 @@ class PageViewController: PageboyViewController {
     
     @objc func previousPage(_ sender: UIBarButtonItem) {
         scrollToPage(.previous, animated: true)
+    }
+    
+    // MARK: Bulletings
+    
+    func showBulletin(_ manager: BLTNItemManager?) {
+        if let manager = manager {
+            self.activeBulletinManager = manager
+            manager.showBulletin(above: self)
+        }
     }
 }
 

@@ -11,10 +11,6 @@ import BLTNBoard
 
 enum SettingsBulletinDataSource {
  
-    static func makeInitialPage() -> BLTNPageItem {
-        return makeIntroPage()
-    }
-    
     // MARK: Pages
     
     static func makeIntroPage() -> BLTNPageItem {
@@ -28,13 +24,22 @@ enum SettingsBulletinDataSource {
         }
         return page
     }
+    
+    static func makeSettingsPage() -> BLTNPageItem {
+        let page = BLTNPageItem(title: "Settings")
+        
+        page.actionButtonTitle = "Done"
+        return page
+    }
 }
 
-private extension SettingsBulletinDataSource {
+extension SettingsBulletinDataSource {
     
-    static func makePageboyAppearance() -> BLTNItemAppearance {
+    static func makePageboyAppearance(tintColor: UIColor?) -> BLTNItemAppearance {
         let appearance = BLTNItemAppearance()
-        
+        if let tintColor = tintColor {
+            appearance.actionButtonColor = tintColor
+        }
         return appearance
     }
 }

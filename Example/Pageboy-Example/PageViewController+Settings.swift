@@ -14,6 +14,6 @@ extension PageViewController {
     // MARK: Actions
     
     @IBAction private func settingsButtonPressed(_ sender: UIButton) {
-        bulletinManager.showBulletin(above: self)
+        showBulletin(makeSettingsBulletinManager())
     }
 }

@@ -26,6 +26,10 @@ class GradientViewController: UIViewController {
         }
     }
     
+    var activeColors: [UIColor]? {
+        return gradientView.colors
+    }
+    
     override var childViewControllerForStatusBarStyle: UIViewController? {
         return childViewControllers.first
     }
