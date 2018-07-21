@@ -8,6 +8,7 @@
 
 import UIKit
 import Pageboy
+import BLTNBoard
 
 class PageViewController: PageboyViewController {
     
@@ -19,6 +20,11 @@ class PageViewController: PageboyViewController {
     }
     var previousBarButton: UIBarButtonItem?
     var nextBarButton: UIBarButtonItem?
+    
+    lazy var bulletinManager: BLTNItemManager = {
+        let initialPage = SettingsBulletinDataSource.makeInitialPage()
+        return BLTNItemManager(rootItem: initialPage)
+    }()
     
     var viewControllers: [UIViewController] = {
         let storyboard = UIStoryboard(name: "Pageboy", bundle: Bundle.main)
