@@ -111,6 +111,7 @@ extension SettingsBulletinPage {
         
         let button = SettingsOptionButton()
         button.setTitle(option.displayTitle, for: .normal)
+        button.tintColor = appearance.actionButtonColor
         
         return button
     }

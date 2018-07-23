@@ -25,6 +25,13 @@ class SettingsOptionButton: UIButton {
         }
     }
     
+    override var tintColor: UIColor! {
+        didSet {
+            layer.borderColor = tintColor.cgColor
+            setTitleColor(tintColor, for: .normal)
+        }
+    }
+    
     var isToggled: Bool = false
     
     // MARK: Init
