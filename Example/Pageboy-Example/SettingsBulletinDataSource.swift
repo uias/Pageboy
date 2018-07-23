@@ -27,8 +27,6 @@ enum SettingsBulletinDataSource {
     
     static func makeSettingsPage() -> BLTNPageItem {
         let page = SettingsBulletinPage(title: "Settings")
-        
-        page.actionButtonTitle = "Done"
         return page
     }
 }
