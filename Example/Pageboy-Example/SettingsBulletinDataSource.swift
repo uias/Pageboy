@@ -8,6 +8,7 @@
 
 import UIKit
 import BLTNBoard
+import Pageboy
 
 enum SettingsBulletinDataSource {
  
@@ -25,8 +26,8 @@ enum SettingsBulletinDataSource {
         return page
     }
     
-    static func makeSettingsPage() -> BLTNPageItem {
-        let page = SettingsBulletinPage(title: "Settings")
+    static func makeSettingsPage(for pageViewController: PageboyViewController) -> BLTNPageItem {
+        let page = SettingsBulletinPage(title: "Settings", pageViewController: pageViewController)
         return page
     }
 }

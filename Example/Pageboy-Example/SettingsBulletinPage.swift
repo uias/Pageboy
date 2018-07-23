@@ -8,8 +8,11 @@
 
 import UIKit
 import BLTNBoard
+import Pageboy
 
 class SettingsBulletinPage: BLTNPageItem {
+    
+    // MARK: Options
     
     private enum Option {
         case modification
@@ -28,7 +31,28 @@ class SettingsBulletinPage: BLTNPageItem {
         }
     }
     
+    // MARK: Properties
+    
+    private weak var pageViewController: PageboyViewController!
+    
+    private var modificationOption: UIButton!
+    private var infiniteScrollOption: UIButton!
+    private var autoScrollOption: UIButton!
+    
+    // MARK: Init
+    
+    init(title: String, pageViewController: PageboyViewController) {
+        self.pageViewController = pageViewController
+        super.init(title: title)
+    }
+    
     // MARK: Lifecycle
+    
+    override func tearDown() {
+        modificationOption.removeTarget(self, action: nil, for: .touchUpInside)
+        infiniteScrollOption.removeTarget(self, action: nil, for: .touchUpInside)
+        autoScrollOption.removeTarget(self, action: nil, for: .touchUpInside)
+    }
     
     override func makeViewsUnderTitle(with interfaceBuilder: BLTNInterfaceBuilder) -> [UIView]? {
         let stack = interfaceBuilder.makeGroupStack(spacing: 16.0)
@@ -39,18 +63,43 @@ class SettingsBulletinPage: BLTNPageItem {
         
         let modificationOption = makeOptionButton(for: .modification)
         stack.addArrangedSubview(modificationOption)
+        self.modificationOption = modificationOption
         
         let otherDetail = makeDetailLabel()
         otherDetail.text = "Other cool things..."
         stack.addArrangedSubview(otherDetail)
         
         let infiniteScrollOption = makeOptionToggleButton(for: .infiniteScrolling)
+        infiniteScrollOption.addTarget(self, action: #selector(infiniteScrollToggled(_:)), for: .touchUpInside)
+        infiniteScrollOption.isSelected = pageViewController.isInfiniteScrollEnabled
         stack.addArrangedSubview(infiniteScrollOption)
+        self.infiniteScrollOption = infiniteScrollOption
         
         let autoScrollOption = makeOptionToggleButton(for: .autoScrolling)
+        autoScrollOption.addTarget(self, action: #selector(autoScrollToggled(_:)), for: .touchUpInside)
+        autoScrollOption.isSelected = pageViewController.autoScroller.isEnabled
         stack.addArrangedSubview(autoScrollOption)
+        self.autoScrollOption = autoScrollOption
         
         return [stack]
+    }
+    
+    // MARK: Actions
+    
+    @objc private func modificationOptionPressed(_ sender: UIButton) {
+        
+    }
+    
+    @objc private func infiniteScrollToggled(_ sender: UIButton) {
+        pageViewController.isInfiniteScrollEnabled = sender.isSelected
+    }
+    
+    @objc private func autoScrollToggled(_ sender: UIButton) {
+        if sender.isSelected {
+            pageViewController.autoScroller.enable()
+        } else {
+            pageViewController.autoScroller.disable()
+        }
     }
 }
 

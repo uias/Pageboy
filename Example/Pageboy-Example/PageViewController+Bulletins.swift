@@ -36,7 +36,7 @@ extension PageViewController {
     }
     
     func makeSettingsBulletinManager() -> BLTNItemManager {
-        let root = SettingsBulletinDataSource.makeSettingsPage()
+        let root = SettingsBulletinDataSource.makeSettingsPage(for: self)
         
         let tintColor = gradient?.activeColors?.last
         root.appearance = SettingsBulletinDataSource.makePageboyAppearance(tintColor: tintColor)
