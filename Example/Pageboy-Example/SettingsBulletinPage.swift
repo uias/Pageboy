@@ -62,6 +62,7 @@ class SettingsBulletinPage: BLTNPageItem {
         stack.addArrangedSubview(modificationDetail)
         
         let modificationOption = makeOptionButton(for: .modification)
+        modificationOption.addTarget(self, action: #selector(modificationOptionPressed(_:)), for: .touchUpInside)
         stack.addArrangedSubview(modificationOption)
         self.modificationOption = modificationOption
         
@@ -87,7 +88,8 @@ class SettingsBulletinPage: BLTNPageItem {
     // MARK: Actions
     
     @objc private func modificationOptionPressed(_ sender: UIButton) {
-        
+        next = PageModificationBulletinPage(title: Option.modification.displayTitle)
+        manager?.displayNextItem()
     }
     
     @objc private func infiniteScrollToggled(_ sender: UIButton) {

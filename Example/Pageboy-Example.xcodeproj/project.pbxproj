@@ -10,6 +10,7 @@
 		4603D7722103701E00FA0F23 /* PageViewController+Bulletins.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4603D7712103701E00FA0F23 /* PageViewController+Bulletins.swift */; };
 		4603D77A21060C8600FA0F23 /* SettingsBulletinPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4603D77921060C8600FA0F23 /* SettingsBulletinPage.swift */; };
 		4603D77E2106148A00FA0F23 /* SettingsOptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4603D77D2106148A00FA0F23 /* SettingsOptionButton.swift */; };
+		4603D78021061DA200FA0F23 /* PageModificationBulletinPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4603D77F21061DA200FA0F23 /* PageModificationBulletinPage.swift */; };
 		4604839420FFC8770053AD8E /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4604839320FFC8770053AD8E /* Launch.storyboard */; };
 		4604839820FFCEF00053AD8E /* PageStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4604839720FFCEF00053AD8E /* PageStatusView.swift */; };
 		466E8D552100FCE700471998 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466E8D542100FCE700471998 /* ActionButton.swift */; };
@@ -83,6 +84,7 @@
 		4603D7712103701E00FA0F23 /* PageViewController+Bulletins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PageViewController+Bulletins.swift"; sourceTree = "<group>"; };
 		4603D77921060C8600FA0F23 /* SettingsBulletinPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBulletinPage.swift; sourceTree = "<group>"; };
 		4603D77D2106148A00FA0F23 /* SettingsOptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsOptionButton.swift; sourceTree = "<group>"; };
+		4603D77F21061DA200FA0F23 /* PageModificationBulletinPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageModificationBulletinPage.swift; sourceTree = "<group>"; };
 		4604839320FFC8770053AD8E /* Launch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
 		4604839720FFCEF00053AD8E /* PageStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageStatusView.swift; sourceTree = "<group>"; };
 		466E8D542100FCE700471998 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 			children = (
 				46EDC8F6210368B400675EC3 /* SettingsBulletinDataSource.swift */,
 				4603D77921060C8600FA0F23 /* SettingsBulletinPage.swift */,
+				4603D77F21061DA200FA0F23 /* PageModificationBulletinPage.swift */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -401,6 +404,7 @@
 				466E8D592101001F00471998 /* PageViewController+Settings.swift in Sources */,
 				46A32DC120FF7BBC003AEAFC /* UIColor+Interpolation.swift in Sources */,
 				46EDC8F7210368B400675EC3 /* SettingsBulletinDataSource.swift in Sources */,
+				4603D78021061DA200FA0F23 /* PageModificationBulletinPage.swift in Sources */,
 				4604839820FFCEF00053AD8E /* PageStatusView.swift in Sources */,
 				D681E3561E54ABE8007C08F5 /* TransparentNavigationBar.swift in Sources */,
 				D681E3541E549F7E007C08F5 /* PageViewController+BarButtons.swift in Sources */,
