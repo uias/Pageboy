@@ -11,4 +11,31 @@ import BLTNBoard
 
 class PageModificationBulletinPage: BLTNPageItem {
     
+    // MARK: Lifecycle
+    
+    override func makeViewsUnderTitle(with interfaceBuilder: BLTNInterfaceBuilder) -> [UIView]? {
+        let stack = interfaceBuilder.makeGroupStack(spacing: 16.0)
+        
+        let intentPrompt = makePromptLabel()
+        intentPrompt.text = "I want to"
+        stack.addArrangedSubview(intentPrompt)
+        
+        let indexPrompt = makePromptLabel()
+        indexPrompt.text = "at page index"
+        stack.addArrangedSubview(indexPrompt)
+        
+        return [stack]
+    }
+}
+
+extension PageModificationBulletinPage {
+    
+    private func makePromptLabel() -> UILabel {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 16.0)
+        label.textColor = .gray
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        return label
+    }
 }

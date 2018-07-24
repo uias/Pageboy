@@ -6,6 +6,7 @@ target 'Pageboy-Example' do
 
   use_frameworks!
 
-  pod 'BulletinBoard'
+  pod 'BulletinBoard', '~> 2.0'
+  pod 'SnapKit', '~> 4.0'
 
 end

@@ -1,16 +1,20 @@
 PODS:
   - BulletinBoard (2.0.1)
+  - SnapKit (4.0.0)
 
 DEPENDENCIES:
-  - BulletinBoard
+  - BulletinBoard (~> 2.0)
+  - SnapKit (~> 4.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - BulletinBoard
+    - SnapKit
 
 SPEC CHECKSUMS:
   BulletinBoard: 99a428f91f64d0ffabf8a8104f79ecd064e2a4db
+  SnapKit: a42d492c16e80209130a3379f73596c3454b7694
 
-PODFILE CHECKSUM: 2531a538ac4c26628a207559bd073a4c45c74d7b
+PODFILE CHECKSUM: a7c345a696a4201085a0c25242728eeb478bda8b
 
 COCOAPODS: 1.5.3
