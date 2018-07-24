@@ -13,6 +13,7 @@
 		4603D78021061DA200FA0F23 /* PageModificationBulletinPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4603D77F21061DA200FA0F23 /* PageModificationBulletinPage.swift */; };
 		4604839420FFC8770053AD8E /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4604839320FFC8770053AD8E /* Launch.storyboard */; };
 		4604839820FFCEF00053AD8E /* PageStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4604839720FFCEF00053AD8E /* PageStatusView.swift */; };
+		465DC36221075BC600E08287 /* PageStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465DC36121075BC600E08287 /* PageStepper.swift */; };
 		466E8D552100FCE700471998 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466E8D542100FCE700471998 /* ActionButton.swift */; };
 		466E8D592101001F00471998 /* PageViewController+Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466E8D582101001F00471998 /* PageViewController+Settings.swift */; };
 		46A32DBA20FF7ADC003AEAFC /* Gradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A32DB920FF7ADC003AEAFC /* Gradients.swift */; };
@@ -87,6 +88,7 @@
 		4603D77F21061DA200FA0F23 /* PageModificationBulletinPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageModificationBulletinPage.swift; sourceTree = "<group>"; };
 		4604839320FFC8770053AD8E /* Launch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
 		4604839720FFCEF00053AD8E /* PageStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageStatusView.swift; sourceTree = "<group>"; };
+		465DC36121075BC600E08287 /* PageStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageStepper.swift; sourceTree = "<group>"; };
 		466E8D542100FCE700471998 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		466E8D582101001F00471998 /* PageViewController+Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PageViewController+Settings.swift"; sourceTree = "<group>"; };
 		46A32DB920FF7ADC003AEAFC /* Gradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradients.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				4604839720FFCEF00053AD8E /* PageStatusView.swift */,
 				466E8D542100FCE700471998 /* ActionButton.swift */,
 				4603D77D2106148A00FA0F23 /* SettingsOptionButton.swift */,
+				465DC36121075BC600E08287 /* PageStepper.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -408,6 +411,7 @@
 				46EDC8F7210368B400675EC3 /* SettingsBulletinDataSource.swift in Sources */,
 				4603D78021061DA200FA0F23 /* PageModificationBulletinPage.swift in Sources */,
 				4604839820FFCEF00053AD8E /* PageStatusView.swift in Sources */,
+				465DC36221075BC600E08287 /* PageStepper.swift in Sources */,
 				D681E3561E54ABE8007C08F5 /* TransparentNavigationBar.swift in Sources */,
 				D681E3541E549F7E007C08F5 /* PageViewController+BarButtons.swift in Sources */,
 				D681E3511E54959B007C08F5 /* GradientView.swift in Sources */,

@@ -24,6 +24,9 @@ class PageModificationBulletinPage: BLTNPageItem {
         indexPrompt.text = "at page index"
         stack.addArrangedSubview(indexPrompt)
         
+        let stepper = makePageStepper()
+        stack.addArrangedSubview(stepper)
+        
         return [stack]
     }
 }
@@ -37,5 +40,11 @@ extension PageModificationBulletinPage {
         label.numberOfLines = 0
         label.textAlignment = .center
         return label
+    }
+    
+    private func makePageStepper() -> PageStepper {
+        let stepper = PageStepper()
+        
+        return stepper
     }
 }
