@@ -25,7 +25,14 @@ class ChildViewController: UIViewController {
     private func updateIndexLabel() {
         if let index = (parentPageboy as? PageViewController)?.viewControllers.index(of: self) {
             label.text = "Page " + String(index + 1)
-            promptLabel.isHidden = index != 0
+            
+            let isFirstPage = index == 0
+            
+            var prompt = "(Index \(index))"
+            if isFirstPage {
+                prompt.append("\n\nswipe me >")
+            }
+            promptLabel.text = prompt
         }
     }
 }
