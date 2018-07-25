@@ -8,6 +8,7 @@
 
 import UIKit
 import BLTNBoard
+import Pageboy
 
 extension PageViewController {
     
@@ -37,10 +38,24 @@ extension PageViewController {
     
     func makeSettingsBulletinManager() -> BLTNItemManager {
         let root = SettingsBulletinDataSource.makeSettingsPage(for: self)
+        root.delegate = self
         
         let tintColor = gradient?.activeColors?.last
         root.appearance = SettingsBulletinDataSource.makePageboyAppearance(tintColor: tintColor)
         
         return BLTNItemManager(rootItem: root)
+    }
+}
+
+extension PageViewController: SettingsBulletinPageDelegate {
+    
+    func settingsBulletin(_ bulletin: SettingsBulletinPage, requiresPageInsertionAt index: PageIndex) {
+        viewControllers.insert(makeChildViewController(at: index), at: index)
+        insertPage(at: index)
+    }
+    
+    func settingsBulletin(_ bulletin: SettingsBulletinPage, requiresPageDeletionAt index: PageIndex) {
+        viewControllers.remove(at: index)
+        deletePage(at: index)
     }
 }

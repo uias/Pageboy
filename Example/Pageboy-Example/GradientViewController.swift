@@ -42,7 +42,6 @@ class GradientViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        print(childViewControllers)
         setNeedsStatusBarAppearanceUpdate()
     }
     

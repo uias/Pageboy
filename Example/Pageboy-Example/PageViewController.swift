@@ -23,14 +23,10 @@ class PageViewController: PageboyViewController {
     
     private var activeBulletinManager: BLTNItemManager?
     
-    var viewControllers: [UIViewController] = {
-        let storyboard = UIStoryboard(name: "Pageboy", bundle: Bundle.main)
-        
+    lazy var viewControllers: [UIViewController] = {
         var viewControllers = [UIViewController]()
         for i in 0 ..< 5 {
-            let viewController = storyboard.instantiateViewController(withIdentifier: "ChildViewController") as! ChildViewController
-            viewController.index = i + 1
-            viewControllers.append(viewController)
+            viewControllers.append(makeChildViewController(at: i))
         }
         return viewControllers
     }()
@@ -74,6 +70,17 @@ class PageViewController: PageboyViewController {
             self.activeBulletinManager = manager
             manager.showBulletin(above: self)
         }
+    }
+    
+    // MARK: View Controllers
+    
+    func makeChildViewController(at index: Int?) -> ChildViewController {
+        let storyboard = UIStoryboard(name: "Pageboy", bundle: Bundle.main)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "ChildViewController") as! ChildViewController
+        if let index = index {
+            viewController.index = index + 1
+        }
+        return viewController
     }
 }
 

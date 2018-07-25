@@ -23,11 +23,13 @@ enum SettingsBulletinDataSource {
         page.actionHandler = { item in
             item.manager?.dismissBulletin()
         }
+        page.requiresCloseButton = false
         return page
     }
     
-    static func makeSettingsPage(for pageViewController: PageboyViewController) -> BLTNPageItem {
+    static func makeSettingsPage(for pageViewController: PageboyViewController) -> SettingsBulletinPage {
         let page = SettingsBulletinPage(title: "Settings", pageViewController: pageViewController)
+        page.requiresCloseButton = false
         return page
     }
 }

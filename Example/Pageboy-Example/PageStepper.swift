@@ -22,6 +22,17 @@ class PageStepper: UIControl {
     private var positiveButton: UIButton!
     private var statusLabel: UILabel!
     
+    var numberOfPages: Int = 0 {
+        didSet {
+            currentPage = 0
+        }
+    }
+    private(set) var currentPage: Int = 0 {
+        didSet {
+            update(for: currentPage)
+        }
+    }
+    
     // MARK: Init
     
     convenience init() {
@@ -41,6 +52,7 @@ class PageStepper: UIControl {
     private func initialize() {
         
         let negativeButton = makeStepperButton(for: .negative)
+        negativeButton.addTarget(self, action: #selector(negativeButtonPressed(_:)), for: .touchUpInside)
         addSubview(negativeButton)
         negativeButton.snp.makeConstraints { (make) in
             make.leading.equalToSuperview()
@@ -50,6 +62,7 @@ class PageStepper: UIControl {
         self.negativeButton = negativeButton
         
         let positiveButton = makeStepperButton(for: .positive)
+        positiveButton.addTarget(self, action: #selector(positiveButtonPressed(_:)), for: .touchUpInside)
         addSubview(positiveButton)
         positiveButton.snp.makeConstraints { (make) in
             make.trailing.equalToSuperview()
@@ -67,6 +80,32 @@ class PageStepper: UIControl {
             make.trailing.equalTo(positiveButton.snp.leading)
         }
         self.statusLabel = statusLabel
+        
+        update(for: currentPage)
+    }
+    
+    // MARK: Actions
+    
+    @objc private func positiveButtonPressed(_ sender: UIButton) {
+        let candidate = currentPage + 1
+        guard candidate < numberOfPages else {
+            return
+        }
+        currentPage = candidate
+    }
+    
+    @objc private func negativeButtonPressed(_ sender: UIButton) {
+        let candidate = currentPage - 1
+        guard candidate >= 0 else {
+            return
+        }
+        currentPage = candidate
+    }
+    
+    // MARK: Updates
+    
+    private func update(for currentPage: Int) {
+        statusLabel.text = "\(currentPage)"
     }
 }
 
@@ -84,7 +123,8 @@ extension PageStepper {
     
     private func makeStatusLabel() -> UILabel {
         let label = UILabel()
-        
+        label.textAlignment = .center
+        label.font = .systemFont(ofSize: 24, weight: .medium)
         return label
     }
 }

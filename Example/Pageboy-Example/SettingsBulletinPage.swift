@@ -10,6 +10,13 @@ import UIKit
 import BLTNBoard
 import Pageboy
 
+protocol SettingsBulletinPageDelegate: class {
+    
+    func settingsBulletin(_ bulletin: SettingsBulletinPage, requiresPageInsertionAt index: PageIndex)
+    
+    func settingsBulletin(_ bulletin: SettingsBulletinPage, requiresPageDeletionAt index: PageIndex)
+}
+
 class SettingsBulletinPage: BLTNPageItem {
     
     // MARK: Options
@@ -38,6 +45,8 @@ class SettingsBulletinPage: BLTNPageItem {
     private var modificationOption: UIButton!
     private var infiniteScrollOption: UIButton!
     private var autoScrollOption: UIButton!
+    
+    weak var delegate: SettingsBulletinPageDelegate?
     
     // MARK: Init
     
@@ -88,7 +97,18 @@ class SettingsBulletinPage: BLTNPageItem {
     // MARK: Actions
     
     @objc private func modificationOptionPressed(_ sender: UIButton) {
-        next = PageModificationBulletinPage(title: Option.modification.displayTitle)
+        let modificationPage = PageModificationBulletinPage(title: Option.modification.displayTitle,
+                                                            pageViewController: pageViewController)
+        modificationPage.actionHandler = { [unowned self] item in
+            item.manager?.dismissBulletin()
+            switch modificationPage.modificationOption {
+            case .insertion:
+                self.delegate?.settingsBulletin(self, requiresPageInsertionAt: modificationPage.pageIndex)
+            case .removal:
+                self.delegate?.settingsBulletin(self, requiresPageDeletionAt: modificationPage.pageIndex)
+            }
+        }
+        next = modificationPage
         manager?.displayNextItem()
     }
     
