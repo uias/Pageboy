@@ -76,11 +76,7 @@ class PageViewController: PageboyViewController {
     
     func makeChildViewController(at index: Int?) -> ChildViewController {
         let storyboard = UIStoryboard(name: "Pageboy", bundle: Bundle.main)
-        let viewController = storyboard.instantiateViewController(withIdentifier: "ChildViewController") as! ChildViewController
-        if let index = index {
-            viewController.index = index + 1
-        }
-        return viewController
+        return storyboard.instantiateViewController(withIdentifier: "ChildViewController") as! ChildViewController
     }
 }
 

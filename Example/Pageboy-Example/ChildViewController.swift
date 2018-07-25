@@ -10,21 +10,22 @@ import UIKit
 
 class ChildViewController: UIViewController {
 
-    @IBOutlet weak var label: UILabel!
-    @IBOutlet weak var promptLabel: UILabel!
-
-    var index: Int?
+    @IBOutlet private weak var label: UILabel!
+    @IBOutlet private weak var promptLabel: UILabel!
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        if let index = self.index {
-            label.text = "Page " + String(index)
-            promptLabel.isHidden = index != 1
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateIndexLabel()
+    }
+    
+    private func updateIndexLabel() {
+        if let index = (parentPageboy as? PageViewController)?.viewControllers.index(of: self) {
+            label.text = "Page " + String(index + 1)
+            promptLabel.isHidden = index != 0
         }
     }
 }
