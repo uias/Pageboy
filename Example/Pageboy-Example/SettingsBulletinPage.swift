@@ -108,6 +108,7 @@ class SettingsBulletinPage: BLTNPageItem {
                 self.delegate?.settingsBulletin(self, requiresPageDeletionAt: modificationPage.pageIndex)
             }
         }
+        modificationPage.appearance = appearance
         next = modificationPage
         manager?.displayNextItem()
     }

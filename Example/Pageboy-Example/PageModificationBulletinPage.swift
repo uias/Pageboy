@@ -82,13 +82,14 @@ extension PageModificationBulletinPage {
     
     private func makePageStepper() -> PageStepper {
         let stepper = PageStepper()
-        
+        stepper.tintColor = appearance.actionButtonColor
         return stepper
     }
     
     private func makeOptionSegmentedControl(for options: [ModificationOption]) -> UISegmentedControl {
         let segmentedControl = UISegmentedControl(items: options.map({ $0.rawValue }))
         
+        segmentedControl.tintColor = appearance.actionButtonColor
         segmentedControl.selectedSegmentIndex = 0
         
         let constraint = segmentedControl.heightAnchor.constraint(equalToConstant: 40.0)

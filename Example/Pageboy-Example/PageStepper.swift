@@ -33,6 +33,13 @@ class PageStepper: UIControl {
         }
     }
     
+    override var tintColor: UIColor! {
+        didSet {
+            negativeButton.tintColor = tintColor
+            positiveButton.tintColor = tintColor
+        }
+    }
+    
     // MARK: Init
     
     convenience init() {
