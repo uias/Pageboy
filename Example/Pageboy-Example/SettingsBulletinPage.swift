@@ -25,6 +25,7 @@ class SettingsBulletinPage: BLTNPageItem {
         case modification
         case infiniteScrolling
         case autoScrolling
+        case scrollEnabled
         
         var displayTitle: String {
             switch self {
@@ -34,6 +35,8 @@ class SettingsBulletinPage: BLTNPageItem {
                 return "🎡 Infinite Scrolling"
             case .autoScrolling:
                 return "🏎 Auto Scrolling"
+            case .scrollEnabled:
+                return "👇 Scroll Enabled"
             }
         }
     }
@@ -45,6 +48,7 @@ class SettingsBulletinPage: BLTNPageItem {
     private var modificationOption: UIButton!
     private var infiniteScrollOption: UIButton!
     private var autoScrollOption: UIButton!
+    private var scrollEnabledOption: UIButton!
     
     weak var delegate: SettingsBulletinPageDelegate?
     
@@ -61,6 +65,7 @@ class SettingsBulletinPage: BLTNPageItem {
         modificationOption.removeTarget(self, action: nil, for: .touchUpInside)
         infiniteScrollOption.removeTarget(self, action: nil, for: .touchUpInside)
         autoScrollOption.removeTarget(self, action: nil, for: .touchUpInside)
+        scrollEnabledOption.removeTarget(self, action: nil, for: .touchUpInside)
     }
     
     override func makeViewsUnderTitle(with interfaceBuilder: BLTNInterfaceBuilder) -> [UIView]? {
@@ -90,6 +95,12 @@ class SettingsBulletinPage: BLTNPageItem {
         autoScrollOption.isSelected = pageViewController.autoScroller.isEnabled
         stack.addArrangedSubview(autoScrollOption)
         self.autoScrollOption = autoScrollOption
+        
+        let scrollOption = makeOptionToggleButton(for: .scrollEnabled)
+        scrollOption.addTarget(self, action: #selector(scrollEnabledToggled(_:)), for: .touchUpInside)
+        scrollOption.isSelected = pageViewController.isScrollEnabled
+        stack.addArrangedSubview(scrollOption)
+        self.scrollEnabledOption = scrollOption
         
         return [stack]
     }
@@ -123,6 +134,10 @@ class SettingsBulletinPage: BLTNPageItem {
         } else {
             pageViewController.autoScroller.disable()
         }
+    }
+    
+    @objc private func scrollEnabledToggled(_ sender: UIButton) {
+        pageViewController.isScrollEnabled = sender.isSelected
     }
 }
 
