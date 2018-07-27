@@ -121,6 +121,15 @@ extension PageStepper {
     private func makeStepperButton(for type: ButtonType) -> UIButton {
         let button = SettingsOptionButton()
         
+        switch type {
+        case .positive:
+            button.setImage(#imageLiteral(resourceName: "ic_plus"), for: .normal)
+        case .negative:
+            button.setImage(#imageLiteral(resourceName: "ic_minus"), for: .normal)
+        }
+        button.imageView?.contentMode = .scaleAspectFit
+        button.imageEdgeInsets = UIEdgeInsets(top: 10.0, left: 28.0, bottom: 10.0, right: 28.0)
+        
         button.snp.makeConstraints { (make) in
             make.width.equalTo(80.0)
         }

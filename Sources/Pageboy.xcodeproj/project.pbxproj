@@ -237,9 +237,9 @@
 			children = (
 				D623B1BA1E1D0C6A00527F3D /* Pageboy.h */,
 				D623B1D11E1D2DF200527F3D /* PageboyViewController.swift */,
-				46ADAAC4208F7EB100974529 /* PageboyViewController+Updating.swift */,
 				46ADAAC7208F7EB200974529 /* PageboyViewController+Management.swift */,
 				46ADAAC6208F7EB100974529 /* PageboyViewController+ScrollDetection.swift */,
+				46ADAAC4208F7EB100974529 /* PageboyViewController+Updating.swift */,
 				468B6FC620EF67AF0038E26C /* PageboyViewController+ChildScrollObservation.swift */,
 				464ADF5E20975E5000929AFB /* UIViewController+Pageboy.swift */,
 				464ADF5720975E3D00929AFB /* Protocols */,
