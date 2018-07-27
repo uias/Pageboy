@@ -20,7 +20,7 @@ class TestPageboyDataSource: PageboyViewControllerDataSource {
             self.viewControllers = generateViewControllers(count: numberOfPages)
         }
     }
-    var defaultIndex: PageboyViewController.Page?
+    var defaultIndex: Page?
     private(set) var viewControllers: [UIViewController]?
         
     // MARK: PageboyViewControllerDataSource
@@ -30,11 +30,11 @@ class TestPageboyDataSource: PageboyViewControllerDataSource {
     }
     
     func viewController(for pageboyViewController: PageboyViewController,
-                        at index: PageboyViewController.PageIndex) -> UIViewController? {
+                        at index: PageIndex) -> UIViewController? {
         return self.viewControllers?[index]
     }
     
-    func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {
+    func defaultPage(for pageboyViewController: PageboyViewController) -> Page? {
         return defaultIndex
     }
     

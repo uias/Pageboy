@@ -13,7 +13,7 @@ class TestPageboyDelegate: PageboyViewControllerDelegate {
     
     var lastRecordedPagePosition: CGPoint?
     var lastRecordedPageIndex: Int?
-    var lastRecordedDirection: PageboyViewController.NavigationDirection?
+    var lastRecordedDirection: NavigationDirection?
     
     var lastWillScrollToPageAnimated: Bool?
     var lastDidScrollToPositionAnimated: Bool?
@@ -21,19 +21,19 @@ class TestPageboyDelegate: PageboyViewControllerDelegate {
 
     var lastDidReloadPageCount: Int?
     var lastDidReloadCurrentViewController: UIViewController?
-    var lastDidReloadCurrentIndex: PageboyViewController.PageIndex?
+    var lastDidReloadCurrentIndex: PageIndex?
     var reloadCount: Int = 0
     
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
-                               willScrollToPageAt index: PageboyViewController.PageIndex,
-                               direction: PageboyViewController.NavigationDirection,
+                               willScrollToPageAt index: PageIndex,
+                               direction: NavigationDirection,
                                animated: Bool) {
         lastWillScrollToPageAnimated = animated
     }
     
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
                                didScrollTo position: CGPoint,
-                               direction: PageboyViewController.NavigationDirection,
+                               direction: NavigationDirection,
                                animated: Bool) {
         lastDidScrollToPositionAnimated = animated
         lastRecordedPagePosition = position
@@ -41,8 +41,8 @@ class TestPageboyDelegate: PageboyViewControllerDelegate {
     }
     
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
-                               didScrollToPageAt index: PageboyViewController.PageIndex,
-                               direction: PageboyViewController.NavigationDirection,
+                               didScrollToPageAt index: PageIndex,
+                               direction: NavigationDirection,
                                animated: Bool) {
         lastDidScrollToPageAtIndexAnimated = animated
         lastRecordedPageIndex = index
@@ -51,7 +51,7 @@ class TestPageboyDelegate: PageboyViewControllerDelegate {
     
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
                                didReloadWith currentViewController: UIViewController,
-                               currentPageIndex: PageboyViewController.PageIndex) {
+                               currentPageIndex: PageIndex) {
         lastDidReloadPageCount = pageboyViewController.pageCount
         lastDidReloadCurrentViewController = currentViewController
         lastDidReloadCurrentIndex = currentPageIndex
