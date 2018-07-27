@@ -61,7 +61,7 @@ class PageModificationBulletinPage: BLTNPageItem {
         stack.addArrangedSubview(indexPrompt)
         
         let stepper = makePageStepper()
-        stepper.numberOfPages = pageViewController.pageCount ?? 0
+        stepper.numberOfPages = (pageViewController.pageCount ?? 0) + 1
         stack.addArrangedSubview(stepper)
         self.pageStepper = stepper
         
