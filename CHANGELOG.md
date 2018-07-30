@@ -35,6 +35,8 @@ Released on TBD
 - Status bar style update animation when changing pages now lasts 0.25 seconds.
 - `PageboyViewController.Page` has been renamed to `Page`.
 - `PageboyViewController.PageIndex` has been renamed to `PageIndex`.
+- Improved Example app with support for in-app Settings.
+- Auto-Scrolling will now automatically resume/pause with `viewDidAppear`/`viewWillDisappear` lifecycle events.
 
 ---
 
