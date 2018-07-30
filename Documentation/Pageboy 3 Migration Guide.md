@@ -7,8 +7,8 @@ This guide aims to provide an easy transition from existing implementations of P
 ## Requirements
 
 - iOS 9.0+
-- Xcode 9.0+
-- Swift 4.0+
+- Xcode 10.0+
+- Swift 4.2+
 
 ## What's new
 
@@ -20,5 +20,3 @@ TODO
 - Default implementations of `PageboyViewControllerDelegate` have been removed - effectively requiring all functions to be implemented.
 
 ### Types
-- `PageboyViewController.NavigationDirection` has been renamed to `NavigationDirection`.
-- `PageboyViewController.Page` has been renamed to `Page`.
