@@ -53,6 +53,7 @@ class PageModificationBulletinPage: BLTNPageItem {
         stack.addArrangedSubview(intentPrompt)
         
         let optionSegmentedControl = makeOptionSegmentedControl(for: ModificationOption.all)
+        optionSegmentedControl.addTarget(self, action: #selector(modificationOptionUpdated(_:)), for: .valueChanged)
         stack.addArrangedSubview(optionSegmentedControl)
         self.optionSegmentedControl = optionSegmentedControl
         
@@ -61,11 +62,32 @@ class PageModificationBulletinPage: BLTNPageItem {
         stack.addArrangedSubview(indexPrompt)
         
         let stepper = makePageStepper()
-        stepper.numberOfPages = (pageViewController.pageCount ?? 0) + 1
         stack.addArrangedSubview(stepper)
         self.pageStepper = stepper
+        updateNumberOfPages(for: .insertion)
         
         return [stack]
+    }
+    
+    // MARK: Actions
+    
+    @objc private func modificationOptionUpdated(_ sender: UISegmentedControl) {
+        let option = ModificationOption.all[sender.selectedSegmentIndex]
+        updateNumberOfPages(for: option)
+    }
+    
+    private func updateNumberOfPages(for option: ModificationOption) {
+        guard let pageCount = pageViewController.pageCount else {
+            pageStepper.numberOfPages = 0
+            return
+        }
+        
+        switch option {
+        case .insertion:
+            pageStepper.numberOfPages = pageCount + 1
+        case .removal:
+            pageStepper.numberOfPages = pageCount
+        }
     }
 }
 
