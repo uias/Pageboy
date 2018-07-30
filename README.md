@@ -26,8 +26,6 @@
 
 **TL;DR** *UIPageViewController done properly.*
 
-**Pageboy** is a simple, highly informative page view controller.
-
 ## ⭐️ Features
 - [x] Simplified data source management & enhanced delgation.
 - [x] Dynamically insert & remove pages.
