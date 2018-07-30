@@ -91,7 +91,7 @@ func defaultPage(for pageboyViewController: PageboyViewController) -> Page? {
 The delegate functions provided by a `PageboyViewController` are much more reliable and useful than what a raw `UIPageViewController` provides. You can use them to find out exactly where the current page is, and when it's moved, where it's headed.
 
 #### willScrollToPageAtIndex
-The page view controller is about to embark on a transition to a new page.
+About to embark on a transition to a new page.
 
 ```swift
 func pageboyViewController(_ pageboyViewController: PageboyViewController,
@@ -101,7 +101,7 @@ func pageboyViewController(_ pageboyViewController: PageboyViewController,
 ```
 
 #### didScrollToPosition
-The page view controller was scrolled to a relative position along the way transitioning to a new page.
+Scrolled to a relative position along the way transitioning to a new page.
 
 ```swift
 func pageboyViewController(_ pageboyViewController: PageboyViewController,
@@ -111,7 +111,7 @@ func pageboyViewController(_ pageboyViewController: PageboyViewController,
 ```
 
 #### didScrollToPage
-The page view controller has successfully completed a scroll transition to a page.
+Successfully completed a scroll transition to a page.
 
 ```swift
 func pageboyViewController(_ pageboyViewController: PageboyViewController,
@@ -121,7 +121,7 @@ func pageboyViewController(_ pageboyViewController: PageboyViewController,
 ```
 
 #### didReload
-The page view controller has reloaded its child view controllers.
+Child view controllers have been reloaded.
 
 ```swift
 func pageboyViewController(_ pageboyViewController: PageboyViewController,
