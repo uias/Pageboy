@@ -29,40 +29,30 @@
 **Pageboy** is a simple, highly informative page view controller.
 
 ## ⭐️ Features
-- [x] Simplified data source management.
-- [x] Enhanced delegation; featuring exact relative positional data and reliable updates.
+- [x] Simplified data source management & enhanced delgation.
+- [x] Dynamically insert & remove pages.
 - [x] Infinite scrolling support.
 - [x] Automatic timer-based page transitioning.
 - [x] Support for custom animated page transitions.
-- [x] Dynamically insert & remove pages as required.
 
 ## 📋 Requirements
-Pageboy requires iOS 9 / tvOS 10 or above; and is written in Swift 4.
+Pageboy requires iOS 9 / tvOS 10; and is written in Swift 4.2.
 
 ## 📲 Installation
 ### CocoaPods
-Pageboy is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
+Pageboy is available through [CocoaPods](http://cocoapods.org):
 ```ruby
 pod 'Pageboy', '~> 3.0'
 ```
-And run `pod install`.
 
 ### Carthage
-Pageboy is available through [Carthage](https://github.com/Carthage/Carthage). Simply install carthage with [Homebrew](http://brew.sh/) using the following command:
-
-```bash
-$ brew update
-$ brew install carthage
-```
-
-Add Pageboy to your `Cartfile`:
-
+Pageboy is also available through [Carthage](https://github.com/Carthage/Carthage):
 ```ogdl
 github "uias/Pageboy" ~> 3.0
 ```
 
 ## 🚀 Usage
-### Getting Started
+### The Basics
 
 1) Create an instance of a `PageboyViewController` and provide it with a `PageboyViewControllerDataSource`.
 
@@ -96,9 +86,9 @@ func defaultPage(for pageboyViewController: PageboyViewController) -> Page? {
 
 3) Enjoy.
 
-### Delegation
+### PageboyViewControllerDelegate
 
-Unfortunately, `UIPageViewController` doesn't provide the most useful delegate methods for detecting positional data. `PageboyViewControllerDelegate` provides a number of functions for being able to detect where the page view controller is, and where it's headed.
+The delegate functions provided by a `PageboyViewController` are much more reliable and useful than what a raw `UIPageViewController` provides. You can use them to find out exactly where the current page is, and when it's moved, where it's headed.
 
 #### willScrollToPageAtIndex
 The page view controller is about to embark on a transition to a new page.
@@ -111,7 +101,7 @@ func pageboyViewController(_ pageboyViewController: PageboyViewController,
 ```
 
 #### didScrollToPosition
-The page view controller was scrolled to a relative position along the way transitioning to a new page. Also provided is the direction of the transition.
+The page view controller was scrolled to a relative position along the way transitioning to a new page.
 
 ```swift
 func pageboyViewController(_ pageboyViewController: PageboyViewController,
@@ -141,7 +131,7 @@ func pageboyViewController(_ pageboyViewController: PageboyViewController,
 
 ## ⚡️ Extras
 
-- `reloadPages()` - Reload the view controllers in the page view controller. (Refreshes the data source).
+- `reloadPages()` - Reload the view controllers in the page view controller. (Reloads the data source).
 - `scrollToPage()` - Scroll the page view controller to a new page programatically.
 
 	```swift
@@ -155,19 +145,10 @@ func pageboyViewController(_ pageboyViewController: PageboyViewController,
 - `.currentViewController` - The currently visible view controller if it exists.
 - `.currentPosition` - The exact current relative position of the page view controller.
 - `.currentIndex` - The index of the currently visible page.
-- `.showsPageControl` - Whether to show the built-in page control.
-- `.parentPageboy` - Access the parent `PageboyViewController` from any child `UIViewController`.
-    ```swift
-    class ChildViewController: UIViewController {
+- `.parentPageboy` - Access the immediate parent `PageboyViewController` from any child `UIViewController` if available.
 
-        func doSomething() {
-            parentPageboy?.scrollToPage(.next, animated: true)
-        }
-    }
-    ```
-
-### Transitioning
-Pageboy also provides custom animated transition support. This can be customised via the `.transition` property on `PageboyViewController`. 
+### Animated Transitions
+Pageboy also provides custom transition support for **animated transitions**. This can be customised via the `.transition` property on `PageboyViewController`. 
 
 ```swift
 pageboyViewController.transition = Transition(style: .push, duration: 1.0)
