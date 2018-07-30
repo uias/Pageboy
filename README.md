@@ -130,13 +130,7 @@ func pageboyViewController(_ pageboyViewController: PageboyViewController,
 ## ⚡️ Extras
 
 - `reloadPages()` - Reload the view controllers in the page view controller. (Reloads the data source).
-- `scrollToPage()` - Scroll the page view controller to a new page programatically.
-
-	```swift
-	public func scrollToPage(_ pageIndex: PageIndex,
-                               animated: Bool,
-                               completion: PageTransitionCompletion? = nil)
-	```
+- `scrollToPage(pageIndex:animated:)` - Scroll the page view controller to a new page programatically.
 - `.navigationOrientation` - Whether to orientate the pages horizontally or vertically.
 - `.isScrollEnabled` - Whether or not scrolling is allowed on the page view controller.
 - `.isInfiniteScrollEnabled` - Whether the page view controller should infinitely scroll at the end of page ranges.
