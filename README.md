@@ -6,7 +6,7 @@
     <a href="https://travis-ci.org/uias/Pageboy">
         <img src="https://travis-ci.org/uias/Pageboy.svg?branch=master" />
     </a>
-    <img src="https://img.shields.io/badge/Swift-4-orange.svg?style=flat" />
+    <img src="https://img.shields.io/badge/Swift-4.2-orange.svg?style=flat" />
     <a href="https://cocoapods.org/pods/Pageboy">
         <img src="https://img.shields.io/cocoapods/v/Pageboy.svg" alt="CocoaPods" />
     </a>
@@ -50,6 +50,11 @@ github "uias/Pageboy" ~> 3.0
 ```
 
 ## 🚀 Usage
+- [The Basics](#the-basics)
+- [PageboyViewControllerDelegate](#pageboyViewControllerDelegate)
+- [Navigation](#navigation)
+- [Insertion & Deletion](#insertion-&-deletion)
+
 ### The Basics
 
 1) Create an instance of a `PageboyViewController` and provide it with a `PageboyViewControllerDataSource`.
@@ -73,16 +78,14 @@ func numberOfViewControllers(in pageboyViewController: PageboyViewController) ->
 }
     
 func viewController(for pageboyViewController: PageboyViewController,
-                    at index: PageIndex) -> UIViewController? {
+                    at index: PageboyViewController.PageIndex) -> UIViewController? {
     return viewControllers[index]
 }
     
-func defaultPage(for pageboyViewController: PageboyViewController) -> Page? {
+func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {
     return nil
 }
 ```
-
-3) Enjoy.
 
 ### PageboyViewControllerDelegate
 
@@ -127,17 +130,43 @@ func pageboyViewController(_ pageboyViewController: PageboyViewController,
                            currentPageIndex: PageIndex)
 ```
 
-## ⚡️ Extras
+### Navigation
+You can navigate programmatically through a `PageboyViewController` using `scrollToPage()`:
+```swift
+pageViewController.scrollToPage(.next, animated: true)
+```
+
+- Infinite scrolling can be enabled with `.isInfiniteScrollEnabled`.
+- Interactive scrolling can also be controlled with `.isScrollEnabled`.
+
+### Insertion & Deletion
+Pageboy 3 provides the ability to insert and delete pages dynamically from the `PageboyViewController`.
+
+```swift
+pageViewController.insertPage(at index: 0)
+pageViewController.deletePage(at index: 2)
+```
+
+*This behaves similarly to the insertion functionality available in `UITableView`, in the fact that you have to update the data source prior to calling any of the update functions.*
+
+**Example:**
+
+```swift
+let index = 2
+viewControllers.insert(UIViewController(), at: index)
+pageViewController.insertPage(at index: index)
+```
+
+*The default behaviour after inserting or deleting a page is to scroll to the update location, this however can be configured by passing a  `PageUpdateBehavior` value other than `.scrollToUpdate`.*
+
+## ⚡️ Other Extras
 
 - `reloadPages()` - Reload the view controllers in the page view controller. (Reloads the data source).
-- `scrollToPage(pageIndex:animated:)` - Scroll the page view controller to a new page programatically.
 - `.navigationOrientation` - Whether to orientate the pages horizontally or vertically.
-- `.isScrollEnabled` - Whether or not scrolling is allowed on the page view controller.
-- `.isInfiniteScrollEnabled` - Whether the page view controller should infinitely scroll at the end of page ranges.
 - `.currentViewController` - The currently visible view controller if it exists.
 - `.currentPosition` - The exact current relative position of the page view controller.
 - `.currentIndex` - The index of the currently visible page.
-- `.parentPageboy` - Access the immediate parent `PageboyViewController` from any child `UIViewController` if available.
+- `.parentPageboy` - Access the immediate parent `PageboyViewController` from any child view controller.
 
 ### Animated Transitions
 Pageboy also provides custom transition support for **animated transitions**. This can be customised via the `.transition` property on `PageboyViewController`. 
@@ -145,13 +174,6 @@ Pageboy also provides custom transition support for **animated transitions**. Th
 ```swift
 pageboyViewController.transition = Transition(style: .push, duration: 1.0)
 ```
-
-The following styles are available: 
-
-- `.push`
-- `.fade`
-- `.moveIn`
-- `.reveal`
 
 *Note: By default this is set to `nil`, which uses the standard animation provided by `UIPageViewController`.*
 
