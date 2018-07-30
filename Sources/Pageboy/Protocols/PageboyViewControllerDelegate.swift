@@ -18,7 +18,7 @@ public protocol PageboyViewControllerDelegate: class {
     ///   - direction: The direction of the scroll.
     ///   - animation: Whether the scroll will be animated.
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
-                               willScrollToPageAt index: PageIndex,
+                               willScrollToPageAt index: PageboyViewController.PageIndex,
                                direction: PageboyViewController.NavigationDirection,
                                animated: Bool)
     
@@ -42,7 +42,7 @@ public protocol PageboyViewControllerDelegate: class {
     ///   - direction: The direction of the scroll.
     ///   - animation: Whether the scroll was animated.
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
-                               didScrollToPageAt index: PageIndex,
+                               didScrollToPageAt index: PageboyViewController.PageIndex,
                                direction: PageboyViewController.NavigationDirection,
                                animated: Bool)
     
@@ -54,5 +54,5 @@ public protocol PageboyViewControllerDelegate: class {
     ///   - currentPageIndex: The current page index.
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
                                didReloadWith currentViewController: UIViewController,
-                               currentPageIndex: PageIndex)
+                               currentPageIndex: PageboyViewController.PageIndex)
 }

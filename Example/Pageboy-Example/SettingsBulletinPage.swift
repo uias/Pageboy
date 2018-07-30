@@ -12,9 +12,9 @@ import Pageboy
 
 protocol SettingsBulletinPageDelegate: class {
     
-    func settingsBulletin(_ bulletin: SettingsBulletinPage, requiresPageInsertionAt index: PageIndex)
+    func settingsBulletin(_ bulletin: SettingsBulletinPage, requiresPageInsertionAt index: PageboyViewController.PageIndex)
     
-    func settingsBulletin(_ bulletin: SettingsBulletinPage, requiresPageDeletionAt index: PageIndex)
+    func settingsBulletin(_ bulletin: SettingsBulletinPage, requiresPageDeletionAt index: PageboyViewController.PageIndex)
 }
 
 class SettingsBulletinPage: BLTNPageItem {

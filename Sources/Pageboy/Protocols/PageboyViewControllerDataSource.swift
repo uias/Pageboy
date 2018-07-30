@@ -23,11 +23,11 @@ public protocol PageboyViewControllerDataSource: class {
     ///   - index: The page index.
     /// - Returns: The view controller to display
     func viewController(for pageboyViewController: PageboyViewController,
-                        at index: PageIndex) -> UIViewController?
+                        at index: PageboyViewController.PageIndex) -> UIViewController?
     
     /// The default page index to display in the Pageboy view controller.
     ///
     /// - Parameter pageboyViewController: The Pageboy view controller
     /// - Returns: Default page
-    func defaultPage(for pageboyViewController: PageboyViewController) -> Page?
+    func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page?
 }
