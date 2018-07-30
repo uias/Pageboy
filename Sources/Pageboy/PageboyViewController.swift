@@ -26,7 +26,7 @@ open class PageboyViewController: UIViewController {
     internal let childScrollObserver = ScrollObservationService()
 
     /// The orientation that the page view controller transitions on.
-    public var navigationOrientation: UIPageViewControllerNavigationOrientation = .horizontal {
+    public var navigationOrientation: UIPageViewController.NavigationOrientation = .horizontal {
         didSet {
             reconfigurePageViewController()
         }

@@ -154,31 +154,31 @@ internal extension PageboyViewController {
         if let pageViewController = self.pageViewController { // destroy existing page VC
             existingZIndex = self.view.subviews.index(of: pageViewController.view)
             self.pageViewController?.view.removeFromSuperview()
-            self.pageViewController?.removeFromParentViewController()
+            self.pageViewController?.removeFromParent()
             self.pageViewController = nil
         }
         
         let pageViewController = UIPageViewController(transitionStyle: .scroll,
                                                       navigationOrientation: self.navigationOrientation,
-                                                      options: self.pageViewControllerOptions)
+                                                      options: convertToOptionalUIPageViewControllerOptionsKeyDictionary(self.pageViewControllerOptions))
         pageViewController.delegate = self
         pageViewController.dataSource = self
         self.pageViewController = pageViewController
         
-        addChildViewController(pageViewController)
+        addChild(pageViewController)
         if let existingZIndex = existingZIndex {
             view.insertSubview(pageViewController.view, at: existingZIndex)
         } else {
             view.addSubview(pageViewController.view)
-            view.sendSubview(toBack: pageViewController.view)
+            view.sendSubviewToBack(pageViewController.view)
         }
         pageViewController.view.pinToSuperviewEdges()
-        pageViewController.didMove(toParentViewController: self)
+        pageViewController.didMove(toParent: self)
       
         // Add hidden scroll view that will be used to interact with navigation bar large titles.
         let invisibleScrollView = ParentMatchedScrollView.matching(parent: self.view)
         view.addSubview(invisibleScrollView)
-        view.sendSubview(toBack: invisibleScrollView)
+        view.sendSubviewToBack(invisibleScrollView)
         self.invisibleScrollView = invisibleScrollView
         
         pageViewController.scrollView?.delegate = self
@@ -203,7 +203,7 @@ internal extension PageboyViewController {
         var options = [String: Any]()
         
         if self.interPageSpacing > 0.0 {
-            options[UIPageViewControllerOptionInterPageSpacingKey] = self.interPageSpacing
+            options[convertFromUIPageViewControllerOptionsKey(UIPageViewController.OptionsKey.interPageSpacing)] = self.interPageSpacing
         }
         
         guard options.count > 0 else {
@@ -247,4 +247,15 @@ extension PageboyViewController: UIPageViewControllerDataSource {
         }
         return nil
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalUIPageViewControllerOptionsKeyDictionary(_ input: [String: Any]?) -> [UIPageViewController.OptionsKey: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIPageViewController.OptionsKey(rawValue: key), value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIPageViewControllerOptionsKey(_ input: UIPageViewController.OptionsKey) -> String {
+	return input.rawValue
 }

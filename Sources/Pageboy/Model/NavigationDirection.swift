@@ -16,7 +16,7 @@ public enum NavigationDirection {
 
 internal extension NavigationDirection {
     
-    var rawValue: UIPageViewControllerNavigationDirection {
+    var rawValue: UIPageViewController.NavigationDirection {
         switch self {
             
         case .reverse:
