@@ -33,7 +33,8 @@
 - [x] Enhanced delegation; featuring exact relative positional data and reliable updates.
 - [x] Infinite scrolling support.
 - [x] Automatic timer-based page transitioning.
-- [x] Support for custom page transitions.
+- [x] Support for custom animated page transitions.
+- [x] Dynamically insert & remove pages as required.
 
 ## 📋 Requirements
 Pageboy requires iOS 9 / tvOS 10 or above; and is written in Swift 4.
@@ -42,7 +43,7 @@ Pageboy requires iOS 9 / tvOS 10 or above; and is written in Swift 4.
 ### CocoaPods
 Pageboy is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
 ```ruby
-pod 'Pageboy', '~> 2.0'
+pod 'Pageboy', '~> 3.0'
 ```
 And run `pod install`.
 
@@ -57,7 +58,7 @@ $ brew install carthage
 Add Pageboy to your `Cartfile`:
 
 ```ogdl
-github "uias/Pageboy" ~> 2.0
+github "uias/Pageboy" ~> 3.0
 ```
 
 ## 🚀 Usage
@@ -84,11 +85,11 @@ func numberOfViewControllers(in pageboyViewController: PageboyViewController) ->
 }
     
 func viewController(for pageboyViewController: PageboyViewController,
-                    at index: PageboyViewController.PageIndex) -> UIViewController? {
+                    at index: PageIndex) -> UIViewController? {
     return viewControllers[index]
 }
     
-func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {
+func defaultPage(for pageboyViewController: PageboyViewController) -> Page? {
     return nil
 }
 ```
@@ -105,7 +106,7 @@ The page view controller is about to embark on a transition to a new page.
 ```swift
 func pageboyViewController(_ pageboyViewController: PageboyViewController,
                            willScrollToPageAt index: Int,
-                           direction: PageboyViewController.NavigationDirection,
+                           direction: NavigationDirection,
                            animated: Bool)
 ```
 
@@ -115,7 +116,7 @@ The page view controller was scrolled to a relative position along the way trans
 ```swift
 func pageboyViewController(_ pageboyViewController: PageboyViewController,
                            didScrollTo position: CGPoint,
-                           direction: PageboyViewController.NavigationDirection,
+                           direction: NavigationDirection,
                            animated: Bool)
 ```
 
@@ -125,7 +126,7 @@ The page view controller has successfully completed a scroll transition to a pag
 ```swift
 func pageboyViewController(_ pageboyViewController: PageboyViewController,
                            didScrollToPageAt index: Int,
-                           direction: PageboyViewController.NavigationDirection,
+                           direction: NavigationDirection,
                            animated: Bool)
 ```
 
@@ -135,7 +136,7 @@ The page view controller has reloaded its child view controllers.
 ```swift
 func pageboyViewController(_ pageboyViewController: PageboyViewController,
                            didReloadWith currentViewController: UIViewController,
-                           currentPageIndex: PageboyViewController.PageIndex)
+                           currentPageIndex: PageIndex)
 ```
 
 ## ⚡️ Extras
