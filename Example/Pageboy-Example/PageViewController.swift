@@ -63,7 +63,7 @@ class PageViewController: PageboyViewController {
         scrollToPage(.previous, animated: true)
     }
     
-    // MARK: Bulletings
+    // MARK: Bulletins
     
     func showBulletin(_ manager: BLTNItemManager?) {
         if let manager = manager {
@@ -75,7 +75,7 @@ class PageViewController: PageboyViewController {
     // MARK: View Controllers
     
     func makeChildViewController(at index: Int?) -> ChildViewController {
-        let storyboard = UIStoryboard(name: "Pageboy", bundle: Bundle.main)
+        let storyboard = UIStoryboard(name: "Pageboy", bundle: .main)
         return storyboard.instantiateViewController(withIdentifier: "ChildViewController") as! ChildViewController
     }
 }
