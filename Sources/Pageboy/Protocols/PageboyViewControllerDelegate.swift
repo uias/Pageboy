@@ -19,7 +19,7 @@ public protocol PageboyViewControllerDelegate: class {
     ///   - animation: Whether the scroll will be animated.
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
                                willScrollToPageAt index: PageIndex,
-                               direction: NavigationDirection,
+                               direction: PageboyViewController.NavigationDirection,
                                animated: Bool)
     
     /// The page view controller did scroll to an offset between pages.
@@ -31,7 +31,7 @@ public protocol PageboyViewControllerDelegate: class {
     ///   - animated: Whether the scroll is being animated.
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
                                didScrollTo position: CGPoint,
-                               direction: NavigationDirection,
+                               direction: PageboyViewController.NavigationDirection,
                                animated: Bool)
     
     /// The page view controller did complete scroll to a new page.
@@ -43,7 +43,7 @@ public protocol PageboyViewControllerDelegate: class {
     ///   - animation: Whether the scroll was animated.
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
                                didScrollToPageAt index: PageIndex,
-                               direction: NavigationDirection,
+                               direction: PageboyViewController.NavigationDirection,
                                animated: Bool)
     
     /// The page view controller did reload.
