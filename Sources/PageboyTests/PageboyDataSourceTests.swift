@@ -110,7 +110,7 @@ class PageboyDataSourceTests: PageboyTests {
         let initialPageCount = self.pageboyViewController.pageCount
         
         self.dataSource.numberOfPages = 3
-        self.pageboyViewController.reloadPages()
+        self.pageboyViewController.reloadData()
         let reloadPageCount = self.pageboyViewController.pageCount
         
         XCTAssert(initialPageCount == 5 && reloadPageCount == 3,
@@ -124,7 +124,7 @@ class PageboyDataSourceTests: PageboyTests {
         self.pageboyViewController.dataSource = self.dataSource
 
         self.dataSource.numberOfPages = 3
-        self.pageboyViewController.reloadPages()
+        self.pageboyViewController.reloadData()
         
         let reloadPageCount = self.delegate.lastDidReloadPageCount
         

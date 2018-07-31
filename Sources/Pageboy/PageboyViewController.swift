@@ -60,7 +60,7 @@ open class PageboyViewController: UIViewController {
     /// The object that is the data source for the page view controller. (Defaults to self)
     public weak var dataSource: PageboyViewControllerDataSource? {
         didSet {
-            self.reloadPages()
+            self.reloadData()
         }
     }
     /// The object that is the delegate for the page view controller.

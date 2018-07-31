@@ -14,14 +14,14 @@ public extension PageboyViewController {
     /// Reload the view controllers in the page view controller.
     /// This reloads the dataSource entirely, calling viewControllers(forPageboyViewController:)
     /// and defaultPageIndex(forPageboyViewController:).
-    public func reloadPages() {
-        self.reloadPages(reloadViewControllers: true)
+    public func reloadData() {
+        self.reloadData(reloadViewControllers: true)
     }
     
     /// Reload the pages in the PageboyViewController
     ///
     /// - Parameter reloadViewControllers: Reload the view controller data source.
-    internal func reloadPages(reloadViewControllers: Bool) {
+    internal func reloadData(reloadViewControllers: Bool) {
         
         if reloadViewControllers {
             viewControllerMap.clear()
@@ -187,7 +187,7 @@ internal extension PageboyViewController {
         pageViewController.scrollView?.isScrollEnabled = isScrollEnabled
         pageViewController.scrollView?.isUserInteractionEnabled = isUserInteractionEnabled
         
-        self.reloadPages(reloadViewControllers: reloadViewControllers)
+        self.reloadData(reloadViewControllers: reloadViewControllers)
     }
     
     /// Re-initialize the internal UIPageViewController instance without reloading data source if it currently exists.
