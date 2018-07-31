@@ -12,11 +12,13 @@ This guide aims to provide an easy transition from existing implementations of P
 
 ## What's new
 
-TODO
+- Added support for Swift 4.2.
+- View Controllers can now be inserted and removed dynamically. 
 
 ## API Changes
 
 ### PageboyViewControllerDelegate
 - Default implementations of `PageboyViewControllerDelegate` have been removed - effectively requiring all functions to be implemented.
 
-### Types
+### Functions
+- `reloadPages()` is now `reloadData()`.
