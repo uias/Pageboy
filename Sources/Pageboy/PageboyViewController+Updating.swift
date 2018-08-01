@@ -22,75 +22,8 @@ public extension PageboyViewController {
     }
 }
 
-public extension PageboyViewController {
-    
-    /// Insert a new page into the page view controller.
-    ///
-    /// - Parameters:
-    ///   - index: The index to insert the page at.
-    ///   - updateBehavior: Behavior to execute after the page was inserted.
-    public func insertPage(at index: PageIndex,
-                           then updateBehavior: PageUpdateBehavior = .scrollToUpdate) {
-        verifyNewPageCount(then: { (oldPageCount, newPageCount) in
-            assert(newPageCount > oldPageCount,
-                   "Attempt to insert page at \(index) but there are only \(newPageCount) pages after the update")
-            
-            guard let newViewController = dataSource?.viewController(for: self, at: index) else {
-                assertionFailure("Expected to find inserted UIViewController at page \(index)")
-                return
-            }
-            
-            self.viewControllerCount = newPageCount
-            viewControllerMap.clear()
-
-            performUpdates(for: index,
-                           viewController: newViewController,
-                           updateBehavior: updateBehavior,
-                           indexOperation: { (currentIndex, newIndex) in
-                            
-                            if currentIndex > newIndex {
-                                self.currentIndex = currentIndex + 1
-                            }
-            })
-        })
-    }
-    
-    /// Delete an existing page from the page view controller.
-    ///
-    /// - Parameters:
-    ///   - index: The index to delete the page from.
-    ///   - updateBehavior: Behavior to execute after the page was deleted.
-    public func deletePage(at index: PageIndex,
-                           then updateBehavior: PageUpdateBehavior = .doNothing) {
-        verifyNewPageCount(then: { (oldPageCount, newPageCount) in
-            assert(index < oldPageCount,
-                   "Attempting to delete page at \(index) but there were only \(oldPageCount) pages before the update")
-            assert(newPageCount < oldPageCount,
-                   "Attempt to delete page at \(index) but there are \(newPageCount) pages after the update")
-            
-            let sanitizedIndex = min(index, newPageCount - 1)
-            guard let newViewController = dataSource?.viewController(for: self, at: sanitizedIndex) else {
-                return
-            }
-            
-            self.viewControllerCount = newPageCount
-            viewControllerMap.clear()
-            
-            performUpdates(for: sanitizedIndex,
-                           viewController: newViewController,
-                           updateBehavior: updateBehavior,
-                           indexOperation: { (currentIndex, newIndex) in
-                            
-                            if currentIndex > newIndex {
-                                self.currentIndex = currentIndex - 1
-                            }
-            })
-        })
-    }
-}
-
-// MARK: - Updating
-private extension PageboyViewController {
+// MARK: - Page Updates
+internal extension PageboyViewController {
     
     func performUpdates(for newIndex: PageIndex,
                         viewController: UIViewController,
@@ -128,7 +61,7 @@ private extension PageboyViewController {
 }
 
 // MARK: - Utilities
-private extension PageboyViewController {
+extension PageboyViewController {
     
     func verifyNewPageCount(then update: (Int, Int) -> Void) {
         guard let oldPageCount = self.pageCount,
