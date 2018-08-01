@@ -43,7 +43,7 @@ class PageboyAutoScrollTests: PageboyTests {
         self.pageboyViewController.autoScroller.disable()
         
         XCTAssert(self.pageboyViewController.autoScroller.isEnabled == false &&
-            self.pageboyViewController.autoScroller.wasEnabled != true,
+            self.pageboyViewController.autoScroller.wasCancelled != true,
                   "PageboyAutoScroller does not disable correctly.")
     }
     
@@ -56,7 +56,7 @@ class PageboyAutoScrollTests: PageboyTests {
         self.pageboyViewController.autoScroller.cancel()
         
         XCTAssert(self.pageboyViewController.autoScroller.isEnabled == false &&
-            self.pageboyViewController.autoScroller.wasEnabled == true,
+            self.pageboyViewController.autoScroller.wasCancelled == true,
                   "PageboyAutoScroller does not allow cancellation correctly.")
     }
     
@@ -69,7 +69,7 @@ class PageboyAutoScrollTests: PageboyTests {
         self.pageboyViewController.autoScroller.cancel()
         
         let isEnabled = self.pageboyViewController.autoScroller.isEnabled
-        let wasEnabled = self.pageboyViewController.autoScroller.wasEnabled ?? false
+        let wasEnabled = self.pageboyViewController.autoScroller.wasCancelled ?? false
         
         self.pageboyViewController.autoScroller.restart()
         
