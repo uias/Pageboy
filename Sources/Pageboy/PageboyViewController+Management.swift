@@ -96,7 +96,7 @@ internal extension PageboyViewController {
         
         // if not using a custom transition then animate using UIPageViewController mechanism
         let animateUpdate = animated ? !isUsingCustomTransition : false
-        let updateBlock = {
+        let updateBlock = { [unowned self] in
             pageViewController.setViewControllers(viewControllers,
                                                   direction: direction.layoutNormalized(isRtL: self.view.layoutIsRightToLeft).rawValue,
                                                   animated: animateUpdate,
