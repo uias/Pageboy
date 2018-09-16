@@ -42,7 +42,7 @@ Pageboy requires iOS 9 / tvOS 10 or above; and is written in Swift 4.2.
 ### CocoaPods
 Pageboy is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
 ```ruby
-pod 'Pageboy', '~> 2.0'
+pod 'Pageboy', '~> 2.6'
 ```
 And run `pod install`.
 
@@ -57,7 +57,7 @@ $ brew install carthage
 Add Pageboy to your `Cartfile`:
 
 ```ogdl
-github "uias/Pageboy" ~> 2.0
+github "uias/Pageboy" ~> 2.6
 ```
 
 ## 🚀 Usage
