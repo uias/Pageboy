@@ -31,31 +31,26 @@ internal extension TransitionOperation {
 internal extension TransitionOperation.Action {
     
     /// Animation sub-type for the action.
-    var transitionSubType: String {
+    var transitionSubType: CATransitionSubtype {
         switch orientation {
             
         case .horizontal:
             switch semanticDirection {
                 
             case .reverse:
-                return convertFromCATransitionSubtype(CATransitionSubtype.fromLeft)
+                return .fromLeft
             default:
-                return convertFromCATransitionSubtype(CATransitionSubtype.fromRight)
+                return .fromRight
             }
             
         case .vertical:
             switch semanticDirection {
                 
             case .reverse:
-                return convertFromCATransitionSubtype(CATransitionSubtype.fromBottom)
+                return .fromBottom
             default:
-                return convertFromCATransitionSubtype(CATransitionSubtype.fromTop)
+                return .fromTop
             }
         }
     }
-}
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertFromCATransitionSubtype(_ input: CATransitionSubtype) -> String {
-	return input.rawValue
 }

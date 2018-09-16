@@ -24,7 +24,7 @@ internal class IndexedMap<T> {
     }
     
     func index(forObjectAfter findOperation: ObjectFindOperation) -> Int? {
-        var foundIndex: Int? = nil
+        var foundIndex: Int?
         self.objects.forEach { (index, object) in
             if findOperation(object) {
                 foundIndex = index

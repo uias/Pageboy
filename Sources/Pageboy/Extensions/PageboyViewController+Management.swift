@@ -113,7 +113,7 @@ internal extension PageboyViewController {
         
         let pageViewController = UIPageViewController(transitionStyle: .scroll,
                                                       navigationOrientation: self.navigationOrientation,
-                                                      options: convertToOptionalUIPageViewControllerOptionsKeyDictionary(self.pageViewControllerOptions))
+                                                      options: self.pageViewControllerOptions)
         pageViewController.delegate = self
         pageViewController.dataSource = self
         self.pageViewController = pageViewController
@@ -183,11 +183,11 @@ internal extension PageboyViewController {
     }
     
     /// The options to be passed to a UIPageViewController instance.
-    internal var pageViewControllerOptions: [String: Any]? {
-        var options = [String: Any]()
+    internal var pageViewControllerOptions: [UIPageViewController.OptionsKey: Any]? {
+        var options = [UIPageViewController.OptionsKey: Any]()
         
         if self.interPageSpacing > 0.0 {
-            options[convertFromUIPageViewControllerOptionsKey(UIPageViewController.OptionsKey.interPageSpacing)] = self.interPageSpacing
+            options[.interPageSpacing] = self.interPageSpacing
         }
         
         guard options.count > 0 else {
@@ -271,15 +271,4 @@ extension PageboyViewController: UIPageViewControllerDataSource {
         }
         return nil
     }
-}
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertToOptionalUIPageViewControllerOptionsKeyDictionary(_ input: [String: Any]?) -> [UIPageViewController.OptionsKey: Any]? {
-	guard let input = input else { return nil }
-	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIPageViewController.OptionsKey(rawValue: key), value)})
-}
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertFromUIPageViewControllerOptionsKey(_ input: UIPageViewController.OptionsKey) -> String {
-	return input.rawValue
 }

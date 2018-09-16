@@ -164,11 +164,6 @@ internal extension PageboyViewController.Transition {
     
     func configure(transition: inout CATransition) {
         transition.duration = self.duration
-        transition.type = convertToCATransitionType(self.style.rawValue)
+        transition.type = CATransitionType(rawValue: self.style.rawValue)
     }
-}
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertToCATransitionType(_ input: String) -> CATransitionType {
-	return CATransitionType(rawValue: input)
 }
