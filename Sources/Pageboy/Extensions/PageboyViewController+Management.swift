@@ -107,7 +107,7 @@ internal extension PageboyViewController {
         if let pageViewController = self.pageViewController { // destroy existing page VC
             existingZIndex = self.view.subviews.index(of: pageViewController.view)
             self.pageViewController?.view.removeFromSuperview()
-            self.pageViewController?.removeFromParentViewController()
+            self.pageViewController?.removeFromParent()
             self.pageViewController = nil
         }
         
@@ -118,15 +118,15 @@ internal extension PageboyViewController {
         pageViewController.dataSource = self
         self.pageViewController = pageViewController
         
-        addChildViewController(pageViewController)
+        addChild(pageViewController)
         if let existingZIndex = existingZIndex {
             view.insertSubview(pageViewController.view, at: existingZIndex)
         } else {
             view.addSubview(pageViewController.view)
-            view.sendSubview(toBack: pageViewController.view)
+            view.sendSubviewToBack(pageViewController.view)
         }
         pageViewController.view.pinToSuperviewEdges()
-        pageViewController.didMove(toParentViewController: self)
+        pageViewController.didMove(toParent: self)
       
         pageViewController.scrollView?.delegate = self
         pageViewController.view.backgroundColor = .clear
@@ -183,11 +183,11 @@ internal extension PageboyViewController {
     }
     
     /// The options to be passed to a UIPageViewController instance.
-    internal var pageViewControllerOptions: [String: Any]? {
-        var options = [String: Any]()
+    internal var pageViewControllerOptions: [UIPageViewController.OptionsKey: Any]? {
+        var options = [UIPageViewController.OptionsKey: Any]()
         
         if self.interPageSpacing > 0.0 {
-            options[UIPageViewControllerOptionInterPageSpacingKey] = self.interPageSpacing
+            options[.interPageSpacing] = self.interPageSpacing
         }
         
         guard options.count > 0 else {

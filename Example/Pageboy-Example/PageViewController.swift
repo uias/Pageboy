@@ -50,7 +50,7 @@ class PageViewController: PageboyViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addBarButtons()
-        view.sendSubview(toBack: gradientView)
+        view.sendSubviewToBack(gradientView)
         
         dataSource = self
         delegate = self

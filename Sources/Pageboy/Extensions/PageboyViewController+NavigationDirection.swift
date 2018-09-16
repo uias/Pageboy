@@ -11,7 +11,7 @@ import UIKit
 // MARK: - Navigation direction detection
 internal extension PageboyViewController.NavigationDirection {
     
-    var pageViewControllerNavDirection: UIPageViewControllerNavigationDirection {
+    var pageViewControllerNavDirection: UIPageViewController.NavigationDirection {
         switch self {
             
         case .reverse:

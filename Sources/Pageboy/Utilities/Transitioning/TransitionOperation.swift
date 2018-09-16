@@ -86,7 +86,7 @@ internal class TransitionOperation: NSObject, CAAnimationDelegate {
         animation.endProgress = 1.0
         transition.configure(transition: &animation)
         animation.subtype = action.transitionSubType
-        animation.fillMode = kCAFillModeBackwards
+        animation.fillMode = CAMediaTimingFillMode.backwards
         self.animation = animation
         
         super.init()

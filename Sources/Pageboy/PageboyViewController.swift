@@ -52,7 +52,7 @@ open class PageboyViewController: UIViewController {
     internal var expectedTransitionIndex: PageIndex?
 
     /// The orientation that the page view controller transitions on.
-    public var navigationOrientation: UIPageViewControllerNavigationOrientation = .horizontal {
+    public var navigationOrientation: UIPageViewController.NavigationOrientation = .horizontal {
         didSet {
             reconfigurePageViewController()
         }

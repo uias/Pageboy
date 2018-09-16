@@ -366,7 +366,7 @@
 				TargetAttributes = {
 					D623B1B61E1D0C6A00527F3D = {
 						CreatedOnToolsVersion = 8.2;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 					};
 					D623B1BF1E1D0C6B00527F3D = {
@@ -450,7 +450,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nfi";
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nfi\n";
 		};
 		D681E3391E54729C007C08F5 /* Increment Build Number */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -683,6 +683,7 @@
 				PRODUCT_NAME = Pageboy;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -700,6 +701,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.uias.Pageboy;
 				PRODUCT_NAME = Pageboy;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
