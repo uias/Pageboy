@@ -177,6 +177,7 @@ extension PageboyViewController: UIScrollViewDelegate {
             if self.autoScroller.restartsOnScrollEnd {
                 self.autoScroller.restart()
             }
+            self.expectedTransitionIndex = nil
         })
     }
     
