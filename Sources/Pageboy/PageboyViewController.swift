@@ -301,6 +301,7 @@ public extension PageboyViewController {
                                                                  didScrollTo: currentPosition,
                                                                  direction: direction,
                                                                  animated: animated)
+                            self.expectedTransitionIndex = nil
                         }
                     }
                     
