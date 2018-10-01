@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 - `3.0.x` Releases - [3.0.0](#300)
 
 #### 2.x Releases
+- `2.6.x` Releases - [2.6.0](#260) | [2.6.1](#261)
 - `2.5.x` Releases - [2.5.0](#250) | [2.5.1](#251) | [2.5.2](#252) | [2.5.3](#253) | [2.5.4](#254)
 - `2.4.x` Releases - [2.4.0](#240)
 - `2.3.x` Releases - [2.3.0](#230) | [2.3.1](#231) | [2.3.2](#232) | [2.3.3](#233) | [2.3.4](#234)
@@ -24,9 +25,9 @@ All notable changes to this project will be documented in this file.
 - `0.4.x` Releases - [0.4.0](#040) | [0.4.1](#041) | [0.4.2](#042) | [0.4.3](#043) | [0.4.4](#044) | [0.4.5](#045) | [0.4.6](#046) | [0.4.7](#047) | [0.4.8](#048) | [0.4.9](#049) | [0.4.10](#0410) | [0.4.11](#0411) | [0.4.12](#0412)
 
 ---
+
 ## [3.0.0](https://github.com/uias/Pageboy/releases/tag/3.0.0)
 Released on TBD
-
 #### Added
 - Support for dynamically inserting a new page via `insertPage(at: PageIndex)`.
 - Support for dynamically deleting an existing page via `deletePage(at: PageIndex)`.
@@ -35,6 +36,21 @@ Released on TBD
 - Status bar style update animation when changing pages now lasts 0.25 seconds.
 - Improved Example app with support for in-app Settings.
 - Auto-Scrolling will now automatically resume/pause with `viewDidAppear`/`viewWillDisappear` lifecycle events.
+
+---
+
+## [2.6.1](https://github.com/uias/Pageboy/releases/tag/2.6.1)
+Released on 2018-10-01
+
+#### Fixed
+- [#175](https://github.com/uias/Pageboy/pull/175) Issue where `expectedTransitionIndex` could be incorrect when cancelling scroll events.
+     - by [mlarandeau](https://github.com/mlarandeau).
+
+## [2.6.0](https://github.com/uias/Pageboy/releases/tag/2.6.0)
+Released on 2018-09-16
+
+#### Updated
+- Migrated to use Swift 4.2.
 
 ---
 
