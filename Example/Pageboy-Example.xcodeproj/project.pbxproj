@@ -13,7 +13,6 @@
 		4603D78021061DA200FA0F23 /* PageModificationBulletinPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4603D77F21061DA200FA0F23 /* PageModificationBulletinPage.swift */; };
 		4604839420FFC8770053AD8E /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4604839320FFC8770053AD8E /* Launch.storyboard */; };
 		4604839820FFCEF00053AD8E /* PageStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4604839720FFCEF00053AD8E /* PageStatusView.swift */; };
-		46195B222108BE6100C20130 /* EnumCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46195B212108BE6100C20130 /* EnumCollection.swift */; };
 		465DC36221075BC600E08287 /* PageStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465DC36121075BC600E08287 /* PageStepper.swift */; };
 		466E8D552100FCE700471998 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466E8D542100FCE700471998 /* ActionButton.swift */; };
 		466E8D592101001F00471998 /* PageViewController+Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466E8D582101001F00471998 /* PageViewController+Settings.swift */; };
@@ -103,7 +102,6 @@
 		4603D77F21061DA200FA0F23 /* PageModificationBulletinPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageModificationBulletinPage.swift; sourceTree = "<group>"; };
 		4604839320FFC8770053AD8E /* Launch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
 		4604839720FFCEF00053AD8E /* PageStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageStatusView.swift; sourceTree = "<group>"; };
-		46195B212108BE6100C20130 /* EnumCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumCollection.swift; sourceTree = "<group>"; };
 		465DC36121075BC600E08287 /* PageStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageStepper.swift; sourceTree = "<group>"; };
 		466E8D542100FCE700471998 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		466E8D582101001F00471998 /* PageViewController+Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PageViewController+Settings.swift"; sourceTree = "<group>"; };
@@ -146,7 +144,6 @@
 			children = (
 				E8F663AA1E9C387D00F601AC /* UINavigationController+Utilities.swift */,
 				46A32DC020FF7BBC003AEAFC /* UIColor+Interpolation.swift */,
-				46195B212108BE6100C20130 /* EnumCollection.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -440,7 +437,6 @@
 				46A32DC320FF7DA8003AEAFC /* GradientViewController.swift in Sources */,
 				46A32DBA20FF7ADC003AEAFC /* Gradients.swift in Sources */,
 				466E8D592101001F00471998 /* PageViewController+Settings.swift in Sources */,
-				46195B222108BE6100C20130 /* EnumCollection.swift in Sources */,
 				46A32DC120FF7BBC003AEAFC /* UIColor+Interpolation.swift in Sources */,
 				46EDC8F7210368B400675EC3 /* SettingsBulletinDataSource.swift in Sources */,
 				4603D78021061DA200FA0F23 /* PageModificationBulletinPage.swift in Sources */,
