@@ -81,45 +81,45 @@ public class PageboyAutoScroller: Any {
     ///
     /// - Parameter duration: The duration that should be spent on each page.
     public func enable(withIntermissionDuration duration: IntermissionDuration? = nil) {
-        guard !self.isEnabled else {
+        guard !isEnabled else {
             return
         }
         
         if let duration = duration {
-            self.intermissionDuration = duration
+            intermissionDuration = duration
         }
         
-        self.isEnabled = true
-        self.createTimer(withDuration: self.intermissionDuration.rawValue)
+        isEnabled = true
+        createTimer(withDuration: intermissionDuration.rawValue)
     }
     
     /// Disable auto scrolling behaviour
     public func disable() {
-        guard self.isEnabled else {
+        guard isEnabled else {
             return
         }
         
-        self.destroyTimer()
-        self.isEnabled = false
+        destroyTimer()
+        isEnabled = false
     }
     
     /// Cancel the current auto scrolling behaviour.
     internal func cancel() {
-        guard self.isEnabled else {
+        guard isEnabled else {
             return
         }
-        self.wasCancelled = true
-        self.disable()
+        wasCancelled = true
+        disable()
     }
     
     /// Restart auto scrolling behaviour if it was previously cancelled.
     internal func restart() {
-        guard self.wasCancelled == true && !self.isEnabled else {
+        guard wasCancelled == true && !isEnabled else {
             return
         }
         
-        self.wasCancelled = nil
-        self.enable()
+        wasCancelled = nil
+        enable()
     }
 
     /// Pause auto scrolling temporarily
@@ -160,39 +160,39 @@ internal extension PageboyAutoScroller {
     ///
     /// - Parameter duration: The duration for the timer.
     func createTimer(withDuration duration: TimeInterval) {
-        guard self.timer == nil else {
+        guard timer == nil else {
             return
         }
         
-        self.timer = Timer.scheduledTimer(timeInterval: duration,
-                                          target: self,
-                                          selector: #selector(timerDidElapse(_:)),
-                                          userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: duration,
+                                     target: self,
+                                     selector: #selector(timerDidElapse(_:)),
+                                     userInfo: nil, repeats: true)
     }
     
     /// Remove auto scrolling timer
     func destroyTimer() {
-        guard self.timer != nil else {
+        guard timer != nil else {
             return
         }
         
-        self.timer?.invalidate()
-        self.timer = nil
+        timer?.invalidate()
+        timer = nil
     }
     
     /// Called when a scroll animation is finished
     func didFinishScrollIfEnabled() {
-        guard self.isScrolling == true else {
+        guard isScrolling == true else {
             return
         }
         
-        self.isScrolling = nil
-        self.delegate?.autoScroller(didFinishScrollAnimation: self)
+        isScrolling = nil
+        delegate?.autoScroller(didFinishScrollAnimation: self)
     }
     
     @objc func timerDidElapse(_ timer: Timer) {
-        self.isScrolling = true
-        self.delegate?.autoScroller(willBeginScrollAnimation: self)
-        self.handler?.autoScroller(didRequestAutoScroll: self, animated: self.animateScroll)
+        isScrolling = true
+        delegate?.autoScroller(willBeginScrollAnimation: self)
+        handler?.autoScroller(didRequestAutoScroll: self, animated: animateScroll)
     }
 }
