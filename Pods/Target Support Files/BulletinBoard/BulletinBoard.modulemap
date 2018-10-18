@@ -1,6 +1,0 @@
-framework module BLTNBoard {
-  umbrella header "BulletinBoard-umbrella.h"
-
-  export *
-  module * { export * }
-}
