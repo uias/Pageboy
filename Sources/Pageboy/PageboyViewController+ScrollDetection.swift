@@ -359,8 +359,8 @@ private extension PageboyViewController {
     ///   - indexDiff: The expected difference between current / target page indexes.
     /// - Returns: The relative page position.
     private func calculatePagePosition(for contentOffset: CGFloat,
-                              pageSize: CGFloat,
-                              indexDiff: CGFloat) -> CGFloat? {
+                                       pageSize: CGFloat,
+                                       indexDiff: CGFloat) -> CGFloat? {
         guard let currentIndex = currentIndex else {
             return nil
         }

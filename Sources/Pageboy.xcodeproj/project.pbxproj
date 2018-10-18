@@ -599,7 +599,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nfi";
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nfi\n";
 		};
 		466C4B572017848E00C3E69C /* Swift Lint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -613,7 +613,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#if which swiftlint >/dev/null; then\n#swiftlint\n#fi\n";
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nfi\n";
 		};
 		D681E3391E54729C007C08F5 /* Increment Build Number */ = {
 			isa = PBXShellScriptBuildPhase;
