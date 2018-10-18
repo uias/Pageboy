@@ -32,47 +32,47 @@ internal extension PageboyViewController.NavigationDirection {
     }
 }
 
-//internal extension NavigationDirection {
-//
-//    static func forPage(_ page: Int,
-//                        previousPage: Int) -> NavigationDirection {
-//        return forPosition(CGFloat(page), previous: CGFloat(previousPage))
-//    }
-//
-//    static func forPosition(_ position: CGFloat,
-//                            previous previousPosition: CGFloat) -> NavigationDirection {
-//        if position == previousPosition {
-//            return .neutral
-//        }
-//        return  position > previousPosition ? .forward : .reverse
-//    }
-//
-//    static func forPageScroll(to newPage: Page,
-//                              at index: Int,
-//                              in pageViewController: PageboyViewController) -> NavigationDirection {
-//        var direction = NavigationDirection.forPage(index, previousPage: pageViewController.currentIndex ?? index)
-//
-//        if pageViewController.isInfiniteScrollEnabled {
-//            switch newPage {
-//            case .next:
-//                direction = .forward
-//            case .previous:
-//                direction = .reverse
-//            default:
-//                break
-//            }
-//        }
-//
-//        return direction
-//    }
-//}
+internal extension NavigationDirection {
 
-//internal extension NavigationDirection {
-//
-//    func layoutNormalized(isRtL: Bool) -> NavigationDirection {
-//        guard isRtL else {
-//            return self
-//        }
-//        return self == .forward ? .reverse : .forward
-//    }
-//}
+    static func forPage(_ page: Int,
+                        previousPage: Int) -> NavigationDirection {
+        return forPosition(CGFloat(page), previous: CGFloat(previousPage))
+    }
+
+    static func forPosition(_ position: CGFloat,
+                            previous previousPosition: CGFloat) -> NavigationDirection {
+        if position == previousPosition {
+            return .neutral
+        }
+        return  position > previousPosition ? .forward : .reverse
+    }
+
+    static func forPageScroll(to newPage: Page,
+                              at index: Int,
+                              in pageViewController: PageboyViewController) -> NavigationDirection {
+        var direction = NavigationDirection.forPage(index, previousPage: pageViewController.currentIndex ?? index)
+
+        if pageViewController.isInfiniteScrollEnabled {
+            switch newPage {
+            case .next:
+                direction = .forward
+            case .previous:
+                direction = .reverse
+            default:
+                break
+            }
+        }
+
+        return direction
+    }
+}
+
+internal extension NavigationDirection {
+
+    func layoutNormalized(isRtL: Bool) -> NavigationDirection {
+        guard isRtL else {
+            return self
+        }
+        return self == .forward ? .reverse : .forward
+    }
+}

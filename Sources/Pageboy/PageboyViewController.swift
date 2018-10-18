@@ -26,17 +26,17 @@ open class PageboyViewController: UIViewController {
 //    internal let childScrollObserver = ScrollObservationService()
 
     /// The orientation that the page view controller transitions on.
-//    public var navigationOrientation: UIPageViewController.NavigationOrientation = .horizontal {
-//        didSet {
-//            reconfigurePageViewController()
-//        }
-//    }
+    public var navigationOrientation: UIPageViewController.NavigationOrientation = .horizontal {
+        didSet {
+            reconfigurePageViewController()
+        }
+    }
     /// The spacing between pages.
-//    public var interPageSpacing: CGFloat = 0.0 {
-//        didSet {
-//            reconfigurePageViewController()
-//        }
-//    }
+    public var interPageSpacing: CGFloat = 0.0 {
+        didSet {
+            reconfigurePageViewController()
+        }
+    }
     
     #if os(iOS)
     
@@ -60,7 +60,7 @@ open class PageboyViewController: UIViewController {
     /// The object that is the data source for the page view controller. (Defaults to self)
     public weak var dataSource: PageboyViewControllerDataSource? {
         didSet {
-//            reloadData()
+            reloadData()
         }
     }
     /// The object that is the delegate for the page view controller.
@@ -114,11 +114,11 @@ open class PageboyViewController: UIViewController {
     /// Whether the page view controller should infinitely scroll at the end of page ranges.
     ///
     /// Default is FALSE.
-//    public var isInfiniteScrollEnabled: Bool = false {
-//        didSet {
-//            reloadCurrentPageSoftly()
-//        }
-//    }
+    public var isInfiniteScrollEnabled: Bool = false {
+        didSet {
+            reloadCurrentPageSoftly()
+        }
+    }
     /// Whether the page view controller is currently animating a scroll between pages.
     private(set) internal var isScrollingAnimated = false {
         didSet {
@@ -169,10 +169,10 @@ open class PageboyViewController: UIViewController {
         return pageViewController?.viewControllers?.last
     }
     /// Whether the page view controller position is currently resting on a page index.
-//    internal var isPositionedOnPageIndex: Bool {
-//        let orientatedCurrentPosition = navigationOrientation == .horizontal ? currentPosition?.x : currentPosition?.y
-//        return orientatedCurrentPosition?.truncatingRemainder(dividingBy: 1) == 0
-//    }
+    internal var isPositionedOnPageIndex: Bool {
+        let orientatedCurrentPosition = navigationOrientation == .horizontal ? currentPosition?.x : currentPosition?.y
+        return orientatedCurrentPosition?.truncatingRemainder(dividingBy: 1) == 0
+    }
     
     /// Auto Scroller for automatic time-based page transitions.
     public let autoScroller = PageboyAutoScroller()
@@ -183,14 +183,14 @@ open class PageboyViewController: UIViewController {
     
     // MARK: Lifecycle
 
-//    open override func viewDidLoad() {
-//        super.viewDidLoad()
-//
-//        autoScroller.handler = self
+    open override func viewDidLoad() {
+        super.viewDidLoad()
+
+        autoScroller.handler = self
 //        childScrollObserver.delegate = self
         
-//        setUpPageViewController()
-//    }
+        setUpPageViewController()
+    }
     
 //    open override func viewWillAppear(_ animated: Bool) {
 //        super.viewWillAppear(animated)

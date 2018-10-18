@@ -38,9 +38,9 @@ internal extension Page {
     ///
     /// - Parameter pageViewController: PageboyViewController which contains page.
     /// - Returns: PageIndex value.
-//    func indexValue(in pageViewController: PageboyViewController) -> PageIndex {
-//        return Page.indexValue(for: self, in: pageViewController)
-//    }
+    func indexValue(in pageViewController: PageboyViewController) -> PageIndex {
+        return Page.indexValue(for: self, in: pageViewController)
+    }
     
     /// Convert a Page to a PageIndex.
     ///
@@ -48,38 +48,38 @@ internal extension Page {
     ///   - page: Page to convert.
     ///   - pageViewController: PageboyViewController which contains page.
     /// - Returns: Converted PageIndex.
-//    static func indexValue(for page: Page,
-//                           in pageViewController: PageboyViewController) -> PageIndex {
-//        switch page {
-//
-//        case .next:
-//            guard let currentIndex = pageViewController.currentIndex else {
-//                return 0
-//            }
-//            var proposedIndex = currentIndex + 1
-//            if pageViewController.isInfiniteScrollEnabled && proposedIndex == pageViewController.pageCount { // scroll back to first index
-//                proposedIndex = 0
-//            }
-//            return proposedIndex
-//
-//        case .previous:
-//            guard let currentIndex = pageViewController.currentIndex else {
-//                return 0
-//            }
-//            var proposedIndex = currentIndex - 1
-//            if pageViewController.isInfiniteScrollEnabled && proposedIndex < 0 { // scroll to last index
-//                proposedIndex = (pageViewController.pageCount ?? 1) - 1
-//            }
-//            return proposedIndex
-//
-//        case .first:
-//            return 0
-//
-//        case .last:
-//            return (pageViewController.pageCount ?? 1) - 1
-//
-//        case .at(let index):
-//            return index
-//        }
-//    }
+    static func indexValue(for page: Page,
+                           in pageViewController: PageboyViewController) -> PageIndex {
+        switch page {
+
+        case .next:
+            guard let currentIndex = pageViewController.currentIndex else {
+                return 0
+            }
+            var proposedIndex = currentIndex + 1
+            if pageViewController.isInfiniteScrollEnabled && proposedIndex == pageViewController.pageCount { // scroll back to first index
+                proposedIndex = 0
+            }
+            return proposedIndex
+
+        case .previous:
+            guard let currentIndex = pageViewController.currentIndex else {
+                return 0
+            }
+            var proposedIndex = currentIndex - 1
+            if pageViewController.isInfiniteScrollEnabled && proposedIndex < 0 { // scroll to last index
+                proposedIndex = (pageViewController.pageCount ?? 1) - 1
+            }
+            return proposedIndex
+
+        case .first:
+            return 0
+
+        case .last:
+            return (pageViewController.pageCount ?? 1) - 1
+
+        case .at(let index):
+            return index
+        }
+    }
 }
