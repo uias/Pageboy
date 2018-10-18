@@ -35,11 +35,11 @@ extension PageboyViewController: UIPageViewControllerDelegate {
                 return
         }
         
-        self.expectedTransitionIndex = index
-        let direction = NavigationDirection.forPage(index, previousPage: self.currentIndex ?? index)
-        self.delegate?.pageboyViewController(self, willScrollToPageAt: index,
-                                             direction: direction,
-                                             animated: animated)
+        expectedTransitionIndex = index
+        let direction = NavigationDirection.forPage(index, previousPage: currentIndex ?? index)
+        delegate?.pageboyViewController(self, willScrollToPageAt: index,
+                                        direction: direction,
+                                        animated: animated)
     }
     
     public func pageViewController(_ pageViewController: UIPageViewController,
@@ -51,11 +51,11 @@ extension PageboyViewController: UIPageViewControllerDelegate {
         
         if let viewController = pageViewController.viewControllers?.first,
             let index = viewControllerMap.index(forObjectAfter: { return $0.object === viewController }) {
-            guard index == self.expectedTransitionIndex else {
+            guard index == expectedTransitionIndex else {
                 return
             }
             
-            self.updateCurrentPageIndexIfNeeded(index)
+            updateCurrentPageIndexIfNeeded(index)
         }
     }
 
@@ -109,23 +109,22 @@ extension PageboyViewController: UIScrollViewDelegate {
         // provide scroll updates
         var positionPoint: CGPoint!
         let direction = NavigationDirection.forPosition(pagePosition, previous: previousPosition)
-        if self.navigationOrientation == .horizontal {
+        if navigationOrientation == .horizontal {
             positionPoint = CGPoint(x: pagePosition, y: scrollView.contentOffset.y)
         } else {
             positionPoint = CGPoint(x: scrollView.contentOffset.x, y: pagePosition)
         }
         
         // ignore duplicate updates
-        guard self.currentPosition != positionPoint else {
+        guard currentPosition != positionPoint else {
             return
         }
-        self.currentPosition = positionPoint
-        self.delegate?.pageboyViewController(self,
-                                             didScrollTo: positionPoint,
-                                             direction: direction,
-                                             animated: self.isScrollingAnimated)
-        
-        self.previousPagePosition = pagePosition
+        currentPosition = positionPoint
+        delegate?.pageboyViewController(self,
+                                        didScrollTo: positionPoint,
+                                        direction: direction,
+                                        animated: isScrollingAnimated)
+        previousPagePosition = pagePosition
     }
     
     public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
@@ -169,7 +168,7 @@ extension PageboyViewController: UIScrollViewDelegate {
         if autoScroller.restartsOnScrollEnd {
             autoScroller.restart()
         }
-        self.expectedTransitionIndex = nil
+        expectedTransitionIndex = nil
     }
 }
 
@@ -184,11 +183,11 @@ private extension PageboyViewController {
     /// - Returns: New page position & previous page position.
     private func calculateNewPagePosition(in scrollView: UIScrollView, currentIndex: PageIndex) -> (CGFloat, CGFloat)? {
         let (pageSize, contentOffset) = calculateRelativePageSizeAndContentOffset(for: scrollView)
-        guard let scrollIndexDiff = self.pageScrollIndexDiff(forCurrentIndex: currentIndex,
-                                                             expectedIndex: self.expectedTransitionIndex,
-                                                             currentContentOffset: contentOffset,
-                                                             pageSize: pageSize) else {
-                                                                return nil
+        guard let scrollIndexDiff = pageScrollIndexDiff(forCurrentIndex: currentIndex,
+                                                        expectedIndex: expectedTransitionIndex,
+                                                        currentContentOffset: contentOffset,
+                                                        pageSize: pageSize) else {
+                                                            return nil
         }
         
         guard let pagePosition = calculatePagePosition(for: contentOffset,
@@ -236,11 +235,11 @@ private extension PageboyViewController {
     /// - Parameter pagePosition: the current page position.
     /// - Returns: The updated page position (if needed).
     private func adjustedPagePositionForInfiniteOverscroll(from pagePosition: CGFloat) -> CGFloat? {
-        guard self.isInfinitelyScrolling(forPosition: pagePosition) else {
+        guard isInfinitelyScrolling(forPosition: pagePosition) else {
             return nil
         }
         
-        let maxPagePosition = CGFloat((self.viewControllerCount ?? 1) - 1)
+        let maxPagePosition = CGFloat((viewControllerCount ?? 1) - 1)
         var integral: Double = 0.0
         var progress = CGFloat(modf(fabs(Double(pagePosition)), &integral))
         var maxInfinitePosition: CGFloat!
@@ -264,10 +263,10 @@ private extension PageboyViewController {
     /// - Parameter pagePosition: The position.
     /// - Returns: Whether the position is infinitely scrolling.
     private func isInfinitelyScrolling(forPosition pagePosition: CGFloat) -> Bool {
-        let maxPagePosition = CGFloat((self.viewControllerCount ?? 1) - 1)
-        let overscrolling = pagePosition < 0.0 || pagePosition > maxPagePosition
+        let maxPagePosition = CGFloat((viewControllerCount ?? 1) - 1)
+        let isOverscrolling = pagePosition < 0.0 || pagePosition > maxPagePosition
         
-        guard self.isInfiniteScrollEnabled && overscrolling else {
+        guard isInfiniteScrollEnabled && isOverscrolling else {
             return false
         }
         return true
@@ -286,13 +285,13 @@ private extension PageboyViewController {
         }
         
         // Handle scenario where user continues to pan past a single page range.
-        let isPagingForward = pagePosition > self.previousPagePosition ?? 0.0
+        let isPagingForward = pagePosition > previousPagePosition ?? 0.0
         if scrollView.isTracking {
             if isPagingForward && pagePosition >= CGFloat(currentIndex + 1) {
-                self.updateCurrentPageIndexIfNeeded(currentIndex + 1)
+                updateCurrentPageIndexIfNeeded(currentIndex + 1)
                 return true
             } else if !isPagingForward && pagePosition <= CGFloat(currentIndex - 1) {
-                self.updateCurrentPageIndexIfNeeded(currentIndex - 1)
+                updateCurrentPageIndexIfNeeded(currentIndex - 1)
                 return true
             }
         }
@@ -318,11 +317,11 @@ private extension PageboyViewController {
     /// - Returns: Whether the page index was updated.
     @discardableResult
     private func updateCurrentPageIndexIfNeeded(_ index: Int) -> Bool {
-        guard self.currentIndex != index, index >= 0 &&
+        guard currentIndex != index, index >= 0 &&
             index < self.viewControllerCount ?? 0 else {
                 return false
         }
-        self.currentIndex = index
+        currentIndex = index
         return true
     }
     
@@ -344,11 +343,11 @@ private extension PageboyViewController {
         
         let expectedIndex = expectedIndex ?? index
         let expectedDiff = CGFloat(max(1, abs(expectedIndex - index)))
-        let expectedPosition = self.calculatePagePosition(for: currentContentOffset,
-                                                 pageSize: pageSize,
-                                                 indexDiff: expectedDiff) ?? CGFloat(index)
+        let expectedPosition = calculatePagePosition(for: currentContentOffset,
+                                                     pageSize: pageSize,
+                                                     indexDiff: expectedDiff) ?? CGFloat(index)
         
-        guard self.isInfinitelyScrolling(forPosition: expectedPosition) == false else {
+        guard !isInfinitelyScrolling(forPosition: expectedPosition) else {
             return 1
         }
         return expectedDiff
@@ -379,15 +378,15 @@ private extension PageboyViewController {
     /// - Parameter scrollView: The scroll view.
     /// - Returns: Whether the contentOffset was manipulated to achieve bouncing preference.
     @discardableResult private func updateContentOffsetForBounceIfNeeded(scrollView: UIScrollView) -> Bool {
-        guard self.bounces == false else {
+        guard bounces == false else {
             return false
         }
         
         let previousContentOffset = scrollView.contentOffset
-        if self.currentIndex == 0 && scrollView.contentOffset.x < scrollView.bounds.size.width {
+        if currentIndex == 0 && scrollView.contentOffset.x < scrollView.bounds.size.width {
             scrollView.contentOffset = CGPoint(x: scrollView.bounds.size.width, y: 0.0)
         }
-        if self.currentIndex == (self.viewControllerCount ?? 1) - 1 && scrollView.contentOffset.x > scrollView.bounds.size.width {
+        if currentIndex == (viewControllerCount ?? 1) - 1 && scrollView.contentOffset.x > scrollView.bounds.size.width {
             scrollView.contentOffset = CGPoint(x: scrollView.bounds.size.width, y: 0.0)
         }
         return previousContentOffset != scrollView.contentOffset
