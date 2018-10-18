@@ -14,8 +14,8 @@ extension PageboyViewController: ScrollObservationServiceDelegate {
                                   didObserveOffsetChangeFor viewController: UIViewController,
                                   on scrollView: UIScrollView,
                                   contentOffset: CGPoint) {
-        if #available(iOS 11, *) {
-            invisibleScrollView?.contentOffset = contentOffset
-        }
+//        if #available(iOS 11, *) {
+//            invisibleScrollView?.contentOffset = contentOffset
+//        }
     }
 }

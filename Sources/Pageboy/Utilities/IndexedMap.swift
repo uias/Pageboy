@@ -13,7 +13,7 @@ internal class IndexedMap<T> {
     typealias Index = Int
     typealias ObjectFindOperation = (T) -> Bool
     
-    private(set) var objects: [Index: T] = [:]
+    private(set) lazy var objects: [Index: T] = [:]
     
     func set(object: T, for index: Index) {
         objects[index] = object

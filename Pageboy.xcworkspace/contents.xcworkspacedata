@@ -5,6 +5,9 @@
       location = "group:Example/Pageboy-Example.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:LiteDemo/PageboyLiteDemo.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Sources/Pageboy.xcodeproj">
    </FileRef>
    <FileRef

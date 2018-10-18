@@ -16,3 +16,14 @@ internal class WeakWrapper<T: AnyObject> {
         self.object = object
     }
 }
+
+extension WeakWrapper: Equatable, Hashable {
+    
+    static func == (lhs: WeakWrapper, rhs: WeakWrapper) -> Bool {
+        return lhs.object === rhs.object
+    }
+    
+    var hashValue: Int {
+        return 0
+    }
+}
