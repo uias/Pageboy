@@ -81,50 +81,34 @@ extension PageboyViewController: UIPageViewControllerDelegate {
 extension PageboyViewController: UIScrollViewDelegate {
     
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard scrollViewIsActual(scrollView) else {
+        guard let currentIndex = self.currentIndex, scrollViewIsActual(scrollView) else {
             return
         }
         guard updateContentOffsetForBounceIfNeeded(scrollView: scrollView) == false else {
             return
         }
         
-        guard let currentIndex = self.currentIndex else {
+        guard let (newPosition, previousPosition) = calculateNewPagePosition(in: scrollView, currentIndex: currentIndex) else {
             return
         }
-        
-        let previousPagePosition = self.previousPagePosition ?? 0.0
-        let (pageSize, contentOffset) = calculateRelativePageSizeAndContentOffset(for: scrollView)
-        
-        guard let scrollIndexDiff = self.pageScrollIndexDiff(forCurrentIndex: currentIndex,
-                                                             expectedIndex: self.expectedTransitionIndex,
-                                                             currentContentOffset: contentOffset,
-                                                             pageSize: pageSize) else {
-                                                                return
-        }
-        guard var pagePosition = calculatePagePosition(for: contentOffset,
-                                               pageSize: pageSize,
-                                               indexDiff: scrollIndexDiff) else {
-                                                return
-        }
-        
         // do not continue if a page change is detected
-        let didDetectNewPage = detectNewPageIndexIfNeeded(pagePosition: pagePosition,
+        let didDetectNewPage = detectNewPageIndexIfNeeded(pagePosition: newPosition,
                                                           scrollView: scrollView)
         guard !didDetectNewPage else {
             return
         }
         
-        // do not continue if previous position equals current
-        if previousPagePosition == pagePosition {
-            return
+        // update page position for infinite overscroll if required
+        let pagePosition: CGFloat
+        if let infiniteAdjustedPosition = adjustedPagePositionForInfiniteOverscroll(from: newPosition) {
+            pagePosition = infiniteAdjustedPosition
+        } else {
+            pagePosition = newPosition
         }
-        
-        // update relative page position for infinite overscroll if required
-        detectInfiniteOverscrollIfNeeded(pagePosition: &pagePosition)
         
         // provide scroll updates
         var positionPoint: CGPoint!
-        let direction = NavigationDirection.forPosition(pagePosition, previous: previousPagePosition)
+        let direction = NavigationDirection.forPosition(pagePosition, previous: previousPosition)
         if self.navigationOrientation == .horizontal {
             positionPoint = CGPoint(x: pagePosition, y: scrollView.contentOffset.y)
         } else {
@@ -192,6 +176,36 @@ extension PageboyViewController: UIScrollViewDelegate {
 // MARK: - Calculations
 private extension PageboyViewController {
     
+    /// Calculate the new page position for a scroll view at its current offset.
+    ///
+    /// - Parameters:
+    ///   - scrollView: Scroll view.
+    ///   - currentIndex: Known current page index.
+    /// - Returns: New page position & previous page position.
+    private func calculateNewPagePosition(in scrollView: UIScrollView, currentIndex: PageIndex) -> (CGFloat, CGFloat)? {
+        let (pageSize, contentOffset) = calculateRelativePageSizeAndContentOffset(for: scrollView)
+        guard let scrollIndexDiff = self.pageScrollIndexDiff(forCurrentIndex: currentIndex,
+                                                             expectedIndex: self.expectedTransitionIndex,
+                                                             currentContentOffset: contentOffset,
+                                                             pageSize: pageSize) else {
+                                                                return nil
+        }
+        
+        guard let pagePosition = calculatePagePosition(for: contentOffset,
+                                                       pageSize: pageSize,
+                                                       indexDiff: scrollIndexDiff) else {
+                                                        return nil
+        }
+        
+        // Return nil if previous position equals current
+        let previousPagePosition = self.previousPagePosition ?? 0.0
+        guard pagePosition != previousPagePosition else {
+            return nil
+        }
+        
+        return (pagePosition, previousPagePosition)
+    }
+    
     /// Calculate the relative page size and content offset for a scroll view at its current position.
     ///
     /// - Parameter scrollView: Scroll View
@@ -218,12 +232,12 @@ private extension PageboyViewController {
     }
     
     /// Detect whether the scroll view is overscrolling while infinite scroll is enabled
-    /// Adjusts pagePosition if required.
     ///
-    /// - Parameter pagePosition: the relative page position.
-    private func detectInfiniteOverscrollIfNeeded(pagePosition: inout CGFloat) {
+    /// - Parameter pagePosition: the current page position.
+    /// - Returns: The updated page position (if needed).
+    private func adjustedPagePositionForInfiniteOverscroll(from pagePosition: CGFloat) -> CGFloat? {
         guard self.isInfinitelyScrolling(forPosition: pagePosition) else {
-            return
+            return nil
         }
         
         let maxPagePosition = CGFloat((self.viewControllerCount ?? 1) - 1)
@@ -242,7 +256,7 @@ private extension PageboyViewController {
             infinitePagePosition = maxInfinitePosition
         }
         
-        pagePosition = infinitePagePosition
+        return infinitePagePosition
     }
     
     /// Whether a position is infinitely scrolling between end ranges
