@@ -130,11 +130,11 @@ open class PageboyViewController: UIViewController {
 
     /// Custom transition to use when animating scrolls between pages.
     /// Setting this to `nil` will revert to using the standard UIPageViewController animation.
-//    public var transition: Transition?
+    public var transition: Transition?
     /// The display link for transitioning.
-//    internal var transitionDisplayLink: CADisplayLink?
+    internal var transitionDisplayLink: CADisplayLink?
     /// The active transition operation.
-//    internal var activeTransitionOperation: TransitionOperation?
+    internal var activeTransitionOperation: TransitionOperation?
     
     /// The number of view controllers in the page view controller.
     internal var viewControllerCount: Int?

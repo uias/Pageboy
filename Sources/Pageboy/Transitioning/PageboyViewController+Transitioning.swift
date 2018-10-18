@@ -12,7 +12,7 @@ import UIKit
 public extension PageboyViewController {
     
     /// Transition for a page scroll.
-    public struct Transition {
+    public final class Transition {
         
         /// Style for the transition.
         ///
@@ -31,12 +31,6 @@ public extension PageboyViewController {
         public let style: Style
         /// The duration of the transition.
         public let duration: TimeInterval
-        
-        /// Default transition (Push, 0.3 second duration).
-        @available(*, obsoleted: 2.4.0, message:"To use the default transition, set PageboyViewController.transition to `nil`")
-        public static var `default`: Transition {
-            return Transition(style: .push, duration: 0.3)
-        }
         
         // MARK: Init
         
@@ -57,27 +51,27 @@ internal extension PageboyViewController {
     
     // MARK: Set Up
     
-//    fileprivate func prepareForTransition() {
-//        guard transitionDisplayLink == nil else {
-//            return
-//        }
-//
-//        let displayLink = CADisplayLink(target: self, selector: #selector(displayLinkDidTick))
-//        displayLink.isPaused = true
-//        displayLink.add(to: .main, forMode: .common)
-//        transitionDisplayLink = displayLink
-//    }
+    private func prepareForTransition() {
+        guard transitionDisplayLink == nil else {
+            return
+        }
+
+        let displayLink = CADisplayLink(target: self, selector: #selector(displayLinkDidTick))
+        displayLink.isPaused = true
+        displayLink.add(to: .main, forMode: .common)
+        transitionDisplayLink = displayLink
+    }
     
-//    fileprivate func clearUpAfterTransition() {
-//        transitionDisplayLink?.invalidate()
-//        transitionDisplayLink = nil
-//    }
+    private func clearUpAfterTransition() {
+        transitionDisplayLink?.invalidate()
+        transitionDisplayLink = nil
+    }
     
     // MARK: Animation
     
-//    @objc func displayLinkDidTick() {
-//        self.activeTransitionOperation?.tick()
-//    }
+    @objc func displayLinkDidTick() {
+        self.activeTransitionOperation?.tick()
+    }
     
     /// Perform a transition to a new page index.
     ///
@@ -87,81 +81,81 @@ internal extension PageboyViewController {
     ///   - direction: The direction of travel.
     ///   - animated: Whether to animate the transition.
     ///   - completion: Action on the completion of the transition.
-//    internal func performTransition(from startIndex: Int,
-//                                    to endIndex: Int,
-//                                    with direction: NavigationDirection,
-//                                    animated: Bool,
-//                                    completion: @escaping TransitionOperation.Completion) {
-//        guard let transition = transition, animated == true, activeTransitionOperation == nil else {
-//                completion(false)
-//                return
-//        }
-//        guard let scrollView = pageViewController?.scrollView else {
-//            fatalError("Can't find UIPageViewController scroll view")
-//        }
-//
-//        prepareForTransition()
-//
-//        /// Calculate semantic direction for RtL languages
-//        var semanticDirection = direction
-//        if view.layoutIsRightToLeft && navigationOrientation == .horizontal {
-//            semanticDirection = direction.layoutNormalized(isRtL: view.layoutIsRightToLeft)
-//        }
-//
-//        // create a transition and unpause display link
-//        let action = TransitionOperation.Action(startIndex: startIndex,
-//                                                endIndex: endIndex,
-//                                                direction: direction,
-//                                                semanticDirection: semanticDirection,
-//                                                orientation: navigationOrientation)
-//        activeTransitionOperation = TransitionOperation(for: transition,
-//                                                        action: action,
-//                                                        delegate: self)
-//        transitionDisplayLink?.isPaused = false
-//
-//        // start transition
-//        activeTransitionOperation?.start(on: scrollView.layer,
-//                                         completion: completion)
-//    }
+    internal func performTransition(from startIndex: Int,
+                                    to endIndex: Int,
+                                    with direction: NavigationDirection,
+                                    animated: Bool,
+                                    completion: @escaping TransitionOperation.Completion) {
+        guard let transition = transition, animated == true, activeTransitionOperation == nil else {
+                completion(false)
+                return
+        }
+        guard let scrollView = pageViewController?.scrollView else {
+            fatalError("Can't find UIPageViewController scroll view")
+        }
+
+        prepareForTransition()
+
+        /// Calculate semantic direction for RtL languages
+        var semanticDirection = direction
+        if view.layoutIsRightToLeft && navigationOrientation == .horizontal {
+            semanticDirection = direction.layoutNormalized(isRtL: view.layoutIsRightToLeft)
+        }
+
+        // create a transition and unpause display link
+        let action = TransitionOperation.Action(startIndex: startIndex,
+                                                endIndex: endIndex,
+                                                direction: direction,
+                                                semanticDirection: semanticDirection,
+                                                orientation: navigationOrientation)
+        activeTransitionOperation = TransitionOperation(for: transition,
+                                                        action: action,
+                                                        delegate: self)
+        transitionDisplayLink?.isPaused = false
+
+        // start transition
+        activeTransitionOperation?.start(on: scrollView.layer,
+                                         completion: completion)
+    }
 }
 
 extension PageboyViewController: TransitionOperationDelegate {
     
     func transitionOperation(_ operation: TransitionOperation,
                              didFinish finished: Bool) {
-//        transitionDisplayLink?.isPaused = true
-//        activeTransitionOperation = nil
-//
-//        clearUpAfterTransition()
+        transitionDisplayLink?.isPaused = true
+        activeTransitionOperation = nil
+
+        clearUpAfterTransition()
     }
     
     func transitionOperation(_ operation: TransitionOperation,
                              didUpdateWith percentComplete: CGFloat) {
-//
-//        let isReverse = operation.action.direction == .reverse
-//        let isVertical = operation.action.orientation == .vertical
-//
-//        /// Take into account the diff between startIndex and endIndex
-//        let indexDiff = abs(operation.action.endIndex - operation.action.startIndex)
-//        let diff = percentComplete * CGFloat(indexDiff)
-//
-//        let index = CGFloat(currentIndex ?? 0)
-//        let position = isReverse ? index - diff : index + diff
-//        let point = CGPoint(x: isVertical ? 0.0 : position,
-//                            y: isVertical ? position : 0.0)
-//
-//        currentPosition = point
-//        delegate?.pageboyViewController(self, didScrollTo: point,
-//                                             direction: operation.action.direction,
-//                                             animated: true)
-//        previousPagePosition = position
+
+        let isReverse = operation.action.direction == .reverse
+        let isVertical = operation.action.orientation == .vertical
+
+        /// Take into account the diff between startIndex and endIndex
+        let indexDiff = abs(operation.action.endIndex - operation.action.startIndex)
+        let diff = percentComplete * CGFloat(indexDiff)
+
+        let index = CGFloat(currentIndex ?? 0)
+        let position = isReverse ? index - diff : index + diff
+        let point = CGPoint(x: isVertical ? 0.0 : position,
+                            y: isVertical ? position : 0.0)
+
+        currentPosition = point
+        delegate?.pageboyViewController(self, didScrollTo: point,
+                                             direction: operation.action.direction,
+                                             animated: true)
+        previousPagePosition = position
     }
 }
 
 internal extension PageboyViewController.Transition {
     
-//    func configure(transition: inout CATransition) {
-//        transition.duration = duration
-//        transition.type = CATransitionType(rawValue: style.rawValue)
-//    }
+    func configure(transition: inout CATransition) {
+        transition.duration = duration
+        transition.type = CATransitionType(rawValue: style.rawValue)
+    }
 }
