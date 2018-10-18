@@ -60,7 +60,7 @@ open class PageboyViewController: UIViewController {
     /// The object that is the data source for the page view controller. (Defaults to self)
     public weak var dataSource: PageboyViewControllerDataSource? {
         didSet {
-            self.reloadData()
+            reloadData()
         }
     }
     /// The object that is the delegate for the page view controller.
@@ -70,7 +70,7 @@ open class PageboyViewController: UIViewController {
     // default is YES. if NO, we immediately call -touchesShouldBegin:withEvent:inContentView:. this has no effect on presses
     public var delaysContentTouches: Bool = true {
         didSet {
-            self.pageViewController?.scrollView?.delaysContentTouches = delaysContentTouches
+            pageViewController?.scrollView?.delaysContentTouches = delaysContentTouches
         }
     }
     /// default YES. if YES, bounces past edge of content and back again.
@@ -79,28 +79,28 @@ open class PageboyViewController: UIViewController {
     // If 'UIPageViewControllerSpineLocationMid' is set, 'doubleSided' is set to 'YES'. Setting 'NO' when spine location is mid results in an exception.
     public var isDoubleSided: Bool = false {
         didSet {
-            self.pageViewController?.isDoubleSided = isDoubleSided
+            pageViewController?.isDoubleSided = isDoubleSided
         }
     }
     
     /// Whether the page view controller is currently being touched.
     public var isTracking: Bool {
-        return self.pageViewController?.scrollView?.isTracking ?? false
+        return pageViewController?.scrollView?.isTracking ?? false
     }
     /// Whether the page view controller is currently being dragged.
     public var isDragging: Bool {
-            return self.pageViewController?.scrollView?.isDragging ?? false
+            return pageViewController?.scrollView?.isDragging ?? false
     }
     // Wether the user isn't dragging (touch up) but page view controller is still moving.
     public var isDecelerating: Bool {
-        return self.pageViewController?.scrollView?.isDecelerating ?? false
+        return pageViewController?.scrollView?.isDecelerating ?? false
     }
     /// Whether user interaction is enabled on the page view controller.
     ///
     /// Default is TRUE
     public var isUserInteractionEnabled: Bool = true {
         didSet {
-            self.pageViewController?.scrollView?.isUserInteractionEnabled = isUserInteractionEnabled
+            pageViewController?.scrollView?.isUserInteractionEnabled = isUserInteractionEnabled
         }
     }
     /// Whether scroll is enabled on the page view controller.
@@ -108,7 +108,7 @@ open class PageboyViewController: UIViewController {
     /// Default is TRUE.
     public var isScrollEnabled: Bool = true {
         didSet {
-            self.pageViewController?.scrollView?.isScrollEnabled = isScrollEnabled
+            pageViewController?.scrollView?.isScrollEnabled = isScrollEnabled
         }
     }
     /// Whether the page view controller should infinitely scroll at the end of page ranges.
@@ -116,13 +116,13 @@ open class PageboyViewController: UIViewController {
     /// Default is FALSE.
     public var isInfiniteScrollEnabled: Bool = false {
         didSet {
-            self.reloadCurrentPageSoftly()
+            reloadCurrentPageSoftly()
         }
     }
     /// Whether the page view controller is currently animating a scroll between pages.
     private(set) internal var isScrollingAnimated = false {
         didSet {
-            self.isUserInteractionEnabled = !self.isScrollingAnimated
+            isUserInteractionEnabled = !isScrollingAnimated
         }
     }
     /// Whether the view controllers in the page view controller are currently updating.
@@ -151,7 +151,7 @@ open class PageboyViewController: UIViewController {
     /// The page index that the page view controller is currently at.
     public internal(set) var currentIndex: PageIndex? {
         didSet {
-            self.targetIndex = currentIndex
+            targetIndex = currentIndex
             guard let currentIndex = self.currentIndex else {
                 return
             }
@@ -166,7 +166,7 @@ open class PageboyViewController: UIViewController {
             viewControllerCount ?? 0 > currentIndex else {
                 return nil
         }
-        return self.pageViewController?.viewControllers?.last
+        return pageViewController?.viewControllers?.last
     }
     /// Whether the page view controller position is currently resting on a page index.
     internal var isPositionedOnPageIndex: Bool {
@@ -224,7 +224,7 @@ open class PageboyViewController: UIViewController {
         super.viewWillTransition(to: size, with: coordinator)
         
         // ignore scroll updates during orientation change
-        self.pageViewController?.scrollView?.delegate = nil
+        pageViewController?.scrollView?.delegate = nil
         coordinator.animate(alongsideTransition: nil) { (_) in
             self.pageViewController?.scrollView?.delegate = self
         }
@@ -248,7 +248,7 @@ open class PageboyViewController: UIViewController {
             return
         }
         
-        self.viewControllerCount = newPageCount
+        viewControllerCount = newPageCount
         viewControllerMap.clear()
         
         performUpdates(for: index,
@@ -281,7 +281,7 @@ open class PageboyViewController: UIViewController {
             return
         }
         
-        self.viewControllerCount = newPageCount
+        viewControllerCount = newPageCount
         viewControllerMap.clear()
         
         performUpdates(for: sanitizedIndex,
@@ -342,30 +342,32 @@ public extension PageboyViewController {
                                         willTransitionTo: [viewController],
                                         animated: animated)
                 
-                self.isScrollingAnimated = animated
+                isScrollingAnimated = animated
                 let direction = NavigationDirection.forPageScroll(to: page, at: rawIndex, in: self)
                 
-                let transitionCompletion: TransitionOperation.Completion = { (finished) in
+                let transitionCompletion: TransitionOperation.Completion = { [weak self] (finished) in
                     if finished {
-                        let isVertical = self.navigationOrientation == .vertical
+                        let isVertical = self?.navigationOrientation == .vertical
                         let currentPosition = CGPoint(x: isVertical ? 0.0 : CGFloat(rawIndex),
                                                       y: isVertical ? CGFloat(rawIndex) : 0.0)
-                        self.currentPosition = currentPosition
-                        self.currentIndex = rawIndex
+                        self?.currentPosition = currentPosition
+                        self?.currentIndex = rawIndex
                         
                         // if not animated call position delegate update manually
                         if !animated {
-                            self.delegate?.pageboyViewController(self,
-                                                                 didScrollTo: currentPosition,
-                                                                 direction: direction,
-                                                                 animated: animated)
-                            self.expectedTransitionIndex = nil
+                            if let self = self {
+                                self.delegate?.pageboyViewController(self,
+                                                                     didScrollTo: currentPosition,
+                                                                     direction: direction,
+                                                                     animated: animated)
+                            }
+                            self?.expectedTransitionIndex = nil
                         }
                     }
                     
-                    self.autoScroller.didFinishScrollIfEnabled()
+                    self?.autoScroller.didFinishScrollIfEnabled()
                     completion?(viewController, animated, finished)
-                    self.isScrollingAnimated = false
+                    self?.isScrollingAnimated = false
                 }
                 
                 updateViewControllers(to: [viewController],
@@ -383,7 +385,7 @@ public extension PageboyViewController {
                 guard let viewController = viewController(at: rawIndex) else {
                     return false
                 }
-                self.autoScroller.didFinishScrollIfEnabled()
+                autoScroller.didFinishScrollIfEnabled()
                 completion?(viewController, animated, false)
                 
                 return false
@@ -402,11 +404,11 @@ public extension PageboyViewController {
         
         // guard against any active interactive scrolling
         guard pageViewController.scrollView?.isProbablyActiveInScroll == false &&
-            self.isPositionedOnPageIndex else {
+            isPositionedOnPageIndex else {
                 return false
         }
         // guard against any current transition operation
-        guard self.isScrollingAnimated == false else {
+        guard isScrollingAnimated == false else {
             return false
         }
         
@@ -422,13 +424,13 @@ public extension PageboyViewController {
         #endif
         
         // ensure position keeps in sync
-        self.currentPosition = CGPoint(x: self.navigationOrientation == .horizontal ? CGFloat(currentIndex) : 0.0,
-                                       y: self.navigationOrientation == .vertical ? CGFloat(currentIndex) : 0.0)
+        self.currentPosition = CGPoint(x: navigationOrientation == .horizontal ? CGFloat(currentIndex) : 0.0,
+                                       y: navigationOrientation == .vertical ? CGFloat(currentIndex) : 0.0)
         let direction = NavigationDirection.forPosition(CGFloat(currentIndex),
                                                         previous: CGFloat(oldIndex ?? currentIndex))
-        self.delegate?.pageboyViewController(self,
-                                             didScrollToPageAt: currentIndex,
-                                             direction: direction,
-                                             animated: self.isScrollingAnimated)
+        delegate?.pageboyViewController(self,
+                                        didScrollToPageAt: currentIndex,
+                                        direction: direction,
+                                        animated: isScrollingAnimated)
     }
 }
