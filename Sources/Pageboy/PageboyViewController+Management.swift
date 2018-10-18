@@ -150,17 +150,17 @@ internal extension PageboyViewController {
     ///
     /// - Parameter reloadViewControllers: Reload the view controllers data source for the PageboyViewController.
     internal func setUpPageViewController(reloadViewControllers: Bool = true) {
-        var existingZIndex: Int?
+        let existingZIndex: Int?
         if let pageViewController = self.pageViewController { // destroy existing page VC
-            existingZIndex = self.view.subviews.index(of: pageViewController.view)
-            self.pageViewController?.view.removeFromSuperview()
-            self.pageViewController?.removeFromParent()
-            self.pageViewController = nil
+            existingZIndex = view.subviews.index(of: pageViewController.view)
+            destroyCurrentPageViewController()
+        } else {
+            existingZIndex = nil
         }
         
         let pageViewController = UIPageViewController(transitionStyle: .scroll,
-                                                      navigationOrientation: self.navigationOrientation,
-                                                      options: convertToOptionalUIPageViewControllerOptionsKeyDictionary(self.pageViewControllerOptions))
+                                                      navigationOrientation: navigationOrientation,
+                                                      options: convertToOptionalUIPageViewControllerOptionsKeyDictionary(pageViewControllerOptions))
         pageViewController.delegate = self
         pageViewController.dataSource = self
         self.pageViewController = pageViewController
@@ -176,7 +176,7 @@ internal extension PageboyViewController {
         pageViewController.didMove(toParent: self)
       
         // Add hidden scroll view that will be used to interact with navigation bar large titles.
-        let invisibleScrollView = ParentMatchedScrollView.matching(parent: self.view)
+        let invisibleScrollView = ParentMatchedScrollView.matching(parent: view)
         view.addSubview(invisibleScrollView)
         view.sendSubviewToBack(invisibleScrollView)
         self.invisibleScrollView = invisibleScrollView
@@ -187,23 +187,29 @@ internal extension PageboyViewController {
         pageViewController.scrollView?.isScrollEnabled = isScrollEnabled
         pageViewController.scrollView?.isUserInteractionEnabled = isUserInteractionEnabled
         
-        self.reloadData(reloadViewControllers: reloadViewControllers)
+        reloadData(reloadViewControllers: reloadViewControllers)
+    }
+    
+    private func destroyCurrentPageViewController() {
+        pageViewController?.view.removeFromSuperview()
+        pageViewController?.removeFromParent()
+        pageViewController = nil
     }
     
     /// Re-initialize the internal UIPageViewController instance without reloading data source if it currently exists.
     internal func reconfigurePageViewController() {
-        guard self.pageViewController != nil else {
+        guard pageViewController != nil else {
             return
         }
-        self.setUpPageViewController(reloadViewControllers: false)
+        setUpPageViewController(reloadViewControllers: false)
     }
     
     /// The options to be passed to a UIPageViewController instance.
     internal var pageViewControllerOptions: [String: Any]? {
         var options = [String: Any]()
         
-        if self.interPageSpacing > 0.0 {
-            options[convertFromUIPageViewControllerOptionsKey(UIPageViewController.OptionsKey.interPageSpacing)] = self.interPageSpacing
+        if interPageSpacing > 0.0 {
+            options[convertFromUIPageViewControllerOptionsKey(UIPageViewController.OptionsKey.interPageSpacing)] = interPageSpacing
         }
         
         guard options.count > 0 else {
@@ -222,10 +228,10 @@ extension PageboyViewController: UIPageViewControllerDataSource {
             return nil
         }
 
-        if let index = self.currentIndex {
+        if let index = currentIndex {
             if index != 0 {
                 return self.viewController(at: index - 1)
-            } else if self.isInfiniteScrollEnabled {
+            } else if isInfiniteScrollEnabled {
                 return self.viewController(at: viewControllerCount - 1)
             }
         }
@@ -238,10 +244,10 @@ extension PageboyViewController: UIPageViewControllerDataSource {
             return nil
         }
         
-        if let index = self.currentIndex {
+        if let index = currentIndex {
             if index != viewControllerCount - 1 {
                 return self.viewController(at: index + 1)
-            } else if self.isInfiniteScrollEnabled {
+            } else if isInfiniteScrollEnabled {
                 return self.viewController(at: 0)
             }
         }
