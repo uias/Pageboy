@@ -20,10 +20,10 @@ open class PageboyViewController: UIViewController {
     
     internal var pageViewController: UIPageViewController?
     /// An invisible scroll view used for silently influencing navigation bar titles.
-//    internal var invisibleScrollView: UIScrollView?
+    internal var invisibleScrollView: UIScrollView?
     internal var previousPagePosition: CGFloat?
     internal var expectedTransitionIndex: PageIndex?
-//    internal let childScrollObserver = ScrollObservationService()
+    internal let childScrollObserver = ScrollObservationService()
 
     /// The orientation that the page view controller transitions on.
     public var navigationOrientation: UIPageViewController.NavigationOrientation = .horizontal {
@@ -187,7 +187,7 @@ open class PageboyViewController: UIViewController {
         super.viewDidLoad()
 
         autoScroller.handler = self
-//        childScrollObserver.delegate = self
+        childScrollObserver.delegate = self
         
         setUpPageViewController()
     }
@@ -328,7 +328,6 @@ public extension PageboyViewController {
                                animated: Bool,
                                force: Bool,
                                completion: PageScrollCompletion? = nil) -> Bool {
-        return false
         guard let pageViewController = pageViewController, isSafeToScrollToANewPage(ignoringPosition: force) else {
             return false
         }
