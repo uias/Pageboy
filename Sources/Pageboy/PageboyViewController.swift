@@ -254,10 +254,10 @@ open class PageboyViewController: UIViewController {
         performUpdates(for: index,
                         viewController: newViewController,
                         updateBehavior: updateBehavior,
-                        indexOperation: { (currentIndex, newIndex) in
+                        indexOperation: { (index, newIndex) in
                         
-                        if currentIndex > newIndex {
-                            self.currentIndex = currentIndex + 1
+                        if index > newIndex {
+                            currentIndex = index + 1
                         }
         })
     })
@@ -287,10 +287,10 @@ open class PageboyViewController: UIViewController {
         performUpdates(for: sanitizedIndex,
                         viewController: newViewController,
                         updateBehavior: updateBehavior,
-                        indexOperation: { (currentIndex, newIndex) in
+                        indexOperation: { (index, newIndex) in
                         
-                        if currentIndex > newIndex {
-                            self.currentIndex = currentIndex - 1
+                        if index > newIndex {
+                            currentIndex = index - 1
                         }
         })
     })
