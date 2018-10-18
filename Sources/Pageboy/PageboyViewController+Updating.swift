@@ -34,12 +34,12 @@ internal extension PageboyViewController {
         }
         
         if newIndex == currentIndex {
-            pageViewController?.view.crossDissolve(during: {
-                self.updateViewControllers(to: [viewController],
-                                           animated: false,
-                                           async: true,
-                                           force: false,
-                                           completion: nil)
+            pageViewController?.view.crossDissolve(during: { [weak self] in
+                self?.updateViewControllers(to: [viewController],
+                                            animated: false,
+                                            async: true,
+                                            force: false,
+                                            completion: nil)
             })
         } else {
             indexOperation(currentIndex, newIndex)
@@ -50,8 +50,8 @@ internal extension PageboyViewController {
                     return
                 }
                 
-                updateViewControllers(to: [currentViewController], animated: false, async: true, force: false, completion: { _ in
-                    self.performScrollUpdate(to: newIndex, behavior: updateBehavior)
+                updateViewControllers(to: [currentViewController], animated: false, async: true, force: false, completion: { [weak self] _ in
+                    self?.performScrollUpdate(to: newIndex, behavior: updateBehavior)
                 })
             } else { // Otherwise just perform scroll update
                 performScrollUpdate(to: newIndex, behavior: updateBehavior)
@@ -64,7 +64,7 @@ internal extension PageboyViewController {
 extension PageboyViewController {
     
     func verifyNewPageCount(then update: (Int, Int) -> Void) {
-        guard let oldPageCount = self.pageCount,
+        guard let oldPageCount = pageCount,
             let newPageCount = dataSource?.numberOfViewControllers(in: self) else {
                 return
         }
