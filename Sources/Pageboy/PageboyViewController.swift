@@ -367,7 +367,7 @@ public extension PageboyViewController {
                     }
                 }
 
-                //                    self?.autoScroller.didFinishScrollIfEnabled()
+                self?.autoScroller.didFinishScrollIfEnabled()
                 completion?(viewController, animated, finished)
                 self?.isScrollingAnimated = false
             }
@@ -387,7 +387,7 @@ public extension PageboyViewController {
             guard let viewController = fetchViewController(at: rawIndex) else {
                 return false
             }
-            //                autoScroller.didFinishScrollIfEnabled()
+            autoScroller.didFinishScrollIfEnabled()
             completion?(viewController, animated, false)
 
             return false
