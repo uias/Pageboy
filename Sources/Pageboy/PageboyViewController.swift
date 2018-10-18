@@ -68,49 +68,49 @@ open class PageboyViewController: UIViewController {
     
     
     // default is YES. if NO, we immediately call -touchesShouldBegin:withEvent:inContentView:. this has no effect on presses
-//    public var delaysContentTouches: Bool = true {
-//        didSet {
-//            pageViewController?.scrollView?.delaysContentTouches = delaysContentTouches
-//        }
-//    }
+    public var delaysContentTouches: Bool = true {
+        didSet {
+            pageViewController?.scrollView?.delaysContentTouches = delaysContentTouches
+        }
+    }
     /// default YES. if YES, bounces past edge of content and back again.
-//    public var bounces: Bool = true
+    public var bounces: Bool = true
     // Whether client content appears on both sides of each page. If 'NO', content on page front will partially show through back.
     // If 'UIPageViewControllerSpineLocationMid' is set, 'doubleSided' is set to 'YES'. Setting 'NO' when spine location is mid results in an exception.
-//    public var isDoubleSided: Bool = false {
-//        didSet {
-//            pageViewController?.isDoubleSided = isDoubleSided
-//        }
-//    }
+    public var isDoubleSided: Bool = false {
+        didSet {
+            pageViewController?.isDoubleSided = isDoubleSided
+        }
+    }
     
     /// Whether the page view controller is currently being touched.
-//    public var isTracking: Bool {
-//        return pageViewController?.scrollView?.isTracking ?? false
-//    }
+    public var isTracking: Bool {
+        return pageViewController?.scrollView?.isTracking ?? false
+    }
     /// Whether the page view controller is currently being dragged.
-//    public var isDragging: Bool {
-//            return pageViewController?.scrollView?.isDragging ?? false
-//    }
+    public var isDragging: Bool {
+            return pageViewController?.scrollView?.isDragging ?? false
+    }
     // Wether the user isn't dragging (touch up) but page view controller is still moving.
-//    public var isDecelerating: Bool {
-//        return pageViewController?.scrollView?.isDecelerating ?? false
-//    }
+    public var isDecelerating: Bool {
+        return pageViewController?.scrollView?.isDecelerating ?? false
+    }
     /// Whether user interaction is enabled on the page view controller.
     ///
     /// Default is TRUE
-//    public var isUserInteractionEnabled: Bool = true {
-//        didSet {
-//            pageViewController?.scrollView?.isUserInteractionEnabled = isUserInteractionEnabled
-//        }
-//    }
+    public var isUserInteractionEnabled: Bool = true {
+        didSet {
+            pageViewController?.scrollView?.isUserInteractionEnabled = isUserInteractionEnabled
+        }
+    }
     /// Whether scroll is enabled on the page view controller.
     ///
     /// Default is TRUE.
-//    public var isScrollEnabled: Bool = true {
-//        didSet {
-//            pageViewController?.scrollView?.isScrollEnabled = isScrollEnabled
-//        }
-//    }
+    public var isScrollEnabled: Bool = true {
+        didSet {
+            pageViewController?.scrollView?.isScrollEnabled = isScrollEnabled
+        }
+    }
     /// Whether the page view controller should infinitely scroll at the end of page ranges.
     ///
     /// Default is FALSE.
@@ -120,11 +120,11 @@ open class PageboyViewController: UIViewController {
 //        }
 //    }
     /// Whether the page view controller is currently animating a scroll between pages.
-//    private(set) internal var isScrollingAnimated = false {
-//        didSet {
-//            isUserInteractionEnabled = !isScrollingAnimated
-//        }
-//    }
+    private(set) internal var isScrollingAnimated = false {
+        didSet {
+            isUserInteractionEnabled = !isScrollingAnimated
+        }
+    }
     /// Whether the view controllers in the page view controller are currently updating.
     internal var isUpdatingViewControllers: Bool = false
 
