@@ -81,17 +81,17 @@ internal class TransitionOperation: NSObject, CAAnimationDelegate {
         self.action = action
         self.delegate = delegate
         
-//        var animation = CATransition()
-//        animation.startProgress = 0.0
-//        animation.endProgress = 1.0
-//        transition.configure(transition: &animation)
-//        animation.subtype = action.transitionSubType
-//        animation.fillMode = .backwards
-//        self.animation = animation
+        var animation = CATransition()
+        animation.startProgress = 0.0
+        animation.endProgress = 1.0
+        transition.configure(transition: &animation)
+        animation.subtype = action.transitionSubType
+        animation.fillMode = .backwards
+        self.animation = animation
         
         super.init()
         
-//        animation.delegate = self
+        animation.delegate = self
     }
     
     // MARK: Transitioning
