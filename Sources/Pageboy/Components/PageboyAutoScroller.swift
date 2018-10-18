@@ -45,6 +45,7 @@ public class PageboyAutoScroller: Any {
     public enum IntermissionDuration {
         case short
         case long
+        // swiftlint:disable identifier_name
         case custom(duration: TimeInterval)
     }
     

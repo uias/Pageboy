@@ -265,6 +265,7 @@ public extension PageboyViewController {
     /// - parameter force: Whether to force the scroll, ignoring current animation & positional status.
     /// - parameter completion: The completion closure.
     /// - Returns: Whether the scroll was executed.
+    // swiftlint:disable function_body_length
     @discardableResult
     internal func scrollToPage(_ page: Page,
                                animated: Bool,
