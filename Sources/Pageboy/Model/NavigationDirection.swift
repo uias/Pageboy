@@ -6,7 +6,7 @@
 //  Copyright © 2018 UI At Six. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 public extension PageboyViewController {
  
@@ -33,12 +33,12 @@ internal extension PageboyViewController.NavigationDirection {
 }
 
 internal extension NavigationDirection {
-    
+
     static func forPage(_ page: Int,
                         previousPage: Int) -> NavigationDirection {
-        return self.forPosition(CGFloat(page), previous: CGFloat(previousPage))
+        return forPosition(CGFloat(page), previous: CGFloat(previousPage))
     }
-    
+
     static func forPosition(_ position: CGFloat,
                             previous previousPosition: CGFloat) -> NavigationDirection {
         if position == previousPosition {
@@ -46,12 +46,12 @@ internal extension NavigationDirection {
         }
         return  position > previousPosition ? .forward : .reverse
     }
-    
+
     static func forPageScroll(to newPage: Page,
                               at index: Int,
                               in pageViewController: PageboyViewController) -> NavigationDirection {
         var direction = NavigationDirection.forPage(index, previousPage: pageViewController.currentIndex ?? index)
-        
+
         if pageViewController.isInfiniteScrollEnabled {
             switch newPage {
             case .next:
@@ -62,13 +62,13 @@ internal extension NavigationDirection {
                 break
             }
         }
-        
+
         return direction
     }
 }
 
 internal extension NavigationDirection {
-    
+
     func layoutNormalized(isRtL: Bool) -> NavigationDirection {
         guard isRtL else {
             return self

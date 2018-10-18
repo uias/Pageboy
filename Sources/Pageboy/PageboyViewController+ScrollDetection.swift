@@ -30,14 +30,14 @@ extension PageboyViewController: UIPageViewControllerDelegate {
         guard pageViewControllerIsActual(pageViewController) else {
             return
         }
-        guard let viewController = pendingViewControllers.first,
-            let index = viewControllerMap.index(forObjectAfter: { return $0.object === viewController }) else {
+        guard let viewController = pendingViewControllers.first, let index = viewControllerMap[viewController] else {
                 return
         }
-        
+
         expectedTransitionIndex = index
         let direction = NavigationDirection.forPage(index, previousPage: currentIndex ?? index)
-        delegate?.pageboyViewController(self, willScrollToPageAt: index,
+        delegate?.pageboyViewController(self,
+                                        willScrollToPageAt: index,
                                         direction: direction,
                                         animated: animated)
     }
@@ -49,12 +49,11 @@ extension PageboyViewController: UIPageViewControllerDelegate {
         guard pageViewControllerIsActual(pageViewController), completed else {
             return }
         
-        if let viewController = pageViewController.viewControllers?.first,
-            let index = viewControllerMap.index(forObjectAfter: { return $0.object === viewController }) {
+        if let viewController = pageViewController.viewControllers?.first, let index = viewControllerMap[viewController] {
             guard index == expectedTransitionIndex else {
                 return
             }
-            
+
             updateCurrentPageIndexIfNeeded(index)
         }
     }
@@ -81,13 +80,13 @@ extension PageboyViewController: UIPageViewControllerDelegate {
 extension PageboyViewController: UIScrollViewDelegate {
     
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard let currentIndex = self.currentIndex, scrollViewIsActual(scrollView) else {
+        guard let currentIndex = currentIndex, scrollViewIsActual(scrollView) else {
             return
         }
         guard updateContentOffsetForBounceIfNeeded(scrollView: scrollView) == false else {
             return
         }
-        
+
         guard let (newPosition, previousPosition) = calculateNewPagePosition(in: scrollView, currentIndex: currentIndex) else {
             return
         }
@@ -97,7 +96,7 @@ extension PageboyViewController: UIScrollViewDelegate {
         guard !didDetectNewPage else {
             return
         }
-        
+
         // update page position for infinite overscroll if required
         let pagePosition: CGFloat
         if let infiniteAdjustedPosition = adjustedPagePositionForInfiniteOverscroll(from: newPosition) {
@@ -105,7 +104,7 @@ extension PageboyViewController: UIScrollViewDelegate {
         } else {
             pagePosition = newPosition
         }
-        
+
         // provide scroll updates
         var positionPoint: CGPoint!
         let direction = NavigationDirection.forPosition(pagePosition, previous: previousPosition)
@@ -114,7 +113,7 @@ extension PageboyViewController: UIScrollViewDelegate {
         } else {
             positionPoint = CGPoint(x: scrollView.contentOffset.x, y: pagePosition)
         }
-        
+
         // ignore duplicate updates
         guard currentPosition != positionPoint else {
             return
@@ -156,7 +155,7 @@ extension PageboyViewController: UIScrollViewDelegate {
         guard scrollViewIsActual(scrollView) else {
             return
         }
-        
+
         updateContentOffsetForBounceIfNeeded(scrollView: scrollView)
     }
     
@@ -164,7 +163,7 @@ extension PageboyViewController: UIScrollViewDelegate {
         guard scrollViewIsActual(scrollView) else {
             return
         }
-        
+
         if autoScroller.restartsOnScrollEnd {
             autoScroller.restart()
         }
@@ -174,7 +173,7 @@ extension PageboyViewController: UIScrollViewDelegate {
 
 // MARK: - Calculations
 private extension PageboyViewController {
-    
+
     /// Calculate the new page position for a scroll view at its current offset.
     ///
     /// - Parameters:
@@ -189,22 +188,22 @@ private extension PageboyViewController {
                                                         pageSize: pageSize) else {
                                                             return nil
         }
-        
-        guard let pagePosition = calculatePagePosition(for: contentOffset,
-                                                       pageSize: pageSize,
-                                                       indexDiff: scrollIndexDiff) else {
+
+        guard let position = calculatePagePosition(for: contentOffset,
+                                                   pageSize: pageSize,
+                                                   indexDiff: scrollIndexDiff) else {
                                                         return nil
         }
-        
+
         // Return nil if previous position equals current
-        let previousPagePosition = self.previousPagePosition ?? 0.0
-        guard pagePosition != previousPagePosition else {
+        let previousPosition = previousPagePosition ?? 0.0
+        guard position != previousPosition else {
             return nil
         }
-        
-        return (pagePosition, previousPagePosition)
+
+        return (position, previousPosition)
     }
-    
+
     /// Calculate the relative page size and content offset for a scroll view at its current position.
     ///
     /// - Parameter scrollView: Scroll View
@@ -213,7 +212,7 @@ private extension PageboyViewController {
         var pageSize: CGFloat
         var contentOffset: CGFloat
         switch navigationOrientation {
-            
+
         case .horizontal:
             pageSize = scrollView.frame.size.width
             if scrollView.layoutIsRightToLeft {
@@ -221,15 +220,15 @@ private extension PageboyViewController {
             } else {
                 contentOffset = scrollView.contentOffset.x
             }
-            
+
         case .vertical:
             pageSize = scrollView.frame.size.height
             contentOffset = scrollView.contentOffset.y
         }
-        
+
         return (pageSize, contentOffset)
     }
-    
+
     /// Detect whether the scroll view is overscrolling while infinite scroll is enabled
     ///
     /// - Parameter pagePosition: the current page position.
@@ -238,7 +237,7 @@ private extension PageboyViewController {
         guard isInfinitelyScrolling(forPosition: pagePosition) else {
             return nil
         }
-        
+
         let maxPagePosition = CGFloat((viewControllerCount ?? 1) - 1)
         var integral: Double = 0.0
         var progress = CGFloat(modf(fabs(Double(pagePosition)), &integral))
@@ -249,15 +248,15 @@ private extension PageboyViewController {
         } else {
             maxInfinitePosition = maxPagePosition
         }
-        
+
         var infinitePagePosition = maxPagePosition * progress
         if fmod(progress, 1.0) == 0.0 {
             infinitePagePosition = maxInfinitePosition
         }
-        
+
         return infinitePagePosition
     }
-    
+
     /// Whether a position is infinitely scrolling between end ranges
     ///
     /// - Parameter pagePosition: The position.
@@ -265,13 +264,13 @@ private extension PageboyViewController {
     private func isInfinitelyScrolling(forPosition pagePosition: CGFloat) -> Bool {
         let maxPagePosition = CGFloat((viewControllerCount ?? 1) - 1)
         let isOverscrolling = pagePosition < 0.0 || pagePosition > maxPagePosition
-        
+
         guard isInfiniteScrollEnabled && isOverscrolling else {
             return false
         }
         return true
     }
-    
+
     /// Detects whether a page boundary has been passed.
     /// As pageViewController:didFinishAnimating is not reliable.
     ///
@@ -280,10 +279,10 @@ private extension PageboyViewController {
     ///   - scrollView: The scroll view that is being scrolled.
     /// - Returns: Whether a page transition has been detected.
     private func detectNewPageIndexIfNeeded(pagePosition: CGFloat, scrollView: UIScrollView) -> Bool {
-        guard var currentIndex = self.currentIndex else {
+        guard var currentIndex = currentIndex else {
             return false
         }
-        
+
         // Handle scenario where user continues to pan past a single page range.
         let isPagingForward = pagePosition > previousPagePosition ?? 0.0
         if scrollView.isTracking {
@@ -295,36 +294,35 @@ private extension PageboyViewController {
                 return true
             }
         }
-        
+
         let isOnPage = pagePosition.truncatingRemainder(dividingBy: 1) == 0
         if isOnPage {
-            
+
             // Special case where scroll view might be decelerating but on a new index,
             // and UIPageViewController didFinishAnimating is not called
             if scrollView.isDecelerating {
                 currentIndex = Int(pagePosition)
             }
-            
+
             return updateCurrentPageIndexIfNeeded(currentIndex)
         }
-        
+
         return false
     }
-    
+
     /// Safely update the current page index.
     ///
     /// - Parameter index: the proposed index.
     /// - Returns: Whether the page index was updated.
     @discardableResult
     private func updateCurrentPageIndexIfNeeded(_ index: Int) -> Bool {
-        guard currentIndex != index, index >= 0 &&
-            index < self.viewControllerCount ?? 0 else {
+        guard currentIndex != index, index >= 0 && index < viewControllerCount ?? 0 else {
                 return false
         }
         currentIndex = index
         return true
     }
-    
+
     /// Calculate the expected index diff for a page scroll.
     ///
     /// - Parameters:
@@ -340,19 +338,19 @@ private extension PageboyViewController {
         guard let index = index else {
             return nil
         }
-        
+
         let expectedIndex = expectedIndex ?? index
         let expectedDiff = CGFloat(max(1, abs(expectedIndex - index)))
         let expectedPosition = calculatePagePosition(for: currentContentOffset,
                                                      pageSize: pageSize,
                                                      indexDiff: expectedDiff) ?? CGFloat(index)
-        
+
         guard !isInfinitelyScrolling(forPosition: expectedPosition) else {
             return 1
         }
         return expectedDiff
     }
-    
+
     /// Calculate the relative page position.
     ///
     /// - Parameters:
@@ -363,16 +361,16 @@ private extension PageboyViewController {
     private func calculatePagePosition(for contentOffset: CGFloat,
                               pageSize: CGFloat,
                               indexDiff: CGFloat) -> CGFloat? {
-        guard let currentIndex = self.currentIndex else {
+        guard let currentIndex = currentIndex else {
             return nil
         }
-        
+
         let scrollOffset = contentOffset - pageSize
         let pageOffset = (CGFloat(currentIndex) * pageSize) + (scrollOffset * indexDiff)
         let position = pageOffset / pageSize
         return position.isFinite ? position : 0
     }
-    
+
     /// Update the scroll view contentOffset for bouncing preference if required.
     ///
     /// - Parameter scrollView: The scroll view.
@@ -381,7 +379,7 @@ private extension PageboyViewController {
         guard bounces == false else {
             return false
         }
-        
+
         let previousContentOffset = scrollView.contentOffset
         if currentIndex == 0 && scrollView.contentOffset.x < scrollView.bounds.size.width {
             scrollView.contentOffset = CGPoint(x: scrollView.bounds.size.width, y: 0.0)
@@ -391,9 +389,9 @@ private extension PageboyViewController {
         }
         return previousContentOffset != scrollView.contentOffset
     }
-    
+
     // MARK: Utilities
-    
+
     /// Check that a scroll view is the actual page view controller managed instance.
     ///
     /// - Parameter scrollView: The scroll view to check.
@@ -401,7 +399,7 @@ private extension PageboyViewController {
     private func scrollViewIsActual(_ scrollView: UIScrollView) -> Bool {
         return scrollView === pageViewController?.scrollView
     }
-    
+
     /// Check that a UIPageViewController is the actual managed instance.
     ///
     /// - Parameter pageViewController: The page view controller to check.

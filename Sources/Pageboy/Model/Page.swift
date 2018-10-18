@@ -51,7 +51,7 @@ internal extension Page {
     static func indexValue(for page: Page,
                            in pageViewController: PageboyViewController) -> PageIndex {
         switch page {
-            
+
         case .next:
             guard let currentIndex = pageViewController.currentIndex else {
                 return 0
@@ -61,7 +61,7 @@ internal extension Page {
                 proposedIndex = 0
             }
             return proposedIndex
-            
+
         case .previous:
             guard let currentIndex = pageViewController.currentIndex else {
                 return 0
@@ -71,13 +71,13 @@ internal extension Page {
                 proposedIndex = (pageViewController.pageCount ?? 1) - 1
             }
             return proposedIndex
-            
+
         case .first:
             return 0
-            
+
         case .last:
             return (pageViewController.pageCount ?? 1) - 1
-            
+
         case .at(let index):
             return index
         }

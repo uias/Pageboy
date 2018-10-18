@@ -9,7 +9,7 @@
 import UIKit
 
 /// UIScrollView which has a content view that matches a parent view's height & width.
-internal class ParentMatchedScrollView: UIScrollView {
+internal final class ParentMatchedScrollView: UIScrollView {
     
     // MARK: Properties
     
