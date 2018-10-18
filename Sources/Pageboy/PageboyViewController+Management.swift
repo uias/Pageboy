@@ -15,7 +15,7 @@ public extension PageboyViewController {
     /// This reloads the dataSource entirely, calling viewControllers(forPageboyViewController:)
     /// and defaultPageIndex(forPageboyViewController:).
     public func reloadData() {
-        self.reloadData(reloadViewControllers: true)
+        reloadData(reloadViewControllers: true)
     }
     
     /// Reload the pages in the PageboyViewController
@@ -27,28 +27,30 @@ public extension PageboyViewController {
 //            viewControllerMap.clear()
         }
         
-        let viewControllerCount = dataSource?.numberOfViewControllers(in: self) ?? 0
-        self.viewControllerCount = viewControllerCount
+        let newViewControllerCount = dataSource?.numberOfViewControllers(in: self) ?? 0
+        viewControllerCount = newViewControllerCount
         
         let defaultPage = self.dataSource?.defaultPage(for: self) ?? .first
         let defaultIndex = defaultPage.indexValue(in: self)
         
-        guard defaultIndex < viewControllerCount,
+        guard defaultIndex < newViewControllerCount,
             let viewController = viewController(at: defaultIndex) else {
                 return
         }
         
-        updateViewControllers(to: [viewController], animated: false, async: false, force: false) { _ in
-            self.currentIndex = defaultIndex
-            self.delegate?.pageboyViewController(self,
-                                                 didReloadWith: viewController,
-                                                 currentPageIndex: defaultIndex)
+        updateViewControllers(to: [viewController], animated: false, async: false, force: false) { [weak self] _ in
+            self?.currentIndex = defaultIndex
+            if let self = self {
+                self.delegate?.pageboyViewController(self,
+                                                     didReloadWith: viewController,
+                                                     currentPageIndex: defaultIndex)
+            }
         }
     }
     
     /// Reload the currently active page into the page view controller if possible.
     internal func reloadCurrentPageSoftly() {
-        guard let currentIndex = self.currentIndex else {
+        guard let currentIndex = currentIndex else {
             return
         }
         guard let currentViewController = viewController(at: currentIndex) else {
@@ -74,7 +76,7 @@ internal extension PageboyViewController {
                                async: Bool,
                                force: Bool,
                                completion: TransitionOperation.Completion?) {
-        guard let pageViewController = self.pageViewController else {
+        guard let pageViewController = pageViewController else {
             return
         }
         if isUpdatingViewControllers && !force {
