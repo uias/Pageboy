@@ -57,14 +57,14 @@ internal class TransitionOperation: NSObject, CAAnimationDelegate {
     
     /// The total duration of the transition.
     var duration: CFTimeInterval {
-        guard let animation = self.animation else {
+        guard let animation = animation else {
             return 0.0
         }
         return animation.duration
     }
     /// The percent that the transition is complete.
     var percentComplete: CGFloat {
-        guard self.isAnimating else {
+        guard isAnimating else {
             return 0.0
         }
         
@@ -102,7 +102,7 @@ internal class TransitionOperation: NSObject, CAAnimationDelegate {
     /// - Parameter completion: Completion of the transition.
     func start(on layer: CALayer,
                completion: @escaping Completion) {
-        guard let animation = self.animation else {
+        guard let animation = animation else {
             completion(false)
             return
         }
@@ -131,6 +131,6 @@ internal class TransitionOperation: NSObject, CAAnimationDelegate {
         isAnimating = false
         completion?(flag)
         delegate?.transitionOperation(self, didFinish: flag)
-        self.animation = nil
+        animation = nil
     }
 }

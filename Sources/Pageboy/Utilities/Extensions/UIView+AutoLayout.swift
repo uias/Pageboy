@@ -16,10 +16,10 @@ internal extension UIView {
         
         return addConstraints(priority: priority, { () -> [NSLayoutConstraint] in
             return [
-                self.topAnchor.constraint(equalTo: superview.topAnchor),
-                self.leadingAnchor.constraint(equalTo: superview.leadingAnchor),
-                self.bottomAnchor.constraint(equalTo: superview.bottomAnchor),
-                self.trailingAnchor.constraint(equalTo: superview.trailingAnchor)
+                topAnchor.constraint(equalTo: superview.topAnchor),
+                leadingAnchor.constraint(equalTo: superview.leadingAnchor),
+                bottomAnchor.constraint(equalTo: superview.bottomAnchor),
+                trailingAnchor.constraint(equalTo: superview.trailingAnchor)
             ]
         })
     }
@@ -65,7 +65,7 @@ internal extension UIView {
     // MARK: Utilities
     
     private func prepareForAutoLayout(_ completion: () -> Void) {
-        self.translatesAutoresizingMaskIntoConstraints = false
+        translatesAutoresizingMaskIntoConstraints = false
         completion()
     }
     
@@ -80,7 +80,7 @@ internal extension UIView {
     }
     
     private func guardForSuperview() -> UIView {
-        guard let superview = self.superview else {
+        guard let superview = superview else {
             fatalError("No superview for view \(self)")
         }
         return superview

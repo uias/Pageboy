@@ -13,7 +13,7 @@ extension UIView {
     /// Whether the layout direction of the view is right to left.
     var layoutIsRightToLeft: Bool {
         if #available(iOS 9.0, *) {
-            return UIView.userInterfaceLayoutDirection(for: self.semanticContentAttribute) == .rightToLeft
+            return UIView.userInterfaceLayoutDirection(for: semanticContentAttribute) == .rightToLeft
         } else {
             return UIApplication.safeShared?.userInterfaceLayoutDirection == .rightToLeft
         }

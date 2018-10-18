@@ -36,7 +36,7 @@ internal extension NavigationDirection {
     
     static func forPage(_ page: Int,
                         previousPage: Int) -> NavigationDirection {
-        return self.forPosition(CGFloat(page), previous: CGFloat(previousPage))
+        return forPosition(CGFloat(page), previous: CGFloat(previousPage))
     }
     
     static func forPosition(_ position: CGFloat,

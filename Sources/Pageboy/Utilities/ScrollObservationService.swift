@@ -26,18 +26,18 @@ internal class ScrollObservationService {
     // MARK: Registration
     
     func register(viewController: UIViewController, for index: Int) {
-        if let existingRegistration = self.registrations[index], existingRegistration === viewController {
+        if let existingRegistration = registrations[index], existingRegistration === viewController {
             return
         }
         
-        self.registrations[index] = viewController
-        self.hook(registration: viewController)
+        registrations[index] = viewController
+        hook(registration: viewController)
     }
     
     func unregister(index: Int) {
-        if let viewController = self.registrations[index] {
-            self.unhook(registration: viewController)
-            self.registrations.removeValue(forKey: index)
+        if let viewController = registrations[index] {
+            unhook(registration: viewController)
+            registrations.removeValue(forKey: index)
         }
     }
     
@@ -51,11 +51,13 @@ internal class ScrollObservationService {
     private func hook(registration: UIViewController) {
         let viewController = registration
         for scrollView in viewController.view.scrollViewSubviews {
-            let token = scrollView.observe(\.contentOffset, changeHandler: { (scrollView, _) in
-                self.delegate?.scrollObservationService(self,
-                                                        didObserveOffsetChangeFor: viewController,
-                                                        on: scrollView,
-                                                        contentOffset: scrollView.contentOffset)
+            let token = scrollView.observe(\.contentOffset, changeHandler: { [weak self] (scrollView, _) in
+                if let self = self {
+                    self.delegate?.scrollObservationService(self,
+                                                            didObserveOffsetChangeFor: viewController,
+                                                            on: scrollView,
+                                                            contentOffset: scrollView.contentOffset)
+                }
             })
             tokens[viewController.hash] = token
         }
@@ -66,7 +68,7 @@ private extension UIView {
     
     var scrollViewSubviews: [UIScrollView] {
         var scrollViews = [UIScrollView]()
-        self.subviews.forEach { (subview) in
+        subviews.forEach { (subview) in
             if let scrollView = subview as? UIScrollView {
                 scrollViews.append(scrollView)
             }

@@ -11,7 +11,7 @@ import UIKit
 internal extension UIPageViewController {
     
     var scrollView: UIScrollView? {
-        for subview in self.view.subviews {
+        for subview in view.subviews {
             if let scrollView = subview as? UIScrollView {
                 return scrollView
             }

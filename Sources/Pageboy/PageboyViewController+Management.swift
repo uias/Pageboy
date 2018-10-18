@@ -34,7 +34,7 @@ public extension PageboyViewController {
         let defaultIndex = defaultPage.indexValue(in: self)
         
         guard defaultIndex < newViewControllerCount,
-            let viewController = viewController(at: defaultIndex) else {
+            let viewController = fetchViewController(at: defaultIndex) else {
                 return
         }
         
@@ -53,7 +53,7 @@ public extension PageboyViewController {
         guard let currentIndex = currentIndex else {
             return
         }
-        guard let currentViewController = viewController(at: currentIndex) else {
+        guard let currentViewController = fetchViewController(at: currentIndex) else {
             return
         }
         
@@ -131,7 +131,7 @@ internal extension PageboyViewController {
     ///
     /// - Parameter index: Index of the view controller to load.
     /// - Returns: View controller if it exists.
-    func viewController(at index: PageIndex) -> UIViewController? {
+    func fetchViewController(at index: PageIndex) -> UIViewController? {
         let viewController = dataSource?.viewController(for: self, at: index)
         if let viewController = viewController {
             let wrapper = WeakWrapper<UIViewController>(with: viewController)
@@ -226,15 +226,15 @@ extension PageboyViewController: UIPageViewControllerDataSource {
     
     public func pageViewController(_ pageViewController: UIPageViewController,
                                    viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        guard let viewControllerCount = self.viewControllerCount else {
+        guard let viewControllerCount = viewControllerCount else {
             return nil
         }
 
         if let index = currentIndex {
             if index != 0 {
-                return self.viewController(at: index - 1)
+                return fetchViewController(at: index - 1)
             } else if isInfiniteScrollEnabled {
-                return self.viewController(at: viewControllerCount - 1)
+                return fetchViewController(at: viewControllerCount - 1)
             }
         }
         return nil
@@ -242,15 +242,15 @@ extension PageboyViewController: UIPageViewControllerDataSource {
     
     public func pageViewController(_ pageViewController: UIPageViewController,
                                    viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        guard let viewControllerCount = self.viewControllerCount else {
+        guard let viewControllerCount = viewControllerCount else {
             return nil
         }
         
         if let index = currentIndex {
             if index != viewControllerCount - 1 {
-                return self.viewController(at: index + 1)
+                return fetchViewController(at: index + 1)
             } else if isInfiniteScrollEnabled {
-                return self.viewController(at: 0)
+                return fetchViewController(at: 0)
             }
         }
         return nil

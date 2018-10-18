@@ -29,7 +29,7 @@ internal extension PageboyViewController {
                         viewController: UIViewController,
                         updateBehavior: PageUpdateBehavior,
                         indexOperation: (_ currentIndex: PageIndex, _ newIndex: PageIndex) -> Void) {
-        guard let currentIndex = self.currentIndex else {
+        guard let currentIndex = currentIndex else {
             return
         }
         
@@ -46,7 +46,7 @@ internal extension PageboyViewController {
             
             // Reload current view controller in UIPageViewController if insertion index is next/previous page.
             if pageIndex(newIndex, isNextTo: currentIndex) {
-                guard let currentViewController = self.currentViewController else {
+                guard let currentViewController = currentViewController else {
                     return
                 }
                 

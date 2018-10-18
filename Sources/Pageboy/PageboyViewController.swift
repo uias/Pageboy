@@ -336,7 +336,7 @@ public extension PageboyViewController {
         if rawIndex != currentIndex {
             
             // guard against invalid page indexing
-            guard rawIndex >= 0 && rawIndex < viewControllerCount ?? 0, let viewController = viewController(at: rawIndex) else {
+            guard rawIndex >= 0 && rawIndex < viewControllerCount ?? 0, let viewController = fetchViewController(at: rawIndex) else {
                 return false
             }
             
@@ -384,7 +384,7 @@ public extension PageboyViewController {
             return true
             
         } else {
-            guard let viewController = viewController(at: rawIndex) else {
+            guard let viewController = fetchViewController(at: rawIndex) else {
                 return false
             }
             //                autoScroller.didFinishScrollIfEnabled()

@@ -16,16 +16,16 @@ internal class IndexedMap<T> {
     private(set) var objects: [Index: T] = [:]
     
     func set(object: T, for index: Index) {
-        self.objects[index] = object
+        objects[index] = object
     }
     
     func object(for index: Index) -> T? {
-        return self.objects[index]
+        return objects[index]
     }
     
     func index(forObjectAfter findOperation: ObjectFindOperation) -> Int? {
         var foundIndex: Int?
-        self.objects.forEach { (index, object) in
+        objects.forEach { (index, object) in
             if findOperation(object) {
                 foundIndex = index
             }
