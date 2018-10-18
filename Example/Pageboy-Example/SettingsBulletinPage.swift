@@ -92,7 +92,7 @@ class SettingsBulletinPage: BLTNPageItem {
         
         let autoScrollOption = makeOptionToggleButton(for: .autoScrolling)
         autoScrollOption.addTarget(self, action: #selector(autoScrollToggled(_:)), for: .touchUpInside)
-        autoScrollOption.isSelected = pageViewController.autoScroller.isEnabled
+//        autoScrollOption.isSelected = pageViewController.autoScroller.isEnabled
         stack.addArrangedSubview(autoScrollOption)
         self.autoScrollOption = autoScrollOption
         
@@ -129,11 +129,11 @@ class SettingsBulletinPage: BLTNPageItem {
     }
     
     @objc private func autoScrollToggled(_ sender: UIButton) {
-        if sender.isSelected {
-            pageViewController.autoScroller.enable()
-        } else {
-            pageViewController.autoScroller.disable()
-        }
+//        if sender.isSelected {
+//            pageViewController.autoScroller.enable()
+//        } else {
+//            pageViewController.autoScroller.disable()
+//        }
     }
     
     @objc private func scrollEnabledToggled(_ sender: UIButton) {

@@ -139,7 +139,7 @@ open class PageboyViewController: UIViewController {
     /// The number of view controllers in the page view controller.
     internal var viewControllerCount: Int?
     /// A map of view controllers and related page indexes.
-    internal var viewControllerMap = IndexedMap<WeakWrapper<UIViewController>>()
+//    internal var viewControllerMap = IndexedMap<UIViewController>()
     
     /// The number of pages in the page view controller.
     public var pageCount: Int? {
@@ -175,7 +175,7 @@ open class PageboyViewController: UIViewController {
     }
     
     /// Auto Scroller for automatic time-based page transitions.
-    public let autoScroller = PageboyAutoScroller()
+//    public let autoScroller = PageboyAutoScroller()
     
     /// Whether to show the built-in UIPageViewController page control.
     @available(*, unavailable, message: "Temporarily unavailable due to iOS 11.2 UIPageViewController issue. See here: https://github.com/uias/Pageboy/issues/128")
@@ -186,7 +186,7 @@ open class PageboyViewController: UIViewController {
     open override func viewDidLoad() {
         super.viewDidLoad()
         
-        autoScroller.handler = self
+//        autoScroller.handler = self
         childScrollObserver.delegate = self
         
         setUpPageViewController()
@@ -206,17 +206,17 @@ open class PageboyViewController: UIViewController {
     open override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if autoScroller.isEnabled {
-            autoScroller.resume()
-        }
+//        if autoScroller.isEnabled {
+//            autoScroller.resume()
+//        }
     }
     
     open override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        if autoScroller.isEnabled {
-            autoScroller.pause()
-        }
+//        if autoScroller.isEnabled {
+//            autoScroller.pause()
+//        }
     }
 
     open override func viewWillTransition(to size: CGSize,
@@ -249,7 +249,7 @@ open class PageboyViewController: UIViewController {
         }
         
         viewControllerCount = newPageCount
-        viewControllerMap.clear()
+//        viewControllerMap.clear()
         
         performUpdates(for: index,
                         viewController: newViewController,
@@ -282,7 +282,7 @@ open class PageboyViewController: UIViewController {
         }
         
         viewControllerCount = newPageCount
-        viewControllerMap.clear()
+//        viewControllerMap.clear()
         
         performUpdates(for: sanitizedIndex,
                         viewController: newViewController,
@@ -365,7 +365,7 @@ public extension PageboyViewController {
                         }
                     }
                     
-                    self?.autoScroller.didFinishScrollIfEnabled()
+//                    self?.autoScroller.didFinishScrollIfEnabled()
                     completion?(viewController, animated, finished)
                     self?.isScrollingAnimated = false
                 }
@@ -385,7 +385,7 @@ public extension PageboyViewController {
                 guard let viewController = viewController(at: rawIndex) else {
                     return false
                 }
-                autoScroller.didFinishScrollIfEnabled()
+//                autoScroller.didFinishScrollIfEnabled()
                 completion?(viewController, animated, false)
                 
                 return false

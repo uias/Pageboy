@@ -24,7 +24,7 @@ public extension PageboyViewController {
     internal func reloadData(reloadViewControllers: Bool) {
         
         if reloadViewControllers {
-            viewControllerMap.clear()
+//            viewControllerMap.clear()
         }
         
         let viewControllerCount = dataSource?.numberOfViewControllers(in: self) ?? 0
@@ -85,40 +85,40 @@ internal extension PageboyViewController {
         targetIndex = toIndex
         isUpdatingViewControllers = true
         
-        let isUsingCustomTransition = transition != nil
-        if isUsingCustomTransition {
-            performTransition(from: fromIndex,
-                              to: toIndex,
-                              with: direction,
-                              animated: animated,
-                              completion: completion ?? { _ in })
-        }
-        
-        // if not using a custom transition then animate using UIPageViewController mechanism
-        let animateUpdate = animated ? !isUsingCustomTransition : false
-        let updateBlock = { [unowned self] in
-            pageViewController.setViewControllers(viewControllers,
-                                                  direction: direction.layoutNormalized(isRtL: self.view.layoutIsRightToLeft).rawValue,
-                                                  animated: animateUpdate,
-                                                  completion:
-                { (finished) in
-                    self.isUpdatingViewControllers = false
-                    
-                    if !animated || !isUsingCustomTransition {
-                        completion?(finished)
-                    }
-            })
-        }
-        
-        // Attempt to fix issue where fast scrolling causes crash.
-        // See https://github.com/uias/Pageboy/issues/140
-        if async {
-            DispatchQueue.main.async {
-                updateBlock()
-            }
-        } else {
-            updateBlock()
-        }
+//        let isUsingCustomTransition = transition != nil
+//        if isUsingCustomTransition {
+//            performTransition(from: fromIndex,
+//                              to: toIndex,
+//                              with: direction,
+//                              animated: animated,
+//                              completion: completion ?? { _ in })
+//        }
+//        
+//        // if not using a custom transition then animate using UIPageViewController mechanism
+//        let animateUpdate = animated ? !isUsingCustomTransition : false
+//        let updateBlock = { [unowned self] in
+//            pageViewController.setViewControllers(viewControllers,
+//                                                  direction: direction.layoutNormalized(isRtL: self.view.layoutIsRightToLeft).rawValue,
+//                                                  animated: animateUpdate,
+//                                                  completion:
+//                { (finished) in
+//                    self.isUpdatingViewControllers = false
+//                    
+//                    if !animated || !isUsingCustomTransition {
+//                        completion?(finished)
+//                    }
+//            })
+//        }
+//        
+//        // Attempt to fix issue where fast scrolling causes crash.
+//        // See https://github.com/uias/Pageboy/issues/140
+//        if async {
+//            DispatchQueue.main.async {
+//                updateBlock()
+//            }
+//        } else {
+//            updateBlock()
+//        }
     }
 }
 
@@ -133,7 +133,7 @@ internal extension PageboyViewController {
         let viewController = dataSource?.viewController(for: self, at: index)
         if let viewController = viewController {
             let wrapper = WeakWrapper<UIViewController>(with: viewController)
-            viewControllerMap.set(object: wrapper, for: index)
+//            viewControllerMap.set(object: wrapper, for: index)
             
             childScrollObserver.register(viewController: viewController, for: index)
         }

@@ -30,16 +30,16 @@ extension PageboyViewController: UIPageViewControllerDelegate {
         guard pageViewControllerIsActual(pageViewController) else {
             return
         }
-        guard let viewController = pendingViewControllers.first,
-            let index = viewControllerMap.index(forObjectAfter: { return $0.object === viewController }) else {
-                return
-        }
-        
-        expectedTransitionIndex = index
-        let direction = NavigationDirection.forPage(index, previousPage: currentIndex ?? index)
-        delegate?.pageboyViewController(self, willScrollToPageAt: index,
-                                        direction: direction,
-                                        animated: animated)
+//        guard let viewController = pendingViewControllers.first,
+//            let index = viewControllerMap.index(forObjectAfter: { return $0.object === viewController }) else {
+//                return
+//        }
+//        
+//        expectedTransitionIndex = index
+//        let direction = NavigationDirection.forPage(index, previousPage: currentIndex ?? index)
+//        delegate?.pageboyViewController(self, willScrollToPageAt: index,
+//                                        direction: direction,
+//                                        animated: animated)
     }
     
     public func pageViewController(_ pageViewController: UIPageViewController,
@@ -49,14 +49,14 @@ extension PageboyViewController: UIPageViewControllerDelegate {
         guard pageViewControllerIsActual(pageViewController), completed else {
             return }
         
-        if let viewController = pageViewController.viewControllers?.first,
-            let index = viewControllerMap.index(forObjectAfter: { return $0.object === viewController }) {
-            guard index == expectedTransitionIndex else {
-                return
-            }
-            
-            updateCurrentPageIndexIfNeeded(index)
-        }
+//        if let viewController = pageViewController.viewControllers?.first,
+//            let index = viewControllerMap.index(forObjectAfter: { return $0.object === viewController }) {
+//            guard index == expectedTransitionIndex else {
+//                return
+//            }
+//
+//            updateCurrentPageIndexIfNeeded(index)
+//        }
     }
 
     // TODO - Enable this when issue in iOS 11.2 is resolved.
@@ -131,9 +131,9 @@ extension PageboyViewController: UIScrollViewDelegate {
         guard scrollViewIsActual(scrollView) else {
             return
         }
-        if autoScroller.cancelsOnScroll {
-            autoScroller.cancel()
-        }
+//        if autoScroller.cancelsOnScroll {
+//            autoScroller.cancel()
+//        }
     }
     
     public func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
@@ -165,9 +165,9 @@ extension PageboyViewController: UIScrollViewDelegate {
             return
         }
         
-        if autoScroller.restartsOnScrollEnd {
-            autoScroller.restart()
-        }
+//        if autoScroller.restartsOnScrollEnd {
+//            autoScroller.restart()
+//        }
         expectedTransitionIndex = nil
     }
 }
