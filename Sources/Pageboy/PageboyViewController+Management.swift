@@ -134,10 +134,7 @@ internal extension PageboyViewController {
     func fetchViewController(at index: PageIndex) -> UIViewController? {
         let viewController = dataSource?.viewController(for: self, at: index)
         if let viewController = viewController {
-//            let wrapper = WeakWrapper<UIViewController>(with: viewController)
-//            viewControllerMap.set(object: wrapper, for: index)
-            let hash = viewController.hash
-            viewControllerMap[hash] = index
+            viewControllerMap[viewController] = index
             
 //            childScrollObserver.register(viewController: viewController, for: index)
         }
