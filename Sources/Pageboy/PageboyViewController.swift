@@ -8,6 +8,8 @@
 
 import UIKit
 
+// swiftlint:disable file_length
+
 /// A simple, highly informative page view controller.
 open class PageboyViewController: UIViewController {
     
