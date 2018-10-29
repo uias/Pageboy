@@ -179,10 +179,6 @@ open class PageboyViewController: UIViewController {
     /// Auto Scroller for automatic time-based page transitions.
     public let autoScroller = PageboyAutoScroller()
     
-    /// Whether to show the built-in UIPageViewController page control.
-    @available(*, unavailable, message: "Temporarily unavailable due to iOS 11.2 UIPageViewController issue. See here: https://github.com/uias/Pageboy/issues/128")
-    public var showsPageControl: Bool = false
-    
     // MARK: Lifecycle
 
     open override func viewDidLoad() {

@@ -20,5 +20,8 @@ This guide aims to provide an easy transition from existing implementations of P
 ### PageboyViewControllerDelegate
 - Default implementations of `PageboyViewControllerDelegate` have been removed - effectively requiring all functions to be implemented.
 
+### Properties
+- `showsPageControl` has now been removed completely due to [#128](https://github.com/uias/Pageboy/issues/128).
+
 ### Functions
 - `reloadPages()` is now `reloadData()`.
