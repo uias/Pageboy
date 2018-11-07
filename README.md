@@ -16,9 +16,6 @@
 	<a href="https://github.com/Carthage/Carthage">
         <img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" />
     </a>
-	<a href="https://codecov.io/gh/uias/Pageboy">
-        <img src="https://codecov.io/gh/uias/Pageboy/branch/master/graph/badge.svg" />
-    </a>
 	<a href="https://github.com/uias/Pageboy/releases">
         <img src="https://img.shields.io/github/release/uias/Pageboy.svg" />
     </a>
