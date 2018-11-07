@@ -147,7 +147,7 @@ pageViewController.insertPage(at index: 0)
 pageViewController.deletePage(at index: 2)
 ```
 
-*This behaves similarly to the insertion functionality available in `UITableView`, in the fact that you have to update the data source prior to calling any of the update functions.*
+*This behaves similarly to the insertion of rows in `UITableView`, in the fact that you have to update the data source prior to calling any of the update functions.*
 
 **Example:**
 
