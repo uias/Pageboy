@@ -12,8 +12,8 @@ This guide aims to provide an easy transition from existing implementations of P
 
 ## What's new
 
-- Added support for Swift 4.2.
-- View Controllers can now be inserted and removed dynamically. 
+- View Controllers can now be inserted and removed dynamically.
+- Fixed numerous performance and memory issues.
 
 ## API Changes
 
