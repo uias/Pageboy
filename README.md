@@ -62,7 +62,7 @@ class PageViewController: PageboyViewController, PageboyViewControllerDataSource
     override func viewDidLoad() {
         super.viewDidLoad()
         
-	    self.dataSource = self
+	self.dataSource = self
     }
 }
 ```
