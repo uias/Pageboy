@@ -30,6 +30,7 @@ internal extension TransitionOperation {
 
 internal extension TransitionOperation.Action {
     
+    #if swift(>=4.2)
     /// Animation sub-type for the action.
     var transitionSubType: CATransitionSubtype {
         switch orientation {
@@ -53,4 +54,29 @@ internal extension TransitionOperation.Action {
             }
         }
     }
+    #else
+    /// Animation sub-type for the action.
+    var transitionSubType: String {
+        switch orientation {
+            
+        case .horizontal:
+            switch semanticDirection {
+                
+            case .reverse:
+                return kCATransitionFromLeft
+            default:
+                return kCATransitionFromRight
+            }
+            
+        case .vertical:
+            switch semanticDirection {
+                
+            case .reverse:
+                return kCATransitionFromBottom
+            default:
+                return kCATransitionFromTop
+            }
+        }
+    }
+    #endif
 }

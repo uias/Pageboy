@@ -58,7 +58,11 @@ internal extension PageboyViewController {
 
         let displayLink = CADisplayLink(target: self, selector: #selector(displayLinkDidTick))
         displayLink.isPaused = true
+        #if swift(>=4.2)
         displayLink.add(to: .main, forMode: .common)
+        #else
+        displayLink.add(to: .main, forMode: .commonModes)
+        #endif
         transitionDisplayLink = displayLink
     }
     
@@ -156,6 +160,10 @@ internal extension PageboyViewController.Transition {
     
     func configure(transition: inout CATransition) {
         transition.duration = duration
+        #if swift(>=4.2)
         transition.type = CATransitionType(rawValue: style.rawValue)
+        #else
+        transition.type = style.rawValue
+        #endif
     }
 }
