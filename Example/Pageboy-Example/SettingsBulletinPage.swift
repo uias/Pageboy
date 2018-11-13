@@ -72,7 +72,7 @@ class SettingsBulletinPage: BLTNPageItem {
         let stack = interfaceBuilder.makeGroupStack(spacing: 16.0)
         
         let modificationDetail = makeDetailLabel()
-        modificationDetail.text = "⚠️ NEW: In Pageboy 3, you can insert and remove pages dynamically from the page view controller."
+        modificationDetail.text = "🚀 NEW: In Pageboy 3, you can insert and remove pages dynamically from the page view controller."
         stack.addArrangedSubview(modificationDetail)
         
         let modificationOption = makeOptionButton(for: .modification)
@@ -81,7 +81,7 @@ class SettingsBulletinPage: BLTNPageItem {
         self.modificationOption = modificationOption
         
         let otherDetail = makeDetailLabel()
-        otherDetail.text = "Other cool things..."
+        otherDetail.text = "More..."
         stack.addArrangedSubview(otherDetail)
         
         let infiniteScrollOption = makeOptionToggleButton(for: .infiniteScrolling)
