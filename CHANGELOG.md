@@ -31,11 +31,15 @@ Released on TBD
 #### Added
 - Support for dynamically inserting a new page via `insertPage(at: PageIndex)`.
 - Support for dynamically deleting an existing page via `deletePage(at: PageIndex)`.
+- Improved support for Swift 4 and 4.2.
 
 #### Updated
 - Status bar style update animation when changing pages now lasts 0.25 seconds.
 - Improved Example app with support for in-app Settings.
 - Auto-Scrolling will now automatically resume/pause with `viewDidAppear`/`viewWillDisappear` lifecycle events.
+
+#### Fixed
+- Numerous memory leaks and performance problems.
 
 ---
 
