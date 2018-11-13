@@ -8,12 +8,13 @@ This guide aims to provide an easy transition from existing implementations of P
 
 - iOS 9.0+
 - Xcode 10.0+
-- Swift 4.2+
+- Swift 4.0+
 
 ## What's new
 
 - View Controllers can now be inserted and removed dynamically.
 - Fixed numerous performance and memory issues.
+- Improved Swift 4 & 4.2 compatibility.
 
 ## API Changes
 
