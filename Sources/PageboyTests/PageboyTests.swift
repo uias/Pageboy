@@ -25,35 +25,22 @@ class PageboyTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        self.pageboyViewController = TestPageBoyViewController()
-        self.dataSource = TestPageboyDataSource()
-        self.delegate = TestPageboyDelegate()
+        pageboyViewController = TestPageBoyViewController()
+        dataSource = TestPageboyDataSource()
+        delegate = TestPageboyDelegate()
         
-        self.pageboyViewController.delegate = delegate
+        pageboyViewController.delegate = delegate
         
         let bounds = UIScreen.main.bounds
-        self.pageboyViewController.view.frame = bounds
+        pageboyViewController.view.frame = bounds
         
-        if #available(iOS 9.0, *) {
-            self.pageboyViewController.loadViewIfNeeded()
-        } else {
-            self.pageboyViewController.loadView()
-        }
-    }
-    
-    override func tearDown() {
-        
-//        self.pageboyViewController = nil
-//        self.dataSource = nil
-//        self.delegate = nil
-        
-        super.tearDown()
+        pageboyViewController.loadViewIfNeeded()
     }
     
     // MARK: Tests
     
     private func testInit() {
-        XCTAssert(self.pageboyViewController != nil,
+        XCTAssert(pageboyViewController != nil,
                   "PageBoyViewController initialization failed")
     }
 

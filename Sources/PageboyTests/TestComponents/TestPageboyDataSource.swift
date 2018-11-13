@@ -21,17 +21,17 @@ class TestPageboyDataSource: PageboyViewControllerDataSource {
         }
     }
     var defaultIndex: PageboyViewController.Page?
-    private(set) var viewControllers: [UIViewController]?
+    var viewControllers: [UIViewController]?
         
     // MARK: PageboyViewControllerDataSource
     
     func numberOfViewControllers(in pageboyViewController: PageboyViewController) -> Int {
-        return numberOfPages ?? 0
+        return viewControllers?.count ?? 0
     }
     
     func viewController(for pageboyViewController: PageboyViewController,
                         at index: PageboyViewController.PageIndex) -> UIViewController? {
-        return self.viewControllers?[index]
+        return viewControllers?[index]
     }
     
     func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {
@@ -40,7 +40,7 @@ class TestPageboyDataSource: PageboyViewControllerDataSource {
     
     // MARK: Utility
     
-    private func generateViewControllers(count: Int) -> [UIViewController] {
+    func generateViewControllers(count: Int) -> [UIViewController] {
         var viewControllers = [UIViewController]()
         
         for index in 0 ..< count {
