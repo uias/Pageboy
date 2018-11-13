@@ -39,19 +39,19 @@ This is the core class of the project, and is the main externally facing compone
 
 ### Management
 
-All inner view controller management is contained within the [PageboyViewController+Management](https://github.com/uias/Pageboy/blob/master/Sources/Pageboy/Extensions/PageboyViewController%2BManagement.swift) extension.
+All inner view controller management is contained within the [PageboyViewController+Management](https://github.com/uias/Pageboy/blob/master/Sources/Pageboy/PageboyViewController%2BManagement.swift) extension.
 
 This is also where the internal `UIPageViewController` instance is managed. Any additional functionality relevant to the `UIPageViewController` or management of child view controllers should be added to this extension.
 
 ### Scroll Detection
 
-The [PageboyViewController+ScrollDetection](https://github.com/uias/Pageboy/blob/master/Sources/Pageboy/Extensions/PageboyViewController%2BScrollDetection.swift) extension handles all the calculations for responding to scroll updates in addition to all the functions for responding to the internal scroll view. 
+The [PageboyViewController+ScrollDetection](https://github.com/uias/Pageboy/blob/master/Sources/Pageboy/PageboyViewController%2BScrollDetection.swift)  extension handles responding to scroll updates in addition to all the functions for observing the internal scroll view. 
 
 This extension also responds to the internal `UIPageViewControllerDelegate` and handles infinite scrolling behaviour etc.
 
 ### Transitioning
 
-The custom transitioning support available in `Pageboy` is provided by the [PageboyViewController+Transitioning](https://github.com/uias/Pageboy/blob/master/Sources/Pageboy/Extensions/PageboyViewController%2BTransitioning.swift) extension. In conjunction with [TransitionOperation](https://github.com/uias/Pageboy/blob/master/Sources/Pageboy/Utilities/TransitionOperation.swift) object, custom transitioning is made available through the use of `CATransition` in place of the built in `UIPageViewController` animations.
+The custom transitioning support available in `Pageboy` is provided by the [PageboyViewController+Transitioning](https://github.com/uias/Pageboy/blob/master/Sources/Pageboy/Transitioning/PageboyViewController%2BTransitioning.swift) extension. In conjunction with [TransitionOperation](https://github.com/uias/Pageboy/blob/master/Sources/Pageboy/Transitioning/TransitionOperation.swift) object, custom transitioning is made available through the use of `CATransition` in place of the built in `UIPageViewController` animations.
 
 Any updates or tweaks to animated transitioning should be made here.
 
