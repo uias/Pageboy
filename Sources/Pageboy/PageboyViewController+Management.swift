@@ -135,8 +135,6 @@ internal extension PageboyViewController {
         let viewController = dataSource?.viewController(for: self, at: index)
         if let viewController = viewController {
             viewControllerMap[viewController] = index
-            
-            childScrollObserver.register(viewController: viewController, for: index)
         }
         return viewController
     }
@@ -175,12 +173,6 @@ internal extension PageboyViewController {
         }
         pageViewController.view.pinToSuperviewEdges()
         pageViewController.didMove(toParent: self)
-      
-        // Add hidden scroll view that will be used to interact with navigation bar large titles.
-        let invisibleScrollView = ParentMatchedScrollView.matching(parent: view)
-        view.addSubview(invisibleScrollView)
-        view.sendSubviewToBack(invisibleScrollView)
-        self.invisibleScrollView = invisibleScrollView
         
         pageViewController.scrollView?.delegate = self
         pageViewController.view.backgroundColor = .clear
