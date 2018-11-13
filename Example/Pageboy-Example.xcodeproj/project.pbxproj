@@ -36,20 +36,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		464BCBCA210F10A50079D2CA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D681E31E1E546A7D007C08F5 /* Pageboy.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 466933AD210B1BE50060B5B9;
-			remoteInfo = PageboyTestsApp;
-		};
-		464BCBCC210F10A50079D2CA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D681E31E1E546A7D007C08F5 /* Pageboy.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 466933C3210B1C820060B5B9;
-			remoteInfo = PageboyUITests;
-		};
 		466A76D31FB4EFC9000B5C1C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D681E31E1E546A7D007C08F5 /* Pageboy.xcodeproj */;
@@ -214,8 +200,6 @@
 				D681E3241E546A7D007C08F5 /* Pageboy.framework */,
 				466A76D41FB4EFC9000B5C1C /* Pageboy.framework */,
 				D681E3261E546A7D007C08F5 /* PageboyTests.xctest */,
-				464BCBCB210F10A50079D2CA /* PageboyTestsApp.app */,
-				464BCBCD210F10A50079D2CA /* PageboyUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -319,20 +303,6 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		464BCBCB210F10A50079D2CA /* PageboyTestsApp.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = PageboyTestsApp.app;
-			remoteRef = 464BCBCA210F10A50079D2CA /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		464BCBCD210F10A50079D2CA /* PageboyUITests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = PageboyUITests.xctest;
-			remoteRef = 464BCBCC210F10A50079D2CA /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		466A76D41FB4EFC9000B5C1C /* Pageboy.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -505,7 +475,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -556,7 +526,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -574,7 +544,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -590,7 +559,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.uias.Pageboy-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
