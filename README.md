@@ -140,8 +140,8 @@ pageViewController.scrollToPage(.next, animated: true)
 Pageboy provides the ability to insert and delete pages dynamically in the `PageboyViewController`.
 
 ```swift
-func insertPage(at index: PageIndex)
-func deletePage(at index: PageIndex)
+func insertPage(at index: PageIndex, then updateBehavior: PageUpdateBehavior)
+func deletePage(at index: PageIndex, then updateBehavior: PageUpdateBehavior)
 ```
 
 *This behaves similarly to the insertion of rows in `UITableView`, in the fact that you have to update the data source prior to calling any of the update functions.*
