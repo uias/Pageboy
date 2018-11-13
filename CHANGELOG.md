@@ -27,7 +27,7 @@ All notable changes to this project will be documented in this file.
 ---
 
 ## [3.0.0](https://github.com/uias/Pageboy/releases/tag/3.0.0)
-Released on TBD
+Released on 2018-11-13
 #### Added
 - Support for dynamically inserting a new page via `insertPage(at: PageIndex)`.
 - Support for dynamically deleting an existing page via `deletePage(at: PageIndex)`.
