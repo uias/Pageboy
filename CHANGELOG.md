@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 `Pageboy` adheres to [Semantic Versioning](http://semver.org/).
 
 #### 3.x Releases
-- `3.0.x` Releases - [3.0.0](#300)
+- `3.0.x` Releases - [3.0.0](#300) | [3.0.1](#301)
 
 #### 2.x Releases
 - `2.6.x` Releases - [2.6.0](#260) | [2.6.1](#261)
@@ -26,8 +26,16 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [3.0.1](https://github.com/uias/Pageboy/releases/tag/3.0.1)
+Released on 2018-12-01
+
+#### Fixed
+- [#187](https://github.com/uias/Pageboy/issues/187) Issue where using `unowned self` could cause memory crashes.
+- [#176](https://github.com/uias/Pageboy/issues/176) Issue where checking UI layout direction could cause threading issues.
+
 ## [3.0.0](https://github.com/uias/Pageboy/releases/tag/3.0.0)
 Released on 2018-11-13
+
 #### Added
 - Support for dynamically inserting a new page via `insertPage(at: PageIndex)`.
 - Support for dynamically deleting an existing page via `deletePage(at: PageIndex)`.
