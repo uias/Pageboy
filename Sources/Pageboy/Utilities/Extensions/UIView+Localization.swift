@@ -27,5 +27,5 @@ extension UIView {
         assert(Thread.isMainThread)
         return UIView.userInterfaceLayoutDirection(for: semanticContentAttribute)
     }
-    
+
 }

@@ -12,7 +12,15 @@ internal extension UIView {
     
     @discardableResult
     func pinToSuperviewEdges(priority: UILayoutPriority = .required) -> [NSLayoutConstraint] {
-        let superview = guardForSuperview()
+        guard let superview = guardForSuperview() else {
+            #if DEBUG
+            fatalError("Could not fetch superview in pinToSuperviewEdges")
+            #else
+            return [NSLayoutConstraint]()
+            #endif
+        }
+
+
         
         return addConstraints(priority: priority, { () -> [NSLayoutConstraint] in
             return [
@@ -38,14 +46,18 @@ internal extension UIView {
         })
         
         guard let constraint = constraints.first else {
+            #if DEBUG
             fatalError("Could not add matchWidth constraint")
+            #else
+            return nil
+            #endif
         }
         return constraint
     }
     
     @discardableResult
     func matchHeight(to view: UIView,
-                     priority: UILayoutPriority = .required) -> NSLayoutConstraint {
+                     priority: UILayoutPriority = .required) -> NSLayoutConstraint? {
         let constraints = addConstraints(priority: priority, { () -> [NSLayoutConstraint] in
             return [NSLayoutConstraint(item: self,
                                        attribute: .height,
@@ -57,7 +69,11 @@ internal extension UIView {
         })
         
         guard let constraint = constraints.first else {
+            #if DEBUG
             fatalError("Could not add matchHeight constraint")
+            #else
+            return nil
+            #endif
         }
         return constraint
     }
@@ -79,9 +95,13 @@ internal extension UIView {
         return constraints
     }
     
-    private func guardForSuperview() -> UIView {
+    private func guardForSuperview() -> UIView? {
         guard let superview = superview else {
+            #if DEBUG
             fatalError("No superview for view \(self)")
+            #else
+            return nil
+            #endif
         }
         return superview
     }
