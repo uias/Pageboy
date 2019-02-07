@@ -38,13 +38,17 @@ public extension PageboyViewController {
                 return
         }
         
-        updateViewControllers(to: [viewController], animated: false, async: false, force: false) { [weak self] _ in
-            self?.currentIndex = defaultIndex
-            if let self = self {
-                self.delegate?.pageboyViewController(self,
-                                                     didReloadWith: viewController,
-                                                     currentPageIndex: defaultIndex)
+        updateViewControllers(to: [viewController], animated: false, async: false, force: false) { [weak self, defaultIndex, viewController] _ in
+
+            guard let hasSelf = self else {
+                /// Self DNE
+                return
             }
+
+            hasSelf.currentIndex = defaultIndex
+            hasSelf.delegate?.pageboyViewController(hasSelf,
+                                                    didReloadWith: viewController,
+                                                    currentPageIndex: defaultIndex)
         }
     }
     
@@ -67,7 +71,7 @@ public extension PageboyViewController {
 
 // MARK: - VC Updating
 internal extension PageboyViewController {
-    
+
     func updateViewControllers(to viewControllers: [UIViewController],
                                from fromIndex: PageIndex = 0,
                                to toIndex: PageIndex = 0,
@@ -76,6 +80,27 @@ internal extension PageboyViewController {
                                async: Bool,
                                force: Bool,
                                completion: TransitionOperation.Completion?) {
+
+        if Thread.isMainThread {
+            _updateViewControllers(to: viewControllers, animated: animated, async: async, force: force, completion: completion)
+        } else {
+            DispatchQueue.main.sync {
+                _updateViewControllers(to: viewControllers, animated: animated, async: async, force: force, completion: completion)
+            }
+        }
+    }
+    
+    private func _updateViewControllers(to viewControllers: [UIViewController],
+                               from fromIndex: PageIndex = 0,
+                               to toIndex: PageIndex = 0,
+                               direction: NavigationDirection = .forward,
+                               animated: Bool,
+                               async: Bool,
+                               force: Bool,
+                               completion: TransitionOperation.Completion?) {
+
+        assert(Thread.isMainThread)
+
         guard let pageViewController = pageViewController else {
             return
         }
@@ -98,21 +123,25 @@ internal extension PageboyViewController {
         
         // if not using a custom transition then animate using UIPageViewController mechanism
         let animateUpdate = animated ? !isUsingCustomTransition : false
-        let updateBlock = { [weak self] in
-            guard let self = self else {
+
+        let updateBlock = { [weak self, direction, animateUpdate, viewControllers, animated, isUsingCustomTransition] in
+            guard let hasSelf = self else {
                 return
             }
             pageViewController.setViewControllers(viewControllers,
-                                                  direction: direction.layoutNormalized(isRtL: self.view.layoutIsRightToLeft).rawValue,
+                                                  direction: direction.layoutNormalized(isRtL: hasSelf.view.layoutIsRightToLeft).rawValue,
                                                   animated: animateUpdate,
-                                                  completion:
-                { (finished) in
-                    self.isUpdatingViewControllers = false
-                    
-                    if !animated || !isUsingCustomTransition {
-                        completion?(finished)
-                    }
-            })
+                                                  completion: { [weak self, animated, isUsingCustomTransition, completion] (finished) in
+
+                                                        guard let hasSelf = self else {
+                                                            return
+                                                        }
+                                                        hasSelf.isUpdatingViewControllers = false
+
+                                                        if !animated || !isUsingCustomTransition {
+                                                            completion?(finished)
+                                                        }
+                                                  })
         }
         
         // Attempt to fix issue where fast scrolling causes crash.

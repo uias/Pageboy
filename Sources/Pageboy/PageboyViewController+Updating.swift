@@ -34,7 +34,7 @@ internal extension PageboyViewController {
         }
         
         if newIndex == currentIndex {
-            pageViewController?.view.crossDissolve(during: { [weak self] in
+            pageViewController?.view.crossDissolve(during: { [weak self, viewController] in
                 self?.updateViewControllers(to: [viewController],
                                             animated: false,
                                             async: true,
@@ -50,7 +50,7 @@ internal extension PageboyViewController {
                     return
                 }
                 
-                updateViewControllers(to: [currentViewController], animated: false, async: true, force: false, completion: { [weak self] _ in
+                updateViewControllers(to: [currentViewController], animated: false, async: true, force: false, completion: { [weak self, newIndex, updateBehavior] _ in
                     self?.performScrollUpdate(to: newIndex, behavior: updateBehavior)
                 })
             } else { // Otherwise just perform scroll update
@@ -80,7 +80,7 @@ extension PageboyViewController {
         case .scrollTo(let index):
             scrollToPage(.at(index: index), animated: true)
             
-        default:()
+        default: break
         }
     }
     
