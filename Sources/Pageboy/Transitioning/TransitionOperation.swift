@@ -77,14 +77,16 @@ internal class TransitionOperation: NSObject, CAAnimationDelegate {
     init(for transition: PageboyViewController.Transition,
          action: Action,
          delegate: TransitionOperationDelegate) {
-        self.transition = transition
+
         self.action = action
         self.delegate = delegate
+        self.transition = transition
         
-        var animation = CATransition()
+        let animation = CATransition()
         animation.startProgress = 0.0
         animation.endProgress = 1.0
-        transition.configure(transition: &animation)
+        animation.configure(from: transition)
+
         animation.subtype = action.transitionSubType
         #if swift(>=4.2)
         animation.fillMode = .backwards

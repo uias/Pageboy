@@ -90,12 +90,20 @@ internal extension PageboyViewController {
                                     with direction: NavigationDirection,
                                     animated: Bool,
                                     completion: @escaping TransitionOperation.Completion) {
+
+        /// Note: This is (currently) only called from _updateViewControllers which is already on the main thread
+        assert(Thread.isMainThread)
+
         guard let transition = transition, animated == true, activeTransitionOperation == nil else {
                 completion(false)
                 return
         }
         guard let scrollView = pageViewController?.scrollView else {
+            #if DEBUG
             fatalError("Can't find UIPageViewController scroll view")
+            #else
+            return
+            #endif
         }
 
         prepareForTransition()
@@ -156,14 +164,14 @@ extension PageboyViewController: TransitionOperationDelegate {
     }
 }
 
-internal extension PageboyViewController.Transition {
+internal extension CATransition {
     
-    func configure(transition: inout CATransition) {
-        transition.duration = duration
+    func configure(from: PageboyViewController.Transition) {
+        duration = from.duration
         #if swift(>=4.2)
-        transition.type = CATransitionType(rawValue: style.rawValue)
+        type = CATransitionType(rawValue: from.style.rawValue)
         #else
-        transition.type = style.rawValue
+        type = from.style.rawValue
         #endif
     }
 }
