@@ -82,10 +82,24 @@ internal extension PageboyViewController {
                                completion: TransitionOperation.Completion?) {
 
         if Thread.isMainThread {
-            _updateViewControllers(to: viewControllers, animated: animated, async: async, force: force, completion: completion)
+            _updateViewControllers(to: viewControllers,
+                                   from: fromIndex,
+                                   to: toIndex,
+                                   direction: direction,
+                                   animated: animated,
+                                   async: async, force:
+                                   force,
+                                   completion: completion)
         } else {
             DispatchQueue.main.sync {
-                _updateViewControllers(to: viewControllers, animated: animated, async: async, force: force, completion: completion)
+                _updateViewControllers(to: viewControllers,
+                                       from: fromIndex,
+                                       to: toIndex,
+                                       direction: direction,
+                                       animated: animated,
+                                       async: async,
+                                       force: force,
+                                       completion: completion)
             }
         }
     }
