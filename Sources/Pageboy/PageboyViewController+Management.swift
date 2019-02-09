@@ -105,13 +105,13 @@ internal extension PageboyViewController {
     }
     
     private func _updateViewControllers(to viewControllers: [UIViewController],
-                               from fromIndex: PageIndex = 0,
-                               to toIndex: PageIndex = 0,
-                               direction: NavigationDirection = .forward,
-                               animated: Bool,
-                               async: Bool,
-                               force: Bool,
-                               completion: TransitionOperation.Completion?) {
+                                        from fromIndex: PageIndex = 0,
+                                        to toIndex: PageIndex = 0,
+                                        direction: NavigationDirection = .forward,
+                                        animated: Bool,
+                                        async: Bool,
+                                        force: Bool,
+                                        completion: TransitionOperation.Completion?) {
 
         assert(Thread.isMainThread)
 

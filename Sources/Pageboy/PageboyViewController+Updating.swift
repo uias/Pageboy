@@ -80,7 +80,8 @@ extension PageboyViewController {
         case .scrollTo(let index):
             scrollToPage(.at(index: index), animated: true)
             
-        default: break
+        default:
+            break
         }
     }
     
