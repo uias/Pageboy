@@ -16,4 +16,5 @@ if (has_source_changes && ! has_tests_changes)
     warn("Looks like you changed some source files, should there have been some tests added?")
 end
 
+swiftlint.config_file = 'Sources/.swiftlint.yml'
 swiftlint.lint_files
