@@ -91,9 +91,6 @@ internal extension PageboyViewController {
                                     animated: Bool,
                                     completion: @escaping TransitionOperation.Completion) {
 
-        /// Note: This is (currently) only called from _updateViewControllers which is already on the main thread
-        assert(Thread.isMainThread)
-
         guard let transition = transition, animated == true, activeTransitionOperation == nil else {
                 completion(false)
                 return

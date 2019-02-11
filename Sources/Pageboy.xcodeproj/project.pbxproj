@@ -48,6 +48,8 @@
 		46ADAACF208F7EB200974529 /* PageboyViewController+Management.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ADAAC7208F7EB200974529 /* PageboyViewController+Management.swift */; };
 		46B7BD7E21791E2D0041EFFC /* PageboyViewController+ScrollCalculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B7BD7D21791E2D0041EFFC /* PageboyViewController+ScrollCalculations.swift */; };
 		46C5D36E219B5B5000EACABD /* PageboyInsertionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C5D36D219B5B5000EACABD /* PageboyInsertionTests.swift */; };
+		BB5277392211308B003695BB /* DispatchQueue+main.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5277382211308B003695BB /* DispatchQueue+main.swift */; };
+		BB52773A2211308B003695BB /* DispatchQueue+main.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5277382211308B003695BB /* DispatchQueue+main.swift */; };
 		D623B1C11E1D0C6B00527F3D /* Pageboy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D623B1B71E1D0C6A00527F3D /* Pageboy.framework */; };
 		D623B1C61E1D0C6B00527F3D /* PageboyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D623B1C51E1D0C6B00527F3D /* PageboyTests.swift */; };
 		D623B1C81E1D0C6B00527F3D /* Pageboy.h in Headers */ = {isa = PBXBuildFile; fileRef = D623B1BA1E1D0C6A00527F3D /* Pageboy.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -95,6 +97,7 @@
 		46ADAAC7208F7EB200974529 /* PageboyViewController+Management.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PageboyViewController+Management.swift"; sourceTree = "<group>"; };
 		46B7BD7D21791E2D0041EFFC /* PageboyViewController+ScrollCalculations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PageboyViewController+ScrollCalculations.swift"; sourceTree = "<group>"; };
 		46C5D36D219B5B5000EACABD /* PageboyInsertionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageboyInsertionTests.swift; sourceTree = "<group>"; };
+		BB5277382211308B003695BB /* DispatchQueue+main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+main.swift"; sourceTree = "<group>"; };
 		D623B1B71E1D0C6A00527F3D /* Pageboy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pageboy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D623B1BA1E1D0C6A00527F3D /* Pageboy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pageboy.h; sourceTree = "<group>"; };
 		D623B1BB1E1D0C6A00527F3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -149,6 +152,7 @@
 				462A65DC2000FCAA0051C79C /* UIPageViewController+ScrollView.swift */,
 				461D6DF0201795A100E0CDEE /* UIScrollView+ScrollActivity.swift */,
 				462D03DE2091D3AB0033C710 /* UIView+Animation.swift */,
+				BB5277382211308B003695BB /* DispatchQueue+main.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -486,6 +490,7 @@
 				461D6DF1201795A100E0CDEE /* UIScrollView+ScrollActivity.swift in Sources */,
 				462A65DF2000FCAA0051C79C /* UIView+AutoLayout.swift in Sources */,
 				46ADAAC8208F7EB200974529 /* PageboyViewController+Updating.swift in Sources */,
+				BB5277392211308B003695BB /* DispatchQueue+main.swift in Sources */,
 				462D03DF2091D3AB0033C710 /* UIView+Animation.swift in Sources */,
 				462A65E12000FCAA0051C79C /* UIApplication+SafeShared.swift in Sources */,
 				464ADF5C20975E3D00929AFB /* PageboyViewControllerDataSource.swift in Sources */,
@@ -531,6 +536,7 @@
 				46ADAAC3208F7E8500974529 /* TransitionOperation.swift in Sources */,
 				462A65E02000FCAA0051C79C /* UIView+AutoLayout.swift in Sources */,
 				46ADAAC9208F7EB200974529 /* PageboyViewController+Updating.swift in Sources */,
+				BB52773A2211308B003695BB /* DispatchQueue+main.swift in Sources */,
 				462D03E02091D3AB0033C710 /* UIView+Animation.swift in Sources */,
 				462A65E22000FCAA0051C79C /* UIApplication+SafeShared.swift in Sources */,
 				464ADF5D20975E3D00929AFB /* PageboyViewControllerDataSource.swift in Sources */,
