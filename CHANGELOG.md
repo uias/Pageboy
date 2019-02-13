@@ -26,6 +26,13 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [3.0.3](https://github.com/uias/Pageboy/releases/tag/3.0.3)
+Released on 2019-02-13
+
+#### Updated
+- [#194](https://github.com/uias/Pageboy/pull/194) Improve threading logic.
+     - by [remirobert](https://github.com/remirobert)
+
 ## [3.0.2](https://github.com/uias/Pageboy/releases/tag/3.0.2)
 Released on 2019-02-10
 
