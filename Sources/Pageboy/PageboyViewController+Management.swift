@@ -81,26 +81,15 @@ internal extension PageboyViewController {
                                force: Bool,
                                completion: TransitionOperation.Completion?) {
 
-        if Thread.isMainThread {
-            _updateViewControllers(to: viewControllers,
-                                   from: fromIndex,
-                                   to: toIndex,
-                                   direction: direction,
-                                   animated: animated,
-                                   async: async, force:
-                                   force,
-                                   completion: completion)
-        } else {
-            DispatchQueue.main.sync {
-                _updateViewControllers(to: viewControllers,
-                                       from: fromIndex,
-                                       to: toIndex,
-                                       direction: direction,
-                                       animated: animated,
-                                       async: async,
-                                       force: force,
-                                       completion: completion)
-            }
+        DispatchQueue.executeInMainThread {
+            self._updateViewControllers(to: viewControllers,
+                                        from: fromIndex,
+                                        to: toIndex,
+                                        direction: direction,
+                                        animated: animated,
+                                        async: async,
+                                        force: force,
+                                        completion: completion)
         }
     }
     
@@ -112,8 +101,6 @@ internal extension PageboyViewController {
                                         async: Bool,
                                         force: Bool,
                                         completion: TransitionOperation.Completion?) {
-
-        assert(Thread.isMainThread)
 
         guard let pageViewController = pageViewController else {
             return

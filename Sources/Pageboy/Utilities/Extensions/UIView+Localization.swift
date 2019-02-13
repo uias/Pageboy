@@ -13,18 +13,13 @@ extension UIView {
     /// Whether the layout direction of the view is right to left.
     var layoutIsRightToLeft: Bool {
         var layoutDirection: UIUserInterfaceLayoutDirection!
-        if Thread.isMainThread {
-            layoutDirection = getUserInterfaceLayoutDirection()
-        } else {
-            DispatchQueue.main.sync {
-                layoutDirection = getUserInterfaceLayoutDirection()
-            }
+        DispatchQueue.executeInMainThread {
+            layoutDirection = self.getUserInterfaceLayoutDirection()
         }
         return layoutDirection == .rightToLeft
     }
     
     private func getUserInterfaceLayoutDirection() -> UIUserInterfaceLayoutDirection {
-        assert(Thread.isMainThread)
         return UIView.userInterfaceLayoutDirection(for: semanticContentAttribute)
     }
 

@@ -306,21 +306,14 @@ public extension PageboyViewController {
     public func scrollToPage(_ page: Page,
                              animated: Bool,
                              completion: PageScrollCompletion? = nil) -> Bool {
-        if Thread.isMainThread {
-            return _scrollToPage(page,
-                                 animated: animated,
-                                 force: false,
-                                 completion: completion)
-        } else {
-            var result: Bool = false
-            DispatchQueue.main.sync {
-                result = _scrollToPage(page,
-                                       animated: animated,
-                                       force: false,
-                                       completion: completion)
-            }
-            return result
+        var result: Bool = false
+        DispatchQueue.executeInMainThread {
+            result = self._scrollToPage(page,
+                                        animated: animated,
+                                        force: false,
+                                        completion: completion)
         }
+        return result
     }
     
     //swiftlint:disable function_body_length
@@ -337,8 +330,6 @@ public extension PageboyViewController {
                                animated: Bool,
                                force: Bool,
                                completion: PageScrollCompletion? = nil) -> Bool {
-
-        assert(Thread.isMainThread)
 
         guard let pageViewController = pageViewController, isSafeToScrollToANewPage(ignoringPosition: force) else {
             return false
