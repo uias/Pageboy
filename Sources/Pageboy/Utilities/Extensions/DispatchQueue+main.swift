@@ -9,11 +9,12 @@
 import UIKit
 
 extension DispatchQueue {
+
     static func executeInMainThread(callback: @escaping () -> Void) {
         if Thread.isMainThread {
             callback()
         } else {
-            DispatchQueue.main.async(execute: callback)
+            DispatchQueue.main.sync(execute: callback)
         }
     }
 }
