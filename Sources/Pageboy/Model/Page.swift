@@ -8,10 +8,10 @@
 
 import Foundation
 
-public extension PageboyViewController {
+extension PageboyViewController {
  
     /// A page index.
-    typealias PageIndex = Int
+    public typealias PageIndex = Int
     
     /// The index of a page in the page view controller.
     ///
@@ -21,7 +21,7 @@ public extension PageboyViewController {
     /// - last: The last page.
     /// - at: A custom specified page index.
     // swiftlint:disable identifier_name
-    enum Page {
+    public enum Page {
         case next
         case previous
         case first

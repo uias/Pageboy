@@ -8,9 +8,9 @@
 
 import UIKit
 
-public extension PageboyViewController {
+extension PageboyViewController {
  
-    enum NavigationDirection {
+    public enum NavigationDirection {
         case neutral
         case forward
         case reverse

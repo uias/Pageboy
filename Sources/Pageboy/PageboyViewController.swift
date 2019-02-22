@@ -294,7 +294,7 @@ open class PageboyViewController: UIViewController {
 }
 
 // MARK: - Paging Updates
-public extension PageboyViewController {
+extension PageboyViewController {
     
     /// Scroll the page view controller to a new page.
     ///
@@ -303,9 +303,9 @@ public extension PageboyViewController {
     /// - parameter completion: The completion closure.
     /// - Returns: Whether the scroll was executed.
     @discardableResult
-    func scrollToPage(_ page: Page,
-                      animated: Bool,
-                      completion: PageScrollCompletion? = nil) -> Bool {
+    public func scrollToPage(_ page: Page,
+                             animated: Bool,
+                             completion: PageScrollCompletion? = nil) -> Bool {
         var result: Bool = false
         DispatchQueue.executeInMainThread {
             result = self._scrollToPage(page,

@@ -9,12 +9,12 @@
 import UIKit
 
 // MARK: - VC Reloading
-public extension PageboyViewController {
+extension PageboyViewController {
     
     /// Reload the view controllers in the page view controller.
     /// This reloads the dataSource entirely, calling viewControllers(forPageboyViewController:)
     /// and defaultPageIndex(forPageboyViewController:).
-    func reloadData() {
+    public func reloadData() {
         reloadData(reloadViewControllers: true)
     }
     

@@ -9,10 +9,10 @@
 import UIKit
 
 // MARK: - PageboyViewController transition configuration.
-public extension PageboyViewController {
+extension PageboyViewController {
     
     /// Transition for a page scroll.
-    final class Transition {
+    public final class Transition {
         
         /// Style for the transition.
         ///

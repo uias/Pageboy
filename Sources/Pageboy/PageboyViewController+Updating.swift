@@ -8,14 +8,14 @@
 
 import UIKit
 
-public extension PageboyViewController {
+extension PageboyViewController {
     
     /// Behavior to evaluate after a page update.
     ///
     /// - doNothing: Do nothing.
     /// - scrollToUpdate: Scroll to the update.
     /// - scrollTo: Scroll to a specified index.
-    enum PageUpdateBehavior {
+    public enum PageUpdateBehavior {
         case doNothing
         case scrollToUpdate
         case scrollTo(index: PageIndex)
