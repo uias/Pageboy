@@ -12,7 +12,7 @@ public extension UIViewController {
     
     /// The parent PageboyViewController.
     /// Available from any direct child view controllers within a PageboyViewController.
-    public var parentPageboy: PageboyViewController? {
+    var parentPageboy: PageboyViewController? {
         return parent?.parent as? PageboyViewController
     }
 }

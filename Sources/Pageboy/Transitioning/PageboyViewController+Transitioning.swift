@@ -12,7 +12,7 @@ import UIKit
 public extension PageboyViewController {
     
     /// Transition for a page scroll.
-    public final class Transition {
+    final class Transition {
         
         /// Style for the transition.
         ///
@@ -85,11 +85,11 @@ internal extension PageboyViewController {
     ///   - direction: The direction of travel.
     ///   - animated: Whether to animate the transition.
     ///   - completion: Action on the completion of the transition.
-    internal func performTransition(from startIndex: Int,
-                                    to endIndex: Int,
-                                    with direction: NavigationDirection,
-                                    animated: Bool,
-                                    completion: @escaping TransitionOperation.Completion) {
+    func performTransition(from startIndex: Int,
+                           to endIndex: Int,
+                           with direction: NavigationDirection,
+                           animated: Bool,
+                           completion: @escaping TransitionOperation.Completion) {
 
         guard let transition = transition, animated == true, activeTransitionOperation == nil else {
                 completion(false)

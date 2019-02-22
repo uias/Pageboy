@@ -303,9 +303,9 @@ public extension PageboyViewController {
     /// - parameter completion: The completion closure.
     /// - Returns: Whether the scroll was executed.
     @discardableResult
-    public func scrollToPage(_ page: Page,
-                             animated: Bool,
-                             completion: PageScrollCompletion? = nil) -> Bool {
+    func scrollToPage(_ page: Page,
+                      animated: Bool,
+                      completion: PageScrollCompletion? = nil) -> Bool {
         var result: Bool = false
         DispatchQueue.executeInMainThread {
             result = self._scrollToPage(page,
