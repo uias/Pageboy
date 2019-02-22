@@ -15,7 +15,7 @@ public extension PageboyViewController {
     /// - doNothing: Do nothing.
     /// - scrollToUpdate: Scroll to the update.
     /// - scrollTo: Scroll to a specified index.
-    public enum PageUpdateBehavior {
+    enum PageUpdateBehavior {
         case doNothing
         case scrollToUpdate
         case scrollTo(index: PageIndex)
