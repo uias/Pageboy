@@ -24,7 +24,7 @@ extension PageboyViewController {
     internal func reloadData(reloadViewControllers: Bool) {
 
         if reloadViewControllers {
-            viewControllerMap.removeAll()
+            viewControllerIndexMap.removeAll()
         }
 
         let newViewControllerCount = dataSource?.numberOfViewControllers(in: self) ?? 0
@@ -167,7 +167,7 @@ internal extension PageboyViewController {
     func fetchViewController(at index: PageIndex) -> UIViewController? {
         let viewController = dataSource?.viewController(for: self, at: index)
         if let viewController = viewController {
-            viewControllerMap[viewController] = index
+            viewControllerIndexMap.set(index, for: viewController)
         }
         return viewController
     }

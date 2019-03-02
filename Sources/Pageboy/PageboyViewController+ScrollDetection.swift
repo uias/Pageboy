@@ -30,7 +30,9 @@ extension PageboyViewController: UIPageViewControllerDelegate {
         guard pageViewControllerIsActual(pageViewController) else {
             return
         }
-        guard let viewController = pendingViewControllers.first, let index = viewControllerMap[viewController] else {
+        
+        guard let viewController = pendingViewControllers.first,
+            let index = viewControllerIndexMap.index(for: viewController) else {
                 return
         }
 
@@ -49,7 +51,8 @@ extension PageboyViewController: UIPageViewControllerDelegate {
         guard pageViewControllerIsActual(pageViewController), completed else {
             return }
         
-        if let viewController = pageViewController.viewControllers?.first, let index = viewControllerMap[viewController] {
+        if let viewController = pageViewController.viewControllers?.first,
+            let index = viewControllerIndexMap.index(for: viewController) {
             guard index == expectedTransitionIndex else {
                 return
             }

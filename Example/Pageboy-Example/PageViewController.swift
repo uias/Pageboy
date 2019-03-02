@@ -91,6 +91,7 @@ extension PageViewController: PageboyViewControllerDataSource {
     
     func viewController(for pageboyViewController: PageboyViewController,
                         at index: PageboyViewController.PageIndex) -> UIViewController? {
+        return makeChildViewController(at: index)
         return viewControllers[index]
     }
     
