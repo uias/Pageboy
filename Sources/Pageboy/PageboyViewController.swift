@@ -138,7 +138,7 @@ open class PageboyViewController: UIViewController {
     /// The number of view controllers in the page view controller.
     internal var viewControllerCount: Int?
     /// A map of view controllers and related page indexes.
-    internal lazy var viewControllerMap = [UIViewController: PageIndex]()
+    internal lazy var viewControllerIndexMap = ObjectIndexMap<UIViewController>()
     
     /// The number of pages in the page view controller.
     public var pageCount: Int? {
@@ -245,7 +245,7 @@ open class PageboyViewController: UIViewController {
         }
 
         viewControllerCount = newPageCount
-        viewControllerMap.removeAll()
+        viewControllerIndexMap.removeAll()
 
         performUpdates(for: index,
                         viewController: newViewController,
@@ -278,7 +278,7 @@ open class PageboyViewController: UIViewController {
             }
 
             viewControllerCount = newPageCount
-            viewControllerMap.removeAll()
+            viewControllerIndexMap.removeAll()
 
             performUpdates(for: sanitizedIndex,
                            viewController: newViewController,
