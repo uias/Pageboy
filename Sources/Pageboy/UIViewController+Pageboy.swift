@@ -12,11 +12,19 @@ extension UIViewController {
     
     /// The parent PageboyViewController.
     /// Available from any direct child view controllers within a PageboyViewController.
+    @available(*, deprecated: 3.1.0, message: "Use pageboyParent")
     public var parentPageboy: PageboyViewController? {
+        return pageboyParent
+    }
+    
+    /// The parent PageboyViewController.
+    /// Available from any direct child view controllers within a PageboyViewController.
+    public var pageboyParent: PageboyViewController? {
         return parent?.parent as? PageboyViewController
     }
     
-    public var pageboyIndex: PageboyViewController.PageIndex? {
-        return parentPageboy?.pageIndex(of: self)
+    /// Page index for this view controller if it's embedded in a PageboyViewController.
+    public var pageboyPageIndex: PageboyViewController.PageIndex? {
+        return pageboyParent?.pageIndex(of: self)
     }
 }
