@@ -29,8 +29,6 @@ internal final class IndexedObjectMap<T: AnyObject> {
 
         let wrapper = WeakWrapper<T>(object)
         map[index] = wrapper
-        
-        print(self.map)
     }
     
     func removeAll() {
