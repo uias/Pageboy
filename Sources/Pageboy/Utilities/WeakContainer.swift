@@ -11,20 +11,15 @@ import Foundation
 internal final class WeakWrapper<T: AnyObject> {
     
     private(set) weak var object: T?
-    private let uuid = UUID().uuidString
     
     init(_ object: T) {
         self.object = object
     }
 }
 
-extension WeakWrapper: Hashable {
+extension WeakWrapper: Equatable {
     
     static func == (lhs: WeakWrapper, rhs: WeakWrapper) -> Bool {
         return lhs.object === rhs.object
-    }
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(uuid.hashValue)
     }
 }

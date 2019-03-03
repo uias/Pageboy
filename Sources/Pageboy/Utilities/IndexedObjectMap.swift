@@ -8,18 +8,18 @@
 
 import Foundation
 
-/// Map which stores an index next to an object.
-internal final class ObjectIndexMap<T: AnyObject> {
+/// Map which weakly stores an object for an index key.
+internal final class IndexedObjectMap<T: AnyObject> {
     
     // MARK: Properties
     
-    private var map = [WeakWrapper<T>: Int]()
+    private var map = [Int: WeakWrapper<T>]()
     
     // MARK: Accessors
     
     func index(for object: T) -> Int? {
         cleanUp()
-        return map.first(where: { $0.key.object === object })?.value
+        return map.first(where: { $0.value.object === object })?.key
     }
  
     // MARK: Mutators
@@ -28,7 +28,7 @@ internal final class ObjectIndexMap<T: AnyObject> {
         cleanUp()
 
         let wrapper = WeakWrapper<T>(object)
-        map[wrapper] = index
+        map[index] = wrapper
     }
     
     func removeAll() {
@@ -36,12 +36,12 @@ internal final class ObjectIndexMap<T: AnyObject> {
     }
     
     private func cleanUp() {
-        var invalidObjects = [WeakWrapper<T>]()
+        var invalidIndexes = [Int]()
         map.forEach({
-            if $0.key.object == nil {
-                invalidObjects.append($0.key)
+            if $0.value.object == nil {
+                invalidIndexes.append($0.key)
             }
         })
-        invalidObjects.forEach({ self.map[$0] = nil })
+        invalidIndexes.forEach({ self.map[$0] = nil })
     }
 }
