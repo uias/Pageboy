@@ -20,6 +20,8 @@ class ChildViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateIndexLabel()
+        
+        print(pageboyIndex)
     }
     
     private func updateIndexLabel() {

@@ -15,4 +15,8 @@ extension UIViewController {
     public var parentPageboy: PageboyViewController? {
         return parent?.parent as? PageboyViewController
     }
+    
+    public var pageboyIndex: PageboyViewController.PageIndex? {
+        return parentPageboy?.pageIndex(of: self)
+    }
 }
