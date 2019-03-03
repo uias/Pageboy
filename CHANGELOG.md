@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 `Pageboy` adheres to [Semantic Versioning](http://semver.org/).
 
 #### 3.x Releases
-- `3.0.x` Releases - [3.0.0](#300) | [3.0.1](#301) | [3.0.2](#302) | [3.0.3](#303) | [3.0.4](#304) | [3.0.5](#305)
+- `3.0.x` Releases - [3.0.0](#300) | [3.0.1](#301) | [3.0.2](#302) | [3.0.3](#303) | [3.0.4](#304) | [3.0.5](#305) | [3.0.6](#306)
 
 #### 2.x Releases
 - `2.6.x` Releases - [2.6.0](#260) | [2.6.1](#261)
@@ -25,6 +25,12 @@ All notable changes to this project will be documented in this file.
 - `0.4.x` Releases - [0.4.0](#040) | [0.4.1](#041) | [0.4.2](#042) | [0.4.3](#043) | [0.4.4](#044) | [0.4.5](#045) | [0.4.6](#046) | [0.4.7](#047) | [0.4.8](#048) | [0.4.9](#049) | [0.4.10](#0410) | [0.4.11](#0411) | [0.4.12](#0412)
 
 ---
+## [3.0.6](https://github.com/uias/Pageboy/releases/tag/3.0.6)
+Released on 2019-03-03
+
+#### Fixed
+- [#198](https://github.com/uias/Pageboy/issues/198) Memory issue where view controllers would always be retained.
+
 ## [3.0.5](https://github.com/uias/Pageboy/releases/tag/3.0.5)
 Released on 2019-02-22
 
