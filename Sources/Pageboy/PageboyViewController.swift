@@ -228,6 +228,26 @@ open class PageboyViewController: UIViewController {
     
     // MARK: View Controller Updates
     
+    /// Scroll the page view controller to a new page.
+    ///
+    /// - parameter page: The index of the new page.
+    /// - parameter animated: Whether to animate the transition.
+    /// - parameter completion: The completion closure.
+    /// - Returns: Whether the scroll was executed.
+    @discardableResult
+    open func scrollToPage(_ page: Page,
+                           animated: Bool,
+                           completion: PageScrollCompletion? = nil) -> Bool {
+        var result: Bool = false
+        DispatchQueue.executeInMainThread {
+            result = self._scrollToPage(page,
+                                        animated: animated,
+                                        force: false,
+                                        completion: completion)
+        }
+        return result
+    }
+    
     /// Insert a new page into the page view controller.
     ///
     /// - Parameters:
@@ -291,30 +311,20 @@ open class PageboyViewController: UIViewController {
             })
         })
     }
+    
+    // MARK: Page Data
+    
+    /// Get the page index of a view controller.
+    ///
+    /// - Parameter viewController: View controller.
+    /// - Returns: Page index of view controller if it is known.
+    public func pageIndex(of viewController: UIViewController) -> PageIndex? {
+        return viewControllerIndexMap.index(for: viewController)
+    }
 }
 
 // MARK: - Paging Updates
 extension PageboyViewController {
-    
-    /// Scroll the page view controller to a new page.
-    ///
-    /// - parameter page: The index of the new page.
-    /// - parameter animated: Whether to animate the transition.
-    /// - parameter completion: The completion closure.
-    /// - Returns: Whether the scroll was executed.
-    @discardableResult
-    public func scrollToPage(_ page: Page,
-                             animated: Bool,
-                             completion: PageScrollCompletion? = nil) -> Bool {
-        var result: Bool = false
-        DispatchQueue.executeInMainThread {
-            result = self._scrollToPage(page,
-                                        animated: animated,
-                                        force: false,
-                                        completion: completion)
-        }
-        return result
-    }
     
     //swiftlint:disable function_body_length
     

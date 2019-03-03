@@ -171,10 +171,6 @@ extension PageboyViewController {
         }
         return viewController
     }
-    
-    public func pageIndex(of viewController: UIViewController) -> PageIndex? {
-        return viewControllerIndexMap.index(for: viewController)
-    }
 }
 
 // MARK: - UIPageViewController Set Up
