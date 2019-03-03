@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		460906B7222A785E005474BF /* WeakContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460906B6222A785E005474BF /* WeakContainer.swift */; };
-		460906B9222A79F6005474BF /* ObjectIndexMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460906B8222A79F6005474BF /* ObjectIndexMap.swift */; };
+		460906B9222A79F6005474BF /* IndexedObjectMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460906B8222A79F6005474BF /* IndexedObjectMap.swift */; };
 		461D6DF1201795A100E0CDEE /* UIScrollView+ScrollActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461D6DF0201795A100E0CDEE /* UIScrollView+ScrollActivity.swift */; };
 		461D6DF2201795A100E0CDEE /* UIScrollView+ScrollActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461D6DF0201795A100E0CDEE /* UIScrollView+ScrollActivity.swift */; };
 		462A65DD2000FCAA0051C79C /* UIView+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462A65D92000FCAA0051C79C /* UIView+Localization.swift */; };
@@ -79,7 +79,7 @@
 
 /* Begin PBXFileReference section */
 		460906B6222A785E005474BF /* WeakContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakContainer.swift; sourceTree = "<group>"; };
-		460906B8222A79F6005474BF /* ObjectIndexMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectIndexMap.swift; sourceTree = "<group>"; };
+		460906B8222A79F6005474BF /* IndexedObjectMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexedObjectMap.swift; sourceTree = "<group>"; };
 		461D6DF0201795A100E0CDEE /* UIScrollView+ScrollActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+ScrollActivity.swift"; sourceTree = "<group>"; };
 		462A65D92000FCAA0051C79C /* UIView+Localization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Localization.swift"; sourceTree = "<group>"; };
 		462A65DA2000FCAA0051C79C /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayout.swift"; sourceTree = "<group>"; };
@@ -277,7 +277,7 @@
 			children = (
 				462A65D82000FCAA0051C79C /* Extensions */,
 				460906B6222A785E005474BF /* WeakContainer.swift */,
-				460906B8222A79F6005474BF /* ObjectIndexMap.swift */,
+				460906B8222A79F6005474BF /* IndexedObjectMap.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -492,7 +492,7 @@
 				464ADF552097565D00929AFB /* Page.swift in Sources */,
 				46ADAAB8208F7E1500974529 /* PageboyViewController+AutoScrolling.swift in Sources */,
 				462A65E32000FCAA0051C79C /* UIPageViewController+ScrollView.swift in Sources */,
-				460906B9222A79F6005474BF /* ObjectIndexMap.swift in Sources */,
+				460906B9222A79F6005474BF /* IndexedObjectMap.swift in Sources */,
 				46ADAAC2208F7E8500974529 /* TransitionOperation.swift in Sources */,
 				461D6DF1201795A100E0CDEE /* UIScrollView+ScrollActivity.swift in Sources */,
 				462A65DF2000FCAA0051C79C /* UIView+AutoLayout.swift in Sources */,

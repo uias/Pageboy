@@ -8,8 +8,8 @@
 
 import Foundation
 
-/// Map which stores an index next to an object.
-internal final class ObjectIndexMap<T: AnyObject> {
+/// Map which weakly stores an object for an index key.
+internal final class IndexedObjectMap<T: AnyObject> {
     
     // MARK: Properties
     
