@@ -3,6 +3,7 @@ All notable changes to this project will be documented in this file.
 `Pageboy` adheres to [Semantic Versioning](http://semver.org/).
 
 #### 3.x Releases
+- `3.1.x` Releases - [3.1.0](#310)
 - `3.0.x` Releases - [3.0.0](#300) | [3.0.1](#301) | [3.0.2](#302) | [3.0.3](#303) | [3.0.4](#304) | [3.0.5](#305) | [3.0.6](#306) | [3.0.7](#307)
 
 #### 2.x Releases
@@ -23,6 +24,17 @@ All notable changes to this project will be documented in this file.
 
 #### 0.x Releases
 - `0.4.x` Releases - [0.4.0](#040) | [0.4.1](#041) | [0.4.2](#042) | [0.4.3](#043) | [0.4.4](#044) | [0.4.5](#045) | [0.4.6](#046) | [0.4.7](#047) | [0.4.8](#048) | [0.4.9](#049) | [0.4.10](#0410) | [0.4.11](#0411) | [0.4.12](#0412)
+
+---
+## [3.1.0](https://github.com/uias/Pageboy/releases/tag/3.1.0)
+Released on TBD
+
+#### Added
+- `pageboyParent` to `UIViewController` to get the parent `PageboyViewController` if it exists.
+- `pageboyPageIndex` to `UIViewController` to get the current index of a view controller if embedded within a `PageboyViewController`.
+
+#### Updated
+- Deprecated `parentPageboy` on `UIViewController`.
 
 ---
 ## [3.0.7](https://github.com/uias/Pageboy/releases/tag/3.0.7)
