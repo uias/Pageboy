@@ -158,13 +158,13 @@ internal extension PageboyViewController {
 }
 
 // MARK: - Data Source interaction
-internal extension PageboyViewController {
+extension PageboyViewController {
     
     /// Load view controller from the data source.
     ///
     /// - Parameter index: Index of the view controller to load.
     /// - Returns: View controller if it exists.
-    func fetchViewController(at index: PageIndex) -> UIViewController? {
+    internal func fetchViewController(at index: PageIndex) -> UIViewController? {
         let viewController = dataSource?.viewController(for: self, at: index)
         if let viewController = viewController {
             viewControllerIndexMap.set(index, for: viewController)
