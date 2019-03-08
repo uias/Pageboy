@@ -27,7 +27,7 @@ All notable changes to this project will be documented in this file.
 
 ---
 ## [3.1.0](https://github.com/uias/Pageboy/releases/tag/3.1.0)
-Released on TBD
+Released on 2019-03-08
 
 #### Added
 - `pageboyParent` to `UIViewController` to get the parent `PageboyViewController` if it exists.
