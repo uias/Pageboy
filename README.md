@@ -35,7 +35,7 @@ Pageboy requires iOS 9 / tvOS 10; and Swift 4.
 
 ## 📲 Installation
 ### CocoaPods
-Pageboy is available through [CocoaPods](http://cocoapods.org):
+Pageboy is available through [CocoaPods](https://cocoapods.org):
 ```ruby
 pod 'Pageboy', '~> 3.0'
 ```
@@ -191,4 +191,4 @@ Support for custom intermission duration and other scroll behaviors is also avai
 Bug reports and pull requests are welcome on GitHub at [https://github.com/uias/Pageboy](https://github.com/uias/Pageboy).
 
 ## 👮🏻‍♂️ License
-The library is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+The library is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).

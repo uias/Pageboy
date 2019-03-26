@@ -1,6 +1,6 @@
 # Change Log
 All notable changes to this project will be documented in this file.
-`Pageboy` adheres to [Semantic Versioning](http://semver.org/).
+`Pageboy` adheres to [Semantic Versioning](https://semver.org/).
 
 #### 3.x Releases
 - `3.1.x` Releases - [3.1.0](#310)
