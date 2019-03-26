@@ -66,8 +66,13 @@ import UIKit
             animation.toValue = colors
             animation.duration = duration
             animation.isRemovedOnCompletion = true
+            #if swift(>=4.2)
             animation.fillMode = .forwards
             animation.timingFunction = CAMediaTimingFunction(name: .linear)
+            #else
+            animation.fillMode = kCAFillModeForwards
+            animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+            #endif
             gradientLayer?.add(animation, forKey: "colors")
         }
     }
