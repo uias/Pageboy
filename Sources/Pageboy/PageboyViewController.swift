@@ -326,8 +326,6 @@ open class PageboyViewController: UIViewController {
 // MARK: - Paging Updates
 extension PageboyViewController {
     
-    //swiftlint:disable function_body_length
-    
     /// Scroll the page view controller to a new page.
     ///
     /// - parameter page: The index of the new page.

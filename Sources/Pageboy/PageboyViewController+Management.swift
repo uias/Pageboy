@@ -184,7 +184,7 @@ internal extension PageboyViewController {
     func setUpPageViewController(reloadViewControllers: Bool = true) {
         let existingZIndex: Int?
         if let pageViewController = self.pageViewController { // destroy existing page VC
-            existingZIndex = view.subviews.index(of: pageViewController.view)
+            existingZIndex = view.subviews.firstIndex(of: pageViewController.view)
             destroyCurrentPageViewController()
         } else {
             existingZIndex = nil
