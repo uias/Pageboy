@@ -23,7 +23,7 @@ class ChildViewController: UIViewController {
     }
     
     private func updateIndexLabel() {
-        if let index = (pageboyParent as? PageViewController)?.viewControllers.index(of: self) {
+        if let index = (pageboyParent as? PageViewController)?.viewControllers.firstIndex(of: self) {
             label.text = "Page " + String(index + 1)
             
             let isFirstPage = index == 0
