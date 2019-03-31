@@ -6,7 +6,7 @@
     <a href="https://travis-ci.org/uias/Pageboy">
         <img src="https://travis-ci.org/uias/Pageboy.svg?branch=master" />
     </a>
-    <img src="https://img.shields.io/badge/Swift-4-orange.svg?style=flat" />
+    <img src="https://img.shields.io/badge/Swift-4/5-orange.svg?style=flat" />
     <a href="https://cocoapods.org/pods/Pageboy">
         <img src="https://img.shields.io/cocoapods/v/Pageboy.svg" alt="CocoaPods" />
     </a>
@@ -31,19 +31,19 @@
 - [x] Support for custom animated page transitions.
 
 ## 📋 Requirements
-Pageboy requires iOS 9 / tvOS 10; and Swift 4/5.
+Pageboy requires iOS 9 / tvOS 10; and is compatible with Swift 4/5.
 
 ## 📲 Installation
 ### CocoaPods
 Pageboy is available through [CocoaPods](https://cocoapods.org):
 ```ruby
-pod 'Pageboy', '~> 3.0'
+pod 'Pageboy', '~> 3.2'
 ```
 
 ### Carthage
 Pageboy is also available through [Carthage](https://github.com/Carthage/Carthage):
 ```ogdl
-github "uias/Pageboy" ~> 3.0
+github "uias/Pageboy" ~> 3.2
 ```
 
 ## 🚀 Usage
