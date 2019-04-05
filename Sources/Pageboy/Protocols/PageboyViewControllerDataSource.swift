@@ -31,3 +31,9 @@ public protocol PageboyViewControllerDataSource: class {
     /// - Returns: Default page
     func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page?
 }
+
+public extension PageboyViewControllerDataSource {
+    func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {
+        return nil
+    }
+}
