@@ -48,7 +48,8 @@ internal extension PageboyViewController {
     func calculateRelativePageSizeAndContentOffset(for scrollView: UIScrollView) -> (CGFloat, CGFloat) {
         var pageSize: CGFloat
         var contentOffset: CGFloat
-        switch navigationOrientation {
+        let orientation = navigationOrientation
+        switch orientation {
             
         case .horizontal:
             pageSize = scrollView.frame.size.width
@@ -61,6 +62,9 @@ internal extension PageboyViewController {
         case .vertical:
             pageSize = scrollView.frame.size.height
             contentOffset = scrollView.contentOffset.y
+            
+        @unknown default:
+            fatalError("unsupported orientation \(orientation.rawValue)")
         }
         
         return (pageSize, contentOffset)
