@@ -255,7 +255,7 @@ internal extension PageboyViewController {
             options[.interPageSpacing] = interPageSpacing
         }
         
-        guard options.count > 0 else {
+        guard !options.isEmpty else {
             return nil
         }
         return options
@@ -269,7 +269,7 @@ internal extension PageboyViewController {
             options[UIPageViewControllerOptionInterPageSpacingKey] = interPageSpacing
         }
         
-        guard options.count > 0 else {
+        guard !options.isEmpty else {
             return nil
         }
         return options
