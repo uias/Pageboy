@@ -61,6 +61,9 @@ internal extension PageboyViewController {
         case .vertical:
             pageSize = scrollView.frame.size.height
             contentOffset = scrollView.contentOffset.y
+            
+        @unknown default:
+            fatalError()
         }
         
         return (pageSize, contentOffset)
