@@ -25,7 +25,12 @@ open class PageboyViewController: UIViewController {
     internal var expectedTransitionIndex: PageIndex?
 
     /// The orientation that the page view controller transitions on.
+    ///
+    /// Supported values are .horizontal and .vertical.
     public var navigationOrientation: UIPageViewController.NavigationOrientation = .horizontal {
+        willSet {
+            assert(newValue == .horizontal || newValue == .vertical, "unsupported navigationOrientation \(newValue.rawValue)")
+        }
         didSet {
             reconfigurePageViewController()
         }

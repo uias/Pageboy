@@ -105,6 +105,8 @@ internal extension PageboyViewController {
 
         prepareForTransition()
 
+        let navigationOrientation = self.navigationOrientation
+
         /// Calculate semantic direction for RtL languages
         var semanticDirection = direction
         if view.layoutIsRightToLeft && navigationOrientation == .horizontal {
