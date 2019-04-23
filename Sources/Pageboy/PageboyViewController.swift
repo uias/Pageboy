@@ -165,7 +165,7 @@ open class PageboyViewController: UIViewController {
     /// The relative page position that the page view controller is currently at.
     public internal(set) var currentPosition: CGPoint?
     /// The view controller that the page view controller is currently at.
-    public weak var currentViewController: UIViewController? {
+    public var currentViewController: UIViewController? {
         guard let currentIndex = currentIndex,
             viewControllerCount ?? 0 > currentIndex else {
                 return nil
