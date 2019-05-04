@@ -156,9 +156,6 @@ open class PageboyViewController: UIViewController {
     public internal(set) var currentIndex: PageIndex? {
         didSet {
             targetIndex = currentIndex
-            guard let currentIndex = currentIndex else {
-                return
-            }
             update(forNew: currentIndex, from: oldValue)
         }
     }
@@ -298,14 +295,21 @@ open class PageboyViewController: UIViewController {
                    "Attempt to delete page at \(index) but there are \(newPageCount) pages after the update")
 
             let sanitizedIndex = min(index, newPageCount - 1)
-            guard let newViewController = dataSource?.viewController(for: self, at: sanitizedIndex) else {
-                return
+            
+            let newViewController: UIViewController?
+            let newIndex: Int?
+            if sanitizedIndex >= 0 {
+                newViewController = dataSource?.viewController(for: self, at: sanitizedIndex)
+                newIndex = sanitizedIndex
+            } else {
+                newViewController = nil
+                newIndex = nil
             }
 
             viewControllerCount = newPageCount
             viewControllerIndexMap.removeAll()
 
-            performUpdates(for: sanitizedIndex,
+            performUpdates(for: newIndex,
                            viewController: newViewController,
                            updateBehavior: updateBehavior,
                            indexOperation: { (index, newIndex) in
@@ -435,13 +439,17 @@ extension PageboyViewController {
         return true
     }
 
-    private func update(forNew currentIndex: PageIndex, from oldIndex: PageIndex?) {
-        
+    private func update(forNew currentIndex: PageIndex?, from oldIndex: PageIndex?) {
         #if os(iOS)
-            UIView.animate(withDuration: 0.25) {
-                self.setNeedsStatusBarAppearanceUpdate()
-            }
+        UIView.animate(withDuration: 0.25) {
+            self.setNeedsStatusBarAppearanceUpdate()
+        }
         #endif
+        
+        guard let currentIndex = currentIndex else { // no index - reset
+            currentPosition = nil
+            return
+        }
         
         // ensure position keeps in sync
         currentPosition = CGPoint(x: navigationOrientation == .horizontal ? CGFloat(currentIndex) : 0.0,

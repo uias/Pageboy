@@ -25,10 +25,20 @@ extension PageboyViewController {
 // MARK: - Page Updates
 internal extension PageboyViewController {
     
-    func performUpdates(for newIndex: PageIndex,
-                        viewController: UIViewController,
+    func performUpdates(for newIndex: PageIndex?,
+                        viewController: UIViewController?,
                         updateBehavior: PageUpdateBehavior,
                         indexOperation: (_ currentIndex: PageIndex, _ newIndex: PageIndex) -> Void) {
+        guard let newIndex = newIndex, let viewController = viewController else { // no view controller - reset
+            updateViewControllers(to: [UIViewController()],
+                                  animated: false,
+                                  async: false,
+                                  force: false,
+                                  completion: nil)
+            self.currentIndex = nil
+            return
+        }
+        
         guard let currentIndex = currentIndex else { // if no `currentIndex` - currently have no pages - set VC and index.
             updateViewControllers(to: [viewController],
                                   animated: false,
