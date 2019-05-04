@@ -25,15 +25,31 @@ extension PageboyViewController {
 // MARK: - Page Updates
 internal extension PageboyViewController {
     
-    func performUpdates(for newIndex: PageIndex,
-                        viewController: UIViewController,
+    func performUpdates(for newIndex: PageIndex?,
+                        viewController: UIViewController?,
                         updateBehavior: PageUpdateBehavior,
                         indexOperation: (_ currentIndex: PageIndex, _ newIndex: PageIndex) -> Void) {
-        guard let currentIndex = currentIndex else {
+        guard let newIndex = newIndex, let viewController = viewController else { // no view controller - reset
+            updateViewControllers(to: [UIViewController()],
+                                  animated: false,
+                                  async: false,
+                                  force: false,
+                                  completion: nil)
+            self.currentIndex = nil
             return
         }
         
-        if newIndex == currentIndex {
+        guard let currentIndex = currentIndex else { // if no `currentIndex` - currently have no pages - set VC and index.
+            updateViewControllers(to: [viewController],
+                                  animated: false,
+                                  async: false,
+                                  force: false,
+                                  completion: nil)
+            self.currentIndex = newIndex
+            return
+        }
+        
+        if newIndex == currentIndex { // currently on the page for the update.
             pageViewController?.view.crossDissolve(during: { [weak self, viewController] in
                 self?.updateViewControllers(to: [viewController],
                                             animated: false,
@@ -41,7 +57,7 @@ internal extension PageboyViewController {
                                             force: false,
                                             completion: nil)
             })
-        } else {
+        } else { // update is happening on some other page.
             indexOperation(currentIndex, newIndex)
             
             // Reload current view controller in UIPageViewController if insertion index is next/previous page.
