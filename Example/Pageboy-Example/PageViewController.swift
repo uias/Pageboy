@@ -91,7 +91,7 @@ extension PageViewController: PageboyViewControllerDataSource {
     
     func viewController(for pageboyViewController: PageboyViewController,
                         at index: PageboyViewController.PageIndex) -> UIViewController? {
-        guard viewControllers.count > 0 else {
+        guard viewControllers.isEmpty == false else {
             return nil
         }
         return viewControllers[index]
