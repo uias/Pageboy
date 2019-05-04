@@ -52,6 +52,9 @@ internal extension TransitionOperation.Action {
             default:
                 return .fromTop
             }
+            
+        @unknown default:
+            fatalError("unsupported orientation \(orientation.rawValue)")
         }
     }
     #else

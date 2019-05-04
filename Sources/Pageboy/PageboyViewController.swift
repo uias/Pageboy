@@ -25,7 +25,12 @@ open class PageboyViewController: UIViewController {
     internal var expectedTransitionIndex: PageIndex?
 
     /// The orientation that the page view controller transitions on.
+    ///
+    /// Supported values are .horizontal and .vertical.
     public var navigationOrientation: UIPageViewController.NavigationOrientation = .horizontal {
+        willSet {
+            assert(newValue == .horizontal || newValue == .vertical, "unsupported navigationOrientation \(newValue.rawValue)")
+        }
         didSet {
             reconfigurePageViewController()
         }
@@ -57,47 +62,47 @@ open class PageboyViewController: UIViewController {
     #endif
     
     /// The object that is the data source for the page view controller. (Defaults to self)
-    public weak var dataSource: PageboyViewControllerDataSource? {
+    open weak var dataSource: PageboyViewControllerDataSource? {
         didSet {
             reloadData()
         }
     }
     /// The object that is the delegate for the page view controller.
-    public weak var delegate: PageboyViewControllerDelegate?
+    open weak var delegate: PageboyViewControllerDelegate?
     
     
     // default is YES. if NO, we immediately call -touchesShouldBegin:withEvent:inContentView:. this has no effect on presses
-    public var delaysContentTouches: Bool = true {
+    open var delaysContentTouches: Bool = true {
         didSet {
             pageViewController?.scrollView?.delaysContentTouches = delaysContentTouches
         }
     }
     /// default YES. if YES, bounces past edge of content and back again.
-    public var bounces: Bool = true
+    open var bounces: Bool = true
     // Whether client content appears on both sides of each page. If 'NO', content on page front will partially show through back.
     // If 'UIPageViewControllerSpineLocationMid' is set, 'doubleSided' is set to 'YES'. Setting 'NO' when spine location is mid results in an exception.
-    public var isDoubleSided: Bool = false {
+    open var isDoubleSided: Bool = false {
         didSet {
             pageViewController?.isDoubleSided = isDoubleSided
         }
     }
     
     /// Whether the page view controller is currently being touched.
-    public var isTracking: Bool {
+    open var isTracking: Bool {
         return pageViewController?.scrollView?.isTracking ?? false
     }
     /// Whether the page view controller is currently being dragged.
-    public var isDragging: Bool {
+    open var isDragging: Bool {
             return pageViewController?.scrollView?.isDragging ?? false
     }
     // Wether the user isn't dragging (touch up) but page view controller is still moving.
-    public var isDecelerating: Bool {
+    open var isDecelerating: Bool {
         return pageViewController?.scrollView?.isDecelerating ?? false
     }
     /// Whether user interaction is enabled on the page view controller.
     ///
     /// Default is TRUE
-    public var isUserInteractionEnabled: Bool = true {
+    open var isUserInteractionEnabled: Bool = true {
         didSet {
             pageViewController?.scrollView?.isUserInteractionEnabled = isUserInteractionEnabled
         }
@@ -105,7 +110,7 @@ open class PageboyViewController: UIViewController {
     /// Whether scroll is enabled on the page view controller.
     ///
     /// Default is TRUE.
-    public var isScrollEnabled: Bool = true {
+    open var isScrollEnabled: Bool = true {
         didSet {
             pageViewController?.scrollView?.isScrollEnabled = isScrollEnabled
         }
@@ -113,7 +118,7 @@ open class PageboyViewController: UIViewController {
     /// Whether the page view controller should infinitely scroll at the end of page ranges.
     ///
     /// Default is FALSE.
-    public var isInfiniteScrollEnabled: Bool = false {
+    open var isInfiniteScrollEnabled: Bool = false {
         didSet {
             reloadCurrentPageSoftly()
         }
@@ -129,7 +134,7 @@ open class PageboyViewController: UIViewController {
 
     /// Custom transition to use when animating scrolls between pages.
     /// Setting this to `nil` will revert to using the standard UIPageViewController animation.
-    public var transition: Transition?
+    open var transition: Transition?
     /// The display link for transitioning.
     internal var transitionDisplayLink: CADisplayLink?
     /// The active transition operation.
@@ -160,7 +165,7 @@ open class PageboyViewController: UIViewController {
     /// The relative page position that the page view controller is currently at.
     public internal(set) var currentPosition: CGPoint?
     /// The view controller that the page view controller is currently at.
-    public weak var currentViewController: UIViewController? {
+    public var currentViewController: UIViewController? {
         guard let currentIndex = currentIndex,
             viewControllerCount ?? 0 > currentIndex else {
                 return nil
