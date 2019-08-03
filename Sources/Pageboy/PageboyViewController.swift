@@ -20,7 +20,7 @@ open class PageboyViewController: UIViewController {
 
     // MARK: Properties
     
-    internal (set) public var pageViewController: UIPageViewController?
+    internal var pageViewController: UIPageViewController?
     internal var previousPagePosition: CGFloat?
     internal var expectedTransitionIndex: PageIndex?
 
@@ -39,6 +39,24 @@ open class PageboyViewController: UIViewController {
     public var interPageSpacing: CGFloat = 0.0 {
         didSet {
             reconfigurePageViewController()
+        }
+    }
+    
+    public var minimumNumberOfTouches: Int {
+        get {
+            return pageViewController?.scrollView?.panGestureRecognizer.minimumNumberOfTouches ?? 1
+        }
+        set {
+            pageViewController?.scrollView?.panGestureRecognizer.minimumNumberOfTouches = newValue
+        }
+    }
+    
+    public var maximumNumberOfTouches: Int {
+        get {
+            return pageViewController?.scrollView?.panGestureRecognizer.maximumNumberOfTouches ?? 1
+        }
+        set {
+            pageViewController?.scrollView?.panGestureRecognizer.maximumNumberOfTouches = newValue
         }
     }
     
