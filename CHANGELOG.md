@@ -37,6 +37,10 @@ Released on 2019-08-05
 - [#223](https://github.com/uias/Pageboy/pull/223) `maximumNumberOfTouches` to `PageboyViewController`.
      - by [ChristianSteffens](https://github.com/ChristianSteffens)
 
+#### Fixed
+- Issues with building on tvOS.
+- Broken imports when building with Carthage.
+
 ---
 ## [3.2.3](https://github.com/uias/Pageboy/releases/tag/3.2.3)
 Released on 2019-06-10
