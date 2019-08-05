@@ -42,6 +42,24 @@ open class PageboyViewController: UIViewController {
         }
     }
     
+    public var minimumNumberOfTouches: Int {
+        get {
+            return pageViewController?.scrollView?.panGestureRecognizer.minimumNumberOfTouches ?? 1
+        }
+        set {
+            pageViewController?.scrollView?.panGestureRecognizer.minimumNumberOfTouches = newValue
+        }
+    }
+    
+    public var maximumNumberOfTouches: Int {
+        get {
+            return pageViewController?.scrollView?.panGestureRecognizer.maximumNumberOfTouches ?? 1
+        }
+        set {
+            pageViewController?.scrollView?.panGestureRecognizer.maximumNumberOfTouches = newValue
+        }
+    }
+    
     #if os(iOS)
     
     /// Preferred status bar style of the current view controller.
