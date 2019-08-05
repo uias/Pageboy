@@ -6,7 +6,7 @@
 //  Copyright © 2018 Merrick Sapsford. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 internal extension UIApplication {
     
