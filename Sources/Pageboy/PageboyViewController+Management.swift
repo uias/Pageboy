@@ -190,7 +190,7 @@ internal extension PageboyViewController {
             existingZIndex = nil
         }
         
-        let pageViewController = UIPageViewController(transitionStyle: .scroll,
+        let pageViewController = PatchedPageViewController(transitionStyle: .scroll,
                                                       navigationOrientation: navigationOrientation,
                                                       options: pageViewControllerOptions)
         pageViewController.delegate = self
