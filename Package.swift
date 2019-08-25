@@ -11,8 +11,11 @@ let package = Package(
     ],
     products: [
         .library(
-            name: "Pageboy",
-            targets: ["Pageboy iOS", "Pageboy tvOS"])
+            name: "Pageboy iOS",
+            targets: ["Pageboy iOS"]),
+        .library(
+            name: "Pageboy tvOS",
+            targets: ["Pageboy tvOS"])
     ],
     targets: [
             // Targets are the basic building blocks of a package. A target can define a module or a test suite.
