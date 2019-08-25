@@ -12,17 +12,18 @@ let package = Package(
     products: [
         .library(
             name: "Pageboy",
-            targets: ["Pageboy"]),
+            targets: ["Pageboy"])
     ],
     targets: [
-            // Targets are the basic building blocks of a package. A target can define a module or a test suite.
-            // Targets can depend on other targets in this package, and on products in packages which this package depends on.
-            .target(
-                name: "Pageboy",
-                path: ".",
-                sources: ["Sources/Pageboy"]),
-            .testTarget(
-                name: "PageboyTests",
-                dependencies: ["Pageboy"]),
+        // Targets are the basic building blocks of a package. A target can define a module or a test suite.
+        // Targets can depend on other targets in this package, and on products in packages which this package depends on.
+        .target(
+            name: "Pageboy",
+            path: ".",
+            sources: ["Sources/Pageboy"]),
+        .testTarget(
+            name: "PageboyTests",
+            dependencies: ["Pageboy"]
+        )
     ]
 )
