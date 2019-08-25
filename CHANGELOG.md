@@ -3,6 +3,7 @@ All notable changes to this project will be documented in this file.
 `Pageboy` adheres to [Semantic Versioning](https://semver.org/).
 
 #### 3.x Releases
+- `3.4.x` Releases - [3.4.0](#340)
 - `3.3.x` Releases - [3.3.0](#330)
 - `3.2.x` Releases - [3.2.0](#320) | [3.2.1](#321) | [3.2.2](#322) | [3.2.3](#323)
 - `3.1.x` Releases - [3.1.0](#310)
@@ -26,6 +27,13 @@ All notable changes to this project will be documented in this file.
 
 #### 0.x Releases
 - `0.4.x` Releases - [0.4.0](#040) | [0.4.1](#041) | [0.4.2](#042) | [0.4.3](#043) | [0.4.4](#044) | [0.4.5](#045) | [0.4.6](#046) | [0.4.7](#047) | [0.4.8](#048) | [0.4.9](#049) | [0.4.10](#0410) | [0.4.11](#0411) | [0.4.12](#0412)
+
+---
+## [3.4.0](https://github.com/uias/Pageboy/releases/tag/3.4.0)
+Released on 2019-08-25
+
+#### Updated
+- Add support for Swift Package Manager in Xcode 11.
 
 ---
 ## [3.3.0](https://github.com/uias/Pageboy/releases/tag/3.3.0)
