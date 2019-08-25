@@ -18,9 +18,13 @@ let package = Package(
             // Targets are the basic building blocks of a package. A target can define a module or a test suite.
             // Targets can depend on other targets in this package, and on products in packages which this package depends on.
             .target(
-                name: "Pageboy iOS"),
+                name: "Pageboy iOS",
+                path: ".",
+                sources: ["Sources/Pageboy"]),
             .target(
-                name: "Pageboy tvOS"),
+                name: "Pageboy tvOS",
+                path: ".",
+                sources: ["Sources/Pageboy"]),
             .testTarget(
                 name: "PageboyTests",
                 dependencies: ["Pageboy iOS"]),
