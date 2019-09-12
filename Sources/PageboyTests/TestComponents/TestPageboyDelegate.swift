@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 import Pageboy
 
 class TestPageboyDelegate: PageboyViewControllerDelegate {
