@@ -104,12 +104,15 @@ extension PageViewController: PageboyViewControllerDataSource {
 
 // MARK: PageboyViewControllerDelegate
 extension PageViewController: PageboyViewControllerDelegate {
-    
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
                                willScrollToPageAt index: PageboyViewController.PageIndex,
                                direction: PageboyViewController.NavigationDirection,
                                animated: Bool) {
 //        print("willScrollToPageAtIndex: \(index)")
+    }
+    
+    func pageboyViewController(_ pageboyViewController: PageboyViewController, abortScrollToPageAt index: PageboyViewController.PageIndex, returnToPageAt previousIndex: PageboyViewController.PageIndex) {
+        print("abortScrollToPageAt: \(index), returnToPageAt: \(previousIndex)")
     }
     
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
