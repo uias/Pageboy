@@ -66,3 +66,11 @@ public protocol PageboyViewControllerDelegate: class {
                                didReloadWith currentViewController: UIViewController,
                                currentPageIndex: PageboyViewController.PageIndex)
 }
+
+public extension PageboyViewControllerDelegate {
+    func pageboyViewController(_ pageboyViewController: PageboyViewController,
+                               didCancelScrollToPageAt index: PageboyViewController.PageIndex,
+                               returnToPageAt previousIndex: PageboyViewController.PageIndex) {
+        // Default implementation
+    }
+}
