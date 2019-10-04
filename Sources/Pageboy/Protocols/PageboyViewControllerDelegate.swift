@@ -33,6 +33,16 @@ public protocol PageboyViewControllerDelegate: class {
                                didScrollTo position: CGPoint,
                                direction: PageboyViewController.NavigationDirection,
                                animated: Bool)
+
+    /// The page view controller did not (!) complete scroll to a new page.
+    ///
+    /// - Parameters:
+    ///   - pageboyViewController: The Page view controller.
+    ///   - index: The expected new page index, that was not (!) scrolled to.
+    ///   - previousIndex: The page index returned to.
+    func pageboyViewController(_ pageboyViewController: PageboyViewController,
+                               didCancelScrollToPageAt index: PageboyViewController.PageIndex,
+                               returnToPageAt previousIndex: PageboyViewController.PageIndex)
     
     /// The page view controller did complete scroll to a new page.
     ///
@@ -55,4 +65,12 @@ public protocol PageboyViewControllerDelegate: class {
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
                                didReloadWith currentViewController: UIViewController,
                                currentPageIndex: PageboyViewController.PageIndex)
+}
+
+public extension PageboyViewControllerDelegate {
+    func pageboyViewController(_ pageboyViewController: PageboyViewController,
+                               didCancelScrollToPageAt index: PageboyViewController.PageIndex,
+                               returnToPageAt previousIndex: PageboyViewController.PageIndex) {
+        // Default implementation
+    }
 }
