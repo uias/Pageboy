@@ -61,7 +61,7 @@ extension PageboyViewController: UIPageViewControllerDelegate {
             }
             
             delegate?.pageboyViewController(self,
-                                            abortScrollToPageAt: expectedIndex,
+                                            didCancelScrollToPageAt: expectedIndex,
                                             returnToPageAt: previousIndex)
             return }
         

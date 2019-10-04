@@ -111,8 +111,10 @@ extension PageViewController: PageboyViewControllerDelegate {
 //        print("willScrollToPageAtIndex: \(index)")
     }
     
-    func pageboyViewController(_ pageboyViewController: PageboyViewController, abortScrollToPageAt index: PageboyViewController.PageIndex, returnToPageAt previousIndex: PageboyViewController.PageIndex) {
-        print("abortScrollToPageAt: \(index), returnToPageAt: \(previousIndex)")
+    func pageboyViewController(_ pageboyViewController: PageboyViewController,
+                               didCancelScrollToPageAt index: PageboyViewController.PageIndex,
+                               returnToPageAt previousIndex: PageboyViewController.PageIndex) {
+//        print("didCancelScrollToPageAt: \(index), returnToPageAt: \(previousIndex)")
     }
     
     func pageboyViewController(_ pageboyViewController: PageboyViewController,

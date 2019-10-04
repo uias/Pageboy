@@ -41,7 +41,7 @@ public protocol PageboyViewControllerDelegate: class {
     ///   - index: The expected new page index, that was not (!) scrolled to.
     ///   - previousIndex: The page index returned to.
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
-                               abortScrollToPageAt index: PageboyViewController.PageIndex,
+                               didCancelScrollToPageAt index: PageboyViewController.PageIndex,
                                returnToPageAt previousIndex: PageboyViewController.PageIndex)
     
     /// The page view controller did complete scroll to a new page.
