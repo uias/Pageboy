@@ -3,6 +3,7 @@ All notable changes to this project will be documented in this file.
 `Pageboy` adheres to [Semantic Versioning](https://semver.org/).
 
 #### 3.x Releases
+- `3.5.x` Releases - [3.5.0](#350)
 - `3.4.x` Releases - [3.4.0](#340)
 - `3.3.x` Releases - [3.3.0](#330)
 - `3.2.x` Releases - [3.2.0](#320) | [3.2.1](#321) | [3.2.2](#322) | [3.2.3](#323)
@@ -27,6 +28,18 @@ All notable changes to this project will be documented in this file.
 
 #### 0.x Releases
 - `0.4.x` Releases - [0.4.0](#040) | [0.4.1](#041) | [0.4.2](#042) | [0.4.3](#043) | [0.4.4](#044) | [0.4.5](#045) | [0.4.6](#046) | [0.4.7](#047) | [0.4.8](#048) | [0.4.9](#049) | [0.4.10](#0410) | [0.4.11](#0411) | [0.4.12](#0412)
+
+---
+## [3.5.0](https://github.com/uias/Pageboy/releases/tag/3.5.0)
+Released on 2019-10-06
+
+#### Added
+- `didCancelScrollToPage` function to `PageboyViewControllerDelegate` for detecting page transitions that were cancelled.
+     - by [ChristianSteffens](https://github.com/ChristianSteffens)
+
+#### Fixed
+- `UIPageViewController` bug that causes the page view controller to display the wrong page ([see here](https://stackoverflow.com/questions/12939280/uipageviewcontroller-navigates-to-wrong-page-with-scroll-transition-style)).
+     - by [ahmedk92](https://github.com/ahmedk92)
 
 ---
 ## [3.4.0](https://github.com/uias/Pageboy/releases/tag/3.4.0)
