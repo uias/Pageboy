@@ -34,11 +34,11 @@ All notable changes to this project will be documented in this file.
 Released on 2019-10-06
 
 #### Added
-- `didCancelScrollToPage` function to `PageboyViewControllerDelegate` for detecting page transitions that were cancelled.
+- [#230](https://github.com/uias/Pageboy/pull/230) `didCancelScrollToPage` function to `PageboyViewControllerDelegate` for detecting page transitions that were cancelled.
      - by [ChristianSteffens](https://github.com/ChristianSteffens)
 
 #### Fixed
-- `UIPageViewController` bug that causes the page view controller to display the wrong page ([see here](https://stackoverflow.com/questions/12939280/uipageviewcontroller-navigates-to-wrong-page-with-scroll-transition-style)).
+- [#227](https://github.com/uias/Pageboy/pull/227) `UIPageViewController` bug that causes the page view controller to display the wrong page ([see here](https://stackoverflow.com/questions/12939280/uipageviewcontroller-navigates-to-wrong-page-with-scroll-transition-style)).
      - by [ahmedk92](https://github.com/ahmedk92)
 
 ---
