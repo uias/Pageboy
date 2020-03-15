@@ -19,8 +19,9 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages which this package depends on.
         .target(
             name: "Pageboy",
-            path: ".",
-            sources: ["Sources/Pageboy"]),
+            path: "Sources/Pageboy",
+            exclude: ["Pageboy.h"]
+        ),
         .testTarget(
             name: "PageboyTests",
             dependencies: ["Pageboy"]
