@@ -88,11 +88,7 @@ internal class TransitionOperation: NSObject, CAAnimationDelegate {
         animation.configure(from: transition)
 
         animation.subtype = action.transitionSubType
-        #if swift(>=4.2)
         animation.fillMode = .backwards
-        #else
-        animation.fillMode = kCAFillModeBackwards
-        #endif
         self.animation = animation
         
         super.init()
