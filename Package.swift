@@ -27,5 +27,5 @@ let package = Package(
             dependencies: ["Pageboy"]
         )
     ],
-    swiftLanguageVersions: [.v4, .v4_2, .v5]
+    swiftLanguageVersions: [.v5]
 )
