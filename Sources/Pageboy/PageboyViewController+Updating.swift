@@ -20,6 +20,11 @@ extension PageboyViewController {
         case scrollToUpdate
         case scrollTo(index: PageIndex)
     }
+    
+    internal enum UpdateOperation {
+        case insert
+        case delete
+    }
 }
 
 // MARK: - Page Updates
@@ -27,14 +32,15 @@ internal extension PageboyViewController {
     
     func performUpdates(for newIndex: PageIndex?,
                         viewController: UIViewController?,
-                        updateBehavior: PageUpdateBehavior,
-                        indexOperation: (_ currentIndex: PageIndex, _ newIndex: PageIndex) -> Void) {
+                        update: (operation: UpdateOperation, behavior: PageUpdateBehavior),
+                        indexOperation: (_ currentIndex: PageIndex, _ newIndex: PageIndex) -> Void,
+                        completion: ((Bool) -> Void)?) {
         guard let newIndex = newIndex, let viewController = viewController else { // no view controller - reset
             updateViewControllers(to: [UIViewController()],
                                   animated: false,
                                   async: false,
                                   force: false,
-                                  completion: nil)
+                                  completion: completion)
             self.currentIndex = nil
             return
         }
@@ -44,33 +50,57 @@ internal extension PageboyViewController {
                                   animated: false,
                                   async: false,
                                   force: false,
-                                  completion: nil)
+                                  completion: completion)
             self.currentIndex = newIndex
             return
         }
         
-        if newIndex == currentIndex { // currently on the page for the update.
+        // If we are inserting a page that is lower/equal to the current index
+        // we have to move the current page up therefore we can't just cross-dissolve.
+        let isInsertionThatRequiresMoving = update.operation == .insert && newIndex <= currentIndex
+        
+        if !isInsertionThatRequiresMoving && newIndex == currentIndex { // currently on the page for the update.
             pageViewController?.view.crossDissolve(during: { [weak self, viewController] in
                 self?.updateViewControllers(to: [viewController],
                                             animated: false,
                                             async: true,
                                             force: false,
-                                            completion: nil)
+                                            completion: completion)
             })
         } else { // update is happening on some other page.
             indexOperation(currentIndex, newIndex)
             
+            // If we are deleting, check if the new index is greater than the current. If it is then we
+            // dont need to do anything...
+            if update.operation == .delete && newIndex > currentIndex {
+                completion?(true)
+                return
+            }
+            
             // Reload current view controller in UIPageViewController if insertion index is next/previous page.
             if pageIndex(newIndex, isNextTo: currentIndex) {
-                guard let currentViewController = currentViewController else {
-                    return
+                
+                let newViewController: UIViewController
+                switch update.operation {
+                    
+                case .insert:
+                    guard let currentViewController = currentViewController else {
+                        completion?(true)
+                        return
+                    }
+                    newViewController = currentViewController
+                    
+                case .delete:
+                    newViewController = viewController
                 }
                 
-                updateViewControllers(to: [currentViewController], animated: false, async: true, force: false, completion: { [weak self, newIndex, updateBehavior] _ in
-                    self?.performScrollUpdate(to: newIndex, behavior: updateBehavior)
+                updateViewControllers(to: [newViewController], animated: false, async: true, force: false, completion: { [weak self, newIndex, update] _ in
+                    self?.performScrollUpdate(to: newIndex, behavior: update.behavior)
+                    completion?(true)
                 })
             } else { // Otherwise just perform scroll update
-                performScrollUpdate(to: newIndex, behavior: updateBehavior)
+                performScrollUpdate(to: newIndex, behavior: update.behavior)
+                completion?(true)
             }
         }
     }
