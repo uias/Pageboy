@@ -276,28 +276,29 @@ open class PageboyViewController: UIViewController {
     ///   - updateBehavior: Behavior to execute after the page was inserted.
     open func insertPage(at index: PageIndex,
                          then updateBehavior: PageUpdateBehavior = .scrollToUpdate) {
-    verifyNewPageCount(then: { (oldPageCount, newPageCount) in
+        
+        verifyNewPageCount(then: { (oldPageCount, newPageCount) in
         assert(newPageCount > oldPageCount,
-                "Attempt to insert page at \(index) but there are only \(newPageCount) pages after the update")
+                    "Attempt to insert page at \(index) but there are only \(newPageCount) pages after the update")
 
-        guard let newViewController = dataSource?.viewController(for: self, at: index) else {
-            assertionFailure("Expected to find inserted UIViewController at page \(index)")
-            return
-        }
+            guard let newViewController = dataSource?.viewController(for: self, at: index) else {
+                assertionFailure("Expected to find inserted UIViewController at page \(index)")
+                return
+            }
 
-        viewControllerCount = newPageCount
-        viewControllerIndexMap.removeAll()
+            viewControllerCount = newPageCount
+            viewControllerIndexMap.removeAll()
 
-        performUpdates(for: index,
-                        viewController: newViewController,
-                        update: (operation: .insert, behavior: updateBehavior),
-                        indexOperation: { (index, newIndex) in
+            performUpdates(for: index,
+                            viewController: newViewController,
+                            update: (operation: .insert, behavior: updateBehavior),
+                            indexOperation: { (index, newIndex) in
 
-                        if index >= newIndex {
-                            currentIndex = index + 1
-                        }
+                            if index >= newIndex {
+                                currentIndex = index + 1
+                            }
+            })
         })
-    })
     }
     
     /// Delete an existing page from the page view controller.
