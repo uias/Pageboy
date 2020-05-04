@@ -37,13 +37,13 @@ Pageboy requires iOS 9 / tvOS 10; and is compatible with Swift 5.
 ### CocoaPods
 Pageboy is available through [CocoaPods](https://cocoapods.org):
 ```ruby
-pod 'Pageboy', '~> 3.5'
+pod 'Pageboy', '~> 3.6'
 ```
 
 ### Carthage
 Pageboy is also available through [Carthage](https://github.com/Carthage/Carthage):
 ```ogdl
-github "uias/Pageboy" ~> 3.5
+github "uias/Pageboy" ~> 3.6
 ```
 
 ## 🚀 Usage
