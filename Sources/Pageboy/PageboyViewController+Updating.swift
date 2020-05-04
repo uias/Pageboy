@@ -20,6 +20,11 @@ extension PageboyViewController {
         case scrollToUpdate
         case scrollTo(index: PageIndex)
     }
+    
+    internal enum UpdateOperation {
+        case insert
+        case delete
+    }
 }
 
 // MARK: - Page Updates
@@ -27,6 +32,7 @@ internal extension PageboyViewController {
     
     func performUpdates(for newIndex: PageIndex?,
                         viewController: UIViewController?,
+                        operation: UpdateOperation,
                         updateBehavior: PageUpdateBehavior,
                         indexOperation: (_ currentIndex: PageIndex, _ newIndex: PageIndex) -> Void) {
         guard let newIndex = newIndex, let viewController = viewController else { // no view controller - reset
@@ -49,7 +55,11 @@ internal extension PageboyViewController {
             return
         }
         
-        if newIndex == currentIndex { // currently on the page for the update.
+        // If we are inserting a page that is lower/equal to the current index
+        // we have to move the current page up therefore we can't just cross-dissolve.
+        let isInsertionThatRequiresMoving = operation == .insert && newIndex <= currentIndex
+        
+        if !isInsertionThatRequiresMoving && newIndex == currentIndex { // currently on the page for the update.
             pageViewController?.view.crossDissolve(during: { [weak self, viewController] in
                 self?.updateViewControllers(to: [viewController],
                                             animated: false,
