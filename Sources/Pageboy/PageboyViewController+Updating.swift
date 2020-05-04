@@ -33,13 +33,14 @@ internal extension PageboyViewController {
     func performUpdates(for newIndex: PageIndex?,
                         viewController: UIViewController?,
                         update: (operation: UpdateOperation, behavior: PageUpdateBehavior),
-                        indexOperation: (_ currentIndex: PageIndex, _ newIndex: PageIndex) -> Void) {
+                        indexOperation: (_ currentIndex: PageIndex, _ newIndex: PageIndex) -> Void,
+                        completion: ((Bool) -> Void)?) {
         guard let newIndex = newIndex, let viewController = viewController else { // no view controller - reset
             updateViewControllers(to: [UIViewController()],
                                   animated: false,
                                   async: false,
                                   force: false,
-                                  completion: nil)
+                                  completion: completion)
             self.currentIndex = nil
             return
         }
@@ -49,7 +50,7 @@ internal extension PageboyViewController {
                                   animated: false,
                                   async: false,
                                   force: false,
-                                  completion: nil)
+                                  completion: completion)
             self.currentIndex = newIndex
             return
         }
@@ -64,7 +65,7 @@ internal extension PageboyViewController {
                                             animated: false,
                                             async: true,
                                             force: false,
-                                            completion: nil)
+                                            completion: completion)
             })
         } else { // update is happening on some other page.
             indexOperation(currentIndex, newIndex)
@@ -72,6 +73,7 @@ internal extension PageboyViewController {
             // If we are deleting, check if the new index is greater than the current. If it is then we
             // dont need to do anything...
             if update.operation == .delete && newIndex > currentIndex {
+                completion?(true)
                 return
             }
             
@@ -83,6 +85,7 @@ internal extension PageboyViewController {
                     
                 case .insert:
                     guard let currentViewController = currentViewController else {
+                        completion?(true)
                         return
                     }
                     newViewController = currentViewController
@@ -93,9 +96,11 @@ internal extension PageboyViewController {
                 
                 updateViewControllers(to: [newViewController], animated: false, async: true, force: false, completion: { [weak self, newIndex, update] _ in
                     self?.performScrollUpdate(to: newIndex, behavior: update.behavior)
+                    completion?(true)
                 })
             } else { // Otherwise just perform scroll update
                 performScrollUpdate(to: newIndex, behavior: update.behavior)
+                completion?(true)
             }
         }
     }

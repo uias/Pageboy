@@ -288,15 +288,17 @@ open class PageboyViewController: UIViewController {
 
             viewControllerCount = newPageCount
             viewControllerIndexMap.removeAll()
-
-            performUpdates(for: index,
-                            viewController: newViewController,
-                            update: (operation: .insert, behavior: updateBehavior),
-                            indexOperation: { (index, newIndex) in
-
+            
+            pageViewController?.scrollView?.cancelTouches()
+            view.isUserInteractionEnabled = false
+            performUpdates(for: index, viewController: newViewController,
+                           update: (operation: .insert, behavior: updateBehavior),
+                           indexOperation: { (index, newIndex) in
                             if index >= newIndex {
                                 currentIndex = index + 1
-                            }
+                            }},
+                           completion: { (_) in
+                            self.view.isUserInteractionEnabled = true
             })
         })
     }
@@ -329,14 +331,16 @@ open class PageboyViewController: UIViewController {
             viewControllerCount = newPageCount
             viewControllerIndexMap.removeAll()
 
-            performUpdates(for: newIndex,
-                           viewController: newViewController,
+            pageViewController?.scrollView?.cancelTouches()
+            view.isUserInteractionEnabled = false
+            performUpdates(for: newIndex, viewController: newViewController,
                            update: (operation: .delete, behavior: updateBehavior),
                            indexOperation: { (index, newIndex) in
-
                             if index > newIndex {
                                 currentIndex = index - 1
-                            }
+                            }},
+                           completion: { (_) in
+                            self.view.isUserInteractionEnabled = true
             })
         })
     }
