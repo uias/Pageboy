@@ -290,8 +290,7 @@ open class PageboyViewController: UIViewController {
 
         performUpdates(for: index,
                         viewController: newViewController,
-                        operation: .insert,
-                        updateBehavior: updateBehavior,
+                        update: (operation: .insert, behavior: updateBehavior),
                         indexOperation: { (index, newIndex) in
 
                         if index >= newIndex {
@@ -331,8 +330,7 @@ open class PageboyViewController: UIViewController {
 
             performUpdates(for: newIndex,
                            viewController: newViewController,
-                           operation: .delete,
-                           updateBehavior: updateBehavior,
+                           update: (operation: .delete, behavior: updateBehavior),
                            indexOperation: { (index, newIndex) in
 
                             if index > newIndex {

@@ -32,8 +32,7 @@ internal extension PageboyViewController {
     
     func performUpdates(for newIndex: PageIndex?,
                         viewController: UIViewController?,
-                        operation: UpdateOperation,
-                        updateBehavior: PageUpdateBehavior,
+                        update: (operation: UpdateOperation, behavior: PageUpdateBehavior),
                         indexOperation: (_ currentIndex: PageIndex, _ newIndex: PageIndex) -> Void) {
         guard let newIndex = newIndex, let viewController = viewController else { // no view controller - reset
             updateViewControllers(to: [UIViewController()],
@@ -57,7 +56,7 @@ internal extension PageboyViewController {
         
         // If we are inserting a page that is lower/equal to the current index
         // we have to move the current page up therefore we can't just cross-dissolve.
-        let isInsertionThatRequiresMoving = operation == .insert && newIndex <= currentIndex
+        let isInsertionThatRequiresMoving = update.operation == .insert && newIndex <= currentIndex
         
         if !isInsertionThatRequiresMoving && newIndex == currentIndex { // currently on the page for the update.
             pageViewController?.view.crossDissolve(during: { [weak self, viewController] in
@@ -72,7 +71,7 @@ internal extension PageboyViewController {
             
             // If we are deleting, check if the new index is greater than the current. If it is then we
             // dont need to do anything...
-            if operation == .delete && newIndex > currentIndex {
+            if update.operation == .delete && newIndex > currentIndex {
                 return
             }
             
@@ -80,7 +79,7 @@ internal extension PageboyViewController {
             if pageIndex(newIndex, isNextTo: currentIndex) {
                 
                 let newViewController: UIViewController
-                switch operation {
+                switch update.operation {
                     
                 case .insert:
                     guard let currentViewController = currentViewController else {
@@ -92,11 +91,11 @@ internal extension PageboyViewController {
                     newViewController = viewController
                 }
                 
-                updateViewControllers(to: [newViewController], animated: false, async: true, force: false, completion: { [weak self, newIndex, updateBehavior] _ in
-                    self?.performScrollUpdate(to: newIndex, behavior: updateBehavior)
+                updateViewControllers(to: [newViewController], animated: false, async: true, force: false, completion: { [weak self, newIndex, update] _ in
+                    self?.performScrollUpdate(to: newIndex, behavior: update.behavior)
                 })
             } else { // Otherwise just perform scroll update
-                performScrollUpdate(to: newIndex, behavior: updateBehavior)
+                performScrollUpdate(to: newIndex, behavior: update.behavior)
             }
         }
     }
