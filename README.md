@@ -3,8 +3,8 @@
 </p>
 
 <p align="center">
-    <a href="https://travis-ci.org/uias/Pageboy">
-        <img src="https://travis-ci.org/uias/Pageboy.svg?branch=master" />
+    <a href="https://github.com/uias/Pageboy">
+        <img src="https://github.com/uias/Pageboy/workflows/Build/badge.svg" />
     </a>
     <img src="https://img.shields.io/badge/Swift-5-orange.svg?style=flat" />
     <a href="https://cocoapods.org/pods/Pageboy">
