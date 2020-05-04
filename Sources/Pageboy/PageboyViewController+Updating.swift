@@ -70,13 +70,29 @@ internal extension PageboyViewController {
         } else { // update is happening on some other page.
             indexOperation(currentIndex, newIndex)
             
+            // If we are deleting, check if the new index is greater than the current. If it is then we
+            // dont need to do anything...
+            if operation == .delete && newIndex > currentIndex {
+                return
+            }
+            
             // Reload current view controller in UIPageViewController if insertion index is next/previous page.
             if pageIndex(newIndex, isNextTo: currentIndex) {
-                guard let currentViewController = currentViewController else {
-                    return
+                
+                let newViewController: UIViewController
+                switch operation {
+                    
+                case .insert:
+                    guard let currentViewController = currentViewController else {
+                        return
+                    }
+                    newViewController = currentViewController
+                    
+                case .delete:
+                    newViewController = viewController
                 }
                 
-                updateViewControllers(to: [currentViewController], animated: false, async: true, force: false, completion: { [weak self, newIndex, updateBehavior] _ in
+                updateViewControllers(to: [newViewController], animated: false, async: true, force: false, completion: { [weak self, newIndex, updateBehavior] _ in
                     self?.performScrollUpdate(to: newIndex, behavior: updateBehavior)
                 })
             } else { // Otherwise just perform scroll update
