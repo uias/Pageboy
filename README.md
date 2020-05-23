@@ -6,18 +6,12 @@
     <a href="https://github.com/uias/Pageboy">
         <img src="https://github.com/uias/Pageboy/workflows/Build/badge.svg" />
     </a>
-    <img src="https://img.shields.io/badge/Swift-5-orange.svg?style=flat" />
-    <a href="https://cocoapods.org/pods/Pageboy">
-        <img src="https://img.shields.io/cocoapods/v/Pageboy.svg" alt="CocoaPods" />
-    </a>
-	<a href="https://cocoapods.org/pods/Pageboy">
-        <img src="https://img.shields.io/cocoapods/p/Pageboy.svg" alt="Platforms" />
-    </a>
-	<a href="https://github.com/Carthage/Carthage">
-        <img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" />
-    </a>
+    <img src="https://img.shields.io/badge/Swift-5-orange?logo=Swift&logoColor=white" />
 	<a href="https://github.com/uias/Pageboy/releases">
         <img src="https://img.shields.io/github/release/uias/Pageboy.svg" />
+    </a>
+    <a href="https://swift.org/package-manager/">
+        <img src="https://img.shields.io/badge/SwiftPM-compatible-brightgreen.svg" />
     </a>
 </p>
 
@@ -34,8 +28,12 @@
 Pageboy requires iOS 9 / tvOS 10; and is compatible with Swift 5.
 
 ## 📲 Installation
+
+### Swift Package Manager
+Pageboy is compatible with [Swift Package Manager](https://swift.org/package-manager) and can be integrated via Xcode.
+
 ### CocoaPods
-Pageboy is available through [CocoaPods](https://cocoapods.org):
+Pageboy is also available through [CocoaPods](https://cocoapods.org):
 ```ruby
 pod 'Pageboy', '~> 3.6'
 ```
