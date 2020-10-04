@@ -78,6 +78,7 @@
 		4603D77D2106148A00FA0F23 /* SettingsOptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsOptionButton.swift; sourceTree = "<group>"; };
 		4604839320FFC8770053AD8E /* Launch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
 		4604839720FFCEF00053AD8E /* PageStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageStatusView.swift; sourceTree = "<group>"; };
+		465CAF832529DD5B0081D2A3 /* Pageboy.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Pageboy.xcconfig; path = ../Pageboy.xcconfig; sourceTree = "<group>"; };
 		465DC36121075BC600E08287 /* PageStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageStepper.swift; sourceTree = "<group>"; };
 		466E8D542100FCE700471998 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		46A32DB920FF7ADC003AEAFC /* Gradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradients.swift; sourceTree = "<group>"; };
@@ -111,6 +112,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		465CAF802529DD520081D2A3 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				465CAF832529DD5B0081D2A3 /* Pageboy.xcconfig */,
+			);
+			name = Config;
+			sourceTree = "<group>";
+		};
 		46A32DBD20FF7B95003AEAFC /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				D623B1E01E1D32D700527F3D /* Pageboy-Example */,
+				465CAF802529DD520081D2A3 /* Config */,
 				D6CC55831ECCCCB700A7FBB4 /* Frameworks */,
 				D623B1DF1E1D32D700527F3D /* Products */,
 			);
@@ -368,6 +378,7 @@
 /* Begin XCBuildConfiguration section */
 		D623B1EE1E1D32D700527F3D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 465CAF832529DD5B0081D2A3 /* Pageboy.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
@@ -415,7 +426,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = "$(PB_IOS_DEPLOYMENT_TARGET)";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -423,11 +434,13 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 5.0;
+				TVOS_DEPLOYMENT_TARGET = "$(PB_TVOS_DEPLOYMENT_TARGET)";
 			};
 			name = Debug;
 		};
 		D623B1EF1E1D32D700527F3D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 465CAF832529DD5B0081D2A3 /* Pageboy.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
@@ -469,12 +482,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = "$(PB_IOS_DEPLOYMENT_TARGET)";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 5.0;
+				TVOS_DEPLOYMENT_TARGET = "$(PB_TVOS_DEPLOYMENT_TARGET)";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -487,6 +501,7 @@
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Pageboy-Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = "$(PB_VERSION)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.uias.Pageboy-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -503,6 +518,7 @@
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Pageboy-Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = "$(PB_VERSION)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.uias.Pageboy-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";

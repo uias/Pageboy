@@ -96,6 +96,7 @@
 		464ADF5820975E3D00929AFB /* PageboyViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageboyViewControllerDelegate.swift; sourceTree = "<group>"; };
 		464ADF5920975E3D00929AFB /* PageboyViewControllerDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageboyViewControllerDataSource.swift; sourceTree = "<group>"; };
 		464ADF5E20975E5000929AFB /* UIViewController+Pageboy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Pageboy.swift"; sourceTree = "<group>"; };
+		465CAF852529DD720081D2A3 /* Pageboy.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Pageboy.xcconfig; path = ../Pageboy.xcconfig; sourceTree = "<group>"; };
 		46ADAAB4208F7E1500974529 /* PageboyAutoScroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageboyAutoScroller.swift; sourceTree = "<group>"; };
 		46ADAAB5208F7E1500974529 /* PageboyViewController+AutoScrolling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PageboyViewController+AutoScrolling.swift"; sourceTree = "<group>"; };
 		46ADAABB208F7E8500974529 /* PageboyViewController+Transitioning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PageboyViewController+Transitioning.swift"; sourceTree = "<group>"; };
@@ -185,6 +186,14 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		465CAF842529DD680081D2A3 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				465CAF852529DD720081D2A3 /* Pageboy.xcconfig */,
+			);
+			name = Config;
+			sourceTree = "<group>";
+		};
 		46ADAAB3208F7E1500974529 /* AutoScrolling */ = {
 			isa = PBXGroup;
 			children = (
@@ -209,6 +218,7 @@
 			children = (
 				D623B1B91E1D0C6A00527F3D /* Pageboy */,
 				D623B1C41E1D0C6B00527F3D /* PageboyTests */,
+				465CAF842529DD680081D2A3 /* Config */,
 				D623B1B81E1D0C6A00527F3D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -578,6 +588,7 @@
 /* Begin XCBuildConfiguration section */
 		D623B1C91E1D0C6B00527F3D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 465CAF852529DD720081D2A3 /* Pageboy.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				APPLICATION_EXTENSION_API_ONLY = YES;
@@ -627,7 +638,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = "$(PB_IOS_DEPLOYMENT_TARGET)";
 				MARKETING_VERSION = 3.3.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -636,6 +647,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = "$(PB_TVOS_DEPLOYMENT_TARGET)";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -643,6 +655,7 @@
 		};
 		D623B1CA1E1D0C6B00527F3D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 465CAF852529DD720081D2A3 /* Pageboy.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				APPLICATION_EXTENSION_API_ONLY = YES;
@@ -686,13 +699,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = "$(PB_IOS_DEPLOYMENT_TARGET)";
 				MARKETING_VERSION = 3.3.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = "$(PB_TVOS_DEPLOYMENT_TARGET)";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -710,7 +724,7 @@
 				INFOPLIST_FILE = Pageboy/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 3.6.1;
+				MARKETING_VERSION = "$(PB_VERSION)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.uias.Pageboy;
 				PRODUCT_NAME = Pageboy;
 				SKIP_INSTALL = YES;
@@ -729,7 +743,7 @@
 				INFOPLIST_FILE = Pageboy/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 3.6.1;
+				MARKETING_VERSION = "$(PB_VERSION)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.uias.Pageboy;
 				PRODUCT_NAME = Pageboy;
 				SKIP_INSTALL = YES;
@@ -771,13 +785,12 @@
 				INFOPLIST_FILE = Pageboy/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 3.6.1;
+				MARKETING_VERSION = "$(PB_VERSION)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.uias.Pageboy;
 				PRODUCT_NAME = Pageboy;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 10.0;
 			};
 			name = Debug;
 		};
@@ -792,13 +805,12 @@
 				INFOPLIST_FILE = Pageboy/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 3.6.1;
+				MARKETING_VERSION = "$(PB_VERSION)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.uias.Pageboy;
 				PRODUCT_NAME = Pageboy;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 10.0;
 			};
 			name = Release;
 		};
