@@ -7,20 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4603D7722103701E00FA0F23 /* PageViewController+Bulletins.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4603D7712103701E00FA0F23 /* PageViewController+Bulletins.swift */; };
-		4603D77A21060C8600FA0F23 /* SettingsBulletinPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4603D77921060C8600FA0F23 /* SettingsBulletinPage.swift */; };
 		4603D77E2106148A00FA0F23 /* SettingsOptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4603D77D2106148A00FA0F23 /* SettingsOptionButton.swift */; };
-		4603D78021061DA200FA0F23 /* PageModificationBulletinPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4603D77F21061DA200FA0F23 /* PageModificationBulletinPage.swift */; };
 		4604839420FFC8770053AD8E /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4604839320FFC8770053AD8E /* Launch.storyboard */; };
 		4604839820FFCEF00053AD8E /* PageStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4604839720FFCEF00053AD8E /* PageStatusView.swift */; };
 		465DC36221075BC600E08287 /* PageStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465DC36121075BC600E08287 /* PageStepper.swift */; };
 		466E8D552100FCE700471998 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466E8D542100FCE700471998 /* ActionButton.swift */; };
-		466E8D592101001F00471998 /* PageViewController+Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466E8D582101001F00471998 /* PageViewController+Settings.swift */; };
 		46A32DBA20FF7ADC003AEAFC /* Gradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A32DB920FF7ADC003AEAFC /* Gradients.swift */; };
 		46A32DC120FF7BBC003AEAFC /* UIColor+Interpolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A32DC020FF7BBC003AEAFC /* UIColor+Interpolation.swift */; };
 		46A32DC320FF7DA8003AEAFC /* GradientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A32DC220FF7DA8003AEAFC /* GradientViewController.swift */; };
-		46B7BD79217905500041EFFC /* BLTNBoard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46B7BD74217905500041EFFC /* BLTNBoard.framework */; };
-		46EDC8F7210368B400675EC3 /* SettingsBulletinDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EDC8F6210368B400675EC3 /* SettingsBulletinDataSource.swift */; };
 		D623B1E21E1D32D700527F3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D623B1E11E1D32D700527F3D /* AppDelegate.swift */; };
 		D623B1E41E1D32D700527F3D /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D623B1E31E1D32D700527F3D /* PageViewController.swift */; };
 		D623B1E71E1D32D700527F3D /* Pageboy.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D623B1E51E1D32D700527F3D /* Pageboy.storyboard */; };
@@ -81,20 +75,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4603D7712103701E00FA0F23 /* PageViewController+Bulletins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PageViewController+Bulletins.swift"; sourceTree = "<group>"; };
-		4603D77921060C8600FA0F23 /* SettingsBulletinPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBulletinPage.swift; sourceTree = "<group>"; };
 		4603D77D2106148A00FA0F23 /* SettingsOptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsOptionButton.swift; sourceTree = "<group>"; };
-		4603D77F21061DA200FA0F23 /* PageModificationBulletinPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageModificationBulletinPage.swift; sourceTree = "<group>"; };
 		4604839320FFC8770053AD8E /* Launch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
 		4604839720FFCEF00053AD8E /* PageStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageStatusView.swift; sourceTree = "<group>"; };
 		465DC36121075BC600E08287 /* PageStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageStepper.swift; sourceTree = "<group>"; };
 		466E8D542100FCE700471998 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
-		466E8D582101001F00471998 /* PageViewController+Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PageViewController+Settings.swift"; sourceTree = "<group>"; };
 		46A32DB920FF7ADC003AEAFC /* Gradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradients.swift; sourceTree = "<group>"; };
 		46A32DC020FF7BBC003AEAFC /* UIColor+Interpolation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Interpolation.swift"; sourceTree = "<group>"; };
 		46A32DC220FF7DA8003AEAFC /* GradientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientViewController.swift; sourceTree = "<group>"; };
 		46B7BD74217905500041EFFC /* BLTNBoard.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BLTNBoard.framework; path = ../Carthage/Build/iOS/BLTNBoard.framework; sourceTree = "<group>"; };
-		46EDC8F6210368B400675EC3 /* SettingsBulletinDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBulletinDataSource.swift; sourceTree = "<group>"; };
 		D623B1DE1E1D32D700527F3D /* Pageboy-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pageboy-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D623B1E11E1D32D700527F3D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D623B1E31E1D32D700527F3D /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
@@ -116,7 +105,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D681E3331E546A90007C08F5 /* Pageboy.framework in Frameworks */,
-				46B7BD79217905500041EFFC /* BLTNBoard.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,16 +140,6 @@
 				46A32DB920FF7ADC003AEAFC /* Gradients.swift */,
 			);
 			name = Styling;
-			sourceTree = "<group>";
-		};
-		46EDC8F5210368A400675EC3 /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				46EDC8F6210368B400675EC3 /* SettingsBulletinDataSource.swift */,
-				4603D77921060C8600FA0F23 /* SettingsBulletinPage.swift */,
-				4603D77F21061DA200FA0F23 /* PageModificationBulletinPage.swift */,
-			);
-			name = Settings;
 			sourceTree = "<group>";
 		};
 		D623B1D51E1D32D700527F3D = {
@@ -219,9 +197,6 @@
 			children = (
 				4604839320FFC8770053AD8E /* Launch.storyboard */,
 				D681E3531E549F7E007C08F5 /* PageViewController+BarButtons.swift */,
-				4603D7712103701E00FA0F23 /* PageViewController+Bulletins.swift */,
-				466E8D582101001F00471998 /* PageViewController+Settings.swift */,
-				46EDC8F5210368A400675EC3 /* Settings */,
 				46A32DBF20FF7BA5003AEAFC /* Styling */,
 				46A32DBE20FF7B9D003AEAFC /* Components */,
 				46A32DBD20FF7B95003AEAFC /* Utilities */,
@@ -249,7 +224,6 @@
 				D623B1DB1E1D32D700527F3D /* Frameworks */,
 				D623B1DC1E1D32D700527F3D /* Resources */,
 				D6E73A701E51F7C400A8D5A5 /* Embed Frameworks */,
-				46B7BD7A217905650041EFFC /* Copy Carthage Frameworks */,
 			);
 			buildRules = (
 			);
@@ -340,29 +314,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		46B7BD7A217905650041EFFC /* Copy Carthage Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/../Carthage/Build/iOS/BLTNBoard.framework",
-			);
-			name = "Copy Carthage Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/BLTNBoard.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		D623B1DA1E1D32D700527F3D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -371,14 +322,9 @@
 				D623B1E41E1D32D700527F3D /* PageViewController.swift in Sources */,
 				D623B1E21E1D32D700527F3D /* AppDelegate.swift in Sources */,
 				4603D77E2106148A00FA0F23 /* SettingsOptionButton.swift in Sources */,
-				4603D77A21060C8600FA0F23 /* SettingsBulletinPage.swift in Sources */,
-				4603D7722103701E00FA0F23 /* PageViewController+Bulletins.swift in Sources */,
 				46A32DC320FF7DA8003AEAFC /* GradientViewController.swift in Sources */,
 				46A32DBA20FF7ADC003AEAFC /* Gradients.swift in Sources */,
-				466E8D592101001F00471998 /* PageViewController+Settings.swift in Sources */,
 				46A32DC120FF7BBC003AEAFC /* UIColor+Interpolation.swift in Sources */,
-				46EDC8F7210368B400675EC3 /* SettingsBulletinDataSource.swift in Sources */,
-				4603D78021061DA200FA0F23 /* PageModificationBulletinPage.swift in Sources */,
 				4604839820FFCEF00053AD8E /* PageStatusView.swift in Sources */,
 				465DC36221075BC600E08287 /* PageStepper.swift in Sources */,
 				D681E3561E54ABE8007C08F5 /* TransparentNavigationBar.swift in Sources */,
@@ -539,7 +485,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
-				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../Carthage/Build/iOS";
 				INFOPLIST_FILE = "Pageboy-Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.uias.Pageboy-Example";
@@ -556,7 +501,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
-				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../Carthage/Build/iOS";
 				INFOPLIST_FILE = "Pageboy-Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.uias.Pageboy-Example";
