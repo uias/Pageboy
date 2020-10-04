@@ -22,8 +22,8 @@ class PageViewController: PageboyViewController {
     
     lazy var viewControllers: [UIViewController] = {
         var viewControllers = [UIViewController]()
-        for i in 0 ..< 5 {
-            viewControllers.append(makeChildViewController(at: i))
+        for index in 0 ..< 5 {
+            viewControllers.append(makeChildViewController(at: index))
         }
         return viewControllers
     }()
@@ -58,7 +58,10 @@ class PageViewController: PageboyViewController {
     
     func makeChildViewController(at index: Int?) -> ChildViewController {
         let storyboard = UIStoryboard(name: "Pageboy", bundle: .main)
-        return storyboard.instantiateViewController(withIdentifier: "ChildViewController") as! ChildViewController
+        guard let viewController = storyboard.instantiateViewController(withIdentifier: "ChildViewController") as? ChildViewController else {
+            fatalError()
+        }
+        return viewController
     }
 }
 

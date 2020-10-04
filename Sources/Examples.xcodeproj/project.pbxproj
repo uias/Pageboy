@@ -262,7 +262,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D623B1D91E1D32D700527F3D /* Build configuration list for PBXProject "Pageboy-Example" */;
+			buildConfigurationList = D623B1D91E1D32D700527F3D /* Build configuration list for PBXProject "Examples" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -528,7 +528,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D623B1D91E1D32D700527F3D /* Build configuration list for PBXProject "Pageboy-Example" */ = {
+		D623B1D91E1D32D700527F3D /* Build configuration list for PBXProject "Examples" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D623B1EE1E1D32D700527F3D /* Debug */,
