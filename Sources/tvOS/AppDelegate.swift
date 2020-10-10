@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Pageboy
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let gradientColors: [UIColor] = [.pageboyPrimary, .pageboySecondary]
         
         let pageViewController = PageViewController()
+        addStatusView(to: pageViewController)
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = GradientBackgroundViewController(embedding: pageViewController, colors: gradientColors)
@@ -41,5 +43,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    }
+}
+
+extension AppDelegate {
+    
+    private func addStatusView(to viewController: PageboyViewController) {
+        
+        let statusView = PageboyStatusView()
+        viewController.delegate = statusView
+        
+        viewController.view.addSubview(statusView)
+        statusView.translatesAutoresizingMaskIntoConstraints = false
+        
+        if #available(tvOS 11, *) {
+            NSLayoutConstraint.activate([
+                statusView.leadingAnchor.constraint(equalTo: viewController.view.leadingAnchor, constant: 32.0),
+                viewController.view.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: statusView.bottomAnchor, constant: 8.0)
+            ])
+        } else {
+            NSLayoutConstraint.activate([
+                statusView.leadingAnchor.constraint(equalTo: viewController.view.leadingAnchor, constant: 32.0),
+                viewController.view.bottomAnchor.constraint(equalTo: statusView.bottomAnchor, constant: 8.0)
+            ])
+        }
     }
 }

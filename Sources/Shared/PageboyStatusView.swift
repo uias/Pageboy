@@ -65,9 +65,17 @@ class PageboyStatusView: UIView {
         updatePage(nil)
         
         tintColor = UIColor.white.withAlphaComponent(0.75)
-        countLabel.font = .systemFont(ofSize: 14)
-        positionLabel.font = .systemFont(ofSize: 14)
-        pageLabel.font = .systemFont(ofSize: 14)
+        
+        switch traitCollection.userInterfaceIdiom {
+        case .tv:
+            countLabel.font = .systemFont(ofSize: 18)
+            positionLabel.font = .systemFont(ofSize: 18)
+            pageLabel.font = .systemFont(ofSize: 18)
+        default:
+            countLabel.font = .systemFont(ofSize: 14)
+            positionLabel.font = .systemFont(ofSize: 14)
+            pageLabel.font = .systemFont(ofSize: 14)
+        }
         
         updateForTintColor()
     }

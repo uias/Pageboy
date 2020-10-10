@@ -19,6 +19,7 @@
 		461498B22531E8C900AE1B1B /* GradientBackgroundViewController+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461498B12531E8C900AE1B1B /* GradientBackgroundViewController+Appearance.swift */; };
 		461498B42531E90A00AE1B1B /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461498B32531E90A00AE1B1B /* PageViewController.swift */; };
 		461498B62531E91700AE1B1B /* ChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461498B52531E91700AE1B1B /* ChildViewController.swift */; };
+		461498B72531E9C300AE1B1B /* PageboyStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4680A0722531DB9E00152EC9 /* PageboyStatusView.swift */; };
 		465CAFA42529DFCB0081D2A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465CAFA32529DFCB0081D2A3 /* AppDelegate.swift */; };
 		465CAFA82529DFCB0081D2A3 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465CAFA72529DFCB0081D2A3 /* PageViewController.swift */; };
 		465CAFAD2529DFCB0081D2A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 465CAFAC2529DFCB0081D2A3 /* Assets.xcassets */; };
@@ -373,6 +374,7 @@
 			files = (
 				461498B42531E90A00AE1B1B /* PageViewController.swift in Sources */,
 				461498AF2531E87C00AE1B1B /* GradientBackgroundViewController.swift in Sources */,
+				461498B72531E9C300AE1B1B /* PageboyStatusView.swift in Sources */,
 				461498922531E7C700AE1B1B /* AppDelegate.swift in Sources */,
 				461498B02531E87E00AE1B1B /* UIColor+Pageboy.swift in Sources */,
 				461498B62531E91700AE1B1B /* ChildViewController.swift in Sources */,
