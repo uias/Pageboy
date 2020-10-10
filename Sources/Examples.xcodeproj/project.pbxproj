@@ -10,12 +10,15 @@
 		461498812531E6D000AE1B1B /* Pageboy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D681E3241E546A7D007C08F5 /* Pageboy.framework */; };
 		461498822531E6D000AE1B1B /* Pageboy.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D681E3241E546A7D007C08F5 /* Pageboy.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		461498922531E7C700AE1B1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461498912531E7C700AE1B1B /* AppDelegate.swift */; };
-		461498942531E7C700AE1B1B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461498932531E7C700AE1B1B /* ViewController.swift */; };
-		461498972531E7C700AE1B1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 461498952531E7C700AE1B1B /* Main.storyboard */; };
 		461498992531E7C700AE1B1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 461498982531E7C700AE1B1B /* Assets.xcassets */; };
 		4614989C2531E7C700AE1B1B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4614989A2531E7C700AE1B1B /* LaunchScreen.storyboard */; };
 		461498A52531E7E200AE1B1B /* Pageboy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 466A76D41FB4EFC9000B5C1C /* Pageboy.framework */; };
 		461498A62531E7E200AE1B1B /* Pageboy.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 466A76D41FB4EFC9000B5C1C /* Pageboy.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		461498AF2531E87C00AE1B1B /* GradientBackgroundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465CAFC32529E08A0081D2A3 /* GradientBackgroundViewController.swift */; };
+		461498B02531E87E00AE1B1B /* UIColor+Pageboy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465CAFC42529E08A0081D2A3 /* UIColor+Pageboy.swift */; };
+		461498B22531E8C900AE1B1B /* GradientBackgroundViewController+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461498B12531E8C900AE1B1B /* GradientBackgroundViewController+Appearance.swift */; };
+		461498B42531E90A00AE1B1B /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461498B32531E90A00AE1B1B /* PageViewController.swift */; };
+		461498B62531E91700AE1B1B /* ChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461498B52531E91700AE1B1B /* ChildViewController.swift */; };
 		465CAFA42529DFCB0081D2A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465CAFA32529DFCB0081D2A3 /* AppDelegate.swift */; };
 		465CAFA82529DFCB0081D2A3 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465CAFA72529DFCB0081D2A3 /* PageViewController.swift */; };
 		465CAFAD2529DFCB0081D2A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 465CAFAC2529DFCB0081D2A3 /* Assets.xcassets */; };
@@ -80,11 +83,12 @@
 /* Begin PBXFileReference section */
 		4614988F2531E7C700AE1B1B /* Example tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Example tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		461498912531E7C700AE1B1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		461498932531E7C700AE1B1B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		461498962531E7C700AE1B1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		461498982531E7C700AE1B1B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4614989B2531E7C700AE1B1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4614989D2531E7C700AE1B1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		461498B12531E8C900AE1B1B /* GradientBackgroundViewController+Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GradientBackgroundViewController+Appearance.swift"; sourceTree = "<group>"; };
+		461498B32531E90A00AE1B1B /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		461498B52531E91700AE1B1B /* ChildViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildViewController.swift; sourceTree = "<group>"; };
 		465CAF832529DD5B0081D2A3 /* Pageboy.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Pageboy.xcconfig; path = ../Pageboy.xcconfig; sourceTree = "<group>"; };
 		465CAFA12529DFCB0081D2A3 /* Example iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Example iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		465CAFA32529DFCB0081D2A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -126,13 +130,21 @@
 			isa = PBXGroup;
 			children = (
 				461498912531E7C700AE1B1B /* AppDelegate.swift */,
-				461498932531E7C700AE1B1B /* ViewController.swift */,
-				461498952531E7C700AE1B1B /* Main.storyboard */,
+				461498B32531E90A00AE1B1B /* PageViewController.swift */,
+				461498B52531E91700AE1B1B /* ChildViewController.swift */,
+				461498AE2531E84D00AE1B1B /* Resources */,
+			);
+			path = tvOS;
+			sourceTree = "<group>";
+		};
+		461498AE2531E84D00AE1B1B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				461498982531E7C700AE1B1B /* Assets.xcassets */,
 				4614989A2531E7C700AE1B1B /* LaunchScreen.storyboard */,
 				4614989D2531E7C700AE1B1B /* Info.plist */,
 			);
-			path = tvOS;
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		465CAF802529DD520081D2A3 /* Config */ = {
@@ -168,10 +180,9 @@
 		465CAFC22529E02D0081D2A3 /* Extras */ = {
 			isa = PBXGroup;
 			children = (
-				465CAFC32529E08A0081D2A3 /* GradientBackgroundViewController.swift */,
-				465CAFC42529E08A0081D2A3 /* UIColor+Pageboy.swift */,
 				46CA20D52531D3C70003FCCB /* TransparentNavigationBar.swift */,
 				46CA20EC2531D8C50003FCCB /* NavigationController.swift */,
+				461498B12531E8C900AE1B1B /* GradientBackgroundViewController+Appearance.swift */,
 			);
 			path = Extras;
 			sourceTree = "<group>";
@@ -180,6 +191,8 @@
 			isa = PBXGroup;
 			children = (
 				4680A0722531DB9E00152EC9 /* PageboyStatusView.swift */,
+				465CAFC32529E08A0081D2A3 /* GradientBackgroundViewController.swift */,
+				465CAFC42529E08A0081D2A3 /* UIColor+Pageboy.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -339,7 +352,6 @@
 			files = (
 				4614989C2531E7C700AE1B1B /* LaunchScreen.storyboard in Resources */,
 				461498992531E7C700AE1B1B /* Assets.xcassets in Resources */,
-				461498972531E7C700AE1B1B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,8 +371,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				461498942531E7C700AE1B1B /* ViewController.swift in Sources */,
+				461498B42531E90A00AE1B1B /* PageViewController.swift in Sources */,
+				461498AF2531E87C00AE1B1B /* GradientBackgroundViewController.swift in Sources */,
 				461498922531E7C700AE1B1B /* AppDelegate.swift in Sources */,
+				461498B02531E87E00AE1B1B /* UIColor+Pageboy.swift in Sources */,
+				461498B62531E91700AE1B1B /* ChildViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,6 +387,7 @@
 				465CAFA82529DFCB0081D2A3 /* PageViewController.swift in Sources */,
 				465CAFCA2529E1430081D2A3 /* ChildViewController.swift in Sources */,
 				46CA20D62531D3C70003FCCB /* TransparentNavigationBar.swift in Sources */,
+				461498B22531E8C900AE1B1B /* GradientBackgroundViewController+Appearance.swift in Sources */,
 				465CAFC52529E08A0081D2A3 /* GradientBackgroundViewController.swift in Sources */,
 				465CAFC62529E08A0081D2A3 /* UIColor+Pageboy.swift in Sources */,
 				465CAFA42529DFCB0081D2A3 /* AppDelegate.swift in Sources */,
@@ -382,14 +398,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		461498952531E7C700AE1B1B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				461498962531E7C700AE1B1B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		4614989A2531E7C700AE1B1B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

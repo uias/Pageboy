@@ -12,21 +12,9 @@ final class GradientBackgroundViewController: UIViewController {
     // MARK: Properties
     
     private lazy var gradientView = GradientView(colors: colors)
-    private let child: UIViewController
+    let child: UIViewController
     
-    private let colors: [UIColor]
-    
-    override var childForStatusBarStyle: UIViewController? {
-        child
-    }
-    
-    override var childForStatusBarHidden: UIViewController? {
-        child
-    }
-    
-    override var childForHomeIndicatorAutoHidden: UIViewController? {
-        child
-    }
+    let colors: [UIColor]
     
     // MARK: Init
     
