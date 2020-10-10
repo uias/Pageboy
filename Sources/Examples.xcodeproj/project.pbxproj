@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		461498812531E6D000AE1B1B /* Pageboy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D681E3241E546A7D007C08F5 /* Pageboy.framework */; };
 		461498822531E6D000AE1B1B /* Pageboy.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D681E3241E546A7D007C08F5 /* Pageboy.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		461498922531E7C700AE1B1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461498912531E7C700AE1B1B /* AppDelegate.swift */; };
+		461498942531E7C700AE1B1B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461498932531E7C700AE1B1B /* ViewController.swift */; };
+		461498972531E7C700AE1B1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 461498952531E7C700AE1B1B /* Main.storyboard */; };
+		461498992531E7C700AE1B1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 461498982531E7C700AE1B1B /* Assets.xcassets */; };
+		4614989C2531E7C700AE1B1B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4614989A2531E7C700AE1B1B /* LaunchScreen.storyboard */; };
+		461498A52531E7E200AE1B1B /* Pageboy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 466A76D41FB4EFC9000B5C1C /* Pageboy.framework */; };
+		461498A62531E7E200AE1B1B /* Pageboy.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 466A76D41FB4EFC9000B5C1C /* Pageboy.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		465CAFA42529DFCB0081D2A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465CAFA32529DFCB0081D2A3 /* AppDelegate.swift */; };
 		465CAFA82529DFCB0081D2A3 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465CAFA72529DFCB0081D2A3 /* PageViewController.swift */; };
 		465CAFAD2529DFCB0081D2A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 465CAFAC2529DFCB0081D2A3 /* Assets.xcassets */; };
@@ -57,9 +64,27 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		461498A72531E7E200AE1B1B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				461498A62531E7E200AE1B1B /* Pageboy.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4614988F2531E7C700AE1B1B /* Example tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Example tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		461498912531E7C700AE1B1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		461498932531E7C700AE1B1B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		461498962531E7C700AE1B1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		461498982531E7C700AE1B1B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4614989B2531E7C700AE1B1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4614989D2531E7C700AE1B1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		465CAF832529DD5B0081D2A3 /* Pageboy.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Pageboy.xcconfig; path = ../Pageboy.xcconfig; sourceTree = "<group>"; };
 		465CAFA12529DFCB0081D2A3 /* Example iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Example iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		465CAFA32529DFCB0081D2A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +103,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4614988C2531E7C700AE1B1B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				461498A52531E7E200AE1B1B /* Pageboy.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		465CAF9E2529DFCB0081D2A3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -89,6 +122,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		461498902531E7C700AE1B1B /* tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				461498912531E7C700AE1B1B /* AppDelegate.swift */,
+				461498932531E7C700AE1B1B /* ViewController.swift */,
+				461498952531E7C700AE1B1B /* Main.storyboard */,
+				461498982531E7C700AE1B1B /* Assets.xcassets */,
+				4614989A2531E7C700AE1B1B /* LaunchScreen.storyboard */,
+				4614989D2531E7C700AE1B1B /* Info.plist */,
+			);
+			path = tvOS;
+			sourceTree = "<group>";
+		};
 		465CAF802529DD520081D2A3 /* Config */ = {
 			isa = PBXGroup;
 			children = (
@@ -144,6 +190,7 @@
 				465CAFA22529DFCB0081D2A3 /* iOS */,
 				4680A06F2531DB1900152EC9 /* Shared */,
 				465CAF802529DD520081D2A3 /* Config */,
+				461498902531E7C700AE1B1B /* tvOS */,
 				D6CC55831ECCCCB700A7FBB4 /* Frameworks */,
 				D623B1DF1E1D32D700527F3D /* Products */,
 			);
@@ -153,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				465CAFA12529DFCB0081D2A3 /* Example iOS.app */,
+				4614988F2531E7C700AE1B1B /* Example tvOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -179,6 +227,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		4614988E2531E7C700AE1B1B /* Example tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 461498A32531E7C700AE1B1B /* Build configuration list for PBXNativeTarget "Example tvOS" */;
+			buildPhases = (
+				4614988B2531E7C700AE1B1B /* Sources */,
+				4614988C2531E7C700AE1B1B /* Frameworks */,
+				4614988D2531E7C700AE1B1B /* Resources */,
+				461498A72531E7E200AE1B1B /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Example tvOS";
+			productName = tvOS;
+			productReference = 4614988F2531E7C700AE1B1B /* Example tvOS.app */;
+			productType = "com.apple.product-type.application";
+		};
 		465CAFA02529DFCB0081D2A3 /* Example iOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 465CAFB62529DFCB0081D2A3 /* Build configuration list for PBXNativeTarget "Example iOS" */;
@@ -207,6 +273,10 @@
 				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = "UI At Six";
 				TargetAttributes = {
+					4614988E2531E7C700AE1B1B = {
+						CreatedOnToolsVersion = 12.0;
+						ProvisioningStyle = Automatic;
+					};
 					465CAFA02529DFCB0081D2A3 = {
 						CreatedOnToolsVersion = 12.0;
 						ProvisioningStyle = Automatic;
@@ -233,6 +303,7 @@
 			projectRoot = "";
 			targets = (
 				465CAFA02529DFCB0081D2A3 /* Example iOS */,
+				4614988E2531E7C700AE1B1B /* Example tvOS */,
 			);
 		};
 /* End PBXProject section */
@@ -262,6 +333,16 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
+		4614988D2531E7C700AE1B1B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4614989C2531E7C700AE1B1B /* LaunchScreen.storyboard in Resources */,
+				461498992531E7C700AE1B1B /* Assets.xcassets in Resources */,
+				461498972531E7C700AE1B1B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		465CAF9F2529DFCB0081D2A3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -274,6 +355,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4614988B2531E7C700AE1B1B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				461498942531E7C700AE1B1B /* ViewController.swift in Sources */,
+				461498922531E7C700AE1B1B /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		465CAF9D2529DFCB0081D2A3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -292,6 +382,22 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		461498952531E7C700AE1B1B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				461498962531E7C700AE1B1B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4614989A2531E7C700AE1B1B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4614989B2531E7C700AE1B1B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
 		465CAFAE2529DFCB0081D2A3 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -303,6 +409,57 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		4614989E2531E7C700AE1B1B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = tvOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = "$(PB_VERSION)";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.uias.Pageboy.tvOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = "$(PB_TVOS_DEPLOYMENT_TARGET)";
+			};
+			name = Debug;
+		};
+		4614989F2531E7C700AE1B1B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = tvOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = "$(PB_VERSION)";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.uias.Pageboy.tvOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = "$(PB_TVOS_DEPLOYMENT_TARGET)";
+			};
+			name = Release;
+		};
 		465CAFB22529DFCB0081D2A3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -470,6 +627,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		461498A32531E7C700AE1B1B /* Build configuration list for PBXNativeTarget "Example tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4614989E2531E7C700AE1B1B /* Debug */,
+				4614989F2531E7C700AE1B1B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		465CAFB62529DFCB0081D2A3 /* Build configuration list for PBXNativeTarget "Example iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
