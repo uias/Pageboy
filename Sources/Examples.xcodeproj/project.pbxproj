@@ -19,6 +19,7 @@
 		465CAFCA2529E1430081D2A3 /* ChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465CAFC92529E1430081D2A3 /* ChildViewController.swift */; };
 		465DC36221075BC600E08287 /* PageStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465DC36121075BC600E08287 /* PageStepper.swift */; };
 		466E8D552100FCE700471998 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466E8D542100FCE700471998 /* ActionButton.swift */; };
+		4680A0732531DB9E00152EC9 /* PageboyStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4680A0722531DB9E00152EC9 /* PageboyStatusView.swift */; };
 		46A32DBA20FF7ADC003AEAFC /* Gradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A32DB920FF7ADC003AEAFC /* Gradients.swift */; };
 		46A32DC120FF7BBC003AEAFC /* UIColor+Interpolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A32DC020FF7BBC003AEAFC /* UIColor+Interpolation.swift */; };
 		46A32DC320FF7DA8003AEAFC /* GradientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A32DC220FF7DA8003AEAFC /* GradientViewController.swift */; };
@@ -99,6 +100,7 @@
 		465CAFC92529E1430081D2A3 /* ChildViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChildViewController.swift; sourceTree = "<group>"; };
 		465DC36121075BC600E08287 /* PageStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageStepper.swift; sourceTree = "<group>"; };
 		466E8D542100FCE700471998 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
+		4680A0722531DB9E00152EC9 /* PageboyStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageboyStatusView.swift; sourceTree = "<group>"; };
 		46A32DB920FF7ADC003AEAFC /* Gradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradients.swift; sourceTree = "<group>"; };
 		46A32DC020FF7BBC003AEAFC /* UIColor+Interpolation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Interpolation.swift"; sourceTree = "<group>"; };
 		46A32DC220FF7DA8003AEAFC /* GradientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientViewController.swift; sourceTree = "<group>"; };
@@ -180,6 +182,14 @@
 			path = Extras;
 			sourceTree = "<group>";
 		};
+		4680A06F2531DB1900152EC9 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				4680A0722531DB9E00152EC9 /* PageboyStatusView.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		46A32DBD20FF7B95003AEAFC /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -216,6 +226,7 @@
 			children = (
 				D623B1E01E1D32D700527F3D /* Pageboy-Example */,
 				465CAFA22529DFCB0081D2A3 /* iOS */,
+				4680A06F2531DB1900152EC9 /* Shared */,
 				465CAF802529DD520081D2A3 /* Config */,
 				D6CC55831ECCCCB700A7FBB4 /* Frameworks */,
 				D623B1DF1E1D32D700527F3D /* Products */,
@@ -422,6 +433,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4680A0732531DB9E00152EC9 /* PageboyStatusView.swift in Sources */,
 				465CAFA82529DFCB0081D2A3 /* PageViewController.swift in Sources */,
 				465CAFCA2529E1430081D2A3 /* ChildViewController.swift in Sources */,
 				46CA20D62531D3C70003FCCB /* TransparentNavigationBar.swift in Sources */,
