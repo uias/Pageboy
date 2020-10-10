@@ -13,6 +13,10 @@ class ChildViewController: UIViewController {
     
     let page: Int
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        .lightContent
+    }
+    
     // MARK: Init
     
     init(page: Int) {

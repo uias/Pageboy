@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let gradientColors: [UIColor] = [.pageboyPrimary, .pageboySecondary]
         
-        let navigationController = UINavigationController(navigationBarClass: TransparentNavigationBar.self, toolbarClass: nil)
+        let navigationController = NavigationController(navigationBarClass: TransparentNavigationBar.self, toolbarClass: nil)
         navigationController.viewControllers = [PageViewController()]
         
         window = UIWindow(frame: UIScreen.main.bounds)

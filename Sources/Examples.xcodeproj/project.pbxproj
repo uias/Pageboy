@@ -23,6 +23,7 @@
 		46A32DC120FF7BBC003AEAFC /* UIColor+Interpolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A32DC020FF7BBC003AEAFC /* UIColor+Interpolation.swift */; };
 		46A32DC320FF7DA8003AEAFC /* GradientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A32DC220FF7DA8003AEAFC /* GradientViewController.swift */; };
 		46CA20D62531D3C70003FCCB /* TransparentNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CA20D52531D3C70003FCCB /* TransparentNavigationBar.swift */; };
+		46CA20ED2531D8C50003FCCB /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CA20EC2531D8C50003FCCB /* NavigationController.swift */; };
 		D623B1E21E1D32D700527F3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D623B1E11E1D32D700527F3D /* AppDelegate.swift */; };
 		D623B1E41E1D32D700527F3D /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D623B1E31E1D32D700527F3D /* PageViewController.swift */; };
 		D623B1E71E1D32D700527F3D /* Pageboy.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D623B1E51E1D32D700527F3D /* Pageboy.storyboard */; };
@@ -103,6 +104,7 @@
 		46A32DC220FF7DA8003AEAFC /* GradientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientViewController.swift; sourceTree = "<group>"; };
 		46B7BD74217905500041EFFC /* BLTNBoard.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BLTNBoard.framework; path = ../Carthage/Build/iOS/BLTNBoard.framework; sourceTree = "<group>"; };
 		46CA20D52531D3C70003FCCB /* TransparentNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentNavigationBar.swift; sourceTree = "<group>"; };
+		46CA20EC2531D8C50003FCCB /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		D623B1DE1E1D32D700527F3D /* Pageboy-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pageboy-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D623B1E11E1D32D700527F3D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D623B1E31E1D32D700527F3D /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				465CAFC32529E08A0081D2A3 /* GradientBackgroundViewController.swift */,
 				465CAFC42529E08A0081D2A3 /* UIColor+Pageboy.swift */,
 				46CA20D52531D3C70003FCCB /* TransparentNavigationBar.swift */,
+				46CA20EC2531D8C50003FCCB /* NavigationController.swift */,
 			);
 			path = Extras;
 			sourceTree = "<group>";
@@ -425,6 +428,7 @@
 				465CAFC52529E08A0081D2A3 /* GradientBackgroundViewController.swift in Sources */,
 				465CAFC62529E08A0081D2A3 /* UIColor+Pageboy.swift in Sources */,
 				465CAFA42529DFCB0081D2A3 /* AppDelegate.swift in Sources */,
+				46CA20ED2531D8C50003FCCB /* NavigationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

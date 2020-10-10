@@ -16,6 +16,18 @@ final class GradientBackgroundViewController: UIViewController {
     
     private let colors: [UIColor]
     
+    override var childForStatusBarStyle: UIViewController? {
+        child
+    }
+    
+    override var childForStatusBarHidden: UIViewController? {
+        child
+    }
+    
+    override var childForHomeIndicatorAutoHidden: UIViewController? {
+        child
+    }
+    
     // MARK: Init
     
     init(embedding child: UIViewController, colors: [UIColor]) {
