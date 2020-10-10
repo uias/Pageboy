@@ -5,7 +5,10 @@
       location = "group:Package.swift">
    </FileRef>
    <FileRef
-      location = "group:Example/Pageboy-Example.xcodeproj">
+      location = "group:Pageboy.xcconfig">
+   </FileRef>
+   <FileRef
+      location = "group:Sources/Examples.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Sources/Pageboy.xcodeproj">
