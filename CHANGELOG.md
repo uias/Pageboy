@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 `Pageboy` adheres to [Semantic Versioning](https://semver.org/).
 
 #### 3.x Releases
-- `3.6.x` Releases - [3.6.0](#360) | [3.6.1](#361)
+- `3.6.x` Releases - [3.6.0](#360) | [3.6.1](#361) | [3.6.2](#362)
 - `3.5.x` Releases - [3.5.0](#350) | [3.5.1](#351)
 - `3.4.x` Releases - [3.4.0](#340)
 - `3.3.x` Releases - [3.3.0](#330)
@@ -31,6 +31,12 @@ All notable changes to this project will be documented in this file.
 - `0.4.x` Releases - [0.4.0](#040) | [0.4.1](#041) | [0.4.2](#042) | [0.4.3](#043) | [0.4.4](#044) | [0.4.5](#045) | [0.4.6](#046) | [0.4.7](#047) | [0.4.8](#048) | [0.4.9](#049) | [0.4.10](#0410) | [0.4.11](#0411) | [0.4.12](#0412)
 
 ---
+## [3.6.2](https://github.com/uias/Pageboy/releases/tag/3.6.2)
+Released on 2020-10-11
+
+#### Fixed
+- Issue where page positional detection would fail on tvOS.
+
 ## [3.6.1](https://github.com/uias/Pageboy/releases/tag/3.6.1)
 Released on 2020-05-22
 
