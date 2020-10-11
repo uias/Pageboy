@@ -90,6 +90,7 @@
 		461498B12531E8C900AE1B1B /* GradientBackgroundViewController+Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GradientBackgroundViewController+Appearance.swift"; sourceTree = "<group>"; };
 		461498B32531E90A00AE1B1B /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		461498B52531E91700AE1B1B /* ChildViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildViewController.swift; sourceTree = "<group>"; };
+		461498CD2533024200AE1B1B /* Example iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Example iOS.entitlements"; sourceTree = "<group>"; };
 		465CAF832529DD5B0081D2A3 /* Pageboy.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Pageboy.xcconfig; path = ../Pageboy.xcconfig; sourceTree = "<group>"; };
 		465CAFA12529DFCB0081D2A3 /* Example iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Example iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		465CAFA32529DFCB0081D2A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -171,6 +172,7 @@
 		465CAFBD2529E0010081D2A3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				461498CD2533024200AE1B1B /* Example iOS.entitlements */,
 				465CAFAC2529DFCB0081D2A3 /* Assets.xcassets */,
 				465CAFAE2529DFCB0081D2A3 /* LaunchScreen.storyboard */,
 				465CAFB12529DFCB0081D2A3 /* Info.plist */,
@@ -480,6 +482,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = "iOS/Example iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = iOS/Info.plist;
@@ -489,6 +492,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.uias.Pageboy.iOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -504,6 +508,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = "iOS/Example iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = iOS/Info.plist;
@@ -512,6 +517,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.uias.Pageboy.iOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
