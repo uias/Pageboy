@@ -1,8 +1,8 @@
 //
 //  PageViewController.swift
-//  Example
+//  Example tvOS
 //
-//  Created by Merrick Sapsford on 04/10/2020.
+//  Created by Merrick Sapsford on 10/10/2020.
 //  Copyright © 2020 UI At Six. All rights reserved.
 //
 
@@ -29,9 +29,6 @@ class PageViewController: PageboyViewController, PageboyViewControllerDataSource
         
         // Set PageboyViewControllerDataSource dataSource to configure page view controller.
         dataSource = self
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(nextPage(_:)))
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Previous", style: .plain, target: self, action: #selector(previousPage(_:)))
     }
 
     // MARK: PageboyViewControllerDataSource
@@ -46,15 +43,5 @@ class PageViewController: PageboyViewController, PageboyViewControllerDataSource
     
     func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {
         nil // Default page to display in the page view controller (nil equals default/first index).
-    }
-    
-    // MARK: Actions
-    
-    @objc private func nextPage(_ sender: UIBarButtonItem) {
-        scrollToPage(.next, animated: true)
-    }
-    
-    @objc private func previousPage(_ sender: UIBarButtonItem) {
-        scrollToPage(.previous, animated: true)
     }
 }

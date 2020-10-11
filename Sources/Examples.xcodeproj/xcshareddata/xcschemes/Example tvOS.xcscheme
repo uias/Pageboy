@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D623B1B61E1D0C6A00527F3D"
-               BuildableName = "Pageboy.framework"
-               BlueprintName = "Pageboy iOS"
-               ReferencedContainer = "container:Pageboy.xcodeproj">
+               BlueprintIdentifier = "4614988E2531E7C700AE1B1B"
+               BuildableName = "Example tvOS.app"
+               BlueprintName = "Example tvOS"
+               ReferencedContainer = "container:Examples.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -27,26 +27,7 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D623B1B61E1D0C6A00527F3D"
-            BuildableName = "Pageboy.framework"
-            BlueprintName = "Pageboy iOS"
-            ReferencedContainer = "container:Pageboy.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D623B1BF1E1D0C6B00527F3D"
-               BuildableName = "PageboyTests.xctest"
-               BlueprintName = "PageboyTests"
-               ReferencedContainer = "container:Pageboy.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -59,15 +40,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D623B1B61E1D0C6A00527F3D"
-            BuildableName = "Pageboy.framework"
-            BlueprintName = "Pageboy iOS"
-            ReferencedContainer = "container:Pageboy.xcodeproj">
+            BlueprintIdentifier = "4614988E2531E7C700AE1B1B"
+            BuildableName = "Example tvOS.app"
+            BlueprintName = "Example tvOS"
+            ReferencedContainer = "container:Examples.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -75,15 +57,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D623B1B61E1D0C6A00527F3D"
-            BuildableName = "Pageboy.framework"
-            BlueprintName = "Pageboy iOS"
-            ReferencedContainer = "container:Pageboy.xcodeproj">
+            BlueprintIdentifier = "4614988E2531E7C700AE1B1B"
+            BuildableName = "Example tvOS.app"
+            BlueprintName = "Example tvOS"
+            ReferencedContainer = "container:Examples.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
