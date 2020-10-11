@@ -58,4 +58,3 @@ class PageViewController: PageboyViewController, PageboyViewControllerDataSource
         scrollToPage(.previous, animated: true)
     }
 }
-
