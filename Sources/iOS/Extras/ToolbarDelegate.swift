@@ -15,7 +15,6 @@ class ToolbarDelegate: NSObject {
 #if targetEnvironment(macCatalyst)
 
 extension NSToolbarItem.Identifier {
-    
     static let nextPage = NSToolbarItem.Identifier("com.uias.Pageboy.nextPage")
     static let previousPage = NSToolbarItem.Identifier("com.uias.Pageboy.previousPage")
 }
