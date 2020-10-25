@@ -144,16 +144,9 @@ extension PageboyStatusView {
         viewController.view.addSubview(statusView)
         statusView.translatesAutoresizingMaskIntoConstraints = false
         
-        if #available(iOS 11, *) {
-            NSLayoutConstraint.activate([
-                statusView.leadingAnchor.constraint(equalTo: viewController.view.leadingAnchor, constant: 16.0),
-                viewController.view.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: statusView.bottomAnchor, constant: 8.0)
-            ])
-        } else {
-            NSLayoutConstraint.activate([
-                statusView.leadingAnchor.constraint(equalTo: viewController.view.leadingAnchor, constant: 16.0),
-                viewController.view.bottomAnchor.constraint(equalTo: statusView.bottomAnchor, constant: 8.0)
-            ])
-        }
+        NSLayoutConstraint.activate([
+            statusView.leadingAnchor.constraint(equalTo: viewController.view.leadingAnchor, constant: 16.0),
+            viewController.view.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: statusView.bottomAnchor, constant: 8.0)
+        ])
     }
 }
