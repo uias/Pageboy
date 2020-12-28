@@ -114,13 +114,13 @@ open class PageboyViewController: UIViewController {
     open var isDragging: Bool {
             return pageViewController?.scrollView?.isDragging ?? false
     }
-    // Wether the user isn't dragging (touch up) but page view controller is still moving.
+    /// Whether the user isn't dragging (touch up) but page view controller is still moving.
     open var isDecelerating: Bool {
         return pageViewController?.scrollView?.isDecelerating ?? false
     }
     /// Whether user interaction is enabled on the page view controller.
     ///
-    /// Default is TRUE
+    /// Default is `true`.
     open var isUserInteractionEnabled: Bool = true {
         didSet {
             pageViewController?.scrollView?.isUserInteractionEnabled = isUserInteractionEnabled
@@ -128,7 +128,7 @@ open class PageboyViewController: UIViewController {
     }
     /// Whether scroll is enabled on the page view controller.
     ///
-    /// Default is TRUE.
+    /// Default is `true`.
     open var isScrollEnabled: Bool = true {
         didSet {
             pageViewController?.scrollView?.isScrollEnabled = isScrollEnabled
@@ -144,7 +144,7 @@ open class PageboyViewController: UIViewController {
     }
     /// Whether the page view controller should infinitely scroll at the end of page ranges.
     ///
-    /// Default is FALSE.
+    /// Default is `false`.
     open var isInfiniteScrollEnabled: Bool = false {
         didSet {
             reloadCurrentPageSoftly()
