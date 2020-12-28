@@ -82,6 +82,9 @@ Released on 2022-08-20
 - Protocols now conform to `AnyObject` instead of `class`.
      - by [irskep](https://github.com/irskep)
 
+#### Fixed
+- Issue where `currentPosition` would not correctly reflect all updates in `PageboyViewController`.
+
 ---
 ## [3.6.2](https://github.com/uias/Pageboy/releases/tag/3.6.2)
 Released on 2020-10-11

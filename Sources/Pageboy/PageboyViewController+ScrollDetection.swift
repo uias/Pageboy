@@ -109,18 +109,14 @@ extension PageboyViewController: UIScrollViewDelegate {
         }
 
         // provide scroll updates
-        var positionPoint: CGPoint!
+        let positionPoint: CGPoint
         let direction = NavigationDirection.forPosition(pagePosition, previous: previousPosition)
         if navigationOrientation == .horizontal {
-            positionPoint = CGPoint(x: pagePosition, y: scrollView.contentOffset.y)
+            positionPoint = CGPoint(x: pagePosition, y: 0.0)
         } else {
-            positionPoint = CGPoint(x: scrollView.contentOffset.x, y: pagePosition)
+            positionPoint = CGPoint(x: 0.0, y: pagePosition)
         }
-
-        // ignore duplicate updates
-        guard currentPosition != positionPoint else {
-            return
-        }
+        
         currentPosition = positionPoint
         delegate?.pageboyViewController(self,
                                         didScrollTo: positionPoint,
