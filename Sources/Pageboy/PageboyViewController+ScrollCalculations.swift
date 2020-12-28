@@ -75,7 +75,7 @@ internal extension PageboyViewController {
     /// - Parameter pagePosition: the current page position.
     /// - Returns: The updated page position (if needed).
     func adjustedPagePositionForInfiniteOverscroll(from pagePosition: CGFloat) -> CGFloat? {
-        guard isInfinitelyScrolling(forPosition: pagePosition) else {
+        guard normalizesInfiniteScrollPositions && isInfinitelyScrolling(forPosition: pagePosition) else {
             return nil
         }
         

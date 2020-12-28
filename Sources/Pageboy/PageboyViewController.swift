@@ -150,6 +150,11 @@ open class PageboyViewController: UIViewController {
             reloadCurrentPageSoftly()
         }
     }
+    /// Whether to normalize positions that exceed the page bounds that are encountered when infinitely scrolling
+    /// between page boundaries.
+    ///
+    /// Default is `true`.
+    open var normalizesInfiniteScrollPositions: Bool = true
     /// Whether the page view controller is currently animating a scroll between pages.
     private(set) internal var isScrollingAnimated = false {
         didSet {
