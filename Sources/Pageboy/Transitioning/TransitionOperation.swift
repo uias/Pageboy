@@ -8,7 +8,7 @@
 
 import UIKit
 
-internal protocol TransitionOperationDelegate: class {
+internal protocol TransitionOperationDelegate: AnyObject {
     
     /// A transition operation did finish.
     ///

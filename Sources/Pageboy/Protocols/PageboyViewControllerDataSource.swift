@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol PageboyViewControllerDataSource: class {
+public protocol PageboyViewControllerDataSource: AnyObject {
     
     /// The number of view controllers to display.
     ///
