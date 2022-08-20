@@ -298,7 +298,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1200;
-				LastUpgradeCheck = 1220;
+				LastUpgradeCheck = 1340;
 				ORGANIZATIONNAME = "UI At Six";
 				TargetAttributes = {
 					4614988E2531E7C700AE1B1B = {
