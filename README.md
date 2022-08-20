@@ -92,7 +92,7 @@ About to embark on a transition to a new page.
 ```swift
 func pageboyViewController(_ pageboyViewController: PageboyViewController,
                            willScrollToPageAt index: Int,
-                           direction: NavigationDirection,
+                           direction: PageboyViewController.NavigationDirection,
                            animated: Bool)
 ```
 
@@ -102,7 +102,7 @@ Scrolled to a relative position along the way transitioning to a new page.
 ```swift
 func pageboyViewController(_ pageboyViewController: PageboyViewController,
                            didScrollTo position: CGPoint,
-                           direction: NavigationDirection,
+                           direction: PageboyViewController.NavigationDirection,
                            animated: Bool)
 ```
 
@@ -112,7 +112,7 @@ Successfully completed a scroll transition to a page.
 ```swift
 func pageboyViewController(_ pageboyViewController: PageboyViewController,
                            didScrollToPageAt index: Int,
-                           direction: NavigationDirection,
+                           direction: PageboyViewController.NavigationDirection,
                            animated: Bool)
 ```
 
