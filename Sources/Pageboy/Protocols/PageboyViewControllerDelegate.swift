@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol PageboyViewControllerDelegate: class {
+public protocol PageboyViewControllerDelegate: AnyObject {
     
     /// The page view controller will begin scrolling to a new page.
     ///
