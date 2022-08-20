@@ -3,7 +3,7 @@
 //  Pageboy iOS
 //
 //  Created by Merrick Sapsford on 18/10/2018.
-//  Copyright © 2018 UI At Six. All rights reserved.
+//  Copyright © 2022 UI At Six. All rights reserved.
 //
 
 import UIKit
