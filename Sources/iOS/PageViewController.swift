@@ -30,8 +30,8 @@ class PageViewController: PageboyViewController, PageboyViewControllerDataSource
         // Set PageboyViewControllerDataSource dataSource to configure page view controller.
         dataSource = self
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(nextPage(_:)))
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Previous", style: .plain, target: self, action: #selector(previousPage(_:)))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(scrollToNextPage(_:)))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Previous", style: .plain, target: self, action: #selector(scrollToPreviousPage(_:)))
     }
 
     // MARK: PageboyViewControllerDataSource
@@ -50,11 +50,11 @@ class PageViewController: PageboyViewController, PageboyViewControllerDataSource
     
     // MARK: Actions
     
-    @objc func nextPage(_ sender: UIBarButtonItem) {
+    @objc func scrollToNextPage(_ sender: UIBarButtonItem) {
         scrollToPage(.next, animated: true)
     }
     
-    @objc func previousPage(_ sender: UIBarButtonItem) {
+    @objc func scrollToPreviousPage(_ sender: UIBarButtonItem) {
         scrollToPage(.previous, animated: true)
     }
 }
