@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 `Pageboy` adheres to [Semantic Versioning](https://semver.org/).
 
 #### 3.x Releases
-- `3.6.x` Releases - [3.7.0](#370)
+- `3.7.x` Releases - [3.7.0](#370)
 - `3.6.x` Releases - [3.6.0](#360) | [3.6.1](#361) | [3.6.2](#362)
 - `3.5.x` Releases - [3.5.0](#350) | [3.5.1](#351)
 - `3.4.x` Releases - [3.4.0](#340)
