@@ -14,13 +14,9 @@ class PageViewController: PageboyViewController, PageboyViewControllerDataSource
     // MARK: Properties
     
     /// View controllers that will be displayed in page view controller.
-    private lazy var viewControllers: [UIViewController] = [
-        ChildViewController(page: 1),
-        ChildViewController(page: 2),
-        ChildViewController(page: 3),
-        ChildViewController(page: 4),
-        ChildViewController(page: 5)
-    ]
+    private lazy var viewControllers: [UIViewController] = {
+        (1 ... 10).map({ ChildViewController(page: $0) })
+    }()
     
     // MARK: Lifecycle
     
