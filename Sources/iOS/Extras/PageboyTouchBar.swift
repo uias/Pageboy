@@ -43,7 +43,7 @@ extension PageViewController: NSTouchBarDelegate {
                     touchBarItem = NSButtonTouchBarItem(identifier: identifier,
                                                         image: image,
                                                         target: self,
-                                                        action: #selector(PageViewController.previousPage(_:)))
+                                                        action: #selector(PageViewController.scrollToPreviousPage(_:)))
                     
                 case .nextPage:
                     guard let image = UIImage(systemName: "chevron.right") else {
@@ -52,7 +52,7 @@ extension PageViewController: NSTouchBarDelegate {
                     touchBarItem = NSButtonTouchBarItem(identifier: identifier,
                                                         image: image,
                                                         target: self,
-                                                        action: #selector(PageViewController.nextPage(_:)))
+                                                        action: #selector(PageViewController.scrollToNextPage(_:)))
 
                 default:
                     touchBarItem = nil
