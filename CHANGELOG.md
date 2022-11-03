@@ -36,7 +36,7 @@ All notable changes to this project will be documented in this file.
 
 ---
 ## [4.0.1](https://github.com/uias/Pageboy/releases/tag/4.0.1)
-Released on 2022-XX-XX
+Released on 2022-11-03
 
 #### Fixed
 - Issue where `UIPageViewController` could crash during fast sequential transitions.
