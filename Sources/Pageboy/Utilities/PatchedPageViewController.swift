@@ -13,20 +13,20 @@ internal class PatchedPageViewController: UIPageViewController {
     private var isAnimating = false
 
     override func setViewControllers(_ viewControllers: [UIViewController]?, direction: UIPageViewController.NavigationDirection, animated: Bool, completion: ((Bool) -> Void)? = nil) {
-        if !self.isAnimating {
-            self.isAnimating = true
-            super.setViewControllers(viewControllers, direction: direction, animated: false) { (isFinished) in
-                if isFinished && animated && !self.isAnimating {
-                    self.isAnimating = true
-                    DispatchQueue.main.async {
-                        super.setViewControllers(viewControllers, direction: direction, animated: false, completion: { _ in
-                            self.isAnimating = !isFinished
-                        })
-                    }
+        guard !isAnimating else {
+            completion?(false)
+            return
+        }
+        isAnimating = animated
+        super.setViewControllers(viewControllers, direction: direction, animated: animated) { (isFinished) in
+            if isFinished && animated {
+                DispatchQueue.main.async {
+                    super.setViewControllers(viewControllers, direction: direction, animated: false, completion: { _ in
+                        self.isAnimating = false
+                    })
                 }
-                
-                completion?(isFinished)
             }
+            completion?(isFinished)
         }
     }
 }
