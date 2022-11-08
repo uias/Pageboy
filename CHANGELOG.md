@@ -36,7 +36,10 @@ All notable changes to this project will be documented in this file.
 
 ---
 ## [4.0.2](https://github.com/uias/Pageboy/releases/tag/4.0.2)
-Released on 2022-11-XX
+Released on 2022-11-08
+
+#### Updated
+- Improved locking logic for ignoring duplicate `setViewController()` attempts.
 
 #### Fixed
 - Issue where setting view controllers could fail to report `completion`.
