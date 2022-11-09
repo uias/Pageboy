@@ -104,42 +104,42 @@ class PageboyStatusView: UIView {
     }
 }
 
-extension PageboyStatusView: PageboyViewControllerDelegate {
-    
-    func pageboyViewController(_ pageboyViewController: PageboyViewController, didScrollTo position: CGPoint, direction: PageboyViewController.NavigationDirection, animated: Bool) {
-        switch pageboyViewController.navigationOrientation {
-        case .horizontal:
-            updatePosition(position.x)
-        case .vertical:
-            updatePosition(position.y)
-        @unknown default:
-            break
-        }
-    }
-    
-    func pageboyViewController(_ pageboyViewController: PageboyViewController, willScrollToPageAt index: PageboyViewController.PageIndex, direction: PageboyViewController.NavigationDirection, animated: Bool) {
-        
-    }
-    
-    func pageboyViewController(_ pageboyViewController: PageboyViewController, didScrollToPageAt index: PageboyViewController.PageIndex, direction: PageboyViewController.NavigationDirection, animated: Bool) {
-        updatePage(index)
-    }
-    
-    func pageboyViewController(_ pageboyViewController: PageboyViewController, didCancelScrollToPageAt index: PageboyViewController.PageIndex, returnToPageAt previousIndex: PageboyViewController.PageIndex) {
-        
-    }
-    
-    func pageboyViewController(_ pageboyViewController: PageboyViewController, didReloadWith currentViewController: UIViewController, currentPageIndex: PageboyViewController.PageIndex) {
-        updateCount(pageboyViewController.pageCount)
-    }
-}
+//extension PageboyStatusView: PageboyViewControllerDelegate {
+//
+//    func pageboyViewController(_ pageboyViewController: PageboyViewController, didScrollTo position: CGPoint, direction: PageboyViewController.NavigationDirection, animated: Bool) {
+//        switch pageboyViewController.navigationOrientation {
+//        case .horizontal:
+//            updatePosition(position.x)
+//        case .vertical:
+//            updatePosition(position.y)
+//        @unknown default:
+//            break
+//        }
+//    }
+//
+//    func pageboyViewController(_ pageboyViewController: PageboyViewController, willScrollToPageAt index: PageboyViewController.PageIndex, direction: PageboyViewController.NavigationDirection, animated: Bool) {
+//
+//    }
+//
+//    func pageboyViewController(_ pageboyViewController: PageboyViewController, didScrollToPageAt index: PageboyViewController.PageIndex, direction: PageboyViewController.NavigationDirection, animated: Bool) {
+//        updatePage(index)
+//    }
+//
+//    func pageboyViewController(_ pageboyViewController: PageboyViewController, didCancelScrollToPageAt index: PageboyViewController.PageIndex, returnToPageAt previousIndex: PageboyViewController.PageIndex) {
+//
+//    }
+//
+//    func pageboyViewController(_ pageboyViewController: PageboyViewController, didReloadWith currentViewController: UIViewController, currentPageIndex: PageboyViewController.PageIndex) {
+//        updateCount(pageboyViewController.pageCount)
+//    }
+//}
 
 extension PageboyStatusView {
     
     class func add(to viewController: PageboyViewController) {
         
         let statusView = PageboyStatusView()
-        viewController.delegate = statusView
+//        viewController.delegate = statusView
         
         viewController.view.addSubview(statusView)
         statusView.translatesAutoresizingMaskIntoConstraints = false

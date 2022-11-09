@@ -6,6 +6,7 @@ disabled_rules:
 - large_tuple
 - nesting
 - function_body_length
+- comment_spacing
 
 opt_in_rules:
 - closure_spacing

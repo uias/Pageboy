@@ -23,10 +23,10 @@ extension PageboyViewController {
     }
     
     @objc private func nextPage(_ sender: Notification) {
-        scrollToPage(.next, animated: true)
+        // TODO: Implement scroll to next page
     }
     
     @objc private func previousPage(_ sender: Notification) {
-        scrollToPage(.previous, animated: true)
+        // TODO: Implement scroll to previous page
     }
 }
