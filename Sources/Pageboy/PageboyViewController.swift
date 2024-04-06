@@ -134,6 +134,14 @@ open class PageboyViewController: UIViewController {
             pageViewController?.scrollView?.isScrollEnabled = isScrollEnabled
         }
     }
+    /// Whether scrolling is disabled in a particular direction.
+    ///
+    /// Default is FALSE.
+    open var isDirectionalLockEnabled: Bool = false {
+        didSet {
+            pageViewController?.scrollView?.isDirectionalLockEnabled = isDirectionalLockEnabled
+        }
+    }
     /// Whether the page view controller should infinitely scroll at the end of page ranges.
     ///
     /// Default is FALSE.
