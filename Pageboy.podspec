@@ -23,4 +23,6 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/uias/Pageboy.git", :tag => s.version.to_s }
   s.source_files = "Sources/Pageboy/**/*.{h,m,swift}"
 
+  s.resource_bundles = {'Pageboy' => ['Sources/Pageboy/PrivacyInfo.xcprivacy']}
+
 end
