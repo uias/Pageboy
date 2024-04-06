@@ -18,7 +18,8 @@ let package = Package(
         .target(
             name: "Pageboy",
             path: "Sources/Pageboy",
-            exclude: ["Pageboy.h"]
+            exclude: ["Pageboy.h", "PrivacyInfo.xcprivacy"],
+            resources: [.process("PrivacyInfo.xcprivacy")]
         ),
         .testTarget(
             name: "PageboyTests",
