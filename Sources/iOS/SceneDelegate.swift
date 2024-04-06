@@ -34,7 +34,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 
         if let titlebar = windowScene.titlebar {
             titlebar.toolbar = toolbar
-            titlebar.toolbarStyle = .automatic
+            if #available(iOS 14.0, *) {
+                titlebar.toolbarStyle = .automatic
+            }
         }
         
         pageViewController.registerForNavigationNotifications()
