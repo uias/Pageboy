@@ -126,6 +126,7 @@
 		D681E34A1E548C0E007C08F5 /* PageboyConfigurationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageboyConfigurationTests.swift; sourceTree = "<group>"; };
 		D681E34C1E548D12007C08F5 /* TestPageboyDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestPageboyDelegate.swift; sourceTree = "<group>"; };
 		D69816B91E829043004096BA /* PageboyPropertyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageboyPropertyTests.swift; sourceTree = "<group>"; };
+		E8529ACB2BC1328B00C96B7B /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				D623B1BA1E1D0C6A00527F3D /* Pageboy.h */,
+				E8529ACB2BC1328B00C96B7B /* PrivacyInfo.xcprivacy */,
 				D623B1D11E1D2DF200527F3D /* PageboyViewController.swift */,
 				46ADAAC7208F7EB200974529 /* PageboyViewController+Management.swift */,
 				46ADAAC6208F7EB100974529 /* PageboyViewController+ScrollDetection.swift */,
