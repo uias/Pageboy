@@ -35,13 +35,13 @@ Pageboy is compatible with [Swift Package Manager](https://swift.org/package-man
 ### CocoaPods
 Pageboy is also available through [CocoaPods](https://cocoapods.org):
 ```ruby
-pod 'Pageboy', '~> 4.0'
+pod 'Pageboy', '~> 4.2'
 ```
 
 ### Carthage
 Pageboy is also available through [Carthage](https://github.com/Carthage/Carthage):
 ```ogdl
-github "uias/Pageboy" ~> 4.0
+github "uias/Pageboy" ~> 4.2
 ```
 
 ## 🚀 Usage

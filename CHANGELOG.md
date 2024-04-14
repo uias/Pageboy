@@ -3,6 +3,7 @@ All notable changes to this project will be documented in this file.
 `Pageboy` adheres to [Semantic Versioning](https://semver.org/).
 
 #### 4.x Releases
+- `4.2.x` Releases - [4.2.0](#420)
 - `4.1.x` Releases - [4.1.0](#410)
 - `4.0.x` Releases - [4.0.0](#400) | [4.0.1](#401) | [4.0.2](#402)
 
@@ -36,6 +37,14 @@ All notable changes to this project will be documented in this file.
 - `0.4.x` Releases - [0.4.0](#040) | [0.4.1](#041) | [0.4.2](#042) | [0.4.3](#043) | [0.4.4](#044) | [0.4.5](#045) | [0.4.6](#046) | [0.4.7](#047) | [0.4.8](#048) | [0.4.9](#049) | [0.4.10](#0410) | [0.4.11](#0411) | [0.4.12](#0412)
 
 ---
+## [4.2.0](https://github.com/uias/Pageboy/releases/tag/4.2.0)
+Released on 2024-04-14
+
+#### Updated
+- Downgraded SPM Swift requirement to Swift 5.7 (Xcode 14).
+
+---
+
 ## [4.1.0](https://github.com/uias/Pageboy/releases/tag/4.1.0)
 Released on 2024-04-06
 
