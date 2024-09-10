@@ -384,8 +384,9 @@
 		D623B1AE1E1D0C6A00527F3D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 0940;
-				LastUpgradeCheck = 1400;
+				LastUpgradeCheck = 1600;
 				ORGANIZATIONNAME = "UI At Six";
 				TargetAttributes = {
 					D623B1B61E1D0C6A00527F3D = {
@@ -713,6 +714,7 @@
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				INFOPLIST_FILE = Pageboy/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -721,6 +723,7 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = "$(PB_VERSION)";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu99 gnu++11";
 				PRODUCT_BUNDLE_IDENTIFIER = com.uias.Pageboy;
 				PRODUCT_NAME = Pageboy;
 				SKIP_INSTALL = YES;
@@ -736,6 +739,7 @@
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				INFOPLIST_FILE = Pageboy/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -744,6 +748,7 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = "$(PB_VERSION)";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu99 gnu++11";
 				PRODUCT_BUNDLE_IDENTIFIER = com.uias.Pageboy;
 				PRODUCT_NAME = Pageboy;
 				SKIP_INSTALL = YES;
@@ -753,7 +758,6 @@
 		D623B1CF1E1D0C6B00527F3D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				APPLICATION_EXTENSION_API_ONLY = NO;
 				INFOPLIST_FILE = PageboyTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -769,7 +773,6 @@
 		D623B1D01E1D0C6B00527F3D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				APPLICATION_EXTENSION_API_ONLY = NO;
 				INFOPLIST_FILE = PageboyTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -790,6 +793,7 @@
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				INFOPLIST_FILE = Pageboy/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -798,6 +802,7 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = "$(PB_VERSION)";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu99 gnu++11";
 				PRODUCT_BUNDLE_IDENTIFIER = com.uias.Pageboy;
 				PRODUCT_NAME = Pageboy;
 				SDKROOT = appletvos;
@@ -814,6 +819,7 @@
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				INFOPLIST_FILE = Pageboy/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -822,6 +828,7 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = "$(PB_VERSION)";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu99 gnu++11";
 				PRODUCT_BUNDLE_IDENTIFIER = com.uias.Pageboy;
 				PRODUCT_NAME = Pageboy;
 				SDKROOT = appletvos;

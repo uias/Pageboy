@@ -9,7 +9,7 @@
 import UIKit
 
 extension PageboyViewController {
- 
+    @MainActor
     public enum NavigationDirection {
         case neutral
         case forward
@@ -19,7 +19,6 @@ extension PageboyViewController {
 internal typealias NavigationDirection = PageboyViewController.NavigationDirection
 
 internal extension PageboyViewController.NavigationDirection {
-    
     var rawValue: UIPageViewController.NavigationDirection {
         switch self {
             
@@ -33,7 +32,6 @@ internal extension PageboyViewController.NavigationDirection {
 }
 
 internal extension NavigationDirection {
-
     static func forPage(_ page: Int,
                         previousPage: Int) -> NavigationDirection {
         return forPosition(CGFloat(page), previous: CGFloat(previousPage))
@@ -68,7 +66,6 @@ internal extension NavigationDirection {
 }
 
 internal extension NavigationDirection {
-
     func layoutNormalized(isRtL: Bool) -> NavigationDirection {
         guard isRtL else {
             return self

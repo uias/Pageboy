@@ -8,8 +8,8 @@
 
 import UIKit
 
+@MainActor
 public protocol PageboyViewControllerDataSource: AnyObject {
-    
     /// The number of view controllers to display.
     ///
     /// - Parameter pageboyViewController: The Page view controller.

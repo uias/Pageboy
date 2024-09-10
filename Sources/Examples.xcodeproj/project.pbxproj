@@ -299,7 +299,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1200;
-				LastUpgradeCheck = 1530;
+				LastUpgradeCheck = 1600;
 				ORGANIZATIONNAME = "UI At Six";
 				TargetAttributes = {
 					4614988E2531E7C700AE1B1B = {
@@ -462,7 +462,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.uias.Pageboy.tvOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = "$(PB_TVOS_DEPLOYMENT_TARGET)";
 			};
@@ -490,7 +489,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.uias.Pageboy.tvOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = "$(PB_TVOS_DEPLOYMENT_TARGET)";
 			};
@@ -521,7 +519,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.uias.Pageboy.iOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
-				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Debug;
@@ -550,7 +547,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.uias.Pageboy.iOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
-				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Release;
@@ -614,7 +610,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TVOS_DEPLOYMENT_TARGET = "$(PB_TVOS_DEPLOYMENT_TARGET)";
 			};
 			name = Debug;
@@ -671,7 +667,7 @@
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TVOS_DEPLOYMENT_TARGET = "$(PB_TVOS_DEPLOYMENT_TARGET)";
 				VALIDATE_PRODUCT = YES;
 			};

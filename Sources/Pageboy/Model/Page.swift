@@ -21,6 +21,7 @@ extension PageboyViewController {
     /// - last: The last page.
     /// - at: A custom specified page index.
     // swiftlint:disable identifier_name
+    @MainActor
     public enum Page {
         case next
         case previous

@@ -9,7 +9,7 @@
 import UIKit
 import Pageboy
 
-@UIApplicationMain
+@main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?

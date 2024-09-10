@@ -9,6 +9,7 @@
 import Foundation
 
 /// Internal protocol for handling auto scroller events.
+@MainActor
 internal protocol PageboyAutoScrollerHandler: AnyObject {
     
     /// Auto scroller requires a scroll.
@@ -19,6 +20,7 @@ internal protocol PageboyAutoScrollerHandler: AnyObject {
 }
 
 /// Delegate protocol for observing auto scroll events.
+@MainActor
 public protocol PageboyAutoScrollerDelegate: AnyObject {
     
     /// The auto scroller will begin a scroll animation on the page view controller.
@@ -33,8 +35,8 @@ public protocol PageboyAutoScrollerDelegate: AnyObject {
 }
 
 /// Object that provides auto scrolling framework to PageboyViewController
-public class PageboyAutoScroller: Any {
-    
+@MainActor
+public final class PageboyAutoScroller {
     // MARK: Types
     
     /// Duration spent on each page.
@@ -42,7 +44,7 @@ public class PageboyAutoScroller: Any {
     /// - short: Short (5 seconds)
     /// - long: Long (10 seconds)
     /// - custom: Custom duration
-    public enum IntermissionDuration {
+    public enum IntermissionDuration: Sendable {
         case short
         case long
         case custom(duration: TimeInterval)
