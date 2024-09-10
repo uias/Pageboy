@@ -6,8 +6,8 @@ import PackageDescription
 let package = Package(
     name: "Pageboy",
     platforms: [
-        .iOS(.v12),
-        .tvOS(.v12)
+        .iOS(.v14),
+        .tvOS(.v14)
     ],
     products: [
         .library(
