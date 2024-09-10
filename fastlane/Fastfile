@@ -7,7 +7,7 @@ platform :ios do
 
   desc "Run unit tests and check library"
   lane :test do
-    scan(workspace: "Pageboy.xcworkspace", scheme: "Pageboy iOS", clean: true)
+    scan(workspace: "Pageboy.xcworkspace", scheme: "Pageboy iOS", clean: true, device: "iPhone 15 (18.0)") 
     pod_lib_lint(allow_warnings: true)
   end
 
