@@ -9,8 +9,6 @@
 import UIKit
 
 // swiftlint:disable weak_delegate
-
-@available(iOS 13, *)
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
@@ -34,9 +32,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 
         if let titlebar = windowScene.titlebar {
             titlebar.toolbar = toolbar
-            if #available(iOS 14.0, *) {
-                titlebar.toolbarStyle = .automatic
-            }
+            titlebar.toolbarStyle = .automatic
         }
         
         pageViewController.registerForNavigationNotifications()
