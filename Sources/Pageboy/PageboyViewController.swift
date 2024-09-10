@@ -316,8 +316,11 @@ open class PageboyViewController: UIViewController {
     /// - Parameters:
     ///   - index: The index to delete the page from.
     ///   - updateBehavior: Behavior to execute after the page was deleted.
-    open func deletePage(at index: PageIndex,
-                         then updateBehavior: PageUpdateBehavior = .doNothing) {
+    open func deletePage(
+        at index: PageIndex,
+        then updateBehavior: PageUpdateBehavior = .doNothing,
+        completion: @escaping () -> Void = {}
+    ) {
         verifyNewPageCount(then: { (oldPageCount, newPageCount) in
             assert(index < oldPageCount,
                    "Attempting to delete page at \(index) but there were only \(oldPageCount) pages before the update")
@@ -349,6 +352,7 @@ open class PageboyViewController: UIViewController {
                             }},
                            completion: { (_) in
                             self.view.isUserInteractionEnabled = true
+                            completion()
             })
         })
     }
