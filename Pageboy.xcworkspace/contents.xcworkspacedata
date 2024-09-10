@@ -5,6 +5,9 @@
       location = "group:Package.swift">
    </FileRef>
    <FileRef
+      location = "group:Package@swift-6.swift">
+   </FileRef>
+   <FileRef
       location = "group:Pageboy.xcconfig">
    </FileRef>
    <FileRef
