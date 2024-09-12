@@ -9,7 +9,7 @@
 import XCTest
 @testable import Pageboy
 
-class PageboyDataSourceTests: PageboyTests {
+class PageboyDataSourceTests: PageboyTestCase {
     
     /// Test loading view controllers from the data source.
     func testPageboyViewControllerValidSetUp() {

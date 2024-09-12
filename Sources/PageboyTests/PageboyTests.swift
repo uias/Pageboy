@@ -9,8 +9,8 @@
 import XCTest
 @testable import Pageboy
 
-class PageboyTests: XCTestCase {
-    
+class PageboyTestCase: XCTestCase {
+
     typealias AsyncTest = (@escaping TestCompletion) -> Void
     typealias TestCompletion = () -> Void
     

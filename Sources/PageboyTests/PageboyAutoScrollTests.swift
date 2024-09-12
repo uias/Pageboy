@@ -9,7 +9,7 @@
 import XCTest
 @testable import Pageboy
 
-class PageboyAutoScrollTests: PageboyTests {
+class PageboyAutoScrollTests: PageboyTestCase {
 
     var autoScrollExpectation: XCTestExpectation?
     

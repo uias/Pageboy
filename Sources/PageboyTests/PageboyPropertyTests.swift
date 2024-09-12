@@ -9,7 +9,7 @@
 import XCTest
 @testable import Pageboy
 
-class PageboyPropertyTests: PageboyTests {
+class PageboyPropertyTests: PageboyTestCase {
     
     /// Test that currentViewController property returns correct view controller.
     func testCorrectCurrentViewControllerReported() {

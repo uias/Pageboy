@@ -9,7 +9,7 @@
 import XCTest
 @testable import Pageboy
 
-class PageboyTransitionTests: PageboyTests {
+class PageboyTransitionTests: PageboyTestCase {
 
     /// Test transition to a valid custom PageIndex non-animated
     func testSuccessfulTransitionToCustomIndex() {
