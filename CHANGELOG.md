@@ -50,12 +50,17 @@ All notable changes to this project will be documented in this file.
 
 ## [5.0.0](https://github.com/uias/Pageboy/releases/tag/5.0.0)
 
-Released on 2024-09-XX
+Released on 2025-12-26
 
 #### Added
 
-- Support for Strict Concurrency with Swift 6.
 - Pageboy now requires iOS 14 / tvOS 14 or greater.
+- Support for Strict Concurrency with Swift 6.
+- `completion` closure to `PageboyViewController.deletePage()`.
+
+#### Fixed
+
+- Issue where `PageboyViewController.currentPosition` could be invalid (#295).
 
 #### Updated
 
