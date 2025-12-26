@@ -27,7 +27,7 @@
 
 ## 📋 Requirements
 
-Pageboy requires iOS 12 / tvOS 12; and is compatible with Swift 5/6.
+Pageboy requires iOS 14 / tvOS 14; and is compatible with Swift 6 (Xcode 16+).
 
 ## 📲 Installation
 
