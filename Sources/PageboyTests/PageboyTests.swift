@@ -9,6 +9,7 @@
 import XCTest
 @testable import Pageboy
 
+@MainActor
 class PageboyTestCase: XCTestCase {
 
     typealias AsyncTest = (@escaping TestCompletion) -> Void
@@ -17,14 +18,14 @@ class PageboyTestCase: XCTestCase {
     var pageboyViewController: TestPageBoyViewController!
     var dataSource: TestPageboyDataSource!
     var delegate: TestPageboyDelegate!
-    
+
     private var expectations = [XCTestExpectation]()
     
     // MARK: Environment
-    
-    override func setUp() {
-        super.setUp()
-        
+
+    override func setUp() async throws {
+        try await super.setUp()
+
         pageboyViewController = TestPageBoyViewController()
         dataSource = TestPageboyDataSource()
         delegate = TestPageboyDelegate()
