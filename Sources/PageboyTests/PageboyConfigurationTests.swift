@@ -9,7 +9,7 @@
 import XCTest
 @testable import Pageboy
 
-class PageboyConfigurationTests: PageboyTests {
+class PageboyConfigurationTests: PageboyTestCase {
     
     /// Test updating navigationOrientation updates pageViewController correctly.
     func testPageboyNavigationOrientationChange() {

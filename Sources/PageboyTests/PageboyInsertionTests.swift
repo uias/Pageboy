@@ -9,7 +9,7 @@
 import XCTest
 @testable import Pageboy
 
-class PageboyInsertionTests: PageboyTests {
+class PageboyInsertionTests: PageboyTestCase {
 
     func testInsertPage() {
         let initialCount = 4

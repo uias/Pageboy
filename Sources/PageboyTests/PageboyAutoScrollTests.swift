@@ -9,29 +9,24 @@
 import XCTest
 @testable import Pageboy
 
-class PageboyAutoScrollTests: PageboyTests {
+class PageboyAutoScrollTests: PageboyTestCase {
+    private let autoScrollExpectation = XCTestExpectation(description: "AutoScroll Completes")
 
-    var autoScrollExpectation: XCTestExpectation?
-    
     /// Test that PageboyAutoScroller enables correctly.
-    func testAutoScrollEnabling() {
+    func testAutoScrollEnabling() async throws {
         self.dataSource.numberOfPages = 3
         self.pageboyViewController.dataSource = self.dataSource
         
         let currentIndex = self.pageboyViewController.currentIndex ?? 0
         let duration = self.pageboyViewController.autoScroller.intermissionDuration
-        
-        self.autoScrollExpectation = expectation(description: "autoScroll")
-        
+
         self.pageboyViewController.autoScroller.animateScroll = false
         self.pageboyViewController.autoScroller.delegate = self
         self.pageboyViewController.autoScroller.enable(withIntermissionDuration: .custom(duration: 3.0))
-        
-        self.waitForExpectations(timeout: duration.rawValue) { (error) in
-            XCTAssertNil(error, "Something went wrong")
-            XCTAssert(self.pageboyViewController.currentIndex == currentIndex + 1,
-                      "PageboyAutoScroller does not auto scroll correctly when enabled.")
-        }
+
+        await fulfillment(of: [autoScrollExpectation], timeout: duration.rawValue)
+        XCTAssert(self.pageboyViewController.currentIndex == currentIndex + 1,
+                  "PageboyAutoScroller does not auto scroll correctly when enabled.")
     }
     
     /// Test that PageboyAutoScroller disables correctly.
@@ -79,12 +74,11 @@ class PageboyAutoScrollTests: PageboyTests {
 }
 
 extension PageboyAutoScrollTests: PageboyAutoScrollerDelegate {
-    
     func autoScroller(willBeginScrollAnimation autoScroller: PageboyAutoScroller) {
         
     }
     
     func autoScroller(didFinishScrollAnimation autoScroller: PageboyAutoScroller) {
-        autoScrollExpectation?.fulfill()
+        autoScrollExpectation.fulfill()
     }
 }

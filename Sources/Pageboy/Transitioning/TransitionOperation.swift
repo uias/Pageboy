@@ -8,8 +8,8 @@
 
 import UIKit
 
+@MainActor
 internal protocol TransitionOperationDelegate: AnyObject {
-    
     /// A transition operation did finish.
     ///
     /// - Parameters:
@@ -28,6 +28,7 @@ internal protocol TransitionOperationDelegate: AnyObject {
 }
 
 /// An operation for performing a PageboyViewController transition
+@MainActor
 internal class TransitionOperation: NSObject, CAAnimationDelegate {
     
     // MARK: Types
@@ -125,14 +126,18 @@ internal class TransitionOperation: NSObject, CAAnimationDelegate {
     
     // MARK: CAAnimationDelegate
     
-    public func animationDidStart(_ anim: CAAnimation) {
-        isAnimating = true
+    public nonisolated func animationDidStart(_ anim: CAAnimation) {
+        Task { @MainActor in
+            isAnimating = true
+        }
     }
     
-    public func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-        isAnimating = false
-        completion?(flag)
-        delegate?.transitionOperation(self, didFinish: flag)
-        animation = nil
+    public nonisolated func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        Task { @MainActor in
+            isAnimating = false
+            completion?(flag)
+            delegate?.transitionOperation(self, didFinish: flag)
+            animation = nil
+        }
     }
 }

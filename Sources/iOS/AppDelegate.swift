@@ -9,7 +9,7 @@
 import UIKit
 import Pageboy
 
-@UIApplicationMain
+@main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
@@ -29,11 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
-}
 
-@available(iOS 13, *)
-extension AppDelegate {
-    
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }

@@ -9,15 +9,6 @@
 import UIKit
 
 extension UIViewController {
-    
-    /// The parent PageboyViewController.
-    /// Available from any direct child view controllers within a PageboyViewController.
-    /// Deprecated in Pageboy 3.1.0.
-    @available(*, deprecated, message: "Use pageboyParent")
-    public var parentPageboy: PageboyViewController? {
-        return pageboyParent
-    }
-    
     /// The parent PageboyViewController.
     /// Available from any direct child view controllers within a PageboyViewController.
     public var pageboyParent: PageboyViewController? {

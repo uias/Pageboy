@@ -7,16 +7,16 @@ platform :ios do
 
   desc "Run unit tests and check library"
   lane :test do
-    scan(workspace: "Pageboy.xcworkspace", scheme: "Pageboy iOS", clean: true)
-    pod_lib_lint(allow_warnings: true)
+    scan(workspace: "Pageboy.xcworkspace", scheme: "Pageboy iOS", clean: true, device: "iPhone 15 (18.0)") 
   end
 
-  desc "Deploy a new version to CocoaPods and GitHub"
+  desc "Deploy a new version"
   lane :deploy do
     test
 
-    podspec = "Pageboy.podspec"
-    version = version_get_podspec(path: podspec)
+    # Compose .xcconfig file path
+    configuration = Xcodeproj::Config.new("../Pageboy.xcconfig")
+    version = configuration.attributes['PB_VERSION']
 
     # Push new Github release
     github_release = set_github_release(
@@ -27,9 +27,6 @@ platform :ios do
       description: "#{version} release.",
       commitish: "main"
     )
-
-    # Push spec
-    pod_push(allow_warnings: true, verbose: true)
 
     slack(
       message: "Pageboy v#{version} released!" 
