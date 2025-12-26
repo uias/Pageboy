@@ -27,29 +27,13 @@
 
 ## 📋 Requirements
 
-Pageboy requires iOS 14 / tvOS 14; and is compatible with Swift 6 (Xcode 16+).
+Pageboy 5 requires iOS 14 / tvOS 14; and is compatible with Swift 6 (Xcode 16+).
 
 ## 📲 Installation
 
 ### Swift Package Manager
 
 Pageboy is compatible with [Swift Package Manager](https://swift.org/package-manager) and can be integrated via Xcode.
-
-### CocoaPods
-
-Pageboy is also available through [CocoaPods](https://cocoapods.org):
-
-```ruby
-pod 'Pageboy', '~> 4.2'
-```
-
-### Carthage
-
-Pageboy is also available through [Carthage](https://github.com/Carthage/Carthage):
-
-```ogdl
-github "uias/Pageboy" ~> 4.2
-```
 
 ## 🚀 Usage
 
