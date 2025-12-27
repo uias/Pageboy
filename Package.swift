@@ -26,5 +26,5 @@ let package = Package(
             dependencies: ["Pageboy"]
         )
     ],
-    swiftLanguageVersions: [.v5]
+    swiftLanguageModes: [.v5, .v6]
 )
