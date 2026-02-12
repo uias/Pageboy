@@ -82,7 +82,7 @@ GEM
     drb (2.2.3)
     emoji_regex (3.2.3)
     excon (0.112.0)
-    faraday (1.10.4)
+    faraday (1.10.5)
       faraday-em_http (~> 1.0)
       faraday-em_synchrony (~> 1.0)
       faraday-excon (~> 1.1)
@@ -299,6 +299,7 @@ PLATFORMS
   arm64-darwin-22
   arm64-darwin-24
   x86_64-darwin-21
+  x86_64-linux
 
 DEPENDENCIES
   danger
