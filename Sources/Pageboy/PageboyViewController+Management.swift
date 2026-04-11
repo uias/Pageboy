@@ -255,7 +255,15 @@ extension PageboyViewController: UIPageViewControllerDataSource {
             return nil
         }
 
-        if let index = currentIndex, viewControllerCount > 1 {
+        // Use the actual index of the passed viewController from the index map,
+        // falling back to currentIndex if not found.
+        // Using currentIndex alone can return incorrect view controllers when
+        // currentIndex is stale (e.g. after a cancelled transition), which causes
+        // UIPageViewController internal state inconsistency and _flushViewController crashes.
+        // See: https://github.com/uias/Pageboy/issues/286
+        // See: https://github.com/uias/Tabman/issues/556
+        if let index = viewControllerIndexMap.index(for: viewController) ?? currentIndex,
+           viewControllerCount > 1 {
             if index != 0 {
                 return fetchViewController(at: index - 1)
             } else if isInfiniteScrollEnabled {
@@ -264,14 +272,15 @@ extension PageboyViewController: UIPageViewControllerDataSource {
         }
         return nil
     }
-    
+
     public func pageViewController(_ pageViewController: UIPageViewController,
                                    viewControllerAfter viewController: UIViewController) -> UIViewController? {
         guard let viewControllerCount = viewControllerCount else {
             return nil
         }
 
-        if let index = currentIndex, viewControllerCount > 1 {
+        if let index = viewControllerIndexMap.index(for: viewController) ?? currentIndex,
+           viewControllerCount > 1 {
             if index != viewControllerCount - 1 {
                 return fetchViewController(at: index + 1)
             } else if isInfiniteScrollEnabled {
