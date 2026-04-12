@@ -3,6 +3,11 @@ on:
   push:
     branches-ignore:
       - "gh-pages"
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
 
 jobs:
   Test:
@@ -17,6 +22,4 @@ jobs:
           bundle update --bundler
           bundle install
       - name: Run tests
-        env:
-          SLACK_URL: ${{ secrets.SLACK_URL }}
         run: bundle exec fastlane test
